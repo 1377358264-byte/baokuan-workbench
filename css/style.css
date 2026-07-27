@@ -1229,8 +1229,10 @@ textarea.form-control { min-height: 80px; resize: vertical; }
 .card-cover-area { position:relative; }
 .card-link-btn { position:absolute; top:8px; right:8px; width:30px; height:30px; border-radius:50%; border:none; background:rgba(0,0,0,0.45); color:#fff; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
 .card-actions { display:inline-flex; gap:8px; margin-left:auto; }
-.card-orig-link { display:block; width:100%; margin-top:10px; padding:10px 0; border:none; border-radius:12px; background:linear-gradient(135deg,#ff5a5f,#ff8a3d); color:#fff; font-size:14px; font-weight:600; cursor:pointer; }
-.card-orig-link:active { transform:scale(0.98); }
+.card-orig-link { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:12px 0; margin:0; border:none; border-top:2px solid #e8f0fe; border-radius:0 0 var(--radius) var(--radius); background:linear-gradient(180deg,#e8f4ff,#d6ebff); color:#1a6dd4; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; }
+.card-orig-link:active { background:#c5e0fb; }
+.card-orig-link.no-link { background:#f5f5f5; color:#999; border-top-color:#e0e0e0; cursor:default; }
+.orig-domain { font-weight:400; font-size:12px; color:#5a9fe0; }
 .card-action { border:none; background:var(--bg); border-radius:8px; width:30px; height:30px; font-size:14px; cursor:pointer; position:relative; display:inline-flex; align-items:center; justify-content:center; }
 .card-action.fav.on { background:var(--primary-light); }
 .card-action .badge { position:absolute; top:-4px; right:-4px; background:var(--primary); color:#fff; font-size:9px; border-radius:999px; padding:0 4px; line-height:14px; }
