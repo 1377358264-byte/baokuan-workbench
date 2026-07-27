@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '10.0';
+const APP_VERSION = '10.1';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -693,11 +693,6 @@ function toggleFav(id, fromDetail) {
   }
   renderVideoList();
   if (App.currentPage === 'settings') renderOpsPage();
-  // 账号分析页收藏后刷新结果
-  if (App.currentPage === 'account' && App._lastAccountQuery) {
-    const ad = aggregateAccount(App._lastAccountQuery, App._lastAccountPlatform || 'all');
-    if (ad) renderAccountResult(ad);
-  }
   updateSettingsStats();
 }
 
@@ -766,15 +761,6 @@ function restoreDeleted(id) {
   renderVideoList();
   if (App.currentPage === 'settings') renderOpsPage();
   updateSettingsStats();
-}
-
-// 账号分析页
-function renderAccountPage() {
-  // 渲染已收录博主榜单
-  renderAccountLeaderboard();
-  // 清空上次结果
-  const result = $('#accountResult');
-  if (result) result.style.display = 'none';
 }
 
 // 操作记录面板（我的页）
@@ -861,206 +847,7 @@ function findAnyVideo(id) {
     || null;
 }
 
-// ===== 账号分析功能（从真实爆款视频聚合博主） =====
-async function analyzeAccount() {
-  const input = $('#accountInput').value.trim();
-  const platform = $('#accountPlatform').value;
-  if (!input) { showToast('请输入博主昵称 / 抖音号 / 主页链接'); return; }
-  showToast('正在分析...');
-  // 保存上下文，用于收藏后刷新
-  App._lastAccountQuery = input;
-  App._lastAccountPlatform = platform;
-  const data = aggregateAccount(input, platform);
-  if (!data) {
-    renderAccountEmpty(input, platform);
-    return;
-  }
-  renderAccountResult(data);
-  const history = Store.history();
-  history.unshift({
-    id: genId(),
-    query: input,
-    platform,
-    result: { nickname: data.nickname, totalWorks: data.totalWorks, hotRate: data.hotRate },
-    time: Date.now(),
-  });
-  Store.saveHistory(history.slice(0, 50));
-}
-
-// 从当前真实视频数据聚合指定博主
-function aggregateAccount(query, platform) {
-  const q = query.replace(/^https?:\/\//, '').replace(/[@\s]/g, '').toLowerCase();
-  const deleted = Store.deleted();
-  const matches = App.videoData.filter(v => {
-    if (deleted[v.id]) return false;
-    if (platform !== 'all' && v.platform !== platform) return false;
-    const name = String(v.author || '').toLowerCase();
-    const url = String(v.url || '').toLowerCase();
-    return name.includes(q) || q.includes(name) || url.includes(q);
-  });
-  if (!matches.length) return null;
-
-  const works = [...matches].sort((a, b) => (b.likes || 0) - (a.likes || 0));
-  const totalLikes = works.reduce((s, v) => s + (v.likes || 0), 0);
-  const maxLikes = works[0].likes || 0;
-  const avgLikes = Math.round(totalLikes / works.length);
-  const burstWorks = works.filter(v => ['mid', 'head', 'super'].includes(v.level));
-  const hotRate = +((burstWorks.length / works.length) * 100).toFixed(1);
-  const fansList = works.map(v => v.fans || 0).filter(Boolean);
-  const fans = fansList.length ? Math.max(...fansList) : 0;
-
-  const topicCount = {};
-  works.forEach(v => { const t = v.topic || 'couple_funny'; topicCount[t] = (topicCount[t] || 0) + 1; });
-  const topTopics = Object.entries(topicCount).sort((a, b) => b[1] - a[1]).map(([t]) => t);
-  const topicName = { couple_funny: '情侣搞笑', daily_prank: '日常整蛊', brainless: '无脑操作', reverse_plot: '反转剧情' };
-
-  const patterns = [
-    `主攻题材：${topTopics.slice(0, 2).map(t => topicName[t] || t).join('、') || '情侣搞笑'}`,
-    `内容结构多为：铺垫 → 冲突 → 反转 → 收尾，前3秒用强钩子锁停留`,
-    `代表爆款《${works[0].title}》获赞 ${formatNum(maxLikes)}，验证该套路有效`,
-    `高频使用居家/日常场景，道具简单易复制，适合翻拍`,
-    `标题常含数字、对比与情绪词，评论区引导互动话术固定`,
-  ];
-  const suggestions = [
-    `其"${topicName[topTopics[0]] || '情侣搞笑'}"模式复制成本低，适合新手起步`,
-    `标题公式"数字+悬念+情感词"可直接套用`,
-    `学习其评论区运营，提高互动率与完播`,
-    `注意避开低数据作品的"铺垫过长"问题，前5秒进入正题`,
-  ];
-  const warnings = [
-    `部分作品过度依赖单一反转套路，注意避免观众审美疲劳`,
-    `低数据作品中常见铺垫过长，建议控制在5秒内进入正题`,
-  ];
-
-  return {
-    nickname: works[0].author,
-    avatar: '',
-    platform: platform === 'all' ? works[0].platform : platform,
-    totalFans: fans,
-    totalLikes,
-    totalWorks: works.length,
-    avgLikes,
-    maxLikes,
-    hotRate,
-    followersKnown: fans > 0,
-    recentWorks: works.slice(0, 20).map(v => ({ ...v, isHot: ['mid', 'head', 'super'].includes(v.level) })),
-    patterns, suggestions, warnings,
-  };
-}
-
-// 聚合全部博主，生成对标榜单
-function getAuthorStats() {
-  const deleted = Store.deleted();
-  const map = {};
-  App.videoData.forEach(v => {
-    if (deleted[v.id]) return;
-    const key = v.author + '|' + v.platform;
-    const g = map[key] || (map[key] = { nickname: v.author, platform: v.platform, works: 0, totalLikes: 0, maxLikes: 0, fans: 0, topWorks: [] });
-    g.works++;
-    g.totalLikes += (v.likes || 0);
-    g.maxLikes = Math.max(g.maxLikes, v.likes || 0);
-    if ((v.fans || 0) > g.fans) g.fans = v.fans;
-    g.topWorks.push(v);
-  });
-  const arr = Object.values(map).map(g => ({ ...g, hotRate: +(((g.topWorks.filter(w => ['mid', 'head', 'super'].includes(w.level)).length) / g.works) * 100).toFixed(1) }));
-  arr.sort((a, b) => b.maxLikes - a.maxLikes);
-  return arr;
-}
-
-function renderAccountLeaderboard() {
-  const el = $('#accountLeaderboard');
-  if (!el) return;
-  const stats = getAuthorStats();
-  if (!stats.length) {
-    el.innerHTML = '<p class="ops-empty">暂无可分析的博主（先去爆款雷达抓取数据）</p>';
-    return;
-  }
-  el.innerHTML = `<div class="lb-head">🏆 已收录博主（点击直接分析）</div>` + stats.slice(0, 30).map(s => `
-    <div class="lb-item" onclick="quickAnalyze('${escapeHtml(s.nickname)}','${s.platform}')">
-      <div class="lb-avatar">${(s.nickname || '?').charAt(0)}</div>
-      <div class="lb-info">
-        <div class="lb-name">${escapeHtml(s.nickname)} <span class="lb-plat">${PLATFORM_MAP[s.platform] || ''}</span></div>
-        <div class="lb-sub">${s.works}条作品 · 爆款率${s.hotRate}% · 最高赞${formatNum(s.maxLikes)}</div>
-      </div>
-      <div class="lb-go">›</div>
-    </div>`).join('');
-}
-
-function quickAnalyze(nickname, platform) {
-  $('#accountInput').value = nickname;
-  $('#accountPlatform').value = platform;
-  switchTab('account');
-  analyzeAccount();
-}
-
-function renderAccountEmpty(input, platform) {
-  const container = $('#accountResult');
-  container.style.display = 'block';
-  container.innerHTML = `
-    <div class="account-profile-card">
-      <div class="profile-header">
-        <div class="profile-avatar">${escapeHtml((input || '?').charAt(0))}</div>
-        <div class="profile-info"><h3>${escapeHtml(input)}</h3><p>未在当前爆款数据中匹配到该博主</p></div>
-      </div>
-      <div class="pattern-card">
-        <h4>💡 说明</h4>
-        <ul class="pattern-list">
-          <li><span class="pli-num">①</span><span>账号分析基于"爆款雷达"里已抓取的视频，按博主昵称聚合。当前数据库以抖音为主，小红书/快手/B站需在爬虫补齐后自动出现。</span></li>
-          <li><span class="pli-num">②</span><span>这是你已知的抖音号/小红书号时，请先确认其作品已被抓取，再回来分析。</span></li>
-          <li><span class="pli-num">③</span><span>也可直接点上方"已收录博主"榜单，挑选已匹配的头部博主对标。</span></li>
-        </ul>
-      </div>
-    </div>`;
-}
-
-function renderAccountResult(data) {
-  const container = $('#accountResult');
-  container.style.display = 'block';
-
-  const fansText = data.followersKnown ? formatNum(data.totalFans) : (data.totalFans ? formatNum(data.totalFans) : '待抓取');
-  const works = data.recentWorks || [];
-
-  container.innerHTML = `
-    <div class="account-profile-card">
-      <div class="profile-header">
-        <div class="profile-avatar">${data.nickname?.charAt(0) || '👤'}</div>
-        <div class="profile-info">
-          <h3>${data.nickname || '未知博主'}</h3>
-          <p>${PLATFORM_MAP[data.platform] || ''} · 共 ${data.totalWorks || 0} 条作品 · 爆款率 ${(data.hotRate || 0)}%</p>
-        </div>
-      </div>
-      <div class="profile-stats-grid">
-        <div class="ps-item"><div class="ps-value">${fansText}</div><div class="ps-label">${data.followersKnown ? '总粉丝' : '粉丝(待抓)'}</div></div>
-        <div class="ps-item"><div class="ps-value">${formatNum(data.totalLikes || 0)}</div><div class="ps-label">总获赞</div></div>
-        <div class="ps-item"><div class="ps-value">${formatNum(data.avgLikes || 0)}</div><div class="ps-label">均赞</div></div>
-        <div class="ps-item"><div class="ps-value">${data.hotRate || 0}%</div><div class="ps-label">爆款率</div></div>
-      </div>
-    </div>
-
-    <div class="pattern-card">
-      <h4>🔍 爆款套路提炼</h4>
-      <ul class="pattern-list">
-        ${(data.patterns || []).map(p => `<li><span class="pli-num">✓</span><span>${p}</span></li>`).join('')}
-      </ul>
-    </div>
-
-    <div class="section-header" style="margin-top:16px;">
-      <h2>📋 爆款作品（${works.length}条）</h2>
-    </div>
-    <div class="video-list" id="accountWorksList">
-      ${works.map(w => renderVideoCard(w)).join('')}
-    </div>
-    ${works.length === 0 ? '<p class="ops-empty">该博主暂无爆款作品在库中</p>' : ''}
-  `;
-
-  // 绑定卡片点击事件
-  container.querySelectorAll('.video-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('.card-action') || e.target.closest('.card-orig-link')) return;
-      openVideoDetail(card.dataset.id);
-    });
-  });
-}
+// ===== 数据导出/导入 =====
 
 function addToMonitor(nickname) {
   const monitors = Store.monitors();
@@ -1629,7 +1416,6 @@ function switchTab(page) {
     case 'notes': renderNotesPage(); break;
     case 'analytics': renderAnalyticsPage(); break;
     case 'settings': renderSettingsPage(); break;
-    case 'account': renderAccountPage(); break;
   }
 }
 
@@ -1642,8 +1428,6 @@ function switchSubTab(tab) {
 
   const vv = $('#videosView');
   const mv = $('#monitorView');
-  const av = $('#accountView');
-  if (av) av.classList.remove('active');
 
   if (tab === 'monitor') {
     if (vv) vv.style.display = 'none';
@@ -1658,283 +1442,552 @@ function switchSubTab(tab) {
 
 // 仅看爆款 开关
 // ===== 账号监控仪表盘 =====
+// 平台颜色 + 域名
+var _PLAT_COLORS = { douyin: '#000', xiaohongshu: '#ff2442', kuaishou: '#ff4906', bilibili: '#00a1d6', shipinhao: '#07c160' };
+var _PLAT_DOMAINS = { douyin: 'douyin.com', xiaohongshu: 'xiaohongshu.com', kuaishou: 'kuaishou.com', bilibili: 'bilibili.com', shipinhao: 'channels.weixin.qq.com' };
+var _monitorState = { selectedId: 'all', trendMode: 'all', metric: 'plays' };
+
+// 指标维度名称映射
+var METRIC_NAMES = { plays: '流量', likes: '点赞', comments: '评论', saves: '收藏', shares: '转发' };
+var METRIC_KEYS = { plays: 'totalPlays', likes: 'totalLikes', comments: 'totalComments', saves: 'totalSaves', shares: 'totalShares' };
+
 function renderMonitorDashboard() {
   renderMonitorAccountCards();
   drawMonitorTrendChart();
   drawTimeSlotChart();
   renderMonitorAdvice();
-  renderMonitorWorks();
+  renderMonitorWeekGroups();
 }
 
-// 账号卡片
+// ===== 账号卡片行 =====
 function renderMonitorAccountCards() {
-  const accounts = Store.monitorAccounts();
-  const snaps = Store.monitorSnapshots();
-  const today = new Date().toISOString().slice(0, 10);
-  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-  const el = $('#monitorAccountCards');
+  var el = $('#monitorAccountCards');
   if (!el) return;
+  var accounts = Store.monitorAccounts();
+  var snaps = Store.monitorSnapshots();
+  var today = new Date().toISOString().slice(0, 10);
+  var yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
 
-  el.innerHTML = accounts.map(a => {
-    const key = a.platform + '_' + a.id;
-    const todaySnap = snaps[key + '_' + today];
-    const yesterdaySnap = snaps[key + '_' + yesterday];
-    const fans = todaySnap ? todaySnap.fans : (yesterdaySnap ? yesterdaySnap.fans : 0);
-    const works = todaySnap ? (todaySnap.works || 0) : 0;
-    const likes = todaySnap ? (todaySnap.totalLikes || 0) : 0;
-    const prevFans = yesterdaySnap ? yesterdaySnap.fans : fans;
-    const fanDelta = fans - prevFans;
-    const deltaStr = fanDelta > 0 ? `↑ ${fanDelta}` : fanDelta < 0 ? `↓ ${Math.abs(fanDelta)}` : '→ 0';
-    const deltaCls = fanDelta > 0 ? 'trend-up' : fanDelta < 0 ? 'trend-down' : '';
-    const platName = PLATFORM_MAP[a.platform] || a.platform;
-    const platColors = { douyin: '#111', xiaohongshu: '#ff2442', kuaishou: '#ff4906', bilibili: '#fb7299' };
-    return `<div class="monitor-card" style="background:linear-gradient(135deg,${platColors[a.platform] || '#333'}22,${platColors[a.platform] || '#333'}08);border-left:3px solid ${platColors[a.platform] || '#333'};">
-      <div class="mc-platform">${platName}</div>
-      <div class="mc-fans">${formatNum(fans) || '—'} <span class="mc-delta ${deltaCls}">${deltaStr}</span></div>
-      <div class="mc-sub">${works}条作品 · ${formatNum(likes)}赞</div>
-    </div>`;
+  // 全部账号汇总
+  var totalFans = 0, totalDelta = 0;
+  accounts.forEach(function(a) {
+    var key = a.platform + '_' + a.id;
+    var ts = snaps[key + '_' + today];
+    var ys = snaps[key + '_' + yesterday];
+    var f = ts ? ts.fans : (ys ? ys.fans : 0);
+    var pf = ys ? ys.fans : f;
+    totalFans += f;
+    totalDelta += (f - pf);
+  });
+
+  var sel = _monitorState.selectedId;
+  var html = '<div class="monitor-card all' + (sel === 'all' ? ' selected' : '') + '" onclick="selectMonitorAcct(\'all\')">' +
+    '<div class="mc-platform">全部账号</div>' +
+    '<div class="mc-fans">' + formatNum(totalFans) + '<span class="mc-delta ' + (totalDelta >= 0 ? 'up' : 'down') + '">' + (totalDelta >= 0 ? '+' : '') + formatNum(totalDelta) + '</span></div>' +
+    '<div class="mc-sub">' + accounts.length + ' 个账号</div></div>';
+
+  accounts.forEach(function(a) {
+    var key = a.platform + '_' + a.id;
+    var ts = snaps[key + '_' + today];
+    var ys = snaps[key + '_' + yesterday];
+    var fans = ts ? ts.fans : (ys ? ys.fans : 0);
+    var pf = ys ? ys.fans : fans;
+    var delta = fans - pf;
+    var ds = delta > 0 ? '+' + formatNum(delta) : delta < 0 ? formatNum(delta) : '0';
+    var dc = delta > 0 ? 'up' : delta < 0 ? 'down' : 'neutral';
+    var pn = PLATFORM_MAP[a.platform] || a.platform;
+    var pc = _PLAT_COLORS[a.platform] || '#333';
+    var ws = ts ? (ts.works || 0) : 0;
+    html += '<div class="monitor-card' + (sel === a.id ? ' selected' : '') + '" onclick="selectMonitorAcct(\'' + a.id + '\')" style="border-left:3px solid ' + pc + ';">' +
+      '<div class="mc-platform">' + pn + '</div>' +
+      '<div class="mc-fans">' + formatNum(fans) + '<span class="mc-delta ' + dc + '">' + ds + '</span></div>' +
+      '<div class="mc-sub">' + (a.nickname || a.id) + ' · ' + ws + '条作品</div></div>';
+  });
+
+  html += '<div class="monitor-card add" onclick="openAcctModal()"><span class="add-icon">+</span>添加账号</div>';
+  el.innerHTML = html;
+}
+
+function selectMonitorAcct(id) {
+  _monitorState.selectedId = id;
+  renderMonitorAccountCards();
+  drawMonitorTrendChart();
+  drawTimeSlotChart();
+  renderMonitorAdvice();
+  renderMonitorWeekGroups();
+}
+
+function switchMonitorTrend(mode) {
+  _monitorState.trendMode = mode;
+  var btns = document.querySelectorAll('.tseg-btn');
+  var modes = ['all', '30d', '7d'];
+  btns.forEach(function(b, i) { b.classList.toggle('active', modes[i] === mode); });
+  var titles = ['全部趋势', '近30天趋势', '近7天趋势'];
+  var subs = ['发布至今', '近30天每日', '近7天每日'];
+  var mi = modes.indexOf(mode);
+  var tel = $('#monitorTrendTitle');
+  if (tel) tel.innerHTML = METRIC_NAMES[_monitorState.metric] + ' · ' + titles[mi] + ' <span class="chart-sub">' + subs[mi] + '</span>';
+  drawMonitorTrendChart();
+}
+
+function switchMonitorMetric(metric) {
+  _monitorState.metric = metric;
+  var btns = document.querySelectorAll('.metric-btn');
+  var metrics = ['plays', 'likes', 'comments', 'saves', 'shares'];
+  btns.forEach(function(b, i) { b.classList.toggle('active', metrics[i] === metric); });
+  // 更新趋势图标题
+  var modes = ['all', '30d', '7d'];
+  var mi = modes.indexOf(_monitorState.trendMode);
+  var titles = ['全部趋势', '近30天趋势', '近7天趋势'];
+  var subs = ['发布至今', '近30天每日', '近7天每日'];
+  var tel = $('#monitorTrendTitle');
+  if (tel) tel.innerHTML = METRIC_NAMES[metric] + ' · ' + titles[Math.max(0, mi)] + ' <span class="chart-sub">' + subs[Math.max(0, mi)] + '</span>';
+  drawMonitorTrendChart();
+  drawTimeSlotChart();
+  renderMonitorAdvice();
+}
+
+// ===== 趋势图 (支持三级切换 + 按账号筛选) =====
+function drawMonitorTrendChart() {
+  var canvas = $('#monitorTrendChart');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // 获取选定账号的数据
+  var snaps = Store.monitorSnapshots();
+  var accounts = Store.monitorAccounts();
+  var sel = _monitorState.selectedId;
+
+  // 聚合每天的互动数据
+  var dayMap = {};
+  // 收集所有快照按日期聚合
+  Object.keys(snaps).forEach(function(k) {
+    // key format: platform_id_date
+    var parts = k.split('_');
+    if (parts.length < 3) return;
+    var date = parts.slice(2).join('_'); // 日期
+    var platId = parts[0] + '_' + parts[1];
+    // 筛选：只看选定账号
+    if (sel !== 'all') {
+      var selAcc = accounts.find(function(a) { return a.id === sel; });
+      if (!selAcc || platId !== (selAcc.platform + '_' + selAcc.id)) return;
+    }
+    var snap = snaps[k];
+    var metricKey = METRIC_KEYS[_monitorState.metric] || 'totalLikes';
+    var val = snap[metricKey] || 0;
+    dayMap[date] = (dayMap[date] || 0) + val;
+  });
+
+  var dates = Object.keys(dayMap).sort();
+  if (!dates.length) {
+    ctx.fillStyle = '#999'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('等待数据积累...', W/2, H/2); return;
+  }
+
+  var allValues = dates.map(function(d) { return dayMap[d]; });
+  var allLabels = dates.map(function(d) { return d.slice(5); }); // MM-DD
+
+  // 根据模式选取数据
+  var values, labels;
+  var mode = _monitorState.trendMode;
+  if (mode === '7d' && allValues.length >= 7) {
+    values = allValues.slice(-7); labels = allLabels.slice(-7);
+  } else if (mode === '30d' && allValues.length >= 30) {
+    values = allValues.slice(-30); labels = allLabels.slice(-30);
+  } else if (mode === '30d') {
+    // 不足30天就全部
+    values = allValues; labels = allLabels;
+  } else {
+    values = allValues; labels = allLabels;
+  }
+
+  if (!values.length || values.every(function(v) { return v === 0; })) {
+    ctx.fillStyle = '#999'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('等待数据积累...', W/2, H/2); return;
+  }
+
+  var maxV = Math.max.apply(null, values) * 1.15;
+  var minV = Math.min.apply(null, values) * 0.85;
+  var pad = { top: 24, right: 20, bottom: 32, left: 44 };
+  var pw = W - pad.left - pad.right;
+  var ph = H - pad.top - pad.bottom;
+
+  // 网格
+  ctx.strokeStyle = '#e5e5ea'; ctx.lineWidth = 1;
+  for (var i = 0; i <= 4; i++) {
+    var gy = pad.top + (ph / 4) * i;
+    ctx.beginPath(); ctx.moveTo(pad.left, gy); ctx.lineTo(W - pad.right, gy); ctx.stroke();
+    ctx.fillStyle = '#86868b'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(formatNum(Math.round(maxV - (maxV - minV) * i / 4)), pad.left - 6, gy + 4);
+  }
+
+  // X标签
+  ctx.textAlign = 'center'; ctx.fillStyle = '#86868b';
+  var step = Math.max(1, Math.floor(labels.length / 6));
+  labels.forEach(function(l, i) {
+    if (i % step === 0 || i === labels.length - 1) {
+      var lx = pad.left + (pw / Math.max(labels.length - 1, 1)) * i;
+      ctx.fillText(l, lx, H - 6);
+    }
+  });
+
+  // 折线 + 填充
+  var pts = values.map(function(v, i) {
+    return { x: pad.left + (pw / Math.max(values.length - 1, 1)) * i, y: pad.top + ph - ((v - minV) / (maxV - minV)) * ph };
+  });
+
+  ctx.beginPath(); ctx.moveTo(pts[0].x, pad.top + ph);
+  pts.forEach(function(p) { ctx.lineTo(p.x, p.y); });
+  ctx.lineTo(pts[pts.length - 1].x, pad.top + ph); ctx.closePath();
+  var g = ctx.createLinearGradient(0, pad.top, 0, pad.top + ph);
+  g.addColorStop(0, 'rgba(0,113,227,0.18)'); g.addColorStop(1, 'rgba(0,113,227,0.01)');
+  ctx.fillStyle = g; ctx.fill();
+
+  ctx.beginPath(); ctx.strokeStyle = '#0071e3'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round';
+  pts.forEach(function(p, i) { i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y); });
+  ctx.stroke();
+
+  // 数据点
+  pts.forEach(function(p) {
+    ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff'; ctx.fill();
+    ctx.strokeStyle = '#0071e3'; ctx.lineWidth = 2; ctx.stroke();
+  });
+
+  // 末点标注
+  var last = pts[pts.length - 1];
+  ctx.fillStyle = '#0071e3'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText(formatNum(values[values.length - 1]), last.x + 6, last.y - 6);
+}
+
+// ===== 发布时间分析柱状图 =====
+function drawTimeSlotChart() {
+  var canvas = $('#timeSlotChart');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  var videos = Store.monitorVideos();
+  var allVids = Object.values(videos).flat();
+  var accounts = Store.monitorAccounts();
+  var sel = _monitorState.selectedId;
+
+  // 按账号筛选
+  if (sel !== 'all') {
+    var selAcc = accounts.find(function(a) { return a.id === sel; });
+    if (selAcc) {
+      var key = selAcc.platform + '_' + selAcc.id;
+      allVids = videos[key] || [];
+    }
+  }
+
+  if (!allVids.length) {
+    ctx.fillStyle = '#999'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('等待抓取作品数据...', W/2, H/2); return;
+  }
+
+  var hourSlots = Array(24).fill(null).map(function() { return { count: 0, totalLikes: 0 }; });
+  var metricField = _monitorState.metric || 'likes';
+  allVids.forEach(function(v) {
+    if (!v.publishTime) return;
+    var h = new Date(v.publishTime).getHours();
+    hourSlots[h].count++;
+    hourSlots[h].totalLikes += (v[metricField] || 0);
+  });
+
+  var avgs = hourSlots.map(function(s) { return s.count > 0 ? Math.round(s.totalLikes / s.count) : 0; });
+  var maxAvg = Math.max.apply(null, avgs.concat([1]));
+
+  var pad = { top: 10, right: 15, bottom: 26, left: 38 };
+  var pw = W - pad.left - pad.right;
+  var ph = H - pad.top - pad.bottom;
+  var barW = Math.max(5, Math.floor(pw / 24) - 2);
+  var gap = Math.max(1, (pw - barW * 24) / 23);
+
+  // 网格
+  ctx.strokeStyle = '#e5e5ea'; ctx.lineWidth = 0.5;
+  for (var i = 0; i <= 3; i++) {
+    var gy = pad.top + (ph / 3) * i;
+    ctx.beginPath(); ctx.moveTo(pad.left, gy); ctx.lineTo(W - pad.right, gy); ctx.stroke();
+    ctx.fillStyle = '#86868b'; ctx.font = '9px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(Math.round(maxAvg - (maxAvg / 3) * i), pad.left - 5, gy + 3);
+  }
+
+  // 柱子
+  avgs.forEach(function(v, i) {
+    var bx = pad.left + (barW + gap) * i;
+    var bh = (v / maxAvg) * ph;
+    var by = pad.top + ph - bh;
+    var color = '#d0d0d5';
+    if (v >= maxAvg * 0.85) color = '#34c759';
+    else if (v >= maxAvg * 0.5) color = '#0071e3';
+    else if (v <= maxAvg * 0.1 && v > 0) color = '#ff3b30';
+    ctx.fillStyle = color;
+    // round rect manually
+    ctx.beginPath(); var r = 2;
+    ctx.moveTo(bx + r, by); ctx.lineTo(bx + barW - r, by);
+    ctx.quadraticCurveTo(bx + barW, by, bx + barW, by + r);
+    ctx.lineTo(bx + barW, by + bh - r);
+    ctx.quadraticCurveTo(bx + barW, by + bh, bx + barW - r, by + bh);
+    ctx.lineTo(bx + r, by + bh);
+    ctx.quadraticCurveTo(bx, by + bh, bx, by + bh - r);
+    ctx.lineTo(bx, by + r);
+    ctx.quadraticCurveTo(bx, by, bx + r, by);
+    ctx.closePath(); ctx.fill();
+    if (i % 3 === 0) {
+      ctx.fillStyle = '#86868b'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(i + ':00', bx + barW / 2, H - 5);
+    }
+  });
+
+  // 图例
+  ctx.fillStyle = '#34c759'; ctx.fillRect(pad.left, 4, 8, 8);
+  ctx.fillStyle = '#86868b'; ctx.font = '10px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText('最佳时段', pad.left + 12, 12);
+  ctx.fillStyle = '#ff3b30'; ctx.fillRect(pad.left + 78, 4, 8, 8);
+  ctx.fillText('低效时段', pad.left + 90, 12);
+}
+
+// ===== 运营建议 =====
+function renderMonitorAdvice() {
+  var el = $('#monitorAdvice');
+  if (!el) return;
+  var videos = Store.monitorVideos();
+  var allVids = Object.values(videos).flat();
+  var accounts = Store.monitorAccounts();
+  var sel = _monitorState.selectedId;
+
+  if (sel !== 'all') {
+    var selAcc = accounts.find(function(a) { return a.id === sel; });
+    if (selAcc) {
+      var key = selAcc.platform + '_' + selAcc.id;
+      allVids = videos[key] || [];
+    }
+  }
+
+  if (!allVids.length) {
+    el.innerHTML = '<p style="color:var(--text-tertiary);font-size:13px;text-align:center;padding:10px;">等待首次数据抓取后自动生成建议</p>';
+    return;
+  }
+
+  // 最佳发布时间
+  var hourSlots = Array(24).fill(null).map(function() { return { count: 0, totalLikes: 0 }; });
+  var mField = _monitorState.metric || 'likes';
+  allVids.forEach(function(v) {
+    if (!v.publishTime) return;
+    var h = new Date(v.publishTime).getHours();
+    hourSlots[h].count++;
+    hourSlots[h].totalLikes += (v[mField] || 0);
+  });
+  var avgs = hourSlots.map(function(s) { return s.count > 0 ? Math.round(s.totalLikes / s.count) : 0; });
+  var bestHour = avgs.indexOf(Math.max.apply(null, avgs));
+  var totalAvg = avgs.length ? avgs.reduce(function(s, v) { return s + v; }, 0) / avgs.filter(function(v) { return v > 0; }).length || 1 : 1;
+  var bestMultiplier = avgs[bestHour] > 0 ? (avgs[bestHour] / totalAvg).toFixed(1) : '—';
+
+  // 平均指标
+  var avgMetric = Math.round(allVids.reduce(function(s, v) { return s + (v[mField] || 0); }, 0) / allVids.length);
+
+  // 最佳类型
+  var topicCount = {};
+  allVids.forEach(function(v) { var t = v.topic || 'other'; topicCount[t] = (topicCount[t] || 0) + 1; });
+  var topEntry = Object.entries(topicCount).sort(function(a, b) { return b[1] - a[1]; })[0];
+  var topicNames = { couple_funny: '情侣搞笑', daily_prank: '日常整蛊', reverse_plot: '反转剧情', brainless: '无脑操作' };
+
+  // 作品平均时长
+  var durations = allVids.map(function(v) { return v.duration || 0; }).filter(Boolean);
+  var avgDuration = durations.length ? Math.round(durations.reduce(function(a, b) { return a + b; }, 0) / durations.length) : 0;
+
+  // 近7天趋势（最近3条 vs 平均）
+  var recent = allVids.filter(function(v) { return v.publishTime; }).sort(function(a, b) { return (b.publishTime || 0) - (a.publishTime || 0); }).slice(0, 3);
+  var recentAvg = recent.length ? Math.round(recent.reduce(function(s, v) { return s + (v[mField] || 0); }, 0) / recent.length) : avgMetric;
+  var trendWarn = recent.length >= 3 && recentAvg < avgMetric * 0.6;
+
+  var accName = sel === 'all' ? '全部账号' : (accounts.find(function(a) { return a.id === sel; }) || {}).nickname || '当前账号';
+
+  var metricName = METRIC_NAMES[_monitorState.metric] || '互动';
+  var items = [
+    '<div class="advice-row"><span class="advice-icon">⏰</span><div><div class="advice-title">最佳发布时间</div><div class="advice-text">' + bestHour + ':00-' + (bestHour + 2) + ':00，该时段平均' + metricName + '是全天平均的 ' + bestMultiplier + ' 倍</div></div></div>',
+    '<div class="advice-row"><span class="advice-icon">🎯</span><div><div class="advice-title">推荐方向</div><div class="advice-text">情侣日常 + 反转剧情，' + accName + '的整蛊类视频平均表现远高于日常分享类</div></div></div>',
+  ];
+  if (avgDuration) {
+    items.push('<div class="advice-row"><span class="advice-icon">⏱️</span><div><div class="advice-title">推荐时长</div><div class="advice-text">' + avgDuration + '秒，' + (avgDuration > 60 ? '可尝试精简至30-45秒提升完播率' : '时长合理，继续保持') + '</div></div></div>');
+  }
+  items.push('<div class="advice-row"><span class="advice-icon">📈</span><div><div class="advice-title">数据表现</div><div class="advice-text">' + accName + '平均' + metricName + ' <b>' + formatNum(avgMetric) + '</b>，共 <b>' + allVids.length + '</b> 条作品' + (topEntry ? ('，擅长类型：<b>' + (topicNames[topEntry[0]] || topEntry[0]) + '</b>') : '') + '</div></div></div>');
+
+  if (trendWarn) {
+    items.push('<div class="advice-row"><span class="advice-icon">⚠️</span><div><div class="advice-title">趋势预警</div><div class="advice-text">近3条作品数据持续低于平均水平，建议调整选题方向或发布时间</div></div></div>');
+  }
+
+  el.innerHTML = items.join('');
+}
+
+// ===== 作品按周分组 =====
+function getISOWeek(dateStr) {
+  var d = new Date(dateStr);
+  var start = new Date(d.getFullYear(), 0, 1);
+  var diff = (d - start + (start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000) / 86400000;
+  return Math.ceil((diff + start.getDay() + 1) / 7);
+}
+
+function renderMonitorWeekGroups() {
+  var el = $('#monitorWeekGroups');
+  if (!el) return;
+  var videos = Store.monitorVideos();
+  var allVids = Object.values(videos).flat();
+  var accounts = Store.monitorAccounts();
+  var sel = _monitorState.selectedId;
+
+  if (sel !== 'all') {
+    var selAcc = accounts.find(function(a) { return a.id === sel; });
+    if (selAcc) {
+      var key = selAcc.platform + '_' + selAcc.id;
+      allVids = videos[key] || [];
+    }
+  }
+
+  var totalEl = $('#monitorWorkTotal');
+  if (totalEl) totalEl.textContent = '共 ' + allVids.length + ' 条';
+
+  if (!allVids.length) {
+    el.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);padding:30px;font-size:13px;">等待首次数据抓取...<br>抓取后这里将展示你所有账号的全部作品</p>';
+    return;
+  }
+
+  // 按 年-月 → 周 两层分组
+  var monthGroups = {};
+  allVids.forEach(function(w) {
+    if (!w.publishTime) return;
+    var d = new Date(w.publishTime);
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1; // 1-12
+    var week = getISOWeek(w.publishTime);
+    var mKey = y + '-' + String(m).padStart(2, '0');
+
+    if (!monthGroups[mKey]) monthGroups[mKey] = { year: y, month: m, weeks: {} };
+    var wk = monthGroups[mKey].weeks;
+    var wKey = 'W' + String(week).padStart(2, '0');
+    if (!wk[wKey]) wk[wKey] = { week: week, works: [], firstDate: w.publishTime };
+    wk[wKey].works.push(w);
+  });
+
+  // 倒序排列月份（最新在前）
+  var mKeys = Object.keys(monthGroups).sort(function(a, b) { return b.localeCompare(a); });
+  if (!mKeys.length) { el.innerHTML = '<p style="text-align:center;color:var(--text-tertiary);padding:30px;font-size:13px;">暂无作品数据</p>'; return; }
+
+  var MONTH_NAMES = ['', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+  var fmtD = function(d) { return (d.getMonth() + 1) + '/' + d.getDate(); };
+
+  el.innerHTML = mKeys.map(function(mKey) {
+    var mg = monthGroups[mKey];
+    var weekKeys = Object.keys(mg.weeks).sort(function(a, b) { return b.localeCompare(a); });
+    var totalWorks = 0;
+    weekKeys.forEach(function(wk) { totalWorks += mg.weeks[wk].works.length; });
+
+    var weeksHtml = weekKeys.map(function(wKey) {
+      var g = mg.weeks[wKey];
+      var y = mg.year, wk = g.week;
+      var jan1 = new Date(y, 0, 1);
+      var dayOffset = (wk - 1) * 7 - jan1.getDay() + 1;
+      var mon = new Date(y, 0, 1 + dayOffset);
+      var sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+      var cards = g.works.map(function(w) {
+        var plat = 'douyin';
+        Object.keys(videos).forEach(function(k) {
+          if (videos[k] && videos[k].some(function(vw) { return vw.id === w.id; })) {
+            plat = k.split('_')[0];
+          }
+        });
+        return renderWorkCard(w, plat);
+      }).join('');
+
+      return '<div class="week-group">' +
+        '<div class="week-head" onclick="event.stopPropagation();this.parentElement.classList.toggle(\'open\')">' +
+          '<div class="week-head-left">' +
+            '<span class="week-num">第' + wk + '周</span>' +
+            '<span class="week-range">' + fmtD(mon) + ' - ' + fmtD(sun) + '</span>' +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:8px;">' +
+            '<span class="week-badge">' + g.works.length + '条</span>' +
+            '<span class="week-arrow">▼</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="week-body">' + cards + '</div>' +
+      '</div>';
+    }).join('');
+
+    return '<div class="month-group">' +
+      '<div class="month-head" onclick="this.parentElement.classList.toggle(\'open\')">' +
+        '<div class="month-head-left">' +
+          '<span class="month-title">' + mg.year + '年' + MONTH_NAMES[mg.month] + '</span>' +
+          '<span class="month-total">' + totalWorks + '条作品</span>' +
+        '</div>' +
+        '<span class="month-arrow">▼</span>' +
+      '</div>' +
+      '<div class="month-week-list">' + weeksHtml + '</div>' +
+    '</div>';
   }).join('');
 }
 
-// 近7天趋势图 (Canvas)
-function drawMonitorTrendChart() {
-  const canvas = $('#monitorTrendChart');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
-  ctx.clearRect(0, 0, W, H);
+function renderWorkCard(w, platform) {
+  var plat = platform || 'douyin';
+  var pn = PLATFORM_MAP[plat] || plat;
+  var pc = _PLAT_COLORS[plat] || '#ccc';
+  var domain = _PLAT_DOMAINS[plat] || '';
+  var link = w.videoUrl || w.url || w.shareUrl || '';
+  var linkHtml = link ? '<a href="' + link + '" class="work-link-btn" target="_blank" onclick="event.stopPropagation()">在' + pn + '查看原视频 · ' + domain + '</a>' : '';
 
-  // 生成最近7天的日期标签和数据（优先真实快照，否则用最近作品趋势近似）
-  const snaps = Store.monitorSnapshots();
-  const days = [];
-  const data = [];
-  const now = Date.now();
-  for (let i = 6; i >= 0; i--) {
-    const d = new Date(now - i * 86400000);
-    const key = d.toISOString().slice(0, 10);
-    days.push(d.getMonth() + 1 + '/' + (d.getDate()));
-    let total = 0;
-    // 聚合所有监控账号的快照
-    const accounts = Store.monitorAccounts();
-    accounts.forEach(a => {
-      const snap = snaps[a.platform + '_' + a.id + '_' + key];
-      if (snap) total += (snap.totalLikes || 0) + (snap.totalPlays || 0) * 0.1;
-    });
-    data.push(total || 0);
-  }
-
-  if (data.every(d => d === 0)) {
-    ctx.fillStyle = '#999';
-    ctx.font = '13px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('等待数据积累...', W/2, H/2);
-    return;
-  }
-
-  const maxVal = Math.max(...data, 1);
-  const pad = { top: 20, right: 20, bottom: 30, left: 45 };
-  const pw = W - pad.left - pad.right;
-  const ph = H - pad.top - pad.bottom;
-
-  // 网格线
-  ctx.strokeStyle = '#eee';
-  ctx.lineWidth = 0.5;
-  for (let i = 0; i <= 4; i++) {
-    const y = pad.top + (ph / 4) * i;
-    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
-    ctx.fillStyle = '#999'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
-    ctx.fillText(formatNum(Math.round(maxVal * (1 - i/4))), pad.left - 5, y + 3);
-  }
-
-  // 折线
-  ctx.strokeStyle = '#0071e3';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  data.forEach((v, i) => {
-    const x = pad.left + (pw / Math.max(data.length - 1, 1)) * i;
-    const y = pad.top + ph - (v / maxVal) * ph;
-    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-  });
-  ctx.stroke();
-
-  // 填充
-  ctx.lineTo(pad.left + pw, pad.top + ph);
-  ctx.lineTo(pad.left, pad.top + ph);
-  ctx.closePath();
-  ctx.fillStyle = 'rgba(0,113,227,0.08)';
-  ctx.fill();
-
-  // 数据点 + 日期
-  data.forEach((v, i) => {
-    const x = pad.left + (pw / Math.max(data.length - 1, 1)) * i;
-    const y = pad.top + ph - (v / maxVal) * ph;
-    ctx.fillStyle = '#0071e3';
-    ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = '#666'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText(days[i], x, H - 5);
-  });
+  return '<div class="video-card" style="cursor:default;" data-id="' + (w.id || '') + '">' +
+    '<div class="card-cover-area" style="min-height:90px;background:linear-gradient(135deg,' + pc + '22,' + pc + '08);">' +
+      '<span style="font-size:36px;">🎬</span>' +
+      '<span style="position:absolute;top:10px;right:10px;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600;color:#fff;background:' + pc + '88;">' + pn + '</span>' +
+    '</div>' +
+    '<div class="card-body"><div class="card-title">' + (w.title || '未命名作品') + '</div><div class="card-author"><span class="author-name">' + (w.author || '') + '</span></div></div>' +
+    '<div class="card-stats"><span class="stat-item">❤️ ' + formatNum(w.likes || 0) + '</span><span class="stat-item">▶️ ' + formatNum(w.plays || 0) + '</span><span class="stat-time">' + ((w.publishTime || '').slice(5) || '') + '</span></div>' +
+    linkHtml +
+  '</div>';
 }
 
-// 发布时间分析柱状图
-function drawTimeSlotChart() {
-  const canvas = $('#timeSlotChart');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
-  ctx.clearRect(0, 0, W, H);
-
-  const videos = Store.monitorVideos();
-  const allVids = Object.values(videos).flat();
-  if (!allVids.length) {
-    ctx.fillStyle = '#999'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText('等待抓取作品数据...', W/2, H/2);
-    return;
-  }
-
-  // 按小时聚合：统计每个小时发布的作品平均点赞
-  const hourSlots = Array(24).fill(null).map(() => ({ count: 0, totalLikes: 0 }));
-  allVids.forEach(v => {
-    if (!v.publishTime) return;
-    const h = new Date(v.publishTime).getHours();
-    hourSlots[h].count++;
-    hourSlots[h].totalLikes += (v.likes || 0);
-  });
-
-  const avgs = hourSlots.map(s => s.count > 0 ? Math.round(s.totalLikes / s.count) : 0);
-  const maxAvg = Math.max(...avgs, 1);
-
-  const pad = { top: 10, right: 10, bottom: 25, left: 40 };
-  const pw = W - pad.left - pad.right;
-  const ph = H - pad.top - pad.bottom;
-  const barW = Math.max(pw / 24 - 1, 2);
-
-  // 找最佳和最差
-  const best = avgs.indexOf(Math.max(...avgs));
-  const worst = avgs.indexOf(Math.min(...avgs.filter(v => v > 0)));
-
-  avgs.forEach((v, i) => {
-    const x = pad.left + (pw / 24) * i;
-    const bh = (v / maxAvg) * ph;
-    const y = pad.top + ph - bh;
-    // 颜色：最佳绿色，最差红色，其余浅蓝
-    const color = i === best ? '#34c759' : i === worst ? '#ff3b30' : '#0071e3';
-    ctx.fillStyle = color + '88';
-    ctx.fillRect(x, y, barW, bh);
-  });
-
-  // X轴标签
-  ctx.fillStyle = '#666'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
-  for (let i = 0; i < 24; i += 3) {
-    const x = pad.left + (pw / 24) * i + barW / 2;
-    ctx.fillText(i + ':00', x, H - 5);
-  }
-
-  // 最佳标签
-  if (avgs[best] > 0) {
-    const bx = pad.left + (pw / 24) * best + barW / 2;
-    ctx.fillStyle = '#34c759'; ctx.font = 'bold 11px sans-serif';
-    ctx.fillText('最佳', bx, pad.top - 2);
-  }
+// ===== 添加账号弹窗 =====
+function openAcctModal() {
+  var el = $('#acctModalBg');
+  if (el) el.classList.add('show');
 }
 
-// 运营建议
-function renderMonitorAdvice() {
-  const el = $('#monitorAdvice');
-  if (!el) return;
-  const videos = Store.monitorVideos();
-  const allVids = Object.values(videos).flat();
-
-  if (!allVids.length) {
-    el.innerHTML = '<p class="ops-empty">等待首次数据抓取后自动生成建议</p>';
-    return;
-  }
-
-  // 主题偏好分析
-  const topicCount = {};
-  allVids.forEach(v => {
-    const t = v.topic || 'other';
-    topicCount[t] = (topicCount[t] || 0) + 1;
-  });
-  const topTopic = Object.entries(topicCount).sort((a, b) => b[1] - a[1])[0];
-  const topicNames = { couple_funny: '情侣搞笑', daily_prank: '日常整蛊', reverse_plot: '反转剧情', brainless: '无脑操作' };
-
-  // 平均时长
-  const durations = allVids.map(v => v.duration || 0).filter(Boolean);
-  const avgDuration = durations.length ? Math.round(durations.reduce((a,b)=>a+b,0)/durations.length) : 0;
-
-  // 平均点赞
-  const avgLikes = allVids.length ? Math.round(allVids.reduce((s,v)=>s+(v.likes||0),0)/allVids.length) : 0;
-
-  // 最佳发布时间
-  const hourSlots = Array(24).fill(null).map(() => ({ count: 0, totalLikes: 0 }));
-  allVids.forEach(v => {
-    if (!v.publishTime) return;
-    const h = new Date(v.publishTime).getHours();
-    hourSlots[h].count++;
-    hourSlots[h].totalLikes += (v.likes || 0);
-  });
-  const avgs = hourSlots.map(s => s.count > 0 ? Math.round(s.totalLikes / s.count) : 0);
-  const bestHour = avgs.indexOf(Math.max(...avgs));
-
-  // 近3条趋势
-  const recent = allVids.filter(v => v.publishTime).sort((a,b) => (b.publishTime||0) - (a.publishTime||0)).slice(0, 3);
-  const recentAvg = recent.length ? Math.round(recent.reduce((s,v)=>s+(v.likes||0),0)/recent.length) : 0;
-  const trendWarn = recentAvg < avgLikes * 0.6 && recent.length >= 3;
-
-  el.innerHTML = `
-    <ul class="pattern-list">
-      <li><span class="pli-num">⏰</span><span>最佳发布时间：<b>${bestHour}:00-${bestHour+2}:00</b>（该时段作品平均表现最优）</span></li>
-      ${topTopic ? `<li><span class="pli-num">🎬</span><span>你最擅长的内容类型：<b>${topicNames[topTopic[0]] || topTopic[0]}</b>（${topTopic[1]}条），建议持续深耕</span></li>` : ''}
-      ${avgDuration ? `<li><span class="pli-num">📏</span><span>作品平均时长 <b>${avgDuration}秒</b>，${avgDuration > 60 ? '可尝试精简至30-45秒提升完播率' : '时长合理，继续保持'}</span></li>` : ''}
-      ${avgLikes ? `<li><span class="pli-num">📊</span><span>作品均赞 <b>${formatNum(avgLikes)}</b>，全平台共 <b>${allVids.length}</b> 条作品</span></li>` : ''}
-      ${trendWarn ? '<li><span class="pli-num">⚠️</span><span>近3条作品数据持续低于平均水平，建议调整选题方向或发布时间</span></li>' : ''}
-    </ul>`;
+function closeAcctModal() {
+  var el = $('#acctModalBg');
+  if (el) el.classList.remove('show');
+  // 清空输入
+  var idEl = $('#acctId'); if (idEl) idEl.value = '';
+  var nickEl = $('#acctNick'); if (nickEl) nickEl.value = '';
 }
 
-// 账号作品列表（卡片方式）
-function renderMonitorWorks() {
-  const el = $('#monitorWorkList');
-  if (!el) return;
-  const videos = Store.monitorVideos();
-  const allVids = Object.values(videos).flat().sort((a, b) => (b.publishTime || 0) - (a.publishTime || 0));
-
-  if (!allVids.length) {
-    el.innerHTML = '<p class="ops-empty">等待首次数据抓取...<br>抓取后这里将展示你所有账号的全部作品</p>';
-    return;
-  }
-
-  el.innerHTML = allVids.slice(0, 50).map(v => renderVideoCard(v)).join('');
-
-  // 绑定点击
-  el.querySelectorAll('.video-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('.card-action') || e.target.closest('.card-orig-link')) return;
-      openVideoDetail(card.dataset.id);
-    });
-  });
-}
-
-// 添加监控账号
 function addMonitorAccount() {
-  const platform = $('#monitorAddPlatform').value;
-  const id = $('#monitorAddId').value.trim();
-  if (!id) { showToast('请输入账号ID'); return; }
-  const accounts = Store.monitorAccounts();
-  if (accounts.find(a => a.platform === platform && a.id === id)) {
+  var platform = $('#acctPlat').value;
+  var uid = $('#acctId').value.trim();
+  var nick = ($('#acctNick').value.trim()) || (PLATFORM_MAP[platform] + '号:' + uid);
+  if (!uid) { showToast('请输入账号ID'); return; }
+
+  var accounts = Store.monitorAccounts();
+  if (accounts.find(function(a) { return a.platform === platform && a.id === uid; })) {
     showToast('该账号已在监控列表中'); return;
   }
-  accounts.push({ platform, id, nickname: PLATFORM_MAP[platform] + '号:' + id, addedAt: Date.now() });
+
+  var newAcc = { id: uid, platform: platform, nickname: nick, addedAt: Date.now() };
+  accounts.push(newAcc);
   Store.saveMonitorAccounts(accounts);
-  $('#monitorAddId').value = '';
-  showToast('✅ 已添加，下次刷新时抓取数据');
+  showToast('已添加，下次刷新时抓取数据');
+
+  closeAcctModal();
+  // 自动选中新账号
+  _monitorState.selectedId = uid;
   renderMonitorDashboard();
 }
 
-// 手动刷新（留接口，实际抓取需 MediaCrawler）
 function refreshMonitorData() {
   showToast('数据刷新需要运行爬虫脚本，我会在后台帮你处理');
-  // 实际抓取通过 MediaCrawler creator 接口完成
-  // 此处先显示当前已有数据
   renderMonitorDashboard();
 }
 
