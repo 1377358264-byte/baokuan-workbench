@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '7.0';
+const APP_VERSION = '8.0';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -764,9 +764,25 @@ function renderOpsPage() {
     return { id, ts, title: v ? v.title : '(视频已从列表移除)', author: v ? v.author : '', platform: v ? v.platform : '' };
   });
 
-  const favHtml = favs.length
-    ? `<div class="video-list">${favs.map(f => renderVideoCard(f)).join('')}</div>`
-    : '<p class="ops-empty">还没有收藏</p>';
+  // 收藏按日期分组
+  let favHtml = '<p class="ops-empty">还没有收藏</p>';
+  if (favs.length) {
+    const groups = {};
+    favs.forEach(f => {
+      const dateKey = new Date(f.addedAt).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+      if (!groups[dateKey]) groups[dateKey] = [];
+      groups[dateKey].push(f);
+    });
+    // 按日期倒序（最新在前），用组内第一条的 addedAt 时间戳排序
+    const sortedDates = Object.keys(groups).sort((a, b) => groups[b][0].addedAt - groups[a][0].addedAt);
+    favHtml = sortedDates.map(dateKey => {
+      const items = groups[dateKey];
+      return `<div class="fav-date-group">
+        <div class="fav-date-head">📅 ${dateKey} · <span class="fav-date-count">${items.length}条</span></div>
+        <div class="video-list">${items.map(f => renderVideoCard(f)).join('')}</div>
+      </div>`;
+    }).join('');
+  }
 
   const remakeHtml = remakeCount ? Object.entries(remakes).map(([id, arr]) => {
     const v = findAnyVideo(id);
