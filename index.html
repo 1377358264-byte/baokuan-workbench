@@ -119,6 +119,16 @@
       <!-- 账号卡片行 -->
       <div class="acct-scroll" id="monitorAccountCards"></div>
 
+      <!-- 指标维度筛选 -->
+      <div class="metric-bar">
+        <span class="metric-label">数据维度</span>
+        <button class="metric-btn active" onclick="switchMonitorMetric('plays')">📊 流量</button>
+        <button class="metric-btn" onclick="switchMonitorMetric('likes')">❤️ 点赞</button>
+        <button class="metric-btn" onclick="switchMonitorMetric('comments')">💬 评论</button>
+        <button class="metric-btn" onclick="switchMonitorMetric('saves')">⭐ 收藏</button>
+        <button class="metric-btn" onclick="switchMonitorMetric('shares')">🔄 转发</button>
+      </div>
+
       <!-- 趋势图切换按钮 -->
       <div class="trend-seg">
         <button class="tseg-btn active" onclick="switchMonitorTrend('all')">全部趋势</button>
@@ -128,7 +138,7 @@
 
       <!-- 趋势图 -->
       <div class="chart-card" style="margin:0 16px 10px;">
-        <h3 id="monitorTrendTitle">全部趋势 <span class="chart-sub" id="monitorTrendSub">发布至今</span></h3>
+        <h3 id="monitorTrendTitle">流量 · 全部趋势 <span class="chart-sub" id="monitorTrendSub">发布至今</span></h3>
         <canvas id="monitorTrendChart" width="340" height="200" style="width:100%;max-width:100%;"></canvas>
       </div>
 
