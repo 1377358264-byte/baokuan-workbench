@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '4.0';
+const APP_VERSION = '5.0';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -470,28 +470,32 @@ function renderVideoList() {
     return;
   }
 
-  // 时间分板：最近一个月爆款 / 历史爆款（按发布时间 30 天内划分）
+  // 时间分板：
+  // 🔥 最近30天：发布时间 > 今天 - 30天（按发布时间划分）
+  // 📚 历史：发布时间在 2026-01-01 ~ (今天 - 30天) 之间
   const now = Date.now();
   const MONTH = 30 * 86400000;
+  const YEAR2026 = new Date('2026-01-01T00:00:00+08:00').getTime();
   const isRecent = (v) => (v.publishTime || 0) > now - MONTH;
+  const isHistory = (v) => (v.publishTime || 0) >= YEAR2026 && (v.publishTime || 0) <= now - MONTH;
 
   if (App.timeView === 'recent') {
     const recent = base.filter(isRecent);
     container.innerHTML = recent.length
-      ? renderSection('🔥 最近一个月爆款', recent)
-      : `<div class="empty-state"><div class="es-icon">📭</div><p>最近一个月没有匹配的爆款视频<br>试试调整筛选或切到"全部"</p></div>`;
+      ? renderSection('🔥 最近30天爆款', recent)
+      : `<div class="empty-state"><div class="es-icon">📭</div><p>最近30天没有匹配的爆款视频<br>试试调整筛选或切到"全部"</p></div>`;
   } else if (App.timeView === 'history') {
-    const history = base.filter(v => !isRecent(v));
+    const history = base.filter(isHistory);
     container.innerHTML = history.length
-      ? renderSection('📚 历史爆款（更早抓取的）', history)
-      : `<div class="empty-state"><div class="es-icon">📭</div><p>没有更早的历史爆款视频</p></div>`;
+      ? renderSection('📚 历史爆款（2026年至今）', history)
+      : `<div class="empty-state"><div class="es-icon">📭</div><p>2026年1月1日至今没有匹配的历史爆款</p></div>`;
   } else {
-    // 全部：历史 / 最近一个月 两板并排
+    // 全部：最近30天 / 历史 两板并排
     const recent = base.filter(isRecent);
-    const history = base.filter(v => !isRecent(v));
+    const history = base.filter(isHistory);
     container.innerHTML =
-      renderSection('🔥 最近一个月爆款', recent) +
-      (history.length ? renderSection('📚 历史爆款（更早抓取的）', history) : '');
+      renderSection('🔥 最近30天爆款', recent) +
+      (history.length ? renderSection('📚 历史爆款（2026年至今）', history) : '');
   }
 
   // 绑定卡片点击事件
