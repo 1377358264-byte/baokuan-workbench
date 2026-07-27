@@ -92,6 +92,15 @@
         </div>
       </div>
 
+      <!-- 列表工具条：仅看爆款 + 时间视图 -->
+      <div class="list-toolbar">
+        <button class="toggle-pill on" id="burstToggle" onclick="toggleBurstOnly(this)">⚡ 仅看爆款</button>
+        <div class="timeview-switch">
+          <button class="timeview-btn active" data-mode="split" onclick="setTimeView('split')">分板</button>
+          <button class="timeview-btn" data-mode="merge" onclick="setTimeView('merge')">合并</button>
+        </div>
+      </div>
+
       <!-- 结果计数 -->
       <div class="result-count" id="resultCount">符合条件的爆款：0条</div>
 
@@ -120,6 +129,7 @@
         </div>
         <button class="btn-primary" onclick="analyzeAccount()">🔍 开始分析</button>
       </div>
+      <div class="account-leaderboard" id="accountLeaderboard"></div>
       <div class="account-result" id="accountResult" style="display:none;"></div>
     </div><!-- /accountView -->
 
@@ -277,6 +287,15 @@
         </div>
       </div>
 
+      <!-- 操作记录（收藏/二创/删除/日志，全部本地持久化） -->
+      <div class="setting-group">
+        <div class="setting-item" onclick="renderOpsPage()">
+          <div class="si-left"><span class="si-icon">📜</span><span class="si-label">我的操作记录</span></div>
+          <div class="si-right">查看 →</div>
+        </div>
+      </div>
+      <div id="opsPanel"></div>
+
       <!-- 关于 -->
       <div class="setting-group">
         <div class="setting-item">
@@ -345,6 +364,11 @@
     </div>
 
     <div class="detail-section">
+      <h3><span class="ds-icon">🔥</span> 爆款原因</h3>
+      <div id="detailReason"></div>
+    </div>
+
+    <div class="detail-section">
       <h3><span class="ds-icon">⏱️</span> 3秒钩子设计</h3>
       <div id="detailHook"></div>
     </div>
@@ -378,7 +402,12 @@
       <div id="detailAdapt"></div>
     </div>
 
-    <button class="btn-primary" id="btnAddMaterial">⭐ 加入二创素材库</button>
+    <div class="detail-actions">
+      <button class="btn-line" id="btnOriginal">🔗 观看原视频</button>
+      <button class="btn-line" id="btnFav">🤍 收藏</button>
+      <button class="btn-line" id="btnRemake">✏️ 二创</button>
+      <button class="btn-line danger" id="btnDelete">🗑️ 删除</button>
+    </div>
     <button class="btn-secondary" onclick="closeDetailModal()">关闭</button>
   </div>
 </div>
@@ -537,6 +566,23 @@
   </div>
 </div>
 
+<!-- ==================== 二创笔记弹窗 ==================== -->
+<div class="form-modal" id="remakeModal" onclick="if(event.target===this)closeRemake()">
+  <div class="form-sheet">
+    <h3>✏️ 二创笔记</h3>
+    <p class="remake-video-title" id="remakeVideoTitle"></p>
+    <div class="remake-list" id="remakeList"></div>
+    <div class="form-group">
+      <label>新增二创想法</label>
+      <textarea class="form-control" id="remakeInput" placeholder="写下你的翻拍/二创灵感..." rows="3"></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary" onclick="closeRemake()">关闭</button>
+      <button class="btn-primary" onclick="saveRemake()">保存二创</button>
+    </div>
+  </div>
+</div>
+
 <script src="./js/crawler-adapter.js"></script>
 <script src="./js/app.js"></script>
 <script>
@@ -566,6 +612,7 @@ window.switchTab = function(page) {
   if (page === 'settings') {
     updateSettingsStats();
     renderSettingsPage();
+    renderOpsPage();
   }
 };
 </script>
