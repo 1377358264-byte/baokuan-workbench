@@ -9,7 +9,7 @@ const App = {
   currentSubTab: 'videos', // videos | account
   filters: { level: 'all', platform: 'all', topic: 'all', burstOnly: true },
   searchQuery: '',
-  timeView: 'split', // split(最近/历史分板) | merge(合并)
+  timeView: 'all', // all(历史+最近一个月两板) | recent(最近一个月) | history(历史)
   videoData: [],
   usingRealData: false,
   accountData: {},
@@ -467,20 +467,28 @@ function renderVideoList() {
     return;
   }
 
-  // 分板：最近7天 / 历史（仅在没有筛选/搜索时分板，否则合并显示）
-  if (App.timeView === 'split' && !isFiltering()) {
-    const now = Date.now();
-    const week = 7 * 86400000;
-    const recent = base.filter(v => (v.publishTime || 0) > now - week);
-    const history = base.filter(v => (v.publishTime || 0) <= now - week);
-    container.innerHTML =
-      renderSection('🔥 最近7天爆起来的', recent) +
-      (history.length ? renderSection('📚 历史爆款（更早抓取的）', history) : '');
-    if (!recent.length && !history.length) {
-      container.innerHTML = `<div class="empty-state"><div class="es-icon">📭</div><p>暂无数据</p></div>`;
-    }
+  // 时间分板：最近一个月爆款 / 历史爆款（按发布时间 30 天内划分）
+  const now = Date.now();
+  const MONTH = 30 * 86400000;
+  const isRecent = (v) => (v.publishTime || 0) > now - MONTH;
+
+  if (App.timeView === 'recent') {
+    const recent = base.filter(isRecent);
+    container.innerHTML = recent.length
+      ? renderSection('🔥 最近一个月爆款', recent)
+      : `<div class="empty-state"><div class="es-icon">📭</div><p>最近一个月没有匹配的爆款视频<br>试试调整筛选或切到"全部"</p></div>`;
+  } else if (App.timeView === 'history') {
+    const history = base.filter(v => !isRecent(v));
+    container.innerHTML = history.length
+      ? renderSection('📚 历史爆款（更早抓取的）', history)
+      : `<div class="empty-state"><div class="es-icon">📭</div><p>没有更早的历史爆款视频</p></div>`;
   } else {
-    container.innerHTML = base.map(v => renderVideoCard(v)).join('');
+    // 全部：历史 / 最近一个月 两板并排
+    const recent = base.filter(isRecent);
+    const history = base.filter(v => !isRecent(v));
+    container.innerHTML =
+      renderSection('🔥 最近一个月爆款', recent) +
+      (history.length ? renderSection('📚 历史爆款（更早抓取的）', history) : '');
   }
 
   // 绑定卡片点击事件
@@ -1466,9 +1474,7 @@ function renderAiQuickCmds() {
   if (!cmds) return;
   cmds.innerHTML = `
     <span class="ai-qcmd" onclick="sendAiCmd('分析视频 +')">🎬 分析视频</span>
-    <span class="ai-qcmd" onclick="sendAiCmd('明天拍摄 +')">📝 明天拍摄</span>
     <span class="ai-qcmd" onclick="sendAiCmd('记录灵感 +')">💡 记录灵感</span>
-    <span class="ai-qcmd" onclick="sendAiCmd('分析账号 +')">🔍 分析账号</span>
   `;
 }
 
@@ -1517,30 +1523,6 @@ function processAiCommand(text) {
     return;
   }
 
-  if (lower.includes('拍摄') || lower.includes('计划')) {
-    const theme = text.replace(/^[^\s]+\s*[+＋]\s*/, '').trim() || '新拍摄任务';
-    addAiMessage(`好的，已为您创建拍摄计划：「${theme}」`, 'bot');
-
-    const plan = {
-      id: genId(),
-      title: theme,
-      style: 'couple_daily',
-      priority: 'mid',
-      date: new Date().toISOString().split('T')[0],
-      status: 'pending',
-      createdAt: Date.now(),
-    };
-    const plans = Store.plans();
-    plans.unshift(plan);
-    Store.savePlans(plans);
-
-    setTimeout(() => {
-      switchTab('plan');
-      renderPlanPage();
-    }, 800);
-    return;
-  }
-
   if (lower.includes('灵感') || lower.includes('创意') || lower.includes('想法')) {
     const content = text.replace(/^[^\s]+\s*[+＋]\s*/, '').trim() || '新灵感';
     addAiMessage(`✨ 灵感已记录：「${content}」`, 'bot');
@@ -1559,20 +1541,14 @@ function processAiCommand(text) {
   }
 
   if (lower.includes('分析账号') || lower.includes('博主') || lower.includes('达人')) {
-    const query = text.replace(/^[^\s]+\s*[+＋]\s*/, '').trim();
-    addAiMessage(`好的，正在跳转账号分析页面...`, 'bot');
-    setTimeout(() => {
-      switchSubTab('account');
-      if (query) $('#accountInput').value = query;
-      toggleAiPanel(false);
-    }, 500);
+    addAiMessage('当前版本已精简为「爆款视频」单板块，账号分析功能暂不可用。你可以在爆款视频里直接查看每条视频的爆款原因与二创方案 🙂', 'bot');
     return;
   }
 
   // 默认回复
   const replies = [
-    '我可以帮你：\n\n🎬 分析视频 — 发送"分析视频+链接"\n📝 创建计划 — 发送"X号拍摄+主题"\n💡 记录灵感 — 发送"记录灵感+内容"\n🔍 分析账号 — 发送"分析账号+ID"',
-    '我是你的创作助手！试试这些指令：\n• "分析视频 https://..."\n• "明天拍摄 搞笑整蛊"\n• "记录灵感 把冰箱藏起来"\n• "分析账号 @某某博主"',
+    '我可以帮你：\n\n🎬 分析视频 — 发送"分析视频+链接"\n💡 记录灵感 — 发送"记录灵感+内容"\n\n当前版本聚焦「爆款视频」单板块，账号分析已精简。',
+    '我是你的创作助手！试试这些指令：\n• "分析视频 https://..."\n• "记录灵感 把冰箱藏起来"',
   ];
   addAiMessage(replies[Math.floor(Math.random() * replies.length)], 'bot');
 }
@@ -1604,16 +1580,17 @@ function switchTab(page) {
 }
 
 function switchSubTab(tab) {
-  App.currentSubTab = tab;
+  // 仅保留「爆款视频」一个子板块
+  App.currentSubTab = 'videos';
 
   $$('.segment-tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.tab === tab);
+    t.classList.toggle('active', t.dataset.tab === 'videos');
   });
 
-  $('#videosView').style.display = tab === 'videos' ? 'block' : 'none';
-  $('#accountView').classList.toggle('active', tab === 'account');
-
-  if (tab === 'account') renderAccountLeaderboard();
+  const vv = $('#videosView');
+  if (vv) vv.style.display = 'block';
+  const av = $('#accountView');
+  if (av) av.classList.remove('active');
 }
 
 // 仅看爆款 开关
