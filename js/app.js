@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '6.0';
+const APP_VERSION = '7.0';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -764,11 +764,9 @@ function renderOpsPage() {
     return { id, ts, title: v ? v.title : '(视频已从列表移除)', author: v ? v.author : '', platform: v ? v.platform : '' };
   });
 
-  const favHtml = favs.length ? favs.map(f => `
-    <div class="ops-item" onclick="openVideoDetail('${f.id}')">
-      <div class="ops-main"><div class="ops-title">${escapeHtml(f.title)}</div><div class="ops-sub">${escapeHtml(f.author || '')} · ${PLATFORM_MAP[f.platform] || ''} · 收藏于 ${new Date(f.addedAt).toLocaleDateString()}</div></div>
-      <button class="ops-x" onclick="event.stopPropagation();toggleFav('${f.id}')">取消</button>
-    </div>`).join('') : '<p class="ops-empty">还没有收藏</p>';
+  const favHtml = favs.length
+    ? `<div class="video-list">${favs.map(f => renderVideoCard(f)).join('')}</div>`
+    : '<p class="ops-empty">还没有收藏</p>';
 
   const remakeHtml = remakeCount ? Object.entries(remakes).map(([id, arr]) => {
     const v = findAnyVideo(id);
@@ -804,6 +802,14 @@ function renderOpsPage() {
       <div class="ops-head">📜 操作日志 <span class="ops-num">${log.length}</span></div>
       ${logHtml}
     </div>`;
+
+  // 绑定收藏卡片点击事件（与主页卡片一致的交互）
+  el.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-action')) return;
+      openVideoDetail(card.dataset.id);
+    });
+  });
 }
 
 // 在保留/当前数据中查找视频（含历史保留）
