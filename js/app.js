@@ -19,6 +19,9 @@ const App = {
   lastFetchTime: null,
 };
 
+// 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
+const APP_VERSION = '4.0';
+
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
 function $$(sel, ctx = document) { return [...ctx.querySelectorAll(sel)]; }
@@ -1676,7 +1679,7 @@ function updateTimeStatus() {
     const ago = timeAgo(App.lastFetchTime);
     const total = App.videoData.length;
     const realTag = App.usingRealData ? ' · 真实爬虫数据' : ' · 示例数据';
-    el.innerHTML = `<span class="status-dot"></span> 最近抓取: ${ago} · 共 ${total} 条爆款视频${realTag}`;
+    el.innerHTML = `<span class="status-dot"></span> 最近抓取: ${ago} · 共 ${total} 条爆款视频${realTag} · v${APP_VERSION}`;
   }
 }
 
