@@ -10642,6 +10642,27 @@
     "avgLikes": 39082
   },
   {
+    "nickname": "黑***e",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 39053,
+    "maxLikes": 39053,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "快和你对象练起来吧💪#体育生情侣 #居家锻炼 #健身搭档 #健身教学",
+        "likes": 39053,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 39053
+  },
+  {
     "nickname": "冠***娅",
     "platform": "xiaohongshu",
     "works": 1,
