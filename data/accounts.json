@@ -425,6 +425,54 @@
     "avgLikes": 1470664
   },
   {
+    "nickname": "娜***威",
+    "platform": "douyin",
+    "works": 6,
+    "totalLikes": 3566872,
+    "maxLikes": 1470358,
+    "levels": {
+      "low": 3,
+      "head": 2,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "最后也给我整蒙了… #整蛊 #情侣日常 #一定要看到最后",
+        "likes": 1470358,
+        "plays": 0
+      },
+      {
+        "title": "吓得不轻…#整蛊#搞笑情侣图鉴#情侣日常 ",
+        "likes": 1085173,
+        "plays": 0
+      },
+      {
+        "title": "这个结尾是我万万没想到的...#搞笑情侣图鉴#整蛊 ",
+        "likes": 827116,
+        "plays": 0
+      },
+      {
+        "title": "很考验感情的小游戏 #情侣日常#肯德基会员10周年#肯德基#感恩有你一起WOW",
+        "likes": 76298,
+        "plays": 0
+      },
+      {
+        "title": "人在做坏事的时候最开心了 #搞笑 #情侣日常 #整蛊",
+        "likes": 56272,
+        "plays": 0
+      },
+      {
+        "title": "新鲜感这不就来啦？！ #情侣日常#搞笑#恋爱 #ID与众 #灵感上Xin",
+        "likes": 51655,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 594478
+  },
+  {
     "nickname": "耿***.",
     "platform": "douyin",
     "works": 1,
@@ -577,6 +625,27 @@
     "avgLikes": 1186219
   },
   {
+    "nickname": "周***闹",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 1174639,
+    "maxLikes": 1174639,
+    "levels": {
+      "head": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣博主拍视频，有哪些套路？#抖音商城浪漫情人节 #新年有意思",
+        "likes": 1174639,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 1174639
+  },
+  {
     "nickname": "丸***盐",
     "platform": "douyin",
     "works": 1,
@@ -617,43 +686,6 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 1089255
-  },
-  {
-    "nickname": "娜***威",
-    "platform": "douyin",
-    "works": 4,
-    "totalLikes": 1269398,
-    "maxLikes": 1085173,
-    "levels": {
-      "low": 3,
-      "head": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "吓得不轻…#整蛊#搞笑情侣图鉴#情侣日常 ",
-        "likes": 1085173,
-        "plays": 0
-      },
-      {
-        "title": "很考验感情的小游戏 #情侣日常#肯德基会员10周年#肯德基#感恩有你一起WOW",
-        "likes": 76298,
-        "plays": 0
-      },
-      {
-        "title": "人在做坏事的时候最开心了 #搞笑 #情侣日常 #整蛊",
-        "likes": 56272,
-        "plays": 0
-      },
-      {
-        "title": "新鲜感这不就来啦？！ #情侣日常#搞笑#恋爱 #ID与众 #灵感上Xin",
-        "likes": 51655,
-        "plays": 0
-      }
-    ],
-    "hotRate": 25.0,
-    "avgLikes": 317349
   },
   {
     "nickname": "静***子",
@@ -1636,6 +1668,27 @@
     "avgLikes": 291999
   },
   {
+    "nickname": "复*",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 353662,
+    "maxLikes": 353662,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "让他测！！！出镜心理咨询师 @小甜Iris_  \n#心理测试 #情感测试 #两性情感 #心理测试题",
+        "likes": 353662,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 353662
+  },
+  {
     "nickname": "@***子",
     "platform": "douyin",
     "works": 1,
@@ -1676,6 +1729,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 344496
+  },
+  {
+    "nickname": "张***筒",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 336072,
+    "maxLikes": 336072,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "逗女友开心教学#情侣日常 #全民抖包袱",
+        "likes": 336072,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 336072
   },
   {
     "nickname": "不***鸟",
@@ -1924,6 +1998,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 258015
+  },
+  {
+    "nickname": "六***M",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 257101,
+    "maxLikes": 257101,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "快来试一试吧，放松一刻，超级有趣#读心术 ＃放松一下心情 #趣味测试 ＃心理测试",
+        "likes": 257101,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 257101
   },
   {
     "nickname": "徒***阳",
@@ -2253,12 +2348,12 @@
   {
     "nickname": "战***喳",
     "platform": "douyin",
-    "works": 5,
-    "totalLikes": 327144,
+    "works": 7,
+    "totalLikes": 444241,
     "maxLikes": 206076,
     "levels": {
       "mid": 1,
-      "low": 4
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -2266,6 +2361,16 @@
       {
         "title": "大哥：阿玛特拉斯 #整蛊 #街头摄影 #阿玛特拉斯 #智鹏智鹏",
         "likes": 206076,
+        "plays": 0
+      },
+      {
+        "title": "背后抱你的时候，期待的是她的面容 #美团请你喝秋天的第一杯奶茶 #美团秋奶攻略 #秋奶明星配送日记",
+        "likes": 61387,
+        "plays": 0
+      },
+      {
+        "title": "凑，我真该亖 #整蛊 #街头摄影 #智鹏智鹏",
+        "likes": 55710,
         "plays": 0
       },
       {
@@ -2289,8 +2394,8 @@
         "plays": 0
       }
     ],
-    "hotRate": 20.0,
-    "avgLikes": 65428
+    "hotRate": 14.3,
+    "avgLikes": 63463
   },
   {
     "nickname": "昊***钥",
@@ -2333,6 +2438,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 203188
+  },
+  {
+    "nickname": "美***）",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 195227,
+    "maxLikes": 195227,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "笑死我了哈哈哈哈哈哈@默 #整蛊男友",
+        "likes": 195227,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 195227
   },
   {
     "nickname": "邦***常",
@@ -2387,6 +2513,27 @@
     "avgLikes": 172921
   },
   {
+    "nickname": "向***）",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 185709,
+    "maxLikes": 185709,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "#测评 #避坑 #智商税 #智商税产品 #打假",
+        "likes": 185709,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 185709
+  },
+  {
     "nickname": "绝***夫",
     "platform": "douyin",
     "works": 1,
@@ -2427,6 +2574,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 183063
+  },
+  {
+    "nickname": "任***达",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 182653,
+    "maxLikes": 182653,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "夫妻俩太知根知底也不是什么好事...#张立业和董雨欣 @乔虹博 @聪明达达#双11在抖音商城买什么 #抖音商城双11好物节 #双11超值好礼",
+        "likes": 182653,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 182653
   },
   {
     "nickname": "至***👶",
@@ -2635,6 +2803,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 167867
+  },
+  {
+    "nickname": "漩***人",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 166606,
+    "maxLikes": 166606,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "疑似小三在做服务性测试#星座 #恋爱 #一人分饰多角 #亲密度大挑战 #共鸣",
+        "likes": 166606,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 166606
   },
   {
     "nickname": "蛇*",
@@ -2904,6 +3093,27 @@
     "avgLikes": 124534
   },
   {
+    "nickname": "小***物",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 120532,
+    "maxLikes": 120532,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "有个微胖的女朋友 是个什么样的体验？# 亮点在后面 # 剧情 # 搞笑视频 # 看一遍笑一遍 # 榴莲蛋卷",
+        "likes": 120532,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 120532
+  },
+  {
     "nickname": "点***艾",
     "platform": "douyin",
     "works": 1,
@@ -2923,6 +3133,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 120087
+  },
+  {
+    "nickname": "小***啊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 119454,
+    "maxLikes": 119454,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "让我康康是谁还没有做这个测试？#mbti #mbti职业性格测试  #mbti人类图鉴",
+        "likes": 119454,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 119454
   },
   {
     "nickname": "桃***🍑",
@@ -3059,6 +3290,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 101890
+  },
+  {
+    "nickname": "酸***记",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 101136,
+    "maxLikes": 101136,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男友整蛊我，蒸馏“冰红茶”给我喝！#酸菜日记 #情感共鸣 #真实事件改编 #下头男",
+        "likes": 101136,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 101136
+  },
+  {
+    "nickname": "段***段",
+    "platform": "douyin",
+    "works": 3,
+    "totalLikes": 149230,
+    "maxLikes": 100496,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我用偶像剧的方式对待爸妈6.0 当我用偶像剧的方式对待爸妈6.0  你的每一天都应该油我来守护！ #搞笑 #整蛊  #内容过于真实  #偶像剧",
+        "likes": 100496,
+        "plays": 0
+      },
+      {
+        "title": "万万没想到当我用假奶整蛊爸妈...他俩的反应笑死我了 哈哈哈  我妈 这破天的富贵   这一招叫移花接木~~     #内容过于真实   #搞笑   #一定要看到最后",
+        "likes": 32701,
+        "plays": 0
+      },
+      {
+        "title": "谈恋爱可以犯贱但不能太贱… #抽象 #精神状态belike #内容过于真实",
+        "likes": 16033,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 49743
   },
   {
     "nickname": "阿*",
@@ -4262,6 +4545,27 @@
     "avgLikes": 89000
   },
   {
+    "nickname": "扭***羊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 88972,
+    "maxLikes": 88972,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "如果你都不跟ta站在一边，那谁还会在乎你们？ #内容过于真实 #恋爱技巧 #情感共鸣",
+        "likes": 88972,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 88972
+  },
+  {
     "nickname": "小***枫",
     "platform": "xiaohongshu",
     "works": 1,
@@ -4628,6 +4932,27 @@
     "avgLikes": 75000
   },
   {
+    "nickname": "李***站",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 74788,
+    "maxLikes": 74788,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "3个问题 测出你的恋爱人格 #爱情 #恋爱 #李洋洋",
+        "likes": 74788,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 74788
+  },
+  {
     "nickname": "籽***瓜",
     "platform": "xiaohongshu",
     "works": 1,
@@ -4763,6 +5088,27 @@
     "avgLikes": 72000
   },
   {
+    "nickname": "金***片",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 72000,
+    "maxLikes": 72000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "👀看到是什么颜色？",
+        "likes": 72000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 72000
+  },
+  {
     "nickname": "w***）",
     "platform": "douyin",
     "works": 1,
@@ -4782,6 +5128,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 71613
+  },
+  {
+    "nickname": "齐***生",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 71567,
+    "maxLikes": 71567,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "心理性格小测试 #抖出健康知识宝藏 #心理小测试 #性格 #涨知识 @齐宣王医生 ",
+        "likes": 71567,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 71567
   },
   {
     "nickname": "小*",
@@ -4913,6 +5280,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 68065
+  },
+  {
+    "nickname": "快***酥",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 68000,
+    "maxLikes": 68000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "🔥网红衣服测评👔都是你刷短视频刷到过的！！",
+        "likes": 68000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 68000
   },
   {
     "nickname": "X***n",
@@ -5101,6 +5489,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 58679
+  },
+  {
+    "nickname": "小***明",
+    "platform": "douyin",
+    "works": 3,
+    "totalLikes": 127212,
+    "maxLikes": 58439,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我俩谁的心更大？#男朋友带我玩 #情侣日常",
+        "likes": 58439,
+        "plays": 0
+      },
+      {
+        "title": "雪地迷宫结合了鬼屋，哈哈哈，就吓他！#雪地迷宫  #男朋友带我玩",
+        "likes": 42159,
+        "plays": 0
+      },
+      {
+        "title": "雪仗的灵魂在于“偷袭”\n#情侣日常 #下雪就得这样玩",
+        "likes": 26614,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 42404
+  },
+  {
+    "nickname": "校***火",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 57653,
+    "maxLikes": 57653,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "牵手成功获得5千字检讨！#宿舍关系 #恋爱技巧 #整蛊 #导员",
+        "likes": 57653,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 57653
   },
   {
     "nickname": "来***来",
@@ -5412,6 +5852,48 @@
     "avgLikes": 50984
   },
   {
+    "nickname": "独***梦",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 50666,
+    "maxLikes": 50666,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "4个有趣的大脑测试游戏 #知识分享 #大脑测试",
+        "likes": 50666,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 50666
+  },
+  {
+    "nickname": "李***洋",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 50576,
+    "maxLikes": 50576,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "哈哈哈 男朋友自闭了…… #情侣日常",
+        "likes": 50576,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 50576
+  },
+  {
     "nickname": "呼***娇",
     "platform": "xiaohongshu",
     "works": 1,
@@ -5431,6 +5913,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 50000
+  },
+  {
+    "nickname": "宫***者",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 48511,
+    "maxLikes": 48511,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "真是多余信任你。#情侣  #情侣升温小游戏 #沙雕情侣欢乐多#情侣游戏日常",
+        "likes": 48511,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 48511
   },
   {
     "nickname": "扬***了",
@@ -5590,6 +6093,27 @@
     "avgLikes": 45000
   },
   {
+    "nickname": "张***米",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 44334,
+    "maxLikes": 44334,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "又是整蛊老公的一天.... #老外真会玩",
+        "likes": 44334,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 44334
+  },
+  {
     "nickname": "章***帆",
     "platform": "douyin",
     "works": 1,
@@ -5695,6 +6219,27 @@
     "avgLikes": 42372
   },
   {
+    "nickname": "阿***滚",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 41537,
+    "maxLikes": 41537,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不要掉进服从行测试陷阱 #内容太过真实 #职场 #职场那些事 #服从性测试 #人际关系",
+        "likes": 41537,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 41537
+  },
+  {
     "nickname": "滚***学",
     "platform": "xiaohongshu",
     "works": 1,
@@ -5758,6 +6303,27 @@
     "avgLikes": 40956
   },
   {
+    "nickname": "武*",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 40204,
+    "maxLikes": 40204,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "什么是真正的“速度男友”！ #轻漫计划 #情侣日常 #搞笑",
+        "likes": 40204,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 40204
+  },
+  {
     "nickname": "舒***鸿",
     "platform": "xiaohongshu",
     "works": 1,
@@ -5777,6 +6343,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 40000
+  },
+  {
+    "nickname": "徐***柒",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 39706,
+    "maxLikes": 39706,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我假扮绿茶测试男友...结果竟然？？#剧情 #情侣 #反转",
+        "likes": 39706,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 39706
   },
   {
     "nickname": "冠***娅",
@@ -5894,6 +6481,27 @@
     "avgLikes": 38000
   },
   {
+    "nickname": "两***崽",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 36795,
+    "maxLikes": 36795,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "一天天小巧思咋这么多？ #情侣日常#搞笑",
+        "likes": 36795,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 36795
+  },
+  {
     "nickname": "冰***棒",
     "platform": "xiaohongshu",
     "works": 1,
@@ -5915,6 +6523,27 @@
     "avgLikes": 36000
   },
   {
+    "nickname": "梁***韩",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 35187,
+    "maxLikes": 35187,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "反正我是演爽了 #搞笑 #万万想不到",
+        "likes": 35187,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 35187
+  },
+  {
     "nickname": "6***咚",
     "platform": "douyin",
     "works": 1,
@@ -5934,6 +6563,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 32443
+  },
+  {
+    "nickname": "阿***学",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 31905,
+    "maxLikes": 31905,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "趣味测试-你第一眼看到的是什么词呢？ #心理学 #实用心理学 #心理测试 #微行为心理学 #阿豆心理学",
+        "likes": 31905,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 31905
   },
   {
     "nickname": "开***罐",
@@ -6144,6 +6794,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 27000
+  },
+  {
+    "nickname": "浪***浪",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 26277,
+    "maxLikes": 26277,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我的男孩我也要宠着❤#情侣日常 #甜甜的恋爱",
+        "likes": 26277,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 26277
   },
   {
     "nickname": "小***记",
@@ -6524,6 +7195,27 @@
     "avgLikes": 23000
   },
   {
+    "nickname": "搞***冈",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 22548,
+    "maxLikes": 22548,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "为了防止玩手机玩傻了，来做几个脑力测试游戏吧！ #测试  #推理 #游戏",
+        "likes": 22548,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22548
+  },
+  {
     "nickname": "阿***x",
     "platform": "xiaohongshu",
     "works": 1,
@@ -6587,6 +7279,27 @@
     "avgLikes": 21513
   },
   {
+    "nickname": "李***杰",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 21138,
+    "maxLikes": 21138,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "宠妻狂魔？#一人分饰多角",
+        "likes": 21138,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 21138
+  },
+  {
     "nickname": "刘***薛",
     "platform": "xiaohongshu",
     "works": 1,
@@ -6627,6 +7340,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 21000
+  },
+  {
+    "nickname": "大***学",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 20795,
+    "maxLikes": 20795,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "一个测试看出你的心理状态 #心理学#冷知识#性格测试#心理学知识#测试",
+        "likes": 20795,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 20795
   },
   {
     "nickname": "爱***阳",
@@ -6734,6 +7468,27 @@
     "avgLikes": 18000
   },
   {
+    "nickname": "一***n",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 18000,
+    "maxLikes": 18000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "别再臭而不自知了❗️快去测试一下自己的味道",
+        "likes": 18000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 18000
+  },
+  {
     "nickname": "小***呀",
     "platform": "douyin",
     "works": 1,
@@ -6818,6 +7573,27 @@
     "avgLikes": 17347
   },
   {
+    "nickname": "心***声",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 17000,
+    "maxLikes": 17000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "免费版😱MBTI人格测试",
+        "likes": 17000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17000
+  },
+  {
     "nickname": "小***🥕",
     "platform": "douyin",
     "works": 1,
@@ -6858,27 +7634,6 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 16100
-  },
-  {
-    "nickname": "段***段",
-    "platform": "douyin",
-    "works": 1,
-    "totalLikes": 16033,
-    "maxLikes": 16033,
-    "levels": {
-      "low": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "谈恋爱可以犯贱但不能太贱… #抽象 #精神状态belike #内容过于真实",
-        "likes": 16033,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 16033
   },
   {
     "nickname": "许***啦",
@@ -7047,5 +7802,26 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 13000
+  },
+  {
+    "nickname": "J***居",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 10000,
+    "maxLikes": 10000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "有眼、有脑的扫拖机器人❗️年度机皇稳了❓",
+        "likes": 10000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10000
   }
 ]
