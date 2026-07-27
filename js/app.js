@@ -2277,6 +2277,101 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').catch(() => {});
 }
 
+// ===== 加载真实监控数据 (monitor_data.json) =====
+function _parseMonitorCount(val) {
+  if (typeof val === 'number') return val;
+  if (!val) return 0;
+  var s = String(val).trim().toLowerCase().replace(/,/g, '');
+  var m = s.match(/([\d.]+)\s*(万|w|亿|e)/);
+  if (m) {
+    var n = parseFloat(m[1]);
+    if (m[2] === '亿' || m[2] === 'e') return Math.round(n * 1e8);
+    return Math.round(n * 1e4);
+  }
+  var plain = s.replace(/[^\d.]/g, '');
+  return plain ? parseInt(plain) : 0;
+}
+
+async function loadMonitorData() {
+  try {
+    var resp = await fetch('./data/monitor_data.json?v=' + Date.now());
+    if (!resp.ok) { console.log('monitor_data.json not found, using localStorage'); return; }
+    var data = await resp.json();
+    if (!data || !data.accounts) return;
+
+    var today = new Date().toISOString().slice(0, 10);
+    var serverDate = data._date || today;
+
+    // 检查是否已有更新的数据
+    var existingDate = Store.get('monitorDataDate');
+    if (existingDate && existingDate > serverDate) {
+      console.log('monitor data: localStorage newer than server, skip');
+      return;
+    }
+
+    var accounts = [];
+    var snapshots = Store.monitorSnapshots() || {};
+    var videos = {};
+
+    Object.values(data.accounts).forEach(function(acc) {
+      var aid = acc.user_id || String(Date.now());
+      var plat = acc.platform || 'unknown';
+      var account = {
+        id: aid,
+        platform: plat,
+        nickname: acc.nickname || aid,
+        addedAt: Date.now()
+      };
+      accounts.push(account);
+
+      // 转换视频数据
+      var key = plat + '_' + aid;
+      var vlist = (acc.videos || []).map(function(v) {
+        var ts = v.time || v.create_time || v.ctime || 0;
+        if (typeof ts === 'number' && ts < 1e12) ts *= 1000;
+        return {
+          title: v.title || v.desc || '',
+          likes: _parseMonitorCount(v.liked_count || v.like_count),
+          plays: _parseMonitorCount(v.view_count || v.play_count || 0),
+          comments: _parseMonitorCount(v.comment_count),
+          saves: _parseMonitorCount(v.collected_count || v.collect_count),
+          shares: _parseMonitorCount(v.share_count),
+          publishTime: ts || null,
+          time: ts ? new Date(ts).toTimeString().slice(0, 5) : '',
+          url: v.note_url || v.video_url || v.aweme_url || v.share_url || '',
+          topic: 'other',
+          duration: v.duration || 0
+        };
+      });
+      videos[key] = vlist;
+
+      // 生成今日快照
+      var totalPlays = vlist.reduce(function(s, v) { return s + (v.plays || 0); }, 0);
+      var totalLikes = vlist.reduce(function(s, v) { return s + (v.likes || 0); }, 0);
+      var totalComments = vlist.reduce(function(s, v) { return s + (v.comments || 0); }, 0);
+      var totalSaves = vlist.reduce(function(s, v) { return s + (v.saves || 0); }, 0);
+      var totalShares = vlist.reduce(function(s, v) { return s + (v.shares || 0); }, 0);
+      snapshots[key + '_' + serverDate] = {
+        fans: 0,
+        works: vlist.length,
+        totalPlays: totalPlays,
+        totalLikes: totalLikes,
+        totalComments: totalComments,
+        totalSaves: totalSaves,
+        totalShares: totalShares
+      };
+    });
+
+    Store.saveMonitorAccounts(accounts);
+    Store.saveMonitorSnapshots(snapshots);
+    Store.saveMonitorVideos(videos);
+    Store.set('monitorDataDate', serverDate);
+    console.log('📊 监控数据已加载:', accounts.length, '个账号,', Object.values(videos).flat().length, '条作品');
+  } catch (e) {
+    console.log('monitor_data.json load failed:', e.message);
+  }
+}
+
 // ===== 应用初始化 =====
 async function initApp() {
   // 加载设置
@@ -2285,6 +2380,9 @@ async function initApp() {
 
   // 加载视频数据
   await loadVideoData();
+
+  // 加载监控数据
+  await loadMonitorData();
 
   // 初始渲染
   renderVideoList();
