@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '5.0';
+const APP_VERSION = '6.0';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -518,6 +518,11 @@ function renderVideoCard(v) {
   const remakeCount = (remakes[v.id] || []).length;
   const url = v.url || '';
 
+  // 从链接中提取域名用于展示
+  let urlDisplay = '';
+  try { urlDisplay = new URL(url).hostname; } catch(e) { urlDisplay = platText; }
+  const urlSafe = url.replace(/'/g, "\\'");
+
   return `
     <div class="video-card" data-id="${v.id}">
       <div class="card-cover-area">
@@ -529,7 +534,7 @@ function renderVideoCard(v) {
           <span class="tag-level ${levelClass}">${levelText}</span>
           <span class="tag-platform ${platClass}">${platText}</span>
         </div>
-        ${url ? `<button class="card-link-btn" title="观看原视频" onclick="event.stopPropagation();openOriginal('${url.replace(/'/g, "\\'")}')">🔗</button>` : ''}
+        ${url ? `<button class="card-link-btn" title="观看原视频" onclick="event.stopPropagation();openOriginal('${urlSafe}')">🔗</button>` : ''}
       </div>
       <div class="card-body">
         <div class="card-title">${v.title}</div>
@@ -548,7 +553,11 @@ function renderVideoCard(v) {
           <button class="card-action" title="删除" onclick="event.stopPropagation();markDeleted('${v.id}')">🗑️</button>
         </span>
       </div>
-      ${url ? `<button class="card-orig-link" onclick="event.stopPropagation();openOriginal('${url.replace(/'/g, "\\'")}')">🔗 观看原视频 · ${platText}</button>` : ''}
+      <!-- 原视频链接：始终显示，即便URL为空也给出提示 -->
+      ${url
+        ? `<a class="card-orig-link" href="${url}" target="_blank" onclick="event.stopPropagation();" title="在${platText}中打开原视频">📱 在${platText}查看原视频 · <span class="orig-domain">${urlDisplay}</span></a>`
+        : `<span class="card-orig-link no-link" onclick="event.stopPropagation();showToast('该视频暂无原链接')">📱 原视频链接 · 暂不可用</span>`
+      }
     </div>`;
 }
 
