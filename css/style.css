@@ -1210,3 +1210,70 @@ textarea.form-control { min-height: 80px; resize: vertical; }
 
 /* 滚动条美化 */
 ::-webkit-scrollbar { width: 0; height: 0; }
+
+/* ===== 列表工具条（仅看爆款 / 时间视图） ===== */
+.list-toolbar { display:flex; align-items:center; justify-content:space-between; padding: 10px 16px 2px; gap:10px; }
+.toggle-pill { border:1px solid var(--border); background:var(--card-bg); color:var(--text-secondary); border-radius:999px; padding:7px 14px; font-size:13px; font-weight:600; cursor:pointer; }
+.toggle-pill.on { background:var(--primary); color:#fff; border-color:var(--primary); }
+.timeview-switch { display:flex; background:var(--bg); border-radius:999px; padding:3px; }
+.timeview-btn { border:none; background:transparent; color:var(--text-secondary); font-size:13px; padding:6px 14px; border-radius:999px; cursor:pointer; }
+.timeview-btn.active { background:var(--card-bg); color:var(--primary); font-weight:700; box-shadow:var(--shadow); }
+
+/* ===== 最近 / 历史 分板 ===== */
+.video-section { margin: 4px 0 14px; }
+.section-head { display:flex; align-items:center; gap:8px; padding: 6px 16px; font-size:14px; font-weight:700; color:var(--text-primary); }
+.section-count { font-size:12px; font-weight:600; color:var(--text-secondary); background:var(--bg); border-radius:999px; padding:1px 8px; }
+.section-cards { display:flex; flex-direction:column; gap:10px; padding:0 12px; }
+
+/* ===== 卡片操作行 / 原链接 ===== */
+.card-cover-area { position:relative; }
+.card-link-btn { position:absolute; top:8px; right:8px; width:30px; height:30px; border-radius:50%; border:none; background:rgba(0,0,0,0.45); color:#fff; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.card-actions { display:inline-flex; gap:8px; margin-left:auto; }
+.card-action { border:none; background:var(--bg); border-radius:8px; width:30px; height:30px; font-size:14px; cursor:pointer; position:relative; display:inline-flex; align-items:center; justify-content:center; }
+.card-action.fav.on { background:var(--primary-light); }
+.card-action .badge { position:absolute; top:-4px; right:-4px; background:var(--primary); color:#fff; font-size:9px; border-radius:999px; padding:0 4px; line-height:14px; }
+
+/* ===== 详情弹窗操作按钮 ===== */
+.detail-actions { display:flex; gap:8px; margin: 4px 0 12px; }
+.btn-line { flex:1; border:1px solid var(--border); background:var(--card-bg); color:var(--text-primary); border-radius:10px; padding:10px 4px; font-size:12px; cursor:pointer; }
+.btn-line.danger { color:var(--level-head); }
+.btn-line:active { background:var(--bg); }
+
+/* ===== 账号分析：已收录博主榜单 ===== */
+.account-leaderboard { margin: 14px 0; }
+.lb-head { font-size:13px; font-weight:700; color:var(--text-secondary); padding:0 16px 8px; }
+.lb-item { display:flex; align-items:center; gap:10px; background:var(--card-bg); border-radius:12px; padding:10px 14px; margin:0 12px 8px; cursor:pointer; box-shadow:var(--shadow); }
+.lb-avatar { width:38px; height:38px; border-radius:50%; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px; }
+.lb-info { flex:1; min-width:0; }
+.lb-name { font-size:14px; font-weight:600; color:var(--text-primary); }
+.lb-plat { font-size:11px; color:var(--text-secondary); background:var(--bg); border-radius:6px; padding:1px 6px; margin-left:4px; }
+.lb-sub { font-size:12px; color:var(--text-secondary); }
+.lb-go { color:var(--text-tertiary); font-size:20px; }
+
+/* ===== 操作记录面板 ===== */
+.ops-block { margin: 6px 0; }
+.ops-head { display:flex; align-items:center; gap:6px; font-size:15px; font-weight:700; color:var(--text-primary); padding: 10px 16px 2px; }
+.ops-num { font-size:12px; color:#fff; background:var(--primary); border-radius:999px; padding:1px 8px; }
+.ops-item { display:flex; align-items:center; gap:10px; background:var(--card-bg); border-radius:12px; padding:10px 14px; margin:8px 12px; box-shadow:var(--shadow); }
+.ops-main { flex:1; min-width:0; }
+.ops-title { font-size:14px; font-weight:600; color:var(--text-primary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ops-sub { font-size:12px; color:var(--text-secondary); }
+.ops-text { font-size:13px; color:var(--text-primary); margin-top:2px; }
+.ops-x { border:none; background:var(--bg); color:var(--level-head); border-radius:8px; padding:6px 10px; font-size:12px; cursor:pointer; }
+.ops-group { margin: 6px 0; }
+.ops-group-title { font-size:13px; font-weight:600; color:var(--primary); padding: 4px 16px; }
+.ops-empty { color:var(--text-tertiary); font-size:13px; text-align:center; padding:14px; }
+.ops-log-item { display:flex; align-items:center; gap:8px; padding:8px 16px; font-size:13px; border-bottom:1px solid var(--border); }
+.ol-act { font-weight:600; min-width:86px; }
+.ol-label { flex:1; color:var(--text-secondary); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ol-time { color:var(--text-tertiary); font-size:11px; }
+
+/* ===== 二创笔记弹窗 ===== */
+.remake-list { max-height:220px; overflow-y:auto; margin:10px 0; }
+.remake-item { background:var(--bg); border-radius:10px; padding:10px 12px; margin-bottom:8px; }
+.ri-text { font-size:13px; color:var(--text-primary); white-space:pre-wrap; word-break:break-word; }
+.ri-foot { display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+.ri-foot span { font-size:11px; color:var(--text-tertiary); }
+.ri-del { border:none; background:transparent; color:var(--level-head); font-size:12px; cursor:pointer; }
+.remake-video-title { font-size:13px; color:var(--text-secondary); margin-bottom:6px; }
+.remake-empty { color:var(--text-tertiary); font-size:13px; text-align:center; padding:10px; }
