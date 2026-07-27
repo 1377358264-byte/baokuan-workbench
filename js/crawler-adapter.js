@@ -32,7 +32,7 @@ const PLATFORM_MAPS = {
     plays: ['view_count', 'play_count', 'views'],
     comments: ['comment_count', 'comments'],
     shares: ['share_count', 'shares'],
-    time: ['add_ts', 'add_time', 'last_update_time', 'create_time'],
+    time: ['time', 'add_ts', 'add_time', 'last_update_time', 'create_time'],
     tags: ['tag_list', 'tags'],
   },
   douyin: {
