@@ -1629,6 +1629,72 @@
     "avgLikes": 390019
   },
   {
+    "nickname": "郑***姐",
+    "platform": "douyin",
+    "works": 10,
+    "totalLikes": 4491576,
+    "maxLikes": 902205,
+    "levels": {
+      "mid": 10
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "数10游戏 #柏拉图情侣",
+        "likes": 902205,
+        "plays": 0
+      },
+      {
+        "title": "猜对方年龄 #柏拉图夫妇",
+        "likes": 656172,
+        "plays": 0
+      },
+      {
+        "title": "给朗晨哄成胎盘了都 #柏拉图情侣",
+        "likes": 496253,
+        "plays": 0
+      },
+      {
+        "title": "猜颜色做挑战 #情侣自拍#柏拉图情侣",
+        "likes": 483507,
+        "plays": 0
+      },
+      {
+        "title": "戴耳机回答问题第二期 #柏拉图情侣",
+        "likes": 389490,
+        "plays": 0
+      },
+      {
+        "title": "同频的人像是礼物 #柏拉图情侣",
+        "likes": 354327,
+        "plays": 0
+      },
+      {
+        "title": "说出最害怕对方的事情 #柏拉图情侣",
+        "likes": 331383,
+        "plays": 0
+      },
+      {
+        "title": "同频的人像是礼物 #柏拉图情侣",
+        "likes": 321986,
+        "plays": 0
+      },
+      {
+        "title": "情侣了解度测试 #柏拉图情侣",
+        "likes": 292304,
+        "plays": 0
+      },
+      {
+        "title": "猜物挑战 #柏拉图情侣",
+        "likes": 263949,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 449157
+  },
+  {
     "nickname": "小***酱",
     "platform": "douyin",
     "works": 6,
@@ -2153,62 +2219,6 @@
     "avgLikes": 659781
   },
   {
-    "nickname": "郑***姐",
-    "platform": "douyin",
-    "works": 8,
-    "totalLikes": 3297067,
-    "maxLikes": 656172,
-    "levels": {
-      "mid": 8
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "猜对方年龄 #柏拉图夫妇",
-        "likes": 656172,
-        "plays": 0
-      },
-      {
-        "title": "给朗晨哄成胎盘了都 #柏拉图情侣",
-        "likes": 496253,
-        "plays": 0
-      },
-      {
-        "title": "猜颜色做挑战 #情侣自拍#柏拉图情侣",
-        "likes": 483507,
-        "plays": 0
-      },
-      {
-        "title": "戴耳机回答问题第二期 #柏拉图情侣",
-        "likes": 389490,
-        "plays": 0
-      },
-      {
-        "title": "同频的人像是礼物 #柏拉图情侣",
-        "likes": 354327,
-        "plays": 0
-      },
-      {
-        "title": "说出最害怕对方的事情 #柏拉图情侣",
-        "likes": 331383,
-        "plays": 0
-      },
-      {
-        "title": "同频的人像是礼物 #柏拉图情侣",
-        "likes": 321986,
-        "plays": 0
-      },
-      {
-        "title": "猜物挑战 #柏拉图情侣",
-        "likes": 263949,
-        "plays": 0
-      }
-    ],
-    "hotRate": 100.0,
-    "avgLikes": 412133
-  },
-  {
     "nickname": "滚***学",
     "platform": "douyin",
     "works": 1,
@@ -2429,6 +2439,27 @@
     ],
     "hotRate": 75.0,
     "avgLikes": 362524
+  },
+  {
+    "nickname": "小***大",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 544062,
+    "maxLikes": 544062,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "两个人凑不出一条完整的舌头#中日情侣 #说动物节奏大挑战 #语言系统混乱",
+        "likes": 544062,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 544062
   },
   {
     "nickname": "宋***揍",
