@@ -710,12 +710,12 @@
   {
     "nickname": "晴***寶",
     "platform": "douyin",
-    "works": 10,
-    "totalLikes": 4846871,
+    "works": 11,
+    "totalLikes": 5025843,
     "maxLikes": 1855273,
     "levels": {
       "mid": 6,
-      "low": 3,
+      "low": 4,
       "head": 1
     },
     "followers": 0,
@@ -757,6 +757,11 @@
         "plays": 0
       },
       {
+        "title": "报一丝啊报一丝 #异地恋见面 #生活碎片 #情侣日常 #我们俩",
+        "likes": 178972,
+        "plays": 0
+      },
+      {
         "title": "原创@梁教授🌻  我乐拍这个#水瓶天秤 #情侣日常 #女人的选择 #人夫",
         "likes": 140581,
         "plays": 0
@@ -765,15 +770,10 @@
         "title": "#水瓶天秤 #情侣日常",
         "likes": 42002,
         "plays": 0
-      },
-      {
-        "title": "今日默契度积累中（yc：@李琪🍐 ）#情侣日常#水瓶天秤#情侣小游戏 #昔又大排灯",
-        "likes": 23366,
-        "plays": 0
       }
     ],
-    "hotRate": 70.0,
-    "avgLikes": 484687
+    "hotRate": 63.6,
+    "avgLikes": 456894
   },
   {
     "nickname": "昊***钥",
@@ -1794,11 +1794,11 @@
   {
     "nickname": "狗*",
     "platform": "douyin",
-    "works": 3,
-    "totalLikes": 1866817,
+    "works": 4,
+    "totalLikes": 2114838,
     "maxLikes": 772588,
     "levels": {
-      "mid": 3
+      "mid": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -1817,10 +1817,15 @@
         "title": "情侣微醺小游戏！#约会项目 #crush #铁人五项",
         "likes": 358283,
         "plays": 0
+      },
+      {
+        "title": "酒酒情侣丨听到想亲吻类型睁眼干杯！！#土象和水象  #酒桌游戏 #情侣拉扯  #时光梅酒 #时光梅",
+        "likes": 248021,
+        "plays": 0
       }
     ],
     "hotRate": 100.0,
-    "avgLikes": 622272
+    "avgLikes": 528709
   },
   {
     "nickname": "料***啊",
@@ -2150,11 +2155,11 @@
   {
     "nickname": "郑***姐",
     "platform": "douyin",
-    "works": 7,
-    "totalLikes": 2975081,
+    "works": 8,
+    "totalLikes": 3297067,
     "maxLikes": 656172,
     "levels": {
-      "mid": 7
+      "mid": 8
     },
     "followers": 0,
     "followersKnown": false,
@@ -2190,13 +2195,18 @@
         "plays": 0
       },
       {
+        "title": "同频的人像是礼物 #柏拉图情侣",
+        "likes": 321986,
+        "plays": 0
+      },
+      {
         "title": "猜物挑战 #柏拉图情侣",
         "likes": 263949,
         "plays": 0
       }
     ],
     "hotRate": 100.0,
-    "avgLikes": 425011
+    "avgLikes": 412133
   },
   {
     "nickname": "滚***学",
@@ -2451,6 +2461,27 @@
     ],
     "hotRate": 33.3,
     "avgLikes": 245237
+  },
+  {
+    "nickname": "椰***芒",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 526560,
+    "maxLikes": 526560,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "拥抱对我来说是最亲密的事情 #体型差 #情侣 #和你对象一起拍 #oi小猫有点火热啊 #情侣拍照姿势",
+        "likes": 526560,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 526560
   },
   {
     "nickname": "塔***可",
@@ -3050,11 +3081,12 @@
   {
     "nickname": "骆***子",
     "platform": "douyin",
-    "works": 2,
-    "totalLikes": 582948,
+    "works": 3,
+    "totalLikes": 769632,
     "maxLikes": 380091,
     "levels": {
-      "mid": 2
+      "mid": 2,
+      "low": 1
     },
     "followers": 0,
     "followersKnown": false,
@@ -3068,10 +3100,15 @@
         "title": "这位完全不绷…#情侣行为打分 #情侣 #升温小技巧",
         "likes": 202857,
         "plays": 0
+      },
+      {
+        "title": "不止七夕 平时也能玩的情侣小游戏#七夕 #情侣游戏#恋爱",
+        "likes": 186684,
+        "plays": 0
       }
     ],
-    "hotRate": 100.0,
-    "avgLikes": 291474
+    "hotRate": 66.7,
+    "avgLikes": 256544
   },
   {
     "nickname": "曾***招",
@@ -3436,6 +3473,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 310243
+  },
+  {
+    "nickname": "h***.",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 307728,
+    "maxLikes": 307728,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "无所谓120多斤的我   老公照样单手令起来#考验男友力的时候到了",
+        "likes": 307728,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 307728
   },
   {
     "nickname": "黄***庄",
@@ -4144,6 +4202,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 216114
+  },
+  {
+    "nickname": "晖***恺",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 214872,
+    "maxLikes": 214872,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "学会了艾特对象来玩\n#情侣日常 #甜甜的恋爱日记 #情侣升温小游戏",
+        "likes": 214872,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 214872
   },
   {
     "nickname": "玉***儿",
@@ -8736,6 +8815,27 @@
     "avgLikes": 66950
   },
   {
+    "nickname": "康***兽",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 66212,
+    "maxLikes": 66212,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "是她自己不挑战的 #情侣日常#范琦心月相伴  #恋爱戴范琦  #520礼物",
+        "likes": 66212,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 66212
+  },
+  {
     "nickname": "丸***盐",
     "platform": "xiaohongshu",
     "works": 1,
@@ -10448,6 +10548,27 @@
     "avgLikes": 39373
   },
   {
+    "nickname": "B***号",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 39091,
+    "maxLikes": 39091,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "夫妻挑战｜湿滑楼梯 VS 粘人楼梯 夫妻齐心，其利断金！这期视频让屁屁隐隐作痛…\n#Brianna  #Brianna入驻抖音  #科普新锐扶持计划",
+        "likes": 39091,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 39091
+  },
+  {
     "nickname": "非***艺",
     "platform": "douyin",
     "works": 1,
@@ -11033,6 +11154,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 27998
+  },
+  {
+    "nickname": "许***版",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 27532,
+    "maxLikes": 27532,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣互换穿搭挑战💥这一看就知道是谁想拍！ #日常套路男友 #情侣穿搭ootd #情侣营业 #情侣搭配",
+        "likes": 27532,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 27532
   },
   {
     "nickname": "周***帅",
