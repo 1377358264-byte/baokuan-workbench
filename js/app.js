@@ -9,7 +9,7 @@ const App = {
   currentSubTab: 'videos', // videos | account
   filters: { level: 'all', platform: 'all', topic: 'all', burstOnly: true },
   searchQuery: '',
-  timeView: 'all', // all(历史+最近一个月两板) | recent(最近一个月) | history(历史)
+  timeView: 'all', // all(三年并排) | y2026 | y2025 | y2024
   videoData: [],
   usingRealData: false,
   accountData: {},
@@ -482,32 +482,34 @@ function renderVideoList() {
     return;
   }
 
-  // 时间分板：
-  // 🔥 最近30天：发布时间 > 今天 - 30天（按发布时间划分）
-  // 📚 历史：发布时间在 2026-01-01 ~ (今天 - 30天) 之间
-  const now = Date.now();
-  const MONTH = 30 * 86400000;
-  const YEAR2026 = new Date('2026-01-01T00:00:00+08:00').getTime();
-  const isRecent = (v) => (v.publishTime || 0) > now - MONTH;
-  const isHistory = (v) => (v.publishTime || 0) >= YEAR2026 && (v.publishTime || 0) <= now - MONTH;
+  // 时间分板：按发布年份分 2026 / 2025 / 2024 / 更早
+  const Y2026 = new Date('2026-01-01T00:00:00+08:00').getTime();
+  const Y2025 = new Date('2025-01-01T00:00:00+08:00').getTime();
+  const Y2024 = new Date('2024-01-01T00:00:00+08:00').getTime();
+  const isY2026 = (v) => (v.publishTime || 0) >= Y2026;
+  const isY2025 = (v) => (v.publishTime || 0) >= Y2025 && (v.publishTime || 0) < Y2026;
+  const isY2024 = (v) => (v.publishTime || 0) >= Y2024 && (v.publishTime || 0) < Y2025;
+  const isOlder = (v) => (v.publishTime || 0) > 0 && (v.publishTime || 0) < Y2024;
 
-  if (App.timeView === 'recent') {
-    const recent = base.filter(isRecent);
-    container.innerHTML = recent.length
-      ? renderSection('🔥 最近30天爆款', recent)
-      : `<div class="empty-state"><div class="es-icon">📭</div><p>最近30天没有匹配的爆款视频<br>试试调整筛选或切到"全部"</p></div>`;
-  } else if (App.timeView === 'history') {
-    const history = base.filter(isHistory);
-    container.innerHTML = history.length
-      ? renderSection('📚 历史爆款（2026年至今）', history)
-      : `<div class="empty-state"><div class="es-icon">📭</div><p>2026年1月1日至今没有匹配的历史爆款</p></div>`;
+  const yearLabel = { y2026: '🔥 2026年爆款', y2025: '📚 2025年爆款', y2024: '📖 2024年爆款' };
+  const yearFilter = { y2026: isY2026, y2025: isY2025, y2024: isY2024 };
+
+  if (App.timeView in yearFilter) {
+    const list = base.filter(yearFilter[App.timeView]);
+    container.innerHTML = list.length
+      ? renderSection(yearLabel[App.timeView], list)
+      : `<div class="empty-state"><div class="es-icon">📭</div><p>${App.timeView.slice(1)}年暂无匹配的爆款视频<br>试试切到"全部"或调整筛选条件</p></div>`;
   } else {
-    // 全部：最近30天 / 历史 两板并排
-    const recent = base.filter(isRecent);
-    const history = base.filter(isHistory);
+    // 全部：2026 / 2025 / 2024 / 更早 四板并排
+    const y2026 = base.filter(isY2026);
+    const y2025 = base.filter(isY2025);
+    const y2024 = base.filter(isY2024);
+    const older = base.filter(isOlder);
     container.innerHTML =
-      renderSection('🔥 最近30天爆款', recent) +
-      (history.length ? renderSection('📚 历史爆款（2026年至今）', history) : '');
+      renderSection('🔥 2026年爆款', y2026) +
+      (y2025.length ? renderSection('📚 2025年爆款', y2025) : '') +
+      (y2024.length ? renderSection('📖 2024年爆款', y2024) : '') +
+      (older.length ? renderSection('🗄️ 更早的爆款', older) : '');
   }
 
   // 绑定卡片点击事件
@@ -2106,7 +2108,7 @@ function toggleBurstOnly(btn) {
   renderVideoList();
 }
 
-// 时间视图：分板(最近/历史) / 合并
+// 时间视图：年份分板（2026/2025/2024）
 function setTimeView(mode) {
   App.timeView = mode;
   $$('.timeview-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
