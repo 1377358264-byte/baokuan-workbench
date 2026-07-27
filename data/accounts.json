@@ -1545,6 +1545,27 @@
     "avgLikes": 994110
   },
   {
+    "nickname": "吐***呀",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 976566,
+    "maxLikes": 976566,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "就是这么玩的起了#吐司妹妹 #情侣日常 #农村生活",
+        "likes": 976566,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 976566
+  },
+  {
     "nickname": "彭***贵",
     "platform": "douyin",
     "works": 2,
