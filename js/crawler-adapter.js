@@ -68,7 +68,7 @@ const PLATFORM_MAPS = {
     author: ['author', 'nickname', 'owner.name'],
     fans: ['fans', 'follower_count'],
     likes: ['liked_count', 'like_count', 'likes'],
-    plays: ['view_count', 'click_count', 'plays'],
+    plays: ['view_count', 'click_count', 'plays', 'video_play_count'],
     comments: ['comment_count', 'comments', 'reply_count'],
     shares: ['share_count', 'shares', 'dynamic_count'],
     time: ['pubdate', 'create_time', 'add_ts'],
@@ -93,6 +93,39 @@ const PLATFORM_LABEL = {
   xiaohongshu: '小红书', douyin: '抖音', kuaishou: '快手',
   bilibili: 'B站', shipinhao: '视频号',
 };
+
+// 爆款门槛：点赞 >= 1万 或 播放 >= 10万（低于此视为非爆款，前端默认隐藏）
+const BURST_MIN_LIKES = 10000;
+const BURST_MIN_PLAYS = 100000;
+
+// 解析各平台"观看原视频"链接
+function resolveUrl(raw, platform, rawId) {
+  const direct = getField(raw, ['aweme_url', 'note_url', 'share_url', 'web_url', 'url', 'video_url']);
+  if (direct && /^https?:\/\//.test(String(direct))) return String(direct);
+  if (platform === 'douyin' && rawId) return 'https://www.douyin.com/video/' + rawId;
+  if (platform === 'xiaohongshu' && rawId) return 'https://www.xiaohongshu.com/explore/' + rawId;
+  if (platform === 'kuaishou' && rawId) return 'https://www.kuaishou.com/short-video/' + rawId;
+  if (platform === 'bilibili' && rawId) return 'https://www.bilibili.com/video/' + rawId;
+  return '';
+}
+
+// 根据标题/互动生成"爆款原因"文案（离线启发式，保证每个爆款都有可看的拆解）
+function genBurstReason(v) {
+  const likes = v.likes || 0;
+  const plays = v.plays || 0;
+  const topicName = {
+    couple_funny: '情侣搞笑', daily_prank: '日常整蛊',
+    brainless: '无脑操作', reverse_plot: '反转剧情',
+  }[v.topic] || '情侣搞笑';
+  const likeText = likes >= 1000000 ? '百万级点赞' : likes >= 100000 ? '十万级点赞' : likes >= 10000 ? '万级点赞' : '较高互动';
+  const reasons = {
+    couple_funny: `「${topicName}」精准命中年轻情侣群体的日常共鸣点，${likeText}验证情绪价值到位；前3秒用生活化冲突锁停留，评论区易引发"我对象也这样"的模仿式互动，自带传播杠杆。`,
+    daily_prank: `「${topicName}」靠强反转+意外反应制造惊喜感，${likeText}说明钩子有效；这类内容成本低、可复制，非常适合翻拍二创。`,
+    brainless: `「${topicName}」提供低门槛实用干货，${likeText}反映用户"看完想试试"的冲动，收藏/转发意愿高，长尾流量好。`,
+    reverse_plot: `「${topicName}」依赖强反转与悬念铺垫，${likeText}证明情绪冲击到位，完播率与讨论度通常更高，容易进入推荐池。`,
+  };
+  return reasons[v.topic] || reasons.couple_funny;
+}
 
 // 从嵌套字段取值，支持 "a.b" 路径
 function getField(obj, keys) {
@@ -151,6 +184,8 @@ function ensureAnalysisFields(v) {
   }
   if (!v.difficulty) v.difficulty = 4;
   if (!v.potential) v.potential = 75;
+  // 爆款原因（每个爆款都给出可看的拆解）
+  if (!v.reason) v.reason = genBurstReason(v);
   return v;
 }
 
@@ -182,8 +217,12 @@ function transformRawItem(raw, platform) {
   const topic = inferTopic(title + ' ' + desc + ' ' + tagText);
   const level = computeLevel(likes);
 
+  const rawId = getField(raw, map.id) || (Date.now() + Math.random().toString(36).slice(2, 7));
+  const url = resolveUrl(raw, platform, rawId);
+  const isBurst = (likes >= BURST_MIN_LIKES) || (plays >= BURST_MIN_PLAYS);
+
   const v = {
-    id: 'mc_' + (getField(raw, map.id) || (Date.now() + Math.random().toString(36).slice(2, 7))),
+    id: 'mc_' + rawId,
     title: String(title).slice(0, 80),
     author: String(author),
     fans: fans || 0,
@@ -191,6 +230,8 @@ function transformRawItem(raw, platform) {
     platform,
     level,
     topic,
+    url,
+    isBurst,
     coverUrl: getField(raw, ['cover', 'cover_url', 'avatar', 'note_cover']) || '',
     publishTime: ts,
     fromCrawler: true,
@@ -229,5 +270,6 @@ function transformMediaCrawler(data, platformHint) {
 window.CrawlerAdapter = {
   parseCount, transformRawItem, transformMediaCrawler,
   detectMediaCrawler, ensureAnalysisFields, computeLevel, inferTopic,
-  PLATFORM_LABEL,
+  PLATFORM_LABEL, resolveUrl, genBurstReason,
+  BURST_MIN_LIKES, BURST_MIN_PLAYS,
 };
