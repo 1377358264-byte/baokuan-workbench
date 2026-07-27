@@ -8045,6 +8045,27 @@
     "avgLikes": 85000
   },
   {
+    "nickname": "到***剪",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 84117,
+    "maxLikes": 84117,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣冷战大赛  #三国  #冷战  #情侣 ",
+        "likes": 84117,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 84117
+  },
+  {
     "nickname": "女***圈",
     "platform": "douyin",
     "works": 1,
@@ -10917,6 +10938,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 37083
+  },
+  {
+    "nickname": "舒***🌓",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 36903,
+    "maxLikes": 36903,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "听说这个动作只有外星人能做到…#情侣日常#挑战",
+        "likes": 36903,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 36903
   },
   {
     "nickname": "冰***棒",
