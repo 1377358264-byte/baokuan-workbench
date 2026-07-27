@@ -7,9 +7,11 @@
 const App = {
   currentPage: 'radar',
   currentSubTab: 'videos', // videos | account
-  filters: { level: 'all', platform: 'all', topic: 'all' },
+  filters: { level: 'all', platform: 'all', topic: 'all', burstOnly: true },
   searchQuery: '',
+  timeView: 'split', // split(最近/历史分板) | merge(合并)
   videoData: [],
+  usingRealData: false,
   accountData: {},
   isOnline: navigator.onLine,
   dataSourceUrl: './data/videos.json',
@@ -100,9 +102,25 @@ const Store = {
   cachedVideos() { return this.get('cachedVideos'); },
   cacheVideos(v) { return this.set('cachedVideos', v); },
 
+  // 历史保留：所有曾经抓取/展示过的视频，按 id 持久化，保证重开不丢
+  retained() { return this.get('retained') || {}; },
+  saveRetained(v) { return this.set('retained', v); },
+
+  // 用户删除（隐藏）的视频
+  deleted() { return this.get('deleted') || {}; },
+  saveDeleted(v) { return this.set('deleted', v); },
+
+  // 二创笔记：{ [videoId]: [ { ts, content } ] }
+  remakes() { return this.get('remakes') || {}; },
+  saveRemakes(v) { return this.set('remakes', v); },
+
+  // 操作记录日志（最近 200 条）
+  opLog() { return this.get('opLog') || []; },
+  saveOpLog(v) { return this.set('opLog', v.slice(0, 200)); },
+
   exportAll() {
     const data = {
-      version: '1.0',
+      version: '1.1',
       exportTime: new Date().toISOString(),
       plans: this.plans(),
       notes: this.notes(),
@@ -111,6 +129,10 @@ const Store = {
       settings: this.settings(),
       history: this.history(),
       cachedVideos: this.cachedVideos(),
+      retained: this.retained(),
+      deleted: this.deleted(),
+      remakes: this.remakes(),
+      opLog: this.opLog(),
     };
     return JSON.stringify(data, null, 2);
   },
@@ -125,6 +147,10 @@ const Store = {
       if (data.settings) this.saveSettings(data.settings);
       if (data.history) this.saveHistory(data.history);
       if (data.cachedVideos) this.cacheVideos(data.cachedVideos);
+      if (data.retained) this.saveRetained(data.retained);
+      if (data.deleted) this.saveDeleted(data.deleted);
+      if (data.remakes) this.saveRemakes(data.remakes);
+      if (data.opLog) this.saveOpLog(data.opLog);
       return true;
     } catch (e) {
       console.error('导入失败:', e);
@@ -239,6 +265,23 @@ const TOPIC_MAP = {
 };
 
 // ===== 数据加载器 =====
+// 合并"历史保留"：把本地曾展示过的视频与服务端最新数据合并，去重后写回，
+// 保证用户每次刷新/打开看到的爆款视频都能持久留存，不因服务端变化而丢失。
+function mergeRetained(list) {
+  const retained = Store.retained() || {};
+  const map = {};
+  // 先放旧的历史（更早展示过的）
+  Object.values(retained).forEach(v => { if (v && v.id) map[v.id] = v; });
+  // 再用服务端最新数据覆盖（保证数据新鲜）
+  list.forEach(v => { if (v && v.id) map[v.id] = v; });
+  const merged = Object.values(map);
+  // 控制体积：保留最近 2000 条
+  const keep = {};
+  merged.slice(-2000).forEach(v => { keep[v.id] = v; });
+  Store.saveRetained(keep);
+  return merged;
+}
+
 async function loadVideoData(forceRefresh = false) {
   const settings = Store.settings();
   if (settings.dataSourceUrl) App.dataSourceUrl = settings.dataSourceUrl;
@@ -247,9 +290,9 @@ async function loadVideoData(forceRefresh = false) {
   if (!forceRefresh && !App.isOnline) {
     const cached = Store.cachedVideos();
     if (cached && cached.length > 0) {
-      App.videoData = cached;
+      App.videoData = mergeRetained(cached);
       showOfflineBanner(true);
-      return cached;
+      return App.videoData;
     }
   }
 
@@ -264,7 +307,10 @@ async function loadVideoData(forceRefresh = false) {
     if (window.CrawlerAdapter && window.CrawlerAdapter.detectMediaCrawler(list)) {
       list = window.CrawlerAdapter.transformMediaCrawler(list);
     }
+    // 合并历史保留
+    list = mergeRetained(list);
     App.videoData = list;
+    App.usingRealData = list.some(v => v.fromCrawler);
     App.lastFetchTime = Date.now();
     Store.cacheVideos(App.videoData);
     showOfflineBanner(false);
@@ -273,12 +319,14 @@ async function loadVideoData(forceRefresh = false) {
     console.warn('爬虫数据加载失败，使用缓存:', err.message);
     const cached = Store.cachedVideos();
     if (cached && cached.length > 0) {
-      App.videoData = cached;
+      App.videoData = mergeRetained(cached);
+      App.usingRealData = App.videoData.some(v => v.fromCrawler);
       showOfflineBanner(true);
-      return cached;
+      return App.videoData;
     }
     // 最终兜底：使用内置示例数据（仅首次启动无任何数据时）
-    App.videoData = SAMPLE_VIDEOS;
+    App.videoData = mergeRetained(SAMPLE_VIDEOS);
+    App.usingRealData = false;
     App.lastFetchTime = Date.now();
     showOfflineBanner(true);
     return App.videoData;
@@ -357,9 +405,25 @@ function simulateDailyCrawl() {
 }
 
 // ===== 视频筛选与渲染 =====
+function isFiltering() {
+  const f = App.filters;
+  return f.level !== 'all' || f.platform !== 'all' || f.topic !== 'all' || !!App.searchQuery.trim();
+}
+
 function getFilteredVideos() {
   let list = [...App.videoData];
   const f = App.filters;
+
+  // 隐藏用户已删除的视频
+  const deleted = Store.deleted();
+  if (deleted && Object.keys(deleted).length) {
+    list = list.filter(v => !deleted[v.id]);
+  }
+
+  // 仅看爆款（默认开启，过滤掉点赞几十/播放几百的非爆款）
+  if (f.burstOnly) {
+    list = list.filter(v => v.isBurst !== false);
+  }
 
   if (f.level !== 'all') list = list.filter(v => v.level === f.level);
   if (f.platform !== 'all') list = list.filter(v => v.platform === f.platform);
@@ -379,26 +443,52 @@ function getFilteredVideos() {
   return list;
 }
 
+function renderSection(title, list) {
+  if (!list.length) return '';
+  return `
+    <div class="video-section">
+      <div class="section-head">${title}<span class="section-count">${list.length}</span></div>
+      <div class="section-cards">${list.map(v => renderVideoCard(v)).join('')}</div>
+    </div>`;
+}
+
 function renderVideoList() {
   const container = $('#videoList');
-  const filtered = getFilteredVideos();
+  const base = getFilteredVideos();
 
-  $('#resultCount').textContent = `符合条件的爆款：${filtered.length}条`;
+  $('#resultCount').textContent = `符合条件的爆款：${base.length}条`;
 
-  if (filtered.length === 0) {
+  if (base.length === 0) {
     container.innerHTML = `
       <div class="empty-state">
         <div class="es-icon">🔍</div>
-        <p>没有找到符合条件的爆款视频<br>试试调整筛选条件</p>
+        <p>没有找到符合条件的爆款视频<br>试试调整筛选条件，或关闭"仅看爆款"</p>
       </div>`;
     return;
   }
 
-  container.innerHTML = filtered.map(v => renderVideoCard(v)).join('');
+  // 分板：最近7天 / 历史（仅在没有筛选/搜索时分板，否则合并显示）
+  if (App.timeView === 'split' && !isFiltering()) {
+    const now = Date.now();
+    const week = 7 * 86400000;
+    const recent = base.filter(v => (v.publishTime || 0) > now - week);
+    const history = base.filter(v => (v.publishTime || 0) <= now - week);
+    container.innerHTML =
+      renderSection('🔥 最近7天爆起来的', recent) +
+      (history.length ? renderSection('📚 历史爆款（更早抓取的）', history) : '');
+    if (!recent.length && !history.length) {
+      container.innerHTML = `<div class="empty-state"><div class="es-icon">📭</div><p>暂无数据</p></div>`;
+    }
+  } else {
+    container.innerHTML = base.map(v => renderVideoCard(v)).join('');
+  }
 
   // 绑定卡片点击事件
   container.querySelectorAll('.video-card').forEach(card => {
-    card.addEventListener('click', () => openVideoDetail(card.dataset.id));
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-action')) return; // 操作按钮不触发详情
+      openVideoDetail(card.dataset.id);
+    });
   });
 }
 
@@ -407,6 +497,11 @@ function renderVideoCard(v) {
   const platClass = `plat-${v.platform || 'douyin'}`;
   const levelText = LEVEL_MAP[v.level] || '未知等级';
   const platText = PLATFORM_MAP[v.platform] || '未知平台';
+  const favs = Store.favorites();
+  const isFav = favs.some(f => f.id === v.id);
+  const remakes = Store.remakes();
+  const remakeCount = (remakes[v.id] || []).length;
+  const url = v.url || '';
 
   return `
     <div class="video-card" data-id="${v.id}">
@@ -419,6 +514,7 @@ function renderVideoCard(v) {
           <span class="tag-level ${levelClass}">${levelText}</span>
           <span class="tag-platform ${platClass}">${platText}</span>
         </div>
+        ${url ? `<button class="card-link-btn" title="观看原视频" onclick="event.stopPropagation();openOriginal('${url.replace(/'/g, "\\'")}')">🔗</button>` : ''}
       </div>
       <div class="card-body">
         <div class="card-title">${v.title}</div>
@@ -431,8 +527,20 @@ function renderVideoCard(v) {
         <span class="stat-item"><span class="stat-icon">🔥</span>${formatNum(v.likes || 0)}</span>
         <span class="stat-item"><span class="stat-icon">▶️</span>${formatNum(v.plays || 0)}</span>
         <span class="stat-time">${timeAgo(v.publishTime)}</span>
+        <span class="card-actions">
+          <button class="card-action fav ${isFav ? 'on' : ''}" title="收藏" onclick="event.stopPropagation();toggleFav('${v.id}')">${isFav ? '❤️' : '🤍'}</button>
+          <button class="card-action" title="二创笔记" onclick="event.stopPropagation();openRemake('${v.id}')">✏️${remakeCount ? '<i class="badge">' + remakeCount + '</i>' : ''}</button>
+          <button class="card-action" title="删除" onclick="event.stopPropagation();markDeleted('${v.id}')">🗑️</button>
+        </span>
       </div>
     </div>`;
+}
+
+// 打开原视频链接（跳转对应 APP / 网页）
+function openOriginal(url) {
+  if (!url) { showToast('暂无原视频链接'); return; }
+  window.open(url, '_blank');
+  logOp('open_original', url, '打开原视频');
 }
 
 // ===== 视频详情弹窗 =====
@@ -454,6 +562,7 @@ function openVideoDetail(videoId) {
     `<span class="detail-tag">${f}</span>`
   ).join('');
 
+  $('#detailReason').innerHTML = `<p class="detail-text">${v.reason || '暂无分析'}</p>`;
   $('#detailHook').innerHTML = `<p class="detail-text">${v.hook3s || '暂无分析'}</p>`;
   $('#detailStructure').innerHTML = `<p class="detail-text">${v.structure || '暂无分析'}</p>`;
 
@@ -467,7 +576,20 @@ function openVideoDetail(videoId) {
   const adaptAdvice = generateAdaptationAdvice(v);
   $('#detailAdapt').innerHTML = `<p class="detail-text">${adaptAdvice}</p>`;
 
-  $('#btnAddMaterial').onclick = () => addToMaterialLibrary(v);
+  // 操作按钮绑定
+  const favs = Store.favorites();
+  const isFav = favs.some(f => f.id === v.id);
+  $('#btnFav').textContent = isFav ? '❤️ 已收藏' : '🤍 收藏';
+  $('#btnFav').onclick = () => toggleFav(v.id, true);
+  $('#btnRemake').onclick = () => openRemake(v.id);
+  $('#btnDelete').onclick = () => markDeleted(v.id);
+  const origBtn = $('#btnOriginal');
+  if (v.url) {
+    origBtn.style.display = '';
+    origBtn.onclick = () => openOriginal(v.url);
+  } else {
+    origBtn.style.display = 'none';
+  }
 
   modal.classList.add('show');
 }
@@ -500,96 +622,326 @@ function addToMaterialLibrary(video) {
   showToast('✅ 已加入二创素材库');
 }
 
-// ===== 账号分析功能 =====
+// ===== 用户操作：收藏 / 二创 / 删除 / 恢复（全部持久化） =====
+function logOp(action, target, label) {
+  const log = Store.opLog();
+  log.unshift({ action, target, label: label || '', ts: Date.now() });
+  Store.saveOpLog(log);
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+// 收藏 / 取消收藏
+function toggleFav(id, fromDetail) {
+  const v = App.videoData.find(x => x.id === id);
+  const favs = Store.favorites();
+  const idx = favs.findIndex(f => f.id === id);
+  if (idx >= 0) {
+    favs.splice(idx, 1);
+    Store.saveFavorites(favs);
+    showToast('已取消收藏');
+    logOp('unfavorite', id, v ? v.title : '');
+  } else {
+    if (!v) { showToast('视频不存在'); return; }
+    favs.unshift({ ...v, addedAt: Date.now(), notes: '' });
+    Store.saveFavorites(favs);
+    showToast('✅ 已收藏');
+    logOp('favorite', id, v.title);
+  }
+  if (fromDetail) {
+    const btn = $('#btnFav');
+    if (btn) { const on = favs.some(f => f.id === id); btn.textContent = on ? '❤️ 已收藏' : '🤍 收藏'; }
+  }
+  renderVideoList();
+  if (App.currentPage === 'settings') renderOpsPage();
+  updateSettingsStats();
+}
+
+// 二创笔记
+function openRemake(id) {
+  const v = App.videoData.find(x => x.id === id);
+  if (!v) return;
+  const remakes = Store.remakes();
+  const list = remakes[id] || [];
+  $('#remakeVideoTitle').textContent = v.title;
+  const wrap = $('#remakeList');
+  wrap.innerHTML = list.length
+    ? list.map((r, i) => `<div class="remake-item"><div class="ri-text">${escapeHtml(r.content)}</div><div class="ri-foot"><span>${timeAgo(r.ts)}</span><button class="ri-del" onclick="deleteRemake('${id}',${i})">删除</button></div></div>`).join('')
+    : '<p class="remake-empty">还没有二创笔记，写下你的翻拍灵感吧～</p>';
+  $('#remakeInput').value = '';
+  $('#remakeModal').dataset.vid = id;
+  $('#remakeModal').classList.add('show');
+}
+function saveRemake() {
+  const id = $('#remakeModal').dataset.vid;
+  const content = $('#remakeInput').value.trim();
+  if (!content) { showToast('请输入内容'); return; }
+  const remakes = Store.remakes();
+  if (!remakes[id]) remakes[id] = [];
+  remakes[id].unshift({ ts: Date.now(), content });
+  Store.saveRemakes(remakes);
+  logOp('remake', id, content.slice(0, 20));
+  showToast('✅ 二创已保存');
+  $('#remakeInput').value = '';
+  openRemake(id);
+  renderVideoList();
+  if (App.currentPage === 'settings') renderOpsPage();
+}
+function deleteRemake(id, idx) {
+  const remakes = Store.remakes();
+  if (remakes[id]) {
+    remakes[id].splice(idx, 1);
+    if (!remakes[id].length) delete remakes[id];
+    Store.saveRemakes(remakes);
+  }
+  openRemake(id);
+  renderVideoList();
+}
+function closeRemake() { $('#remakeModal').classList.remove('show'); }
+
+// 删除（隐藏）视频
+function markDeleted(id) {
+  const v = App.videoData.find(x => x.id === id);
+  if (!confirm('确定删除这条视频？（可在"我的→操作记录"里恢复）')) return;
+  const deleted = Store.deleted();
+  deleted[id] = Date.now();
+  Store.saveDeleted(deleted);
+  logOp('delete', id, v ? v.title : '');
+  showToast('已删除（可在操作记录恢复）');
+  if ($('#detailModal').classList.contains('show')) closeDetailModal();
+  renderVideoList();
+  if (App.currentPage === 'settings') renderOpsPage();
+  updateSettingsStats();
+}
+function restoreDeleted(id) {
+  const deleted = Store.deleted();
+  delete deleted[id];
+  Store.saveDeleted(deleted);
+  logOp('restore', id, '');
+  showToast('✅ 已恢复');
+  renderVideoList();
+  if (App.currentPage === 'settings') renderOpsPage();
+  updateSettingsStats();
+}
+
+// 操作记录面板（我的页）
+function renderOpsPage() {
+  const favs = Store.favorites();
+  const remakes = Store.remakes();
+  const remakeCount = Object.values(remakes).reduce((s, a) => s + a.length, 0);
+  const deleted = Store.deleted();
+  const log = Store.opLog();
+
+  const delArr = Object.entries(deleted).map(([id, ts]) => {
+    const v = findAnyVideo(id);
+    return { id, ts, title: v ? v.title : '(视频已从列表移除)', author: v ? v.author : '', platform: v ? v.platform : '' };
+  });
+
+  const favHtml = favs.length ? favs.map(f => `
+    <div class="ops-item" onclick="openVideoDetail('${f.id}')">
+      <div class="ops-main"><div class="ops-title">${escapeHtml(f.title)}</div><div class="ops-sub">${escapeHtml(f.author || '')} · ${PLATFORM_MAP[f.platform] || ''} · 收藏于 ${new Date(f.addedAt).toLocaleDateString()}</div></div>
+      <button class="ops-x" onclick="event.stopPropagation();toggleFav('${f.id}')">取消</button>
+    </div>`).join('') : '<p class="ops-empty">还没有收藏</p>';
+
+  const remakeHtml = remakeCount ? Object.entries(remakes).map(([id, arr]) => {
+    const v = findAnyVideo(id);
+    return `<div class="ops-group"><div class="ops-group-title">${escapeHtml(v ? v.title : id)} (${arr.length})</div>${arr.map((r, i) => `<div class="ops-item"><div class="ops-main"><div class="ops-sub">${timeAgo(r.ts)}</div><div class="ops-text">${escapeHtml(r.content)}</div></div><button class="ops-x" onclick="deleteRemake('${id}',${i})">删除</button></div>`).join('')}</div>`;
+  }).join('') : '<p class="ops-empty">还没有二创笔记</p>';
+
+  const delHtml = delArr.length ? delArr.map(d => `
+    <div class="ops-item">
+      <div class="ops-main"><div class="ops-title">${escapeHtml(d.title)}</div><div class="ops-sub">${escapeHtml(d.author || '')} · ${PLATFORM_MAP[d.platform] || ''} · 删除于 ${new Date(d.ts).toLocaleDateString()}</div></div>
+      <button class="ops-x" onclick="restoreDeleted('${d.id}')">恢复</button>
+    </div>`).join('') : '<p class="ops-empty">没有已删除的视频</p>';
+
+  const logHtml = log.length ? log.map(l => {
+    const map = { favorite: '⭐ 收藏', unfavorite: '🤍 取消收藏', remake: '✏️ 二创', delete: '🗑️ 删除', restore: '♻️ 恢复', open_original: '🔗 看原片' };
+    return `<div class="ops-log-item"><span class="ol-act">${map[l.action] || l.action}</span><span class="ol-label">${escapeHtml((l.label || '').slice(0, 30))}</span><span class="ol-time">${timeAgo(l.ts)}</span></div>`;
+  }).join('') : '<p class="ops-empty">暂无操作记录</p>';
+
+  const el = $('#opsPanel');
+  if (el) el.innerHTML = `
+    <div class="ops-block">
+      <div class="ops-head">⭐ 我的收藏 <span class="ops-num">${favs.length}</span></div>
+      ${favHtml}
+    </div>
+    <div class="ops-block">
+      <div class="ops-head">✏️ 二创笔记 <span class="ops-num">${remakeCount}</span></div>
+      ${remakeHtml}
+    </div>
+    <div class="ops-block">
+      <div class="ops-head">🗑️ 已删除（可恢复） <span class="ops-num">${delArr.length}</span></div>
+      ${delHtml}
+    </div>
+    <div class="ops-block">
+      <div class="ops-head">📜 操作日志 <span class="ops-num">${log.length}</span></div>
+      ${logHtml}
+    </div>`;
+}
+
+// 在保留/当前数据中查找视频（含历史保留）
+function findAnyVideo(id) {
+  return App.videoData.find(x => x.id === id)
+    || (Store.retained()[id])
+    || null;
+}
+
+// ===== 账号分析功能（从真实爆款视频聚合博主） =====
 async function analyzeAccount() {
   const input = $('#accountInput').value.trim();
   const platform = $('#accountPlatform').value;
-
-  if (!input) { showToast('请输入博主ID或主页链接'); return; }
-
+  if (!input) { showToast('请输入博主昵称 / 抖音号 / 主页链接'); return; }
   showToast('正在分析...');
-
-  // 尝试从爬虫数据加载
-  let accountData = null;
-  try {
-    const settings = Store.settings();
-    const url = (settings.accountSourceUrl || App.accountSourceUrl) + '?id=' + encodeURIComponent(input) + '&platform=' + platform;
-    const resp = await fetch(url, { signal: AbortSignal.timeout(8000) });
-    if (resp.ok) accountData = await resp.json();
-  } catch (e) {
-    console.log('账号数据从网络获取失败，生成模拟分析');
+  const data = aggregateAccount(input, platform);
+  if (!data) {
+    renderAccountEmpty(input, platform);
+    return;
   }
-
-  // 如果没有爬虫数据，基于已有视频数据模拟分析
-  if (!accountData) {
-    accountData = generateMockAccountAnalysis(input, platform);
-  }
-
-  renderAccountResult(accountData);
-
-  // 保存历史记录
+  renderAccountResult(data);
   const history = Store.history();
   history.unshift({
     id: genId(),
     query: input,
     platform,
-    result: accountData,
+    result: { nickname: data.nickname, totalWorks: data.totalWorks, hotRate: data.hotRate },
     time: Date.now(),
   });
-  Store.saveHistory(history.slice(0, 50)); // 最多保留50条
+  Store.saveHistory(history.slice(0, 50));
 }
 
-function generateMockAccountAnalysis(query, platform) {
-  // 基于查询词和当前视频数据生成合理的模拟分析
-  const relatedVideos = App.videoData.filter(v =>
-    (platform === 'all' || v.platform === platform) &&
-    ((v.author || '').includes(query) || (v.title || '').includes(query))
-  );
+// 从当前真实视频数据聚合指定博主
+function aggregateAccount(query, platform) {
+  const q = query.replace(/^https?:\/\//, '').replace(/[@\s]/g, '').toLowerCase();
+  const deleted = Store.deleted();
+  const matches = App.videoData.filter(v => {
+    if (deleted[v.id]) return false;
+    if (platform !== 'all' && v.platform !== platform) return false;
+    const name = String(v.author || '').toLowerCase();
+    const url = String(v.url || '').toLowerCase();
+    return name.includes(q) || q.includes(name) || url.includes(q);
+  });
+  if (!matches.length) return null;
 
-  const totalFans = relatedVideos.reduce((s, v) => s + (v.fans || 0), 0) || Math.floor(Math.random() * 5000000) + 10000;
-  const totalLikes = relatedVideos.reduce((s, v) => s + (v.likes || 0), 0) || Math.floor(Math.random() * 2000000) + 5000;
-  const totalWorks = Math.max(relatedVideos.length, Math.floor(Math.random() * 200) + 20);
-  const avgLikes = Math.floor(totalLikes / totalWorks);
-  const hotRate = ((relatedVideos.filter(v => ['mid','head','super'].includes(v.level)).length / Math.max(totalWorks, 1)) * 100).toFixed(1);
+  const works = [...matches].sort((a, b) => (b.likes || 0) - (a.likes || 0));
+  const totalLikes = works.reduce((s, v) => s + (v.likes || 0), 0);
+  const maxLikes = works[0].likes || 0;
+  const avgLikes = Math.round(totalLikes / works.length);
+  const burstWorks = works.filter(v => ['mid', 'head', 'super'].includes(v.level));
+  const hotRate = +((burstWorks.length / works.length) * 100).toFixed(1);
+  const fansList = works.map(v => v.fans || 0).filter(Boolean);
+  const fans = fansList.length ? Math.max(...fansList) : 0;
+
+  const topicCount = {};
+  works.forEach(v => { const t = v.topic || 'couple_funny'; topicCount[t] = (topicCount[t] || 0) + 1; });
+  const topTopics = Object.entries(topicCount).sort((a, b) => b[1] - a[1]).map(([t]) => t);
+  const topicName = { couple_funny: '情侣搞笑', daily_prank: '日常整蛊', brainless: '无脑操作', reverse_plot: '反转剧情' };
+
+  const patterns = [
+    `主攻题材：${topTopics.slice(0, 2).map(t => topicName[t] || t).join('、') || '情侣搞笑'}`,
+    `内容结构多为：铺垫 → 冲突 → 反转 → 收尾，前3秒用强钩子锁停留`,
+    `代表爆款《${works[0].title}》获赞 ${formatNum(maxLikes)}，验证该套路有效`,
+    `高频使用居家/日常场景，道具简单易复制，适合翻拍`,
+    `标题常含数字、对比与情绪词，评论区引导互动话术固定`,
+  ];
+  const suggestions = [
+    `其"${topicName[topTopics[0]] || '情侣搞笑'}"模式复制成本低，适合新手起步`,
+    `标题公式"数字+悬念+情感词"可直接套用`,
+    `学习其评论区运营，提高互动率与完播`,
+    `注意避开低数据作品的"铺垫过长"问题，前5秒进入正题`,
+  ];
+  const warnings = [
+    `部分作品过度依赖单一反转套路，注意避免观众审美疲劳`,
+    `低数据作品中常见铺垫过长，建议控制在5秒内进入正题`,
+  ];
 
   return {
-    nickname: query.includes('@') ? query.split('@')[1]?.split('.')[0] || query : query + '的账号',
+    nickname: works[0].author,
     avatar: '',
-    totalFans,
+    platform: platform === 'all' ? works[0].platform : platform,
+    totalFans: fans,
     totalLikes,
-    totalWorks,
+    totalWorks: works.length,
     avgLikes,
-    avgComments: Math.floor(avgLikes * 0.05),
-    avgShares: Math.floor(avgLikes * 0.08),
-    hotRate: parseFloat(hotRate),
-    recentWorks: (relatedVideos.length > 0 ? relatedVideos : SAMPLE_VIDEOS.slice(0, 5)).slice(0, 20).map(v => ({
-      ...v,
-      isHot: ['mid','head','super'].includes(v.level),
-    })),
-    patterns: [
-      '开篇常用"你敢信"/"结果没想到"等悬念句式制造停留',
-      '内容结构多为：日常场景铺垫 → 意外事件插入 → 夸张反应 → 反转收尾',
-      '高频使用居家环境（卧室/客厅/厨房），道具简单易复制',
-      '标题常含数字和对比："X分钟""差X倍""第一次就..."',
-      '评论区引导话术固定，常用"你们会怎么做？""艾特你的TA"',
-    ],
-    suggestions: [
-      '该账号的"日常场景+意外反转"模式复制成本低，适合新手起步',
-      '其标题公式"数字+悬念+情感词"可直接套用',
-      '建议学习其评论区运营策略，提高互动率',
-      '注意避开其低数据作品中的"过度表演"问题',
-      '情侣赛道可借鉴其"角色互换"类内容的互动设计',
-    ],
-    warnings: [
-      '部分作品过度依赖单一反转套路，观众可能产生审美疲劳',
-      '低数据作品中常见"铺垫过长"问题，建议控制在5秒内进入正题',
-    ],
+    maxLikes,
+    hotRate,
+    followersKnown: fans > 0,
+    recentWorks: works.slice(0, 20).map(v => ({ ...v, isHot: ['mid', 'head', 'super'].includes(v.level) })),
+    patterns, suggestions, warnings,
   };
+}
+
+// 聚合全部博主，生成对标榜单
+function getAuthorStats() {
+  const deleted = Store.deleted();
+  const map = {};
+  App.videoData.forEach(v => {
+    if (deleted[v.id]) return;
+    const key = v.author + '|' + v.platform;
+    const g = map[key] || (map[key] = { nickname: v.author, platform: v.platform, works: 0, totalLikes: 0, maxLikes: 0, fans: 0, topWorks: [] });
+    g.works++;
+    g.totalLikes += (v.likes || 0);
+    g.maxLikes = Math.max(g.maxLikes, v.likes || 0);
+    if ((v.fans || 0) > g.fans) g.fans = v.fans;
+    g.topWorks.push(v);
+  });
+  const arr = Object.values(map).map(g => ({ ...g, hotRate: +(((g.topWorks.filter(w => ['mid', 'head', 'super'].includes(w.level)).length) / g.works) * 100).toFixed(1) }));
+  arr.sort((a, b) => b.maxLikes - a.maxLikes);
+  return arr;
+}
+
+function renderAccountLeaderboard() {
+  const el = $('#accountLeaderboard');
+  if (!el) return;
+  const stats = getAuthorStats();
+  if (!stats.length) {
+    el.innerHTML = '<p class="ops-empty">暂无可分析的博主（先去爆款雷达抓取数据）</p>';
+    return;
+  }
+  el.innerHTML = `<div class="lb-head">🏆 已收录博主（点击直接分析）</div>` + stats.slice(0, 30).map(s => `
+    <div class="lb-item" onclick="quickAnalyze('${escapeHtml(s.nickname)}','${s.platform}')">
+      <div class="lb-avatar">${(s.nickname || '?').charAt(0)}</div>
+      <div class="lb-info">
+        <div class="lb-name">${escapeHtml(s.nickname)} <span class="lb-plat">${PLATFORM_MAP[s.platform] || ''}</span></div>
+        <div class="lb-sub">${s.works}条作品 · 爆款率${s.hotRate}% · 最高赞${formatNum(s.maxLikes)}</div>
+      </div>
+      <div class="lb-go">›</div>
+    </div>`).join('');
+}
+
+function quickAnalyze(nickname, platform) {
+  $('#accountInput').value = nickname;
+  $('#accountPlatform').value = platform;
+  switchSubTab('account');
+  analyzeAccount();
+}
+
+function renderAccountEmpty(input, platform) {
+  const container = $('#accountResult');
+  container.style.display = 'block';
+  container.innerHTML = `
+    <div class="account-profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar">${escapeHtml((input || '?').charAt(0))}</div>
+        <div class="profile-info"><h3>${escapeHtml(input)}</h3><p>未在当前爆款数据中匹配到该博主</p></div>
+      </div>
+      <div class="pattern-card">
+        <h4>💡 说明</h4>
+        <ul class="pattern-list">
+          <li><span class="pli-num">①</span><span>账号分析基于"爆款雷达"里已抓取的视频，按博主昵称聚合。当前数据库以抖音为主，小红书/快手/B站需在爬虫补齐后自动出现。</span></li>
+          <li><span class="pli-num">②</span><span>这是你已知的抖音号/小红书号时，请先确认其作品已被抓取，再回来分析。</span></li>
+          <li><span class="pli-num">③</span><span>也可直接点上方"已收录博主"榜单，挑选已匹配的头部博主对标。</span></li>
+        </ul>
+      </div>
+    </div>`;
 }
 
 function renderAccountResult(data) {
   const container = $('#accountResult');
   container.style.display = 'block';
+
+  const fansText = data.followersKnown ? formatNum(data.totalFans) : (data.totalFans ? formatNum(data.totalFans) : '待抓取');
 
   container.innerHTML = `
     <div class="account-profile-card">
@@ -597,13 +949,13 @@ function renderAccountResult(data) {
         <div class="profile-avatar">${data.nickname?.charAt(0) || '👤'}</div>
         <div class="profile-info">
           <h3>${data.nickname || '未知博主'}</h3>
-          <p>共 ${data.totalWorks || 0} 条作品 · 爆款率 ${(data.hotRate || 0)}%</p>
+          <p>${PLATFORM_MAP[data.platform] || ''} · 共 ${data.totalWorks || 0} 条作品 · 爆款率 ${(data.hotRate || 0)}%</p>
         </div>
       </div>
       <div class="profile-stats-grid">
-        <div class="ps-item"><div class="ps-value">${formatNum(data.totalFans || 0)}</div><div class="ps-label">总粉丝</div></div>
+        <div class="ps-item"><div class="ps-value">${fansText}</div><div class="ps-label">${data.followersKnown ? '总粉丝' : '粉丝(待抓)'}</div></div>
         <div class="ps-item"><div class="ps-value">${formatNum(data.totalLikes || 0)}</div><div class="ps-label">总获赞</div></div>
-        <div class="ps-item"><div class="ps-value">${data.avgLikes || 0}</div><div class="ps-label">均赞</div></div>
+        <div class="ps-item"><div class="ps-value">${formatNum(data.avgLikes || 0)}</div><div class="ps-label">均赞</div></div>
         <div class="ps-item"><div class="ps-value">${data.hotRate || 0}%</div><div class="ps-label">爆款率</div></div>
       </div>
     </div>
@@ -631,11 +983,11 @@ function renderAccountResult(data) {
     </div>` : ''}
 
     <div class="pattern-card">
-      <h4>📋 近期作品（${(data.recentWorks || []).length}条）</h4>
+      <h4>📋 该博主爆款作品（${(data.recentWorks || []).length}条）</h4>
       <div class="works-mini-list">
         ${(data.recentWorks || []).map(w => `
-          <div class="work-mini-item ${w.isHot ? 'wmi-hot' : 'wmi-normal'}">
-            <span class="wmi-title">${w.title}</span>
+          <div class="work-mini-item ${w.isHot ? 'wmi-hot' : 'wmi-normal'}" onclick="openVideoDetail('${w.id}')">
+            <span class="wmi-title">${escapeHtml(w.title)}</span>
             <span class="wmi-stats">🔥${formatNum(w.likes || 0)}</span>
           </div>
         `).join('')}
@@ -1259,6 +1611,22 @@ function switchSubTab(tab) {
 
   $('#videosView').style.display = tab === 'videos' ? 'block' : 'none';
   $('#accountView').classList.toggle('active', tab === 'account');
+
+  if (tab === 'account') renderAccountLeaderboard();
+}
+
+// 仅看爆款 开关
+function toggleBurstOnly(btn) {
+  App.filters.burstOnly = !App.filters.burstOnly;
+  if (btn) btn.classList.toggle('on', App.filters.burstOnly);
+  renderVideoList();
+}
+
+// 时间视图：分板(最近/历史) / 合并
+function setTimeView(mode) {
+  App.timeView = mode;
+  $$('.timeview-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  renderVideoList();
 }
 
 // ===== 筛选器绑定 =====
@@ -1305,12 +1673,17 @@ async function refreshData() {
   const btn = $('#refreshBtn');
   btn.classList.add('spinning');
 
-  if (isDemoMode()) {
-    const added = simulateDailyCrawl();
-    showToast(`✅ 模拟抓取 ${added} 条新爆款`);
-  } else {
+  try {
     await loadVideoData(true);
-    showToast('✅ 数据已更新');
+    showToast('✅ 已重新抓取最新爆款');
+  } catch (e) {
+    // 抓取失败且本地无数据时，回退到模拟（仅兜底）
+    if (!App.videoData.length) {
+      const added = simulateDailyCrawl();
+      showToast(`✅ 模拟抓取 ${added} 条新爆款`);
+    } else {
+      showToast('⚠️ 抓取失败，展示本地已存数据');
+    }
   }
 
   renderVideoList();
@@ -1324,8 +1697,8 @@ function updateTimeStatus() {
   if (el) {
     const ago = timeAgo(App.lastFetchTime);
     const total = App.videoData.length;
-    const demoTag = isDemoMode() ? ' · 示例数据' : '';
-    el.innerHTML = `<span class="status-dot"></span> 最近抓取: ${ago} · 共 ${total} 条爆款视频${demoTag}`;
+    const realTag = App.usingRealData ? ' · 真实爬虫数据' : ' · 示例数据';
+    el.innerHTML = `<span class="status-dot"></span> 最近抓取: ${ago} · 共 ${total} 条爆款视频${realTag}`;
   }
 }
 
