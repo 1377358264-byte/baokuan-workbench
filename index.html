@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#0071e3">
+  <title>爆款工作台</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+  <!-- 离线提示横幅 -->
+  <div class="offline-banner" id="offlineBanner">⚠️ 数据源离线，展示历史缓存爆款 · 仅创作功能正常可用</div>
+
+  <!-- 下拉刷新指示器 -->
+  <div class="pull-indicator" id="pullIndicator">⬇️ 松手刷新数据...</div>
+
+  <!-- ==================== Tab1: 爆款雷达 ==================== -->
+  <div class="page active" id="radarPage">
+
+    <!-- 头部 -->
+    <div class="radar-header">
+      <div class="radar-header-top">
+        <div class="radar-title-group">
+          <h1>爆款雷达</h1>
+          <p>每日9:00自动抓取各平台爆款</p>
+        </div>
+        <button class="refresh-btn" id="refreshBtn" onclick="refreshData()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-6.219-8.56"/><path d="M21 3v6h-6"/></svg>
+        </button>
+      </div>
+
+      <!-- 分段切换 -->
+      <div class="segment-tabs">
+        <button class="segment-tab active" data-tab="videos" onclick="switchSubTab('videos')">
+          <span class="tab-icon">🔥</span> 爆款视频
+        </button>
+        <button class="segment-tab" data-tab="account" onclick="switchSubTab('account')">
+          <span class="tab-icon">📊</span> 账号分析
+        </button>
+      </div>
+    </div>
+
+    <!-- 数据状态栏 -->
+    <div class="data-status-bar" id="dataStatusBar">
+      <span id="lastFetchInfo"><span class="status-dot"></span> 最近抓取: 刚刚 · 共 0 条爆款视频</span>
+    </div>
+
+    <!-- ===== 爆款视频视图 ===== -->
+    <div id="videosView">
+
+      <!-- 筛选按钮组 -->
+      <div class="filter-section">
+        <!-- 爆款等级 -->
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="level" data-value="all">全部</button>
+          <button class="filter-btn" data-filter="level" data-value="low_fan">低粉爆款</button>
+          <button class="filter-btn" data-filter="level" data-value="low_burst">低粉大爆</button>
+          <button class="filter-btn" data-filter="level" data-value="mid">腰部爆款</button>
+          <button class="filter-btn" data-filter="level" data-value="head">头部爆款</button>
+          <button class="filter-btn" data-filter="level" data-value="super">超级爆款</button>
+        </div>
+        <!-- 平台筛选 -->
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="platform" data-value="all">全部平台</button>
+          <button class="filter-btn" data-filter="platform" data-value="douyin">🎵 抖音</button>
+          <button class="filter-btn" data-filter="platform" data-value="kuaishou">⚡ 快手</button>
+          <button class="filter-btn" data-filter="platform" data-value="xiaohongshu">📕 小红书</button>
+          <button class="filter-btn" data-filter="platform" data-value="bilibili">📺 B站</button>
+          <button class="filter-btn" data-filter="platform" data-value="shipinhao">💚 视频号</button>
+        </div>
+        <!-- 题材赛道 -->
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="topic" data-value="all">全部题材</button>
+          <button class="filter-btn" data-filter="topic" data-value="couple_funny">💑 情侣搞笑</button>
+          <button class="filter-btn" data-filter="topic" data-value="daily_prank">😂 日常整蛊</button>
+          <button class="filter-btn" data-filter="topic" data-value="brainless">🧠 无脑操作</button>
+          <button class="filter-btn" data-filter="topic" data-value="reverse_plot">🔄 反转套路</button>
+        </div>
+      </div>
+
+      <!-- 搜索框 -->
+      <div class="search-box">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="搜索标题/作者" autocomplete="off">
+        </div>
+      </div>
+
+      <!-- 结果计数 -->
+      <div class="result-count" id="resultCount">符合条件的爆款：0条</div>
+
+      <!-- 视频卡片列表 -->
+      <div class="video-list" id="videoList"></div>
+
+    </div><!-- /videosView -->
+
+    <!-- ===== 账号分析视图 ===== -->
+    <div class="account-view" id="accountView">
+      <div class="account-input-section">
+        <div class="input-group">
+          <label>博主ID / 主页链接</label>
+          <input type="text" class="input-field" id="accountInput" placeholder="输入博主昵称或主页链接">
+        </div>
+        <div class="input-group">
+          <label>平台</label>
+          <select class="input-field select-field" id="accountPlatform">
+            <option value="all">自动识别</option>
+            <option value="douyin">抖音</option>
+            <option value="kuaishou">快手</option>
+            <option value="xiaohongshu">小红书</option>
+            <option value="bilibili">B站</option>
+            <option value="shipinhao">视频号</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="analyzeAccount()">🔍 开始分析</button>
+      </div>
+      <div class="account-result" id="accountResult" style="display:none;"></div>
+    </div><!-- /accountView -->
+
+  </div><!-- /radarPage -->
+
+  <!-- ==================== Tab2: 拍摄计划 ==================== -->
+  <div class="page" id="planPage">
+    <div style="padding:16px;padding-top:20px;">
+      <div class="section-header">
+        <h2>📝 拍摄计划</h2>
+        <span style="font-size:13px;color:var(--text-secondary)" id="todayDate"></span>
+      </div>
+
+      <!-- 当日完成率 -->
+      <div class="progress-ring-wrap">
+        <svg class="progress-ring" id="progressRing" viewBox="0 0 72 72">
+          <circle class="ring-bg" cx="36" cy="36" r="30"/>
+          <circle class="ring-fill" cx="36" cy="36" r="30"
+                  stroke-dasharray="188.5" stroke-dashoffset="188.5"/>
+        </svg>
+        <div class="progress-info">
+          <h4 id="progressText">0/0</h4>
+          <p id="progressPercent">今日完成率 0%</p>
+        </div>
+      </div>
+
+      <!-- 任务列表 -->
+      <div id="planList"></div>
+    </div>
+
+    <!-- 浮动添加按钮 -->
+    <button class="fab-add" onclick="openPlanForm()">+</button>
+  </div><!-- /planPage -->
+
+  <!-- ==================== Tab3: 灵感便签 ==================== -->
+  <div class="page" id="notesPage">
+    <div style="padding:16px;padding-top:20px;">
+      <div class="section-header">
+        <h2>💡 灵感便签</h2>
+        <span style="font-size:13px;color:var(--text-secondary)">${Store.notes().length} 条记录</span>
+      </div>
+
+      <!-- 搜索 -->
+      <div class="search-box" style="margin-bottom:12px">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="search-input" id="noteSearch" placeholder="搜索灵感内容/标签" autocomplete="off">
+        </div>
+      </div>
+
+      <!-- 便签列表 -->
+      <div id="notesList"></div>
+    </div>
+
+    <button class="fab-add" onclick="openNoteForm()">+</button>
+  </div><!-- /notesPage -->
+
+  <!-- ==================== Tab4: 数据分析 ==================== -->
+  <div class="page" id="analyticsPage">
+    <div style="padding:16px;padding-top:20px;">
+      <div class="section-header">
+        <h2>📊 数据分析</h2>
+      </div>
+
+      <!-- 平台切换 -->
+      <div class="platform-switcher">
+        <button class="ps-btn active" onclick="switchAnalyticsPlatform(this,'douyin')">抖音</button>
+        <button class="ps-btn" onclick="switchAnalyticsPlatform(this,'kuaishou')">快手</button>
+        <button class="ps-btn" onclick="switchAnalyticsPlatform(this,'xiaohongshu')">小红书</button>
+      </div>
+
+      <!-- 粉丝增长图表 -->
+      <div class="chart-card">
+        <h3>📈 近7天粉丝增长趋势</h3>
+        <div class="chart-container">
+          <canvas id="followerChart"></canvas>
+        </div>
+      </div>
+
+      <!-- 自动周报 -->
+      <div class="report-section">
+        <h3>📋 本周数据周报</h3>
+        <div id="weeklyReportContent"></div>
+      </div>
+
+      <!-- 最优翻拍推荐 -->
+      <div class="report-section">
+        <h3>🏆 本周最优翻拍TOP3</h3>
+        <div id="topRemixContent"></div>
+      </div>
+
+      <!-- 对标账号监控 -->
+      <div class="report-section">
+        <h3>🎯 对标账号监控 <span style="font-size:12px;color:var(--text-tertiary);font-weight:400">（红点=有更新）</span></h3>
+        <div id="monitorList"></div>
+      </div>
+    </div>
+  </div><!-- /analyticsPage -->
+
+  <!-- ==================== Tab5: 我的/设置 ==================== -->
+  <div class="page" id="settingsPage">
+    <div style="padding:16px;padding-top:20px;">
+
+      <!-- 周报卡片 -->
+      <div class="weekly-report-card" id="weeklyReportCard"></div>
+
+      <!-- PWA安装指引 -->
+      <div class="pwa-guide">
+        <h4>📱 添加到手机桌面</h4>
+        <ol>
+          <li>用手机浏览器（Safari/Chrome）打开此页面</li>
+          <li>点击浏览器底部的「分享」按钮</li>
+          <li>选择「添加到主屏幕」或「安装应用」</li>
+          <li>之后可以像APP一样全屏使用，离线也能打开</li>
+        </ol>
+      </div>
+
+      <!-- 核心功能设置组 -->
+      <div class="setting-group">
+        <div class="setting-item" onclick="exportData()">
+          <div class="si-left"><span class="si-icon">📤</span><span class="si-label">导出全部数据备份</span></div>
+          <div class="si-right">JSON →</div>
+        </div>
+        <div class="setting-item" onclick="importData()">
+          <div class="si-left"><span class="si-icon">📥</span><span class="si-label">导入数据恢复</span></div>
+          <div class="si-right">← JSON</div>
+        </div>
+        <div class="setting-item" onclick="document.getElementById('dataSourceModal').classList.add('show')">
+          <div class="si-left"><span class="si-icon">🌐</span><span class="si-label">爬虫数据源地址</span></div>
+          <div class="si-right">配置 →</div>
+        </div>
+        <div class="setting-item" onclick="openManualEntry()">
+          <div class="si-left"><span class="si-icon">➕</span><span class="si-label">手动录入视频</span></div>
+          <div class="si-right">添加 →</div>
+        </div>
+      </div>
+
+      <!-- 数据统计 -->
+      <div class="setting-group">
+        <div class="setting-item">
+          <div class="si-left"><span class="si-icon">🎬</span><span class="si-label">拍摄计划总数</span></div>
+          <div class="si-right" id="statPlans">0</div>
+        </div>
+        <div class="setting-item">
+          <div class="si-left"><span class="si-icon">💡</span><span class="si-label">灵感记录总数</span></div>
+          <div class="si-right" id="statNotes">0</div>
+        </div>
+        <div class="setting-item">
+          <div class="si-left"><span class="si-icon">⭐</span><span class="si-label">素材收藏总数</span></div>
+          <div class="si-right" id="statFavs">0</div>
+        </div>
+        <div class="setting-item">
+          <div class="si-left"><span class="si-icon">📊</span><span class="si-label">对标监控账号</span></div>
+          <div class="si-right" id="statMonitors">0</div>
+        </div>
+      </div>
+
+      <!-- 关于 -->
+      <div class="setting-group">
+        <div class="setting-item">
+          <div class="si-left"><span class="si-icon">ℹ️</span><span class="si-label">版本信息</span></div>
+          <div class="si-right">v1.0.0</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /settingsPage -->
+
+</div><!-- /app-container -->
+
+<!-- ==================== 底部Tab导航 ==================== -->
+<nav class="tab-nav">
+  <div class="tab-item active" data-page="radar" onclick="switchTab('radar')">
+    <span class="tab-icon">🔥</span>
+    <span class="tab-label">爆款雷达</span>
+  </div>
+  <div class="tab-item" data-page="plan" onclick="switchTab('plan')">
+    <span class="tab-icon">📝</span>
+    <span class="tab-label">拍摄计划</span>
+  </div>
+  <div class="tab-item" data-page="notes" onclick="switchTab('notes')">
+    <span class="tab-icon">💡</span>
+    <span class="tab-label">灵感便签</span>
+  </div>
+  <div class="tab-item has-badge" data-page="analytics" onclick="switchTab('analytics')">
+    <span class="tab-icon">📊</span>
+    <span class="tab-label">数据分析</span>
+    </div>
+  <div class="tab-item" data-page="settings" onclick="switchTab('settings')">
+    <span class="tab-icon">⚙️</span>
+    <span class="tab-label">我的</span>
+  </div>
+</nav>
+
+<!-- ==================== AI悬浮浮窗 ==================== -->
+<button class="ai-fab" onclick="toggleAiPanel()" aria-label="AI助手">🤖</button>
+
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-panel-header">
+    <h4>🤖 AI创作助手</h4>
+    <button class="ai-close-btn" onclick="toggleAiPanel(false)">✕</button>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg bot">你好！我是你的创作助手，试试这些快捷指令 👇</div>
+  </div>
+  <div class="ai-quick-cmds" id="aiQuickCmds"></div>
+  <div class="ai-input-row">
+    <input type="text" id="aiInput" placeholder="输入指令，如：分析视频+链接" onkeydown="if(event.key==='Enter')handleAiSend()">
+    <button class="ai-send-btn" onclick="handleAiSend()">➤</button>
+  </div>
+</div>
+
+<!-- ==================== 视频详情弹窗 ==================== -->
+<div class="modal-overlay" id="detailModal" onclick="if(event.target===this)closeDetailModal()">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <p class="modal-subtitle" id="modalSubtitle"></p>
+
+    <div class="detail-section">
+      <h3><span class="ds-icon">🎯</span> 爆款因子</h3>
+      <div class="detail-tag-list" id="detailFactors"></div>
+    </div>
+
+    <div class="detail-section">
+      <h3><span class="ds-icon">⏱️</span> 3秒钩子设计</h3>
+      <div id="detailHook"></div>
+    </div>
+
+    <div class="detail-section">
+      <h3><span class="ds-icon">📐</span> 内容结构</h3>
+      <div id="detailStructure"></div>
+    </div>
+
+    <div class="detail-section">
+      <h3><span class="ds-icon">💬</span> 评论高频词</h3>
+      <div class="detail-tag-list" id="detailComments"></div>
+    </div>
+
+    <div class="detail-section">
+      <h3><span class="ds-icon">📊</span> 难度 & 潜力评分</h3>
+      <div class="score-row">
+        <div class="score-item" id="scoreDifficulty">
+          <div class="score-value">-</div>
+          <div class="score-label">拍摄难度</div>
+        </div>
+        <div class="score-item" id="scorePotential">
+          <div class="score-value">-</div>
+          <div class="score-label">爆款潜力</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <h3><span class="ds-icon">✨</span> 二创改编方案</h3>
+      <div id="detailAdapt"></div>
+    </div>
+
+    <button class="btn-primary" id="btnAddMaterial">⭐ 加入二创素材库</button>
+    <button class="btn-secondary" onclick="closeDetailModal()">关闭</button>
+  </div>
+</div>
+
+<!-- ==================== 拍摄计划表单弹窗 ==================== -->
+<div class="form-modal" id="planFormModal" onclick="if(event.target===this)closePlanForm()">
+  <div class="form-sheet">
+    <h3>📝 新建拍摄计划</h3>
+    <div class="form-group">
+      <label>主题 *</label>
+      <input type="text" class="form-control" id="planTitle" placeholder="例：假装失忆测试男友反应">
+    </div>
+    <div class="form-group">
+      <label>预设风格</label>
+      <select class="form-control" id="planStyle">
+        <option value="couple_daily">情侣日常</option>
+        <option value="prank">整蛊搞笑</option>
+        <option value="brainless">无脑操作</option>
+        <option value="reverse">反转剧情</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>预计时长</label>
+      <input type="text" class="form-control" id="planDuration" placeholder="例：30秒 / 1分钟">
+    </div>
+    <div class="form-group">
+      <label>优先级</label>
+      <select class="form-control" id="planPriority">
+        <option value="high">🔴 高优先级</option>
+        <option value="mid" selected>🟡 中优先级</option>
+        <option value="low">🟢 低优先级</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>拍摄日期</label>
+      <input type="date" class="form-control" id="planDate">
+    </div>
+    <div class="form-group">
+      <label>参考视频ID（可选）</label>
+      <input type="text" class="form-control" id="planRefVideo" placeholder="从爆款雷达复制视频ID">
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary" onclick="closePlanForm()">取消</button>
+      <button class="btn-primary" onclick="savePlan()">创建计划</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 灵感便签表单弹窗 ==================== -->
+<div class="form-modal" id="noteFormModal" onclick="if(event.target===this)closeNoteForm()">
+  <div class="form-sheet">
+    <h3>💡 记录新灵感</h3>
+    <div class="form-group">
+      <label>创意内容 *</label>
+      <textarea class="form-control" id="noteContent" placeholder="写下你的灵感..." rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label>分类</label>
+      <select class="form-control" id="noteCategory">
+        <option value="plot">剧情梗</option>
+        <option value="dialogue">台词文案</option>
+        <option value="prop">道具</option>
+        <option value="scene">场景</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>标签（逗号分隔）</label>
+      <input type="text" class="form-control" id="noteTags" placeholder="搞笑,情侣,反转">
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary" onclick="closeNoteForm()">取消</button>
+      <button class="btn-primary" onclick="saveNote()">保存灵感</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 手动录入视频弹窗 ==================== -->
+<div class="form-modal" id="manualEntryModal" onclick="if(event.target===this)closeManualEntry()">
+  <div class="form-sheet">
+    <h3>➕ 手动录入视频</h3>
+    <div class="form-group">
+      <label>视频标题 *</label>
+      <input type="text" class="form-control" id="manualTitle" placeholder="输入视频标题">
+    </div>
+    <div class="form-group">
+      <label>视频链接</label>
+      <input type="text" class="form-control" id="manualLink" placeholder="粘贴视频分享链接">
+    </div>
+    <div class="form-group">
+      <label>作者昵称</label>
+      <input type="text" class="form-control" id="manualAuthor" placeholder="博主名称">
+    </div>
+    <div style="display:flex;gap:10px">
+      <div class="form-group" style="flex:1">
+        <label>粉丝数</label>
+        <input type="number" class="form-control" id="manualFans" placeholder="0">
+      </div>
+      <div class="form-group" style="flex:1">
+        <label>点赞数</label>
+        <input type="number" class="form-control" id="manualLikes" placeholder="0">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>播放量</label>
+      <input type="number" class="form-control" id="manualPlays" placeholder="0">
+    </div>
+    <div style="display:flex;gap:10px">
+      <div class="form-group" style="flex:1">
+        <label>平台</label>
+        <select class="form-control" id="manualPlatform">
+          <option value="douyin">抖音</option>
+          <option value="kuaishou">快手</option>
+          <option value="xiaohongshu">小红书</option>
+          <option value="bilibili">B站</option>
+          <option value="shipinhao">视频号</option>
+        </select>
+      </div>
+      <div class="form-group" style="flex:1">
+        <label>爆款等级</label>
+        <select class="form-control" id="manualLevel">
+          <option value="low_fan">低粉爆款</option>
+          <option value="low_burst">低粉大爆</option>
+          <option value="mid">腰部爆款</option>
+          <option value="head">头部爆款</option>
+          <option value="super">超级爆款</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary" onclick="closeManualEntry()">取消</button>
+      <button class="btn-primary" onclick="saveManualVideo()">确认录入</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 数据源配置弹窗 ==================== -->
+<div class="form-modal" id="dataSourceModal" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="form-sheet">
+    <h3>🌐 配置数据源地址</h3>
+    <p style="font-size:13px;color:var(--text-secondary);margin-bottom:14px">
+      填写MediaCrawler爬虫输出的JSON文件路径。局域网内可填写如：<br>
+      <code style="font-size:12px;background:var(--bg);padding:2px 6px;border-radius:4px">http://192.168.x.x:port/data/videos.json</code>
+    </p>
+    <div class="form-group">
+      <label>爆款视频JSON地址</label>
+      <input type="text" class="form-control" id="dataSourceInput" placeholder="./data/videos.json" value="./data/videos.json">
+    </div>
+    <div class="form-group">
+      <label>账号数据JSON地址</label>
+      <input type="text" class="form-control" id="accountSourceInput" placeholder="./data/accounts.json" value="./data/accounts.json">
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary" onclick="document.getElementById('dataSourceModal').classList.remove('show')">取消</button>
+      <button class="btn-primary" onclick="saveDataSourceSetting();document.getElementById('dataSourceModal').classList.remove('show')">保存</button>
+    </div>
+  </div>
+</div>
+
+<script src="./js/app.js"></script>
+<script>
+// 设置页统计数据更新
+function updateSettingsStats() {
+  const el = (id) => document.getElementById(id);
+  if (el('statPlans')) el('statPlans').textContent = Store.plans().length;
+  if (el('statNotes')) el('statNotes').textContent = Store.notes().length;
+  if (el('statFavs')) el('statFavs').textContent = Store.favorites().length;
+  if (el('statMonitors')) el('statMonitors').textContent = Store.monitors().length;
+}
+// 今日日期
+if (document.getElementById('todayDate'))
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('zh-CN', {month:'long', day:'numeric', weekday:'long'});
+
+// 分析平台切换
+function switchAnalyticsPlatform(btn, platform) {
+  $$('.ps-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFollowerChart();
+}
+
+// 页面切换时更新设置统计
+const origSwitchTab = switchTab;
+window.switchTab = function(page) {
+  origSwitchTab(page);
+  if (page === 'settings') {
+    updateSettingsStats();
+    renderSettingsPage();
+  }
+};
+</script>
+
+</body>
+</html>
