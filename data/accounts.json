@@ -1631,11 +1631,11 @@
   {
     "nickname": "郑***姐",
     "platform": "douyin",
-    "works": 10,
-    "totalLikes": 4491576,
+    "works": 11,
+    "totalLikes": 4865816,
     "maxLikes": 902205,
     "levels": {
-      "mid": 10
+      "mid": 11
     },
     "followers": 0,
     "followersKnown": false,
@@ -1666,6 +1666,11 @@
         "plays": 0
       },
       {
+        "title": "情侣升温小游戏朱莉版来了 #柏拉图情侣",
+        "likes": 374240,
+        "plays": 0
+      },
+      {
         "title": "同频的人像是礼物 #柏拉图情侣",
         "likes": 354327,
         "plays": 0
@@ -1684,15 +1689,10 @@
         "title": "情侣了解度测试 #柏拉图情侣",
         "likes": 292304,
         "plays": 0
-      },
-      {
-        "title": "猜物挑战 #柏拉图情侣",
-        "likes": 263949,
-        "plays": 0
       }
     ],
     "hotRate": 100.0,
-    "avgLikes": 449157
+    "avgLikes": 442346
   },
   {
     "nickname": "小***酱",
@@ -9304,6 +9304,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 56389
+  },
+  {
+    "nickname": "萱***俊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 56271,
+    "maxLikes": 56271,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "爱老婆的一百种方式：拉伸腰#居家情侣互动 #真实生活分享计划#夫妻日常 #萱萱和阿俊",
+        "likes": 56271,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 56271
   },
   {
     "nickname": "涛***哆",
