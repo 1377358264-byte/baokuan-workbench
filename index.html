@@ -34,7 +34,6 @@
           <button class="refresh-btn" id="refreshBtn" onclick="refreshData()" title="重新抓取">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-6.219-8.56"/><path d="M21 3v6h-6"/></svg>
           </button>
-          <button class="menu-btn" onclick="switchTab('account')" title="账号分析">🔍</button>
           <button class="menu-btn" onclick="switchTab('settings')" title="操作记录与设置">☰</button>
         </div>
       </div>
@@ -118,51 +117,64 @@
     <div id="monitorView" style="display:none;">
 
       <!-- 账号卡片行 -->
-      <div id="monitorAccountCards" style="display:flex;gap:10px;padding:12px 16px 0;overflow-x:auto;"></div>
+      <div class="acct-scroll" id="monitorAccountCards"></div>
+
+      <!-- 趋势图切换按钮 -->
+      <div class="trend-seg">
+        <button class="tseg-btn active" onclick="switchMonitorTrend('all')">全部趋势</button>
+        <button class="tseg-btn" onclick="switchMonitorTrend('30d')">30天趋势</button>
+        <button class="tseg-btn" onclick="switchMonitorTrend('7d')">7天趋势</button>
+      </div>
 
       <!-- 趋势图 -->
-      <div class="chart-card" style="margin:12px 16px;">
-        <h3>📈 近7天数据趋势</h3>
-        <canvas id="monitorTrendChart" width="340" height="180" style="width:100%;max-width:100%;"></canvas>
+      <div class="chart-card" style="margin:0 16px 10px;">
+        <h3 id="monitorTrendTitle">全部趋势 <span class="chart-sub" id="monitorTrendSub">发布至今</span></h3>
+        <canvas id="monitorTrendChart" width="340" height="200" style="width:100%;max-width:100%;"></canvas>
       </div>
 
       <!-- 发布时间分析 -->
-      <div class="chart-card" style="margin:0 16px 12px;">
-        <h3>⏰ 最佳发布时间分析</h3>
+      <div class="chart-card" style="margin:0 16px 10px;">
+        <h3>最佳发布时间分析</h3>
         <canvas id="timeSlotChart" width="340" height="160" style="width:100%;max-width:100%;"></canvas>
       </div>
 
       <!-- 智能建议 -->
-      <div class="pattern-card" style="margin:0 16px 12px;">
-        <h4>💡 运营建议</h4>
+      <div class="pattern-card" style="margin:0 16px 10px;">
+        <h4>运营建议</h4>
         <div id="monitorAdvice"></div>
       </div>
 
-      <!-- 账号管理 -->
-      <div class="pattern-card" style="margin:0 16px 12px;">
-        <h4>⚙️ 账号管��</h4>
-        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;">
-          <select id="monitorAddPlatform" class="account-search-select" style="min-width:80px;">
+      <!-- 全部作品列表 -->
+      <div class="section-header" style="margin:4px 16px 8px;">
+        <h2>我的作品</h2>
+        <span style="font-size:13px;color:var(--text-secondary);" id="monitorWorkTotal">共 0 条</span>
+      </div>
+      <div id="monitorWeekGroups" style="padding-bottom:60px;"></div>
+
+      <!-- 手动刷新 -->
+      <div style="text-align:center;padding:0 0 24px;">
+        <button class="btn-primary" onclick="refreshMonitorData()">手动刷新监控数据</button>
+      </div>
+    </div><!-- /monitorView -->
+
+    <!-- 添加账号弹窗 -->
+    <div class="acct-modal-bg" id="acctModalBg" onclick="if(event.target===this)closeAcctModal()">
+      <div class="acct-modal">
+        <h3>添加监控账号</h3>
+        <div class="acct-fields">
+          <select id="acctPlat">
             <option value="douyin">抖音</option>
             <option value="xiaohongshu">小红书</option>
             <option value="kuaishou">快手</option>
+            <option value="shipinhao">视频号</option>
           </select>
-          <input type="text" id="monitorAddId" class="account-search-input" placeholder="输入账号ID..." style="flex:1;min-width:100px;">
-          <button class="btn-primary" onclick="addMonitorAccount()" style="padding:8px 14px;font-size:13px;white-space:nowrap;">添加</button>
+          <input type="text" id="acctId" placeholder="输入账号ID / 用户ID">
         </div>
+        <input type="text" id="acctNick" placeholder="账号昵称（可选）" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;background:#f5f5f7;color:var(--text-primary);outline:none;font-family:inherit;margin-bottom:10px;">
+        <button class="btn-blue" onclick="addMonitorAccount()">确认添加</button>
+        <button class="btn-grey" onclick="closeAcctModal()">取消</button>
       </div>
-
-      <!-- 全部作品列表 -->
-      <div class="section-header" style="margin:0 16px 8px;">
-        <h2>📋 我的作品</h2>
-      </div>
-      <div class="video-list" id="monitorWorkList"></div>
-
-      <!-- 手动刷新 -->
-      <div style="text-align:center;padding:16px;">
-        <button class="btn-primary" onclick="refreshMonitorData()">🔄 手动刷新监控数据</button>
-      </div>
-    </div><!-- /monitorView -->
+    </div>
 
   </div><!-- /radarPage -->
 
@@ -341,36 +353,6 @@
 
     </div>
   </div><!-- /settingsPage -->
-
-  <!-- ==================== 账号分析 ==================== -->
-  <div class="page" id="accountPage">
-    <div class="sub-page-header">
-      <button class="back-btn" onclick="switchTab('radar')">← 返回</button>
-      <h2>账号分析</h2>
-    </div>
-    <div style="padding:16px;padding-top:8px;">
-
-      <!-- 搜索栏 -->
-      <div class="account-search-bar">
-        <input type="text" id="accountInput" class="account-search-input" placeholder="输入博主昵称或ID..." onkeydown="if(event.key==='Enter')analyzeAccount()">
-        <select id="accountPlatform" class="account-search-select">
-          <option value="all">全部平台</option>
-          <option value="douyin">抖音</option>
-          <option value="xiaohongshu">小红书</option>
-          <option value="kuaishou">快手</option>
-          <option value="bilibili">B站</option>
-        </select>
-        <button class="btn-primary" onclick="analyzeAccount()" style="flex-shrink:0;padding:10px 16px;border-radius:10px;font-size:14px;">搜索</button>
-      </div>
-
-      <!-- 已收录博主榜单 -->
-      <div id="accountLeaderboard" style="margin-bottom:12px;"></div>
-
-      <!-- 分析结果 -->
-      <div id="accountResult" style="display:none;"></div>
-
-    </div>
-  </div><!-- /accountPage -->
 
 </div><!-- /app-container -->
 
