@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '9.0';
+const APP_VERSION = '10.0';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -95,6 +95,18 @@ const Store = {
 
   monitors() { return this.get('monitors') || []; },
   saveMonitors(v) { return this.set('monitors', v); },
+
+  // 账号监控：用户自己的账号列表 + 每日快照
+  monitorAccounts() { return this.get('monitorAccounts') || [
+    { platform: 'douyin', id: '49566173638', nickname: '抖音账号', addedAt: Date.now() },
+    { platform: 'xiaohongshu', id: '95886844869', nickname: '小红书账号', addedAt: Date.now() },
+    { platform: 'kuaishou', id: '5530272280', nickname: '快手账号', addedAt: Date.now() },
+  ]; },
+  saveMonitorAccounts(v) { return this.set('monitorAccounts', v); },
+  monitorSnapshots() { return this.get('monitorSnapshots') || {}; },
+  saveMonitorSnapshots(v) { return this.set('monitorSnapshots', v); },
+  monitorVideos() { return this.get('monitorVideos') || {}; },
+  saveMonitorVideos(v) { return this.set('monitorVideos', v); },
 
   settings() { return this.get('settings') || {}; },
   saveSettings(v) { return this.set('settings', v); },
@@ -977,7 +989,7 @@ function renderAccountLeaderboard() {
 function quickAnalyze(nickname, platform) {
   $('#accountInput').value = nickname;
   $('#accountPlatform').value = platform;
-  switchSubTab('account');
+  switchTab('account');
   analyzeAccount();
 }
 
@@ -1622,20 +1634,310 @@ function switchTab(page) {
 }
 
 function switchSubTab(tab) {
-  // 仅保留「爆款视频」一个子板块
-  App.currentSubTab = 'videos';
+  App.currentSubTab = tab;
 
   $$('.segment-tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.tab === 'videos');
+    t.classList.toggle('active', t.dataset.tab === tab);
   });
 
   const vv = $('#videosView');
-  if (vv) vv.style.display = 'block';
+  const mv = $('#monitorView');
   const av = $('#accountView');
   if (av) av.classList.remove('active');
+
+  if (tab === 'monitor') {
+    if (vv) vv.style.display = 'none';
+    if (mv) mv.style.display = 'block';
+    renderMonitorDashboard();
+  } else {
+    if (vv) vv.style.display = 'block';
+    if (mv) mv.style.display = 'none';
+    renderVideoList();
+  }
 }
 
 // 仅看爆款 开关
+// ===== 账号监控仪表盘 =====
+function renderMonitorDashboard() {
+  renderMonitorAccountCards();
+  drawMonitorTrendChart();
+  drawTimeSlotChart();
+  renderMonitorAdvice();
+  renderMonitorWorks();
+}
+
+// 账号卡片
+function renderMonitorAccountCards() {
+  const accounts = Store.monitorAccounts();
+  const snaps = Store.monitorSnapshots();
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const el = $('#monitorAccountCards');
+  if (!el) return;
+
+  el.innerHTML = accounts.map(a => {
+    const key = a.platform + '_' + a.id;
+    const todaySnap = snaps[key + '_' + today];
+    const yesterdaySnap = snaps[key + '_' + yesterday];
+    const fans = todaySnap ? todaySnap.fans : (yesterdaySnap ? yesterdaySnap.fans : 0);
+    const works = todaySnap ? (todaySnap.works || 0) : 0;
+    const likes = todaySnap ? (todaySnap.totalLikes || 0) : 0;
+    const prevFans = yesterdaySnap ? yesterdaySnap.fans : fans;
+    const fanDelta = fans - prevFans;
+    const deltaStr = fanDelta > 0 ? `↑ ${fanDelta}` : fanDelta < 0 ? `↓ ${Math.abs(fanDelta)}` : '→ 0';
+    const deltaCls = fanDelta > 0 ? 'trend-up' : fanDelta < 0 ? 'trend-down' : '';
+    const platName = PLATFORM_MAP[a.platform] || a.platform;
+    const platColors = { douyin: '#111', xiaohongshu: '#ff2442', kuaishou: '#ff4906', bilibili: '#fb7299' };
+    return `<div class="monitor-card" style="background:linear-gradient(135deg,${platColors[a.platform] || '#333'}22,${platColors[a.platform] || '#333'}08);border-left:3px solid ${platColors[a.platform] || '#333'};">
+      <div class="mc-platform">${platName}</div>
+      <div class="mc-fans">${formatNum(fans) || '—'} <span class="mc-delta ${deltaCls}">${deltaStr}</span></div>
+      <div class="mc-sub">${works}条作品 · ${formatNum(likes)}赞</div>
+    </div>`;
+  }).join('');
+}
+
+// 近7天趋势图 (Canvas)
+function drawMonitorTrendChart() {
+  const canvas = $('#monitorTrendChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // 生成最近7天的日期标签和数据（优先真实快照，否则用最近作品趋势近似）
+  const snaps = Store.monitorSnapshots();
+  const days = [];
+  const data = [];
+  const now = Date.now();
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(now - i * 86400000);
+    const key = d.toISOString().slice(0, 10);
+    days.push(d.getMonth() + 1 + '/' + (d.getDate()));
+    let total = 0;
+    // 聚合所有监控账号的快照
+    const accounts = Store.monitorAccounts();
+    accounts.forEach(a => {
+      const snap = snaps[a.platform + '_' + a.id + '_' + key];
+      if (snap) total += (snap.totalLikes || 0) + (snap.totalPlays || 0) * 0.1;
+    });
+    data.push(total || 0);
+  }
+
+  if (data.every(d => d === 0)) {
+    ctx.fillStyle = '#999';
+    ctx.font = '13px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('等待数据积累...', W/2, H/2);
+    return;
+  }
+
+  const maxVal = Math.max(...data, 1);
+  const pad = { top: 20, right: 20, bottom: 30, left: 45 };
+  const pw = W - pad.left - pad.right;
+  const ph = H - pad.top - pad.bottom;
+
+  // 网格线
+  ctx.strokeStyle = '#eee';
+  ctx.lineWidth = 0.5;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + (ph / 4) * i;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    ctx.fillStyle = '#999'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(formatNum(Math.round(maxVal * (1 - i/4))), pad.left - 5, y + 3);
+  }
+
+  // 折线
+  ctx.strokeStyle = '#0071e3';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = pad.left + (pw / Math.max(data.length - 1, 1)) * i;
+    const y = pad.top + ph - (v / maxVal) * ph;
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // 填充
+  ctx.lineTo(pad.left + pw, pad.top + ph);
+  ctx.lineTo(pad.left, pad.top + ph);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(0,113,227,0.08)';
+  ctx.fill();
+
+  // 数据点 + 日期
+  data.forEach((v, i) => {
+    const x = pad.left + (pw / Math.max(data.length - 1, 1)) * i;
+    const y = pad.top + ph - (v / maxVal) * ph;
+    ctx.fillStyle = '#0071e3';
+    ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#666'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(days[i], x, H - 5);
+  });
+}
+
+// 发布时间分析柱状图
+function drawTimeSlotChart() {
+  const canvas = $('#timeSlotChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const videos = Store.monitorVideos();
+  const allVids = Object.values(videos).flat();
+  if (!allVids.length) {
+    ctx.fillStyle = '#999'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('等待抓取作品数据...', W/2, H/2);
+    return;
+  }
+
+  // 按小时聚合：统计每个小时发布的作品平均点赞
+  const hourSlots = Array(24).fill(null).map(() => ({ count: 0, totalLikes: 0 }));
+  allVids.forEach(v => {
+    if (!v.publishTime) return;
+    const h = new Date(v.publishTime).getHours();
+    hourSlots[h].count++;
+    hourSlots[h].totalLikes += (v.likes || 0);
+  });
+
+  const avgs = hourSlots.map(s => s.count > 0 ? Math.round(s.totalLikes / s.count) : 0);
+  const maxAvg = Math.max(...avgs, 1);
+
+  const pad = { top: 10, right: 10, bottom: 25, left: 40 };
+  const pw = W - pad.left - pad.right;
+  const ph = H - pad.top - pad.bottom;
+  const barW = Math.max(pw / 24 - 1, 2);
+
+  // 找最佳和最差
+  const best = avgs.indexOf(Math.max(...avgs));
+  const worst = avgs.indexOf(Math.min(...avgs.filter(v => v > 0)));
+
+  avgs.forEach((v, i) => {
+    const x = pad.left + (pw / 24) * i;
+    const bh = (v / maxAvg) * ph;
+    const y = pad.top + ph - bh;
+    // 颜色：最佳绿色，最差红色，其余浅蓝
+    const color = i === best ? '#34c759' : i === worst ? '#ff3b30' : '#0071e3';
+    ctx.fillStyle = color + '88';
+    ctx.fillRect(x, y, barW, bh);
+  });
+
+  // X轴标签
+  ctx.fillStyle = '#666'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+  for (let i = 0; i < 24; i += 3) {
+    const x = pad.left + (pw / 24) * i + barW / 2;
+    ctx.fillText(i + ':00', x, H - 5);
+  }
+
+  // 最佳标签
+  if (avgs[best] > 0) {
+    const bx = pad.left + (pw / 24) * best + barW / 2;
+    ctx.fillStyle = '#34c759'; ctx.font = 'bold 11px sans-serif';
+    ctx.fillText('最佳', bx, pad.top - 2);
+  }
+}
+
+// 运营建议
+function renderMonitorAdvice() {
+  const el = $('#monitorAdvice');
+  if (!el) return;
+  const videos = Store.monitorVideos();
+  const allVids = Object.values(videos).flat();
+
+  if (!allVids.length) {
+    el.innerHTML = '<p class="ops-empty">等待首次数据抓取后自动生成建议</p>';
+    return;
+  }
+
+  // 主题偏好分析
+  const topicCount = {};
+  allVids.forEach(v => {
+    const t = v.topic || 'other';
+    topicCount[t] = (topicCount[t] || 0) + 1;
+  });
+  const topTopic = Object.entries(topicCount).sort((a, b) => b[1] - a[1])[0];
+  const topicNames = { couple_funny: '情侣搞笑', daily_prank: '日常整蛊', reverse_plot: '反转剧情', brainless: '无脑操作' };
+
+  // 平均时长
+  const durations = allVids.map(v => v.duration || 0).filter(Boolean);
+  const avgDuration = durations.length ? Math.round(durations.reduce((a,b)=>a+b,0)/durations.length) : 0;
+
+  // 平均点赞
+  const avgLikes = allVids.length ? Math.round(allVids.reduce((s,v)=>s+(v.likes||0),0)/allVids.length) : 0;
+
+  // 最佳发布时间
+  const hourSlots = Array(24).fill(null).map(() => ({ count: 0, totalLikes: 0 }));
+  allVids.forEach(v => {
+    if (!v.publishTime) return;
+    const h = new Date(v.publishTime).getHours();
+    hourSlots[h].count++;
+    hourSlots[h].totalLikes += (v.likes || 0);
+  });
+  const avgs = hourSlots.map(s => s.count > 0 ? Math.round(s.totalLikes / s.count) : 0);
+  const bestHour = avgs.indexOf(Math.max(...avgs));
+
+  // 近3条趋势
+  const recent = allVids.filter(v => v.publishTime).sort((a,b) => (b.publishTime||0) - (a.publishTime||0)).slice(0, 3);
+  const recentAvg = recent.length ? Math.round(recent.reduce((s,v)=>s+(v.likes||0),0)/recent.length) : 0;
+  const trendWarn = recentAvg < avgLikes * 0.6 && recent.length >= 3;
+
+  el.innerHTML = `
+    <ul class="pattern-list">
+      <li><span class="pli-num">⏰</span><span>最佳发布时间：<b>${bestHour}:00-${bestHour+2}:00</b>（该时段作品平均表现最优）</span></li>
+      ${topTopic ? `<li><span class="pli-num">🎬</span><span>你最擅长的内容类型：<b>${topicNames[topTopic[0]] || topTopic[0]}</b>（${topTopic[1]}条），建议持续深耕</span></li>` : ''}
+      ${avgDuration ? `<li><span class="pli-num">📏</span><span>作品平均时长 <b>${avgDuration}秒</b>，${avgDuration > 60 ? '可尝试精简至30-45秒提升完播率' : '时长合理，继续保持'}</span></li>` : ''}
+      ${avgLikes ? `<li><span class="pli-num">📊</span><span>作品均赞 <b>${formatNum(avgLikes)}</b>，全平台共 <b>${allVids.length}</b> 条作品</span></li>` : ''}
+      ${trendWarn ? '<li><span class="pli-num">⚠️</span><span>近3条作品数据持续低于平均水平，建议调整选题方向或发布时间</span></li>' : ''}
+    </ul>`;
+}
+
+// 账号作品列表（卡片方式）
+function renderMonitorWorks() {
+  const el = $('#monitorWorkList');
+  if (!el) return;
+  const videos = Store.monitorVideos();
+  const allVids = Object.values(videos).flat().sort((a, b) => (b.publishTime || 0) - (a.publishTime || 0));
+
+  if (!allVids.length) {
+    el.innerHTML = '<p class="ops-empty">等待首次数据抓取...<br>抓取后这里将展示你所有账号的全部作品</p>';
+    return;
+  }
+
+  el.innerHTML = allVids.slice(0, 50).map(v => renderVideoCard(v)).join('');
+
+  // 绑定点击
+  el.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-action') || e.target.closest('.card-orig-link')) return;
+      openVideoDetail(card.dataset.id);
+    });
+  });
+}
+
+// 添加监控账号
+function addMonitorAccount() {
+  const platform = $('#monitorAddPlatform').value;
+  const id = $('#monitorAddId').value.trim();
+  if (!id) { showToast('请输入账号ID'); return; }
+  const accounts = Store.monitorAccounts();
+  if (accounts.find(a => a.platform === platform && a.id === id)) {
+    showToast('该账号已在监控列表中'); return;
+  }
+  accounts.push({ platform, id, nickname: PLATFORM_MAP[platform] + '号:' + id, addedAt: Date.now() });
+  Store.saveMonitorAccounts(accounts);
+  $('#monitorAddId').value = '';
+  showToast('✅ 已添加，下次刷新时抓取数据');
+  renderMonitorDashboard();
+}
+
+// 手动刷新（留接口，实际抓取需 MediaCrawler）
+function refreshMonitorData() {
+  showToast('数据刷新需要运行爬虫脚本，我会在后台帮你处理');
+  // 实际抓取通过 MediaCrawler creator 接口完成
+  // 此处先显示当前已有数据
+  renderMonitorDashboard();
+}
+
 function toggleBurstOnly(btn) {
   App.filters.burstOnly = !App.filters.burstOnly;
   if (btn) btn.classList.toggle('on', App.filters.burstOnly);
