@@ -710,11 +710,11 @@
   {
     "nickname": "晴***寶",
     "platform": "douyin",
-    "works": 9,
-    "totalLikes": 4353298,
+    "works": 10,
+    "totalLikes": 4846871,
     "maxLikes": 1855273,
     "levels": {
-      "mid": 5,
+      "mid": 6,
       "low": 3,
       "head": 1
     },
@@ -734,6 +734,11 @@
       {
         "title": "这条视频我是原创  说我模仿别人之前希望可以对比一下发布日期  我的音效主题创意被直接搬运走 现在说我不at原创  世上没有这么本末倒置的道理  希望大家理性看待 恶语伤人心\n灵感来源@无忧-（apt情侣）      我改良是因为我吃饭时候说话喷饭 很容易被发现🫨\n#水瓶天秤 #情侣日常",
         "likes": 564971,
+        "plays": 0
+      },
+      {
+        "title": "从接亲开始就哭到力竭的小辰我不知道要怎么安慰 因为要远嫁的好像是我#水瓶天秤 #情侣日常",
+        "likes": 493573,
         "plays": 0
       },
       {
@@ -767,8 +772,8 @@
         "plays": 0
       }
     ],
-    "hotRate": 66.7,
-    "avgLikes": 483699
+    "hotRate": 70.0,
+    "avgLikes": 484687
   },
   {
     "nickname": "昊***钥",
@@ -1087,12 +1092,12 @@
   {
     "nickname": "小***.",
     "platform": "douyin",
-    "works": 2,
-    "totalLikes": 1479919,
+    "works": 3,
+    "totalLikes": 1493603,
     "maxLikes": 1345865,
     "levels": {
       "head": 1,
-      "low": 1
+      "low": 2
     },
     "followers": 0,
     "followersKnown": false,
@@ -1106,10 +1111,15 @@
         "title": "再也不问了#情侣日常",
         "likes": 134054,
         "plays": 0
+      },
+      {
+        "title": "挑战成功哈哈哈 旁边还坐一个助威的#夫妻挑战游戏 #小薛和小汪",
+        "likes": 13684,
+        "plays": 0
       }
     ],
-    "hotRate": 50.0,
-    "avgLikes": 739959
+    "hotRate": 33.3,
+    "avgLikes": 497867
   },
   {
     "nickname": "俊***琪",
@@ -2036,11 +2046,11 @@
   {
     "nickname": "丸***呀",
     "platform": "douyin",
-    "works": 7,
-    "totalLikes": 2157909,
+    "works": 8,
+    "totalLikes": 2371284,
     "maxLikes": 674944,
     "levels": {
-      "mid": 6,
+      "mid": 7,
       "low": 1
     },
     "followers": 0,
@@ -2067,6 +2077,11 @@
         "plays": 0
       },
       {
+        "title": "以前都是没问题 现在是不行…",
+        "likes": 213375,
+        "plays": 0
+      },
+      {
         "title": "他对今天发生的一切很陶醉…",
         "likes": 206042,
         "plays": 0
@@ -2082,8 +2097,8 @@
         "plays": 0
       }
     ],
-    "hotRate": 85.7,
-    "avgLikes": 308272
+    "hotRate": 87.5,
+    "avgLikes": 296410
   },
   {
     "nickname": "小***气",
@@ -4026,6 +4041,27 @@
     "avgLikes": 230233
   },
   {
+    "nickname": "𝓢***.",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 227171,
+    "maxLikes": 227171,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "玩完之后会问要不要在一起的程度#枕头大战 #双人游戏#情侣游戏推荐",
+        "likes": 227171,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 227171
+  },
+  {
     "nickname": "逃***九",
     "platform": "douyin",
     "works": 1,
@@ -4187,6 +4223,33 @@
     ],
     "hotRate": 14.3,
     "avgLikes": 63463
+  },
+  {
+    "nickname": "杨***柴",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 329950,
+    "maxLikes": 205384,
+    "levels": {
+      "low": 1,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你别说 这游戏挺有意思！#情侣日常 #情侣小游戏",
+        "likes": 205384,
+        "plays": 0
+      },
+      {
+        "title": "《猜猜他是谁2》#情侣 #情侣日常 #情侣小游戏 #猜猜他是谁 #杨和柴",
+        "likes": 124566,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 164975
   },
   {
     "nickname": "不***子",
@@ -4845,6 +4908,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 164091
+  },
+  {
+    "nickname": "点***o",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 160379,
+    "maxLikes": 160379,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "挑战！让男友解说化妆视频\n#愉阳 #解说化妆 #化妆 #情侣",
+        "likes": 160379,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 160379
   },
   {
     "nickname": "高***羊",
@@ -7312,6 +7396,27 @@
     "avgLikes": 99000
   },
   {
+    "nickname": "铜***烧",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 97798,
+    "maxLikes": 97798,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你看我能闭眼吗 🤔\n#土象星座 #真实生活分享计划 #随拍",
+        "likes": 97798,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 97798
+  },
+  {
     "nickname": "谢***尧",
     "platform": "douyin",
     "works": 2,
@@ -8204,6 +8309,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 51333
+  },
+  {
+    "nickname": "烤***）",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 73456,
+    "maxLikes": 73456,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你女朋友敢吗#情侣日常 #内容过于真实 #意想不到的结局 #搞笑",
+        "likes": 73456,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 73456
   },
   {
     "nickname": "钻***五",
@@ -10181,6 +10307,37 @@
     "avgLikes": 25974
   },
   {
+    "nickname": "花***介",
+    "platform": "douyin",
+    "works": 3,
+    "totalLikes": 70673,
+    "maxLikes": 40193,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "赶紧找对象试试这个动作（脚臭就算了） #我俩的真实日常 #情侣居家运动 #练搭子的重要性",
+        "likes": 40193,
+        "plays": 0
+      },
+      {
+        "title": "因为我们已经是灵魂伴侣啦！ #情侣日常 #我们俩 #甜甜的恋爱日记 #情侣vlog #和喜欢的人在一起",
+        "likes": 15751,
+        "plays": 0
+      },
+      {
+        "title": "诡计多端的男友之骗我亲他几十下 #搞笑 #也太可爱了吧 #日常生活 #恋爱的感觉 #搞笑情侣",
+        "likes": 14729,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 23557
+  },
+  {
     "nickname": "舒***鸿",
     "platform": "xiaohongshu",
     "works": 2,
@@ -11387,6 +11544,27 @@
     "avgLikes": 23000
   },
   {
+    "nickname": "冰***常",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 22949,
+    "maxLikes": 22949,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣睁眼闭眼挑战，同时睁眼就去做 #情侣日常 #情侣挑战 #睁眼闭眼挑战 #默契考验",
+        "likes": 22949,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22949
+  },
+  {
     "nickname": "搞***冈",
     "platform": "douyin",
     "works": 1,
@@ -12182,32 +12360,6 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 15785
-  },
-  {
-    "nickname": "花***介",
-    "platform": "douyin",
-    "works": 2,
-    "totalLikes": 30480,
-    "maxLikes": 15751,
-    "levels": {
-      "low": 2
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "因为我们已经是灵魂伴侣啦！ #情侣日常 #我们俩 #甜甜的恋爱日记 #情侣vlog #和喜欢的人在一起",
-        "likes": 15751,
-        "plays": 0
-      },
-      {
-        "title": "诡计多端的男友之骗我亲他几十下 #搞笑 #也太可爱了吧 #日常生活 #恋爱的感觉 #搞笑情侣",
-        "likes": 14729,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 15240
   },
   {
     "nickname": "哈***儿",
