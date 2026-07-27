@@ -20,7 +20,7 @@ const App = {
 };
 
 // 当前前端版本（用于确认是否加载到最新构建，避免旧缓存困惑）
-const APP_VERSION = '8.0';
+const APP_VERSION = '9.0';
 
 // ===== 工具函数 =====
 function $(sel, ctx = document) { return ctx.querySelector(sel); }
@@ -681,6 +681,11 @@ function toggleFav(id, fromDetail) {
   }
   renderVideoList();
   if (App.currentPage === 'settings') renderOpsPage();
+  // 账号分析页收藏后刷新结果
+  if (App.currentPage === 'account' && App._lastAccountQuery) {
+    const ad = aggregateAccount(App._lastAccountQuery, App._lastAccountPlatform || 'all');
+    if (ad) renderAccountResult(ad);
+  }
   updateSettingsStats();
 }
 
@@ -749,6 +754,15 @@ function restoreDeleted(id) {
   renderVideoList();
   if (App.currentPage === 'settings') renderOpsPage();
   updateSettingsStats();
+}
+
+// 账号分析页
+function renderAccountPage() {
+  // 渲染已收录博主榜单
+  renderAccountLeaderboard();
+  // 清空上次结果
+  const result = $('#accountResult');
+  if (result) result.style.display = 'none';
 }
 
 // 操作记录面板（我的页）
@@ -841,6 +855,9 @@ async function analyzeAccount() {
   const platform = $('#accountPlatform').value;
   if (!input) { showToast('请输入博主昵称 / 抖音号 / 主页链接'); return; }
   showToast('正在分析...');
+  // 保存上下文，用于收藏后刷新
+  App._lastAccountQuery = input;
+  App._lastAccountPlatform = platform;
   const data = aggregateAccount(input, platform);
   if (!data) {
     renderAccountEmpty(input, platform);
@@ -989,6 +1006,7 @@ function renderAccountResult(data) {
   container.style.display = 'block';
 
   const fansText = data.followersKnown ? formatNum(data.totalFans) : (data.totalFans ? formatNum(data.totalFans) : '待抓取');
+  const works = data.recentWorks || [];
 
   container.innerHTML = `
     <div class="account-profile-card">
@@ -1014,37 +1032,22 @@ function renderAccountResult(data) {
       </ul>
     </div>
 
-    <div class="pattern-card">
-      <h4>💡 可借鉴要点</h4>
-      <ul class="pattern-list">
-        ${(data.suggestions || []).map(s => `<li><span class="pli-num">💡</span><span>${s}</span></li>`).join('')}
-      </ul>
+    <div class="section-header" style="margin-top:16px;">
+      <h2>📋 爆款作品（${works.length}条）</h2>
     </div>
-
-    ${(data.warnings && data.warnings.length > 0) ? `
-    <div class="pattern-card">
-      <h4>⚠️ 避坑提醒</h4>
-      <ul class="pattern-list">
-        ${data.warnings.map(w => `<li><span class="pli-num">⚠️</span><span>${w}</span></li>`).join('')}
-      </ul>
-    </div>` : ''}
-
-    <div class="pattern-card">
-      <h4>📋 该博主爆款作品（${(data.recentWorks || []).length}条）</h4>
-      <div class="works-mini-list">
-        ${(data.recentWorks || []).map(w => `
-          <div class="work-mini-item ${w.isHot ? 'wmi-hot' : 'wmi-normal'}" onclick="openVideoDetail('${w.id}')">
-            <span class="wmi-title">${escapeHtml(w.title)}</span>
-            <span class="wmi-stats">🔥${formatNum(w.likes || 0)}</span>
-          </div>
-        `).join('')}
-      </div>
+    <div class="video-list" id="accountWorksList">
+      ${works.map(w => renderVideoCard(w)).join('')}
     </div>
-
-    <button class="btn-primary" onclick="addToMonitor('${(data.nickname || '').replace(/'/g, "\\'")}')">
-      ⭐ 收藏至对标账号监控库
-    </button>
+    ${works.length === 0 ? '<p class="ops-empty">该博主暂无爆款作品在库中</p>' : ''}
   `;
+
+  // 绑定卡片点击事件
+  container.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.card-action') || e.target.closest('.card-orig-link')) return;
+      openVideoDetail(card.dataset.id);
+    });
+  });
 }
 
 function addToMonitor(nickname) {
@@ -1614,6 +1617,7 @@ function switchTab(page) {
     case 'notes': renderNotesPage(); break;
     case 'analytics': renderAnalyticsPage(); break;
     case 'settings': renderSettingsPage(); break;
+    case 'account': renderAccountPage(); break;
   }
 }
 
