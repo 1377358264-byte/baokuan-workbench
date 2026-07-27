@@ -143,14 +143,41 @@
     "avgLikes": 3356136
   },
   {
-    "nickname": "高***宇",
+    "nickname": "老*",
     "platform": "douyin",
     "works": 2,
-    "totalLikes": 2998512,
-    "maxLikes": 2397122,
+    "totalLikes": 3532328,
+    "maxLikes": 2909956,
     "levels": {
       "head": 1,
       "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你笑啥？ #轻漫计划 #青年创作者成长计划  #情侣 #搞笑",
+        "likes": 2909956,
+        "plays": 0
+      },
+      {
+        "title": "日子怎么可能跟谁过都一样（夏季热门合集） #情侣日常 #搞笑 #抽象 #原创动画 #轻漫计划",
+        "likes": 622372,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 1766164
+  },
+  {
+    "nickname": "高***宇",
+    "platform": "douyin",
+    "works": 4,
+    "totalLikes": 3817190,
+    "maxLikes": 2397122,
+    "levels": {
+      "head": 1,
+      "mid": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -164,10 +191,20 @@
         "title": "每当食物剩最后一口时#内容过于真实",
         "likes": 601390,
         "plays": 0
+      },
+      {
+        "title": "《你要的全都满足》#搞笑 #意想不到的结局",
+        "likes": 477072,
+        "plays": 0
+      },
+      {
+        "title": "《社牛情侣欢乐的一天》",
+        "likes": 341606,
+        "plays": 0
       }
     ],
     "hotRate": 100.0,
-    "avgLikes": 1499256
+    "avgLikes": 954297
   },
   {
     "nickname": "哈***儿",
@@ -287,6 +324,33 @@
     "avgLikes": 2089017
   },
   {
+    "nickname": "一***儿",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 1847483,
+    "maxLikes": 1791995,
+    "levels": {
+      "head": 1,
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "把女朋友惹生气了，如何快速哄好指南！#女朋友生气系列 #搞笑视频 #搞笑段子 #搞笑反转",
+        "likes": 1791995,
+        "plays": 0
+      },
+      {
+        "title": "想想一会要干啥我就想笑 #幽默搞笑 #东北男友 #碎嘴子 #情侣 #情侣日常",
+        "likes": 55488,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 923741
+  },
+  {
     "nickname": "小***记",
     "platform": "douyin",
     "works": 1,
@@ -348,6 +412,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 1447117
+  },
+  {
+    "nickname": "我***️",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 1358730,
+    "maxLikes": 1358730,
+    "levels": {
+      "head": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我们在旅行最后一天在共同好友面前官宣 #恋爱 #官宣 #整蛊 #搞笑",
+        "likes": 1358730,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 1358730
   },
   {
     "nickname": "小***.",
@@ -560,6 +645,33 @@
     "avgLikes": 917062
   },
   {
+    "nickname": "派***学",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 1059826,
+    "maxLikes": 904606,
+    "levels": {
+      "low": 1,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "和喜欢的人微醺是一件无比幸福的事 #恋爱 #情侣 #日常vlog #情侣vlog #恋爱vlog",
+        "likes": 904606,
+        "plays": 0
+      },
+      {
+        "title": "因为是和你 所以好像做什么事情都觉得很幸福 #暗恋 #恋爱 #情侣 #情侣日常 #恋爱日常",
+        "likes": 155220,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 529913
+  },
+  {
     "nickname": "小***酱",
     "platform": "douyin",
     "works": 3,
@@ -634,6 +746,32 @@
     "avgLikes": 832827
   },
   {
+    "nickname": "狗*",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 1508534,
+    "maxLikes": 772588,
+    "levels": {
+      "mid": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣酒量大测试！再也不说自己酒量好了 #情侣微醺 #暧昧 #RIO强爽 #强爽快速到位 #强爽冻顶乌龙新口味",
+        "likes": 772588,
+        "plays": 0
+      },
+      {
+        "title": "依旧对抗路情侣 | 8个情侣升温小游戏一次玩到爽 #情侣 #酒桌游戏 #暧昧 #拉扯#梅见",
+        "likes": 735946,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 754267
+  },
+  {
     "nickname": "料***啊",
     "platform": "douyin",
     "works": 1,
@@ -674,27 +812,6 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 745367
-  },
-  {
-    "nickname": "狗*",
-    "platform": "douyin",
-    "works": 1,
-    "totalLikes": 735946,
-    "maxLikes": 735946,
-    "levels": {
-      "mid": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "依旧对抗路情侣 | 8个情侣升温小游戏一次玩到爽 #情侣 #酒桌游戏 #暧昧 #拉扯#梅见",
-        "likes": 735946,
-        "plays": 0
-      }
-    ],
-    "hotRate": 100.0,
-    "avgLikes": 735946
   },
   {
     "nickname": "丸***呀",
@@ -749,6 +866,27 @@
     "avgLikes": 659781
   },
   {
+    "nickname": "维***啊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 622046,
+    "maxLikes": 622046,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你了解情侣兵法吗？#维式委屈#情侣#搞笑#冷战 #内容过于真实",
+        "likes": 622046,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 622046
+  },
+  {
     "nickname": "小***徐",
     "platform": "douyin",
     "works": 1,
@@ -772,11 +910,12 @@
   {
     "nickname": "晴***寶",
     "platform": "douyin",
-    "works": 1,
-    "totalLikes": 564971,
+    "works": 2,
+    "totalLikes": 705552,
     "maxLikes": 564971,
     "levels": {
-      "mid": 1
+      "mid": 1,
+      "low": 1
     },
     "followers": 0,
     "followersKnown": false,
@@ -785,10 +924,42 @@
         "title": "这条视频我是原创  说我模仿别人之前希望可以对比一下发布日期  我的音效主题创意被直接搬运走 现在说我不at原创  世上没有这么本末倒置的道理  希望大家理性看待 恶语伤人心\n灵感来源@无忧-（apt情侣）      我改良是因为我吃饭时候说话喷饭 很容易被发现🫨\n#水瓶天秤 #情侣日常",
         "likes": 564971,
         "plays": 0
+      },
+      {
+        "title": "原创@梁教授🌻  我乐拍这个#水瓶天秤 #情侣日常 #女人的选择 #人夫",
+        "likes": 140581,
+        "plays": 0
       }
     ],
-    "hotRate": 100.0,
-    "avgLikes": 564971
+    "hotRate": 50.0,
+    "avgLikes": 352776
+  },
+  {
+    "nickname": "张***雨",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 755768,
+    "maxLikes": 561523,
+    "levels": {
+      "low": 1,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这就是你的心声#情侣#张秋雨",
+        "likes": 561523,
+        "plays": 0
+      },
+      {
+        "title": "谁能来救救我#情侣 #搞笑#张秋雨",
+        "likes": 194245,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 377884
   },
   {
     "nickname": "董***哈",
@@ -891,6 +1062,53 @@
     "avgLikes": 521600
   },
   {
+    "nickname": "H***a",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 504899,
+    "maxLikes": 504899,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "恋爱就要贱贱的谈 #中外情侣 #vlog日常 #内容太过真实 #精神状态belike #意想不到的结局",
+        "likes": 504899,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 504899
+  },
+  {
+    "nickname": "徐***儿",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 911669,
+    "maxLikes": 492333,
+    "levels": {
+      "mid": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不敢想这恋爱得多有意思 #情侣 #分饰 （翻改自网络各营销号图文）",
+        "likes": 492333,
+        "plays": 0
+      },
+      {
+        "title": "对抗路情侣的日常",
+        "likes": 419336,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 455834
+  },
+  {
     "nickname": "披***辣",
     "platform": "douyin",
     "works": 2,
@@ -939,6 +1157,27 @@
     "avgLikes": 452873
   },
   {
+    "nickname": "澡***住",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 449652,
+    "maxLikes": 449652,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男朋友睡着不和我玩我就这样#柏拉图#情侣搞怪日常#情侣亲密时刻",
+        "likes": 449652,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 449652
+  },
+  {
     "nickname": "凯***酱",
     "platform": "douyin",
     "works": 2,
@@ -968,12 +1207,12 @@
   {
     "nickname": "籽***瓜",
     "platform": "douyin",
-    "works": 7,
-    "totalLikes": 1469004,
+    "works": 13,
+    "totalLikes": 1728517,
     "maxLikes": 441325,
     "levels": {
       "mid": 4,
-      "low": 3
+      "low": 9
     },
     "followers": 0,
     "followersKnown": false,
@@ -999,23 +1238,86 @@
         "plays": 0
       },
       {
+        "title": "情侣不说脏话挑战，做文明人，从我做起 #搞笑 #情侣 #一定要看到最后",
+        "likes": 68861,
+        "plays": 0
+      },
+      {
+        "title": "吵架后会互相给台阶的情侣，是不会走散的#内容过于真实 #情侣 #搞笑 #专治不开心",
+        "likes": 54873,
+        "plays": 0
+      },
+      {
+        "title": "恋爱不怕都懒或都勤快，就怕配合不到一块 #情侣 #搞笑#美的洗衣机 #美的内衣洗衣机 #美的双子座分区洗衣机",
+        "likes": 52802,
+        "plays": 0
+      },
+      {
         "title": "两个忘性大的人吵架be like #内容过于真实 #一定要看到最后 #情侣 #搞笑",
         "likes": 45244,
+        "plays": 0
+      },
+      {
+        "title": "遇到这种尴尬情况大家都如何应对#内容过于真实 #一定要看到最后 #情侣 #搞笑",
+        "likes": 43925,
         "plays": 0
       },
       {
         "title": "恋爱其实可以换个方式谈 #内容过于真实 #情侣 #剧情 #搞笑 #爱情",
         "likes": 35879,
         "plays": 0
-      },
+      }
+    ],
+    "hotRate": 30.8,
+    "avgLikes": 132962
+  },
+  {
+    "nickname": "皓***啊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 438963,
+    "maxLikes": 438963,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
       {
-        "title": "虽迟但到，本视频拍摄历时10天 原创@铁汁妹妹s #搞笑 #挑战 #一定要看到最后 #情侣",
-        "likes": 31460,
+        "title": "高甜搞笑神剧来袭6",
+        "likes": 438963,
         "plays": 0
       }
     ],
-    "hotRate": 57.1,
-    "avgLikes": 209857
+    "hotRate": 100.0,
+    "avgLikes": 438963
+  },
+  {
+    "nickname": "凳***子",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 567975,
+    "maxLikes": 420037,
+    "levels": {
+      "mid": 1,
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不对劲不对劲#恋爱日常 #塑料情侣日常 #搞笑 #情侣迷惑行为 #真实还原",
+        "likes": 420037,
+        "plays": 0
+      },
+      {
+        "title": "《谜语情侣》#内容过于真实 #真实还原 #情侣 #情侣迷惑行为 #情侣的日常",
+        "likes": 147938,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 283987
   },
   {
     "nickname": "解***羊",
@@ -1058,6 +1360,33 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 412041
+  },
+  {
+    "nickname": "早***心",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 571133,
+    "maxLikes": 399011,
+    "levels": {
+      "low": 1,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "到底要干嘛... #轻漫计划 #早安李将心 #整蛊男友 #搞笑 #情侣日常 @DOU+小助手",
+        "likes": 399011,
+        "plays": 0
+      },
+      {
+        "title": "戴还是不戴？ 别笑，你也过不了第二关 #轻漫计划#早安李将心#恋爱#情侣日常#搞笑@DOU+小助手",
+        "likes": 172122,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 285566
   },
   {
     "nickname": "骆***子",
@@ -1265,6 +1594,48 @@
     "avgLikes": 281597
   },
   {
+    "nickname": "我***龙",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 278219,
+    "maxLikes": 278219,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "再靠近一点点...就和你贴贴 #我的爸爸是条龙 #搞笑 #情侣日常 #轻漫计划 #爱情 @抖音小助手",
+        "likes": 278219,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 278219
+  },
+  {
+    "nickname": "哦***电",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 266219,
+    "maxLikes": 266219,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "世界上最尴尬的事情 #奇葩#恋爱#情侣日常",
+        "likes": 266219,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 266219
+  },
+  {
     "nickname": "乌***驴",
     "platform": "douyin",
     "works": 1,
@@ -1372,12 +1743,12 @@
   {
     "nickname": "塔***可",
     "platform": "douyin",
-    "works": 4,
-    "totalLikes": 680050,
+    "works": 7,
+    "totalLikes": 1053071,
     "maxLikes": 248706,
     "levels": {
       "mid": 1,
-      "low": 3
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -1398,13 +1769,28 @@
         "plays": 0
       },
       {
+        "title": "一边又一边 #塔塔和可可 #情侣日常 #塑料情侣",
+        "likes": 145613,
+        "plays": 0
+      },
+      {
+        "title": "喜欢你的牙 #塔塔和可可 #塑料情侣 #情侣日常",
+        "likes": 124894,
+        "plays": 0
+      },
+      {
         "title": "爱妻傻子 #塔塔和可可 #情侣日常 #塑料情侣",
         "likes": 103212,
         "plays": 0
+      },
+      {
+        "title": "放心吧有我照顾你肯定好不了 #塔塔和可可 #情侣日常 #塑料情侣",
+        "likes": 102514,
+        "plays": 0
       }
     ],
-    "hotRate": 25.0,
-    "avgLikes": 170012
+    "hotRate": 14.3,
+    "avgLikes": 150438
   },
   {
     "nickname": "小***代",
@@ -1426,6 +1812,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 248285
+  },
+  {
+    "nickname": "搞***频",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 241008,
+    "maxLikes": 241008,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点那些逗比媳妇的欢乐时刻#看一遍笑一遍 #沙雕夫妻欢乐多 #媳妇的迷惑行为 #原谅我不厚道的笑了 #你媳妇也这样吗",
+        "likes": 241008,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 241008
   },
   {
     "nickname": "李***隐",
@@ -1659,11 +2066,11 @@
     "avgLikes": 203188
   },
   {
-    "nickname": "张***雨",
+    "nickname": "邦***常",
     "platform": "douyin",
     "works": 1,
-    "totalLikes": 194245,
-    "maxLikes": 194245,
+    "totalLikes": 191565,
+    "maxLikes": 191565,
     "levels": {
       "low": 1
     },
@@ -1671,13 +2078,13 @@
     "followersKnown": false,
     "topWorks": [
       {
-        "title": "谁能来救救我#情侣 #搞笑#张秋雨",
-        "likes": 194245,
+        "title": "别再玩了………… #邦邦和玉智 #邦邦的日常 #邦邦别太演我 #搞笑动画 #情侣间的假动作过招",
+        "likes": 191565,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 194245
+    "avgLikes": 191565
   },
   {
     "nickname": "被***记",
@@ -1805,6 +2212,42 @@
     "avgLikes": 97448
   },
   {
+    "nickname": "佳***宝",
+    "platform": "douyin",
+    "works": 4,
+    "totalLikes": 442605,
+    "maxLikes": 181766,
+    "levels": {
+      "low": 4
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "事实证明人类的悲欢并不相通，但是骨传导可以#颜撑剧 #情侣尴尬日常 #搞笑",
+        "likes": 181766,
+        "plays": 0
+      },
+      {
+        "title": "我就说没人能从男友的手机中笑着出来吧！ #颜撑剧#我的怨种男友#搞笑",
+        "likes": 101547,
+        "plays": 0
+      },
+      {
+        "title": "#刚在一起时的那些事儿 #搞笑 #情侣尴尬日常",
+        "likes": 81151,
+        "plays": 0
+      },
+      {
+        "title": "不以分手为目的的吵架都是秀恩爱啦～ #颜撑剧 #情侣日常 #搞笑",
+        "likes": 78141,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 110651
+  },
+  {
     "nickname": "楚***点",
     "platform": "douyin",
     "works": 1,
@@ -1845,6 +2288,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 175078
+  },
+  {
+    "nickname": "舒***～",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 173111,
+    "maxLikes": 173111,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "和对象没有话题了怎么办#聊天小技巧#恋爱#青年创作者成长计划",
+        "likes": 173111,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 173111
   },
   {
     "nickname": "国***莉",
@@ -1936,27 +2400,6 @@
     "avgLikes": 86061
   },
   {
-    "nickname": "派***学",
-    "platform": "douyin",
-    "works": 1,
-    "totalLikes": 155220,
-    "maxLikes": 155220,
-    "levels": {
-      "low": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "因为是和你 所以好像做什么事情都觉得很幸福 #暗恋 #恋爱 #情侣 #情侣日常 #恋爱日常",
-        "likes": 155220,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 155220
-  },
-  {
     "nickname": "夏***拉",
     "platform": "douyin",
     "works": 1,
@@ -2018,6 +2461,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 147907
+  },
+  {
+    "nickname": "高***羊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 139974,
+    "maxLikes": 139974,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你这个智商，治好了也流口水！ #情侣日常 #斗智斗勇的日常 #已老实 #油腻",
+        "likes": 139974,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 139974
   },
   {
     "nickname": "深***仔",
@@ -2238,6 +2702,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 103022
+  },
+  {
+    "nickname": "小***了",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 101890,
+    "maxLikes": 101890,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "火锅店里的颠公颠婆 真的会有这样的情侣吗#颠公颠婆 #小北太南了 #搞笑 #看一遍笑一遍 #专治不开心",
+        "likes": 101890,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 101890
   },
   {
     "nickname": "阿*",
@@ -3294,6 +3779,27 @@
     "avgLikes": 70500
   },
   {
+    "nickname": "林***克",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 91556,
+    "maxLikes": 91556,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这样的恋爱方式真的很快乐（长篇纯享版） #情侣日常 #阳光活泼温柔幽默可靠小男孩 #真实还原 #暗爽 #反差",
+        "likes": 91556,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 91556
+  },
+  {
     "nickname": "*",
     "platform": "xiaohongshu",
     "works": 1,
@@ -3334,6 +3840,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 91000
+  },
+  {
+    "nickname": "大***社",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 89833,
+    "maxLikes": 89833,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男友的犯贱日常！ #绘画 #原创",
+        "likes": 89833,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 89833
   },
   {
     "nickname": "野***子",
@@ -3460,6 +3987,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 85000
+  },
+  {
+    "nickname": "女***圈",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 81604,
+    "maxLikes": 81604,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "是谁我不说 #情侣日常 #恋爱日常 #情侣第一次住酒店 #情侣约会 #情侣搞笑日常",
+        "likes": 81604,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 81604
+  },
+  {
+    "nickname": "知*",
+    "platform": "douyin",
+    "works": 3,
+    "totalLikes": 156203,
+    "maxLikes": 81347,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "姐夫~我和“姐姐”到底谁才是你的真爱嘛~ #情侣日常  #整蛊男友  #一定要看到最后",
+        "likes": 81347,
+        "plays": 0
+      },
+      {
+        "title": "还以为自己火到了路人都会上来合照的程度#整蛊男友  #用一整个五月谈恋爱  #银河护卫队3",
+        "likes": 53013,
+        "plays": 0
+      },
+      {
+        "title": "不怕人笨，就怕人又笨又勤快 #情侣 #搞笑 #恋爱日常",
+        "likes": 21843,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 52067
   },
   {
     "nickname": "张***👑",
@@ -3744,6 +4323,27 @@
     "avgLikes": 51333
   },
   {
+    "nickname": "辣***辛",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 73164,
+    "maxLikes": 73164,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我发现你们这些耍朋友的有时候真的神戳戳滴#搞笑 #谈恋爱 #情侣进化路线",
+        "likes": 73164,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 73164
+  },
+  {
     "nickname": "慢*",
     "platform": "xiaohongshu",
     "works": 1,
@@ -3784,6 +4384,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 71613
+  },
+  {
+    "nickname": "小*",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 71321,
+    "maxLikes": 71321,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当两个梗王谈恋爱也太有意思了。#恋爱日常 #情侣日常 #聊天记录 #恋爱技巧",
+        "likes": 71321,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 71321
   },
   {
     "nickname": "子*",
@@ -3917,6 +4538,27 @@
     "avgLikes": 65000
   },
   {
+    "nickname": "邓***啊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 63318,
+    "maxLikes": 63318,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "慌了慌了，他真的慌了！🙂‍↕️ #我们俩 #异国情侣 #恶搞男友 #搞笑 #情侣日常",
+        "likes": 63318,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 63318
+  },
+  {
     "nickname": "王***妮",
     "platform": "xiaohongshu",
     "works": 1,
@@ -4041,6 +4683,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 56389
+  },
+  {
+    "nickname": "小***o",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 55114,
+    "maxLikes": 55114,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "#情侣日常 #女朋友生气系列 女朋友生气就吓唬她，保证回来找你😅",
+        "likes": 55114,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 55114
   },
   {
     "nickname": "宇***子",
@@ -4174,32 +4837,6 @@
     "avgLikes": 53810
   },
   {
-    "nickname": "知*",
-    "platform": "douyin",
-    "works": 2,
-    "totalLikes": 74856,
-    "maxLikes": 53013,
-    "levels": {
-      "low": 2
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "还以为自己火到了路人都会上来合照的程度#整蛊男友  #用一整个五月谈恋爱  #银河护卫队3",
-        "likes": 53013,
-        "plays": 0
-      },
-      {
-        "title": "不怕人笨，就怕人又笨又勤快 #情侣 #搞笑 #恋爱日常",
-        "likes": 21843,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 37428
-  },
-  {
     "nickname": "料***啊",
     "platform": "xiaohongshu",
     "works": 2,
@@ -4245,6 +4882,53 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 52000
+  },
+  {
+    "nickname": "啊*",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 87117,
+    "maxLikes": 51422,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我们总把对方爱得“死去活来”！ #啊仁 #搞笑 #剧情 #情侣",
+        "likes": 51422,
+        "plays": 0
+      },
+      {
+        "title": "女友非要吃我一掌！ #啊仁 #搞笑 #情侣 #反转 #剧情",
+        "likes": 35695,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 43558
+  },
+  {
+    "nickname": "知***😈",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 51195,
+    "maxLikes": 51195,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "让女友当众社死的瞬间，女朋友瞬间就红温了 #情侣日常 #搞笑视频 #看一遍笑一遍 #社死现场 #情侣社死 @DOU+小助手",
+        "likes": 51195,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 51195
   },
   {
     "nickname": "谢***尧",
@@ -4378,6 +5062,27 @@
     "avgLikes": 46000
   },
   {
+    "nickname": "周***.",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 45693,
+    "maxLikes": 45693,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "双方都被暗算了... #日常vlog #搞笑 #日常 #万万没想到 #花絮",
+        "likes": 45693,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 45693
+  },
+  {
     "nickname": "拓***🥥",
     "platform": "douyin",
     "works": 1,
@@ -4420,6 +5125,27 @@
     "avgLikes": 45000
   },
   {
+    "nickname": "章***帆",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 43314,
+    "maxLikes": 43314,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这谁绷得住啊… #情侣#内容过于真实#颜撑剧#真实还原",
+        "likes": 43314,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 43314
+  },
+  {
     "nickname": "铁***记",
     "platform": "xiaohongshu",
     "works": 1,
@@ -4460,6 +5186,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 43000
+  },
+  {
+    "nickname": "阿***常",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 42372,
+    "maxLikes": 42372,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "整治一下爱生气的女友 整治一下爱生气的女友 #搞笑#万万没想到 #逗比夫妻日常 #情侣日常 #沙雕情侣欢乐多 @上热门🔥🔥🔥",
+        "likes": 42372,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 42372
   },
   {
     "nickname": "滚***学",
@@ -4588,6 +5335,27 @@
     "avgLikes": 39000
   },
   {
+    "nickname": "袁***贵",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 38950,
+    "maxLikes": 38950,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这样会疼人的总裁谁不爱呢？#霸总#霸道总裁小娇妻#日常生活",
+        "likes": 38950,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 38950
+  },
+  {
     "nickname": "小***橙",
     "platform": "douyin",
     "works": 3,
@@ -4661,6 +5429,27 @@
     "avgLikes": 36000
   },
   {
+    "nickname": "6***咚",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 32443,
+    "maxLikes": 32443,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "小便宜不可占 #情侣搞笑 #抽象 #欧亨利式结尾",
+        "likes": 32443,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 32443
+  },
+  {
     "nickname": "开***罐",
     "platform": "douyin",
     "works": 1,
@@ -4701,6 +5490,48 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 31000
+  },
+  {
+    "nickname": "噗***雷",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 29732,
+    "maxLikes": 29732,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当男朋友是个妻宝男 #情侣日常#蜡笔小新#搞笑",
+        "likes": 29732,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29732
+  },
+  {
+    "nickname": "娜***）",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 29097,
+    "maxLikes": 29097,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "暴躁！#情侣日常 #搞笑视频 #结局亮了 #娜子不杰克 #对抗路日常",
+        "likes": 29097,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29097
   },
   {
     "nickname": "叮***儿",
@@ -5016,6 +5847,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 25000
+  },
+  {
+    "nickname": "十***美",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 24284,
+    "maxLikes": 24284,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男友吹牛千万不要戳破，你嗨我更嗨 #情侣日常  #情侣  #口嗨  #吹牛 #反转剧情",
+        "likes": 24284,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 24284
   },
   {
     "nickname": "大***吹",
@@ -5375,6 +6227,48 @@
     "avgLikes": 18000
   },
   {
+    "nickname": "小***呀",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 17879,
+    "maxLikes": 17879,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我无聊时就这样调戏男朋友！#情侣日常#搞笑#聊天记录#日常套路#男朋友",
+        "likes": 17879,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17879
+  },
+  {
+    "nickname": "赵***淇",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 17802,
+    "maxLikes": 17802,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "每日整蛊小技巧#女大学生 #情侣 #情侣日常 #甜妹 #理想型",
+        "likes": 17802,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17802
+  },
+  {
     "nickname": "仨***的",
     "platform": "douyin",
     "works": 1,
@@ -5396,6 +6290,27 @@
     "avgLikes": 17772
   },
   {
+    "nickname": "搞***钱",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 17347,
+    "maxLikes": 17347,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点情侣秀恩爱大型社死现场；隔着屏幕都觉的尴尬 #搞笑视频 #夫妻日常 #男女情感 #情侣日常 ",
+        "likes": 17347,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17347
+  },
+  {
     "nickname": "小***🥕",
     "platform": "douyin",
     "works": 1,
@@ -5415,6 +6330,48 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 16992
+  },
+  {
+    "nickname": "杨***苏",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 16100,
+    "maxLikes": 16100,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "让我看看这次又是在谁家安监控了...？#情侣日常#搞笑#情侣",
+        "likes": 16100,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16100
+  },
+  {
+    "nickname": "段***段",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 16033,
+    "maxLikes": 16033,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "谈恋爱可以犯贱但不能太贱… #抽象 #精神状态belike #内容过于真实",
+        "likes": 16033,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16033
   },
   {
     "nickname": "许***啦",
@@ -5459,6 +6416,48 @@
     "avgLikes": 16000
   },
   {
+    "nickname": "肖***～",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 15877,
+    "maxLikes": 15877,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不会哄女朋友的 你们就学吧！ #情侣 #搞笑 #日常 #恋爱",
+        "likes": 15877,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15877
+  },
+  {
+    "nickname": "张***😧",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 15785,
+    "maxLikes": 15785,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "一种很新的约会方式。。#搞笑 #情侣",
+        "likes": 15785,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15785
+  },
+  {
     "nickname": "痴***克",
     "platform": "xiaohongshu",
     "works": 1,
@@ -5478,6 +6477,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 14000
+  },
+  {
+    "nickname": "兔***屋",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 13265,
+    "maxLikes": 13265,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "果然恋爱还是看别人谈才有意思#情侣日常 #搞笑 #专治不开心 #恋爱",
+        "likes": 13265,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 13265
   },
   {
     "nickname": "晚***记",
