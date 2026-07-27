@@ -1452,12 +1452,121 @@ var METRIC_NAMES = { plays: '流量', likes: '点赞', comments: '评论', saves
 var METRIC_KEYS = { plays: 'totalPlays', likes: 'totalLikes', comments: 'totalComments', saves: 'totalSaves', shares: 'totalShares' };
 
 function renderMonitorDashboard() {
+  // 无真实数据时灌入演示数据
+  if (!Store.monitorAccounts().length) {
+    seedMonitorMockData();
+  }
   renderMonitorAccountCards();
   drawMonitorTrendChart();
   drawTimeSlotChart();
   renderMonitorAdvice();
   renderMonitorWeekGroups();
 }
+
+// ===== 演示数据生成（首次无真实数据时自动注入） =====
+function seedMonitorMockData() {
+  // 3个账号
+  var accounts = [
+    { id: 'a1', platform: 'douyin', nickname: '我的抖音', addedAt: Date.now() - 30*86400000 },
+    { id: 'a2', platform: 'xiaohongshu', nickname: '我的小红书', addedAt: Date.now() - 25*86400000 },
+    { id: 'a3', platform: 'kuaishou', nickname: '我的快手', addedAt: Date.now() - 20*86400000 },
+  ];
+  Store.saveMonitorAccounts(accounts);
+
+  // 快照数据：每天每个账号存一份（totalPlays/totalLikes/totalComments/totalSaves/totalShares + fans + works）
+  var snaps = {};
+  var videos = {};
+  var now = new Date();
+  var baseData = {
+    a1: { platform: 'douyin', startFans: 85000, growth: 1800, basePlays: 2200000, baseLikes: 85000, baseComments: 3200, baseSaves: 5800, baseShares: 2100, works: 12 },
+    a2: { platform: 'xiaohongshu', startFans: 58000, growth: 800, basePlays: 800000, baseLikes: 32000, baseComments: 1500, baseSaves: 4200, baseShares: 900, works: 8 },
+    a3: { platform: 'kuaishou', startFans: 32000, growth: 400, basePlays: 450000, baseLikes: 18000, baseComments: 800, baseSaves: 2100, baseShares: 500, works: 5 },
+  };
+
+  accounts.forEach(function(a) {
+    var bd = baseData[a.id];
+    var key = a.platform + '_' + a.id;
+    videos[key] = [];
+
+    // 生成过去60天的快照
+    for (var days = 60; days >= 0; days--) {
+      var d = new Date(now - days * 86400000);
+      var dateStr = d.toISOString().slice(0, 10);
+      var snapKey = key + '_' + dateStr;
+      var f = bd.startFans + days * (bd.growth + Math.floor(Math.random() * 200 - 100));
+      var randomFactor = 0.85 + Math.random() * 0.3;
+      snaps[snapKey] = {
+        fans: Math.max(bd.startFans * 0.8, Math.round(f)),
+        works: bd.works + Math.floor(days / 5),
+        totalPlays: Math.round(bd.basePlays * (0.7 + days / 200) * randomFactor),
+        totalLikes: Math.round(bd.baseLikes * (0.7 + days / 200) * randomFactor),
+        totalComments: Math.round(bd.baseComments * (0.7 + days / 200) * randomFactor),
+        totalSaves: Math.round(bd.baseSaves * (0.7 + days / 200) * randomFactor),
+        totalShares: Math.round(bd.baseShares * (0.7 + days / 200) * randomFactor),
+      };
+    }
+
+    // 生成 mock 作品（按日期分布在近60天内）
+    var workTemplates = {
+      a1: douyin_works,
+      a2: xhs_works,
+      a3: ks_works,
+    };
+    var tmpls = workTemplates[a.id];
+    tmpls.forEach(function(t, i) {
+      var pubDate = new Date(now - (i * 4 + Math.floor(Math.random() * 3)) * 86400000);
+      videos[key].push({
+        id: a.id + '_w' + i,
+        title: t.title,
+        author: a.nickname,
+        likes: t.likes, plays: t.plays, comments: t.comments, saves: t.saves, shares: t.shares,
+        publishTime: pubDate.toISOString().slice(0, 10) + ' ' + t.time,
+        platform: a.platform,
+        videoUrl: t.url,
+        topic: t.topic || 'couple_funny',
+        duration: t.duration || 35,
+      });
+    });
+  });
+
+  Store.saveMonitorSnapshots(snaps);
+  Store.saveMonitorVideos(videos);
+}
+
+// mock 作品模板
+var douyin_works = [
+  { title: '假装失忆测试男友反应😂', likes: 85000, plays: 2300000, comments: 3200, saves: 5800, shares: 2100, time: '20:30', url: 'https://www.douyin.com/video/7658644062555391722', topic: 'daily_prank', duration: 42 },
+  { title: '趁他睡着把眉毛剃了一半', likes: 62000, plays: 1850000, comments: 2800, saves: 4200, shares: 1800, time: '21:15', url: 'https://www.douyin.com/video/7665596046256824570', topic: 'daily_prank', duration: 38 },
+  { title: '在电梯里假装不认识他', likes: 38000, plays: 980000, comments: 1500, saves: 3100, shares: 1200, time: '20:00', url: 'https://www.douyin.com/video/7445677809080552731', topic: 'couple_funny', duration: 28 },
+  { title: '偷偷换了他的洗发水', likes: 29000, plays: 720000, comments: 1200, saves: 2400, shares: 850, time: '19:30', url: 'https://www.douyin.com/video/7656773111907807942', topic: 'daily_prank', duration: 35 },
+  { title: '假装把手机掉马桶里了', likes: 24000, plays: 650000, comments: 980, saves: 1900, shares: 720, time: '21:00', url: 'https://www.douyin.com/video/7622658539152217009', topic: 'reverse_plot', duration: 45 },
+  { title: '测试他的求生欲第3卷', likes: 45000, plays: 1280000, comments: 2100, saves: 3600, shares: 1500, time: '20:45', url: 'https://www.douyin.com/video/7661206159093808251', topic: 'couple_funny', duration: 33 },
+  { title: '在他最爱的T恤上画了卡通小猪', likes: 52000, plays: 1680000, comments: 2400, saves: 4800, shares: 1900, time: '22:00', url: 'https://www.douyin.com/video/7663050017858765236', topic: 'daily_prank', duration: 40 },
+  { title: '跟他说我准备去相亲了', likes: 72000, plays: 2100000, comments: 3800, saves: 6200, shares: 2500, time: '19:45', url: 'https://www.douyin.com/video/7506094958207307066', topic: 'reverse_plot', duration: 52 },
+  { title: '把他手机语言改成阿拉伯语', likes: 35000, plays: 890000, comments: 1600, saves: 2800, shares: 1100, time: '20:15', url: 'https://www.douyin.com/video/7621780734517293539', topic: 'daily_prank', duration: 30 },
+  { title: '假装迷路让他电话导航', likes: 41000, plays: 1050000, comments: 1800, saves: 3200, shares: 1300, time: '18:30', url: 'https://www.douyin.com/video/7438971717759864115', topic: 'couple_funny', duration: 36 },
+  { title: '在他背后贴了"请摸我头"的纸条', likes: 58000, plays: 1750000, comments: 2900, saves: 5100, shares: 2200, time: '17:45', url: 'https://www.douyin.com/video/7660938967830859062', topic: 'brainless', duration: 25 },
+  { title: '用三句话让他给我买了奶茶', likes: 96000, plays: 3200000, comments: 4500, saves: 7800, shares: 3200, time: '20:30', url: 'https://www.douyin.com/video/7662966308720858020', topic: 'couple_funny', duration: 48 },
+];
+
+var xhs_works = [
+  { title: '跟他说我怀孕了（吃多了）', likes: 41000, plays: 1200000, comments: 1800, saves: 5200, shares: 950, time: '19:45', url: 'https://www.xiaohongshu.com/explore/abc123', topic: 'reverse_plot', duration: 32 },
+  { title: '给他手机存一百张丑表情包', likes: 28000, plays: 750000, comments: 1200, saves: 3800, shares: 700, time: '18:30', url: 'https://www.xiaohongshu.com/explore/def456', topic: 'daily_prank', duration: 28 },
+  { title: '让他帮选衣服，选的都是反的', likes: 18000, plays: 420000, comments: 850, saves: 2600, shares: 450, time: '20:00', url: 'https://www.xiaohongshu.com/explore/ghi789', topic: 'couple_funny', duration: 38 },
+  { title: '假装有私生饭，他的反应绝了', likes: 32000, plays: 890000, comments: 1500, saves: 3400, shares: 820, time: '19:15', url: 'https://www.xiaohongshu.com/explore/jkl012', topic: 'reverse_plot', duration: 45 },
+  { title: '趁他开会时放了搞笑背景音', likes: 25000, plays: 680000, comments: 980, saves: 2900, shares: 620, time: '15:30', url: 'https://www.xiaohongshu.com/explore/mno345', topic: 'daily_prank', duration: 35 },
+  { title: '把他的咖啡换成了酱油', likes: 35000, plays: 1050000, comments: 1600, saves: 4100, shares: 880, time: '09:00', url: 'https://www.xiaohongshu.com/explore/pqr678', topic: 'brainless', duration: 22 },
+  { title: '在商场突然装哭看他反应', likes: 48000, plays: 1580000, comments: 2200, saves: 5800, shares: 1100, time: '21:00', url: 'https://www.xiaohongshu.com/explore/stu901', topic: 'couple_funny', duration: 40 },
+  { title: '假装被困在卫生间求救', likes: 22000, plays: 550000, comments: 1100, saves: 2200, shares: 580, time: '18:00', url: 'https://www.xiaohongshu.com/explore/vwx234', topic: 'daily_prank', duration: 33 },
+];
+
+var ks_works = [
+  { title: '黑暗料理让他先尝', likes: 22000, plays: 620000, comments: 850, saves: 2200, shares: 480, time: '20:45', url: 'https://www.kuaishou.com/short-video/ks123', topic: 'brainless', duration: 28 },
+  { title: '假装把工资花光了', likes: 15000, plays: 380000, comments: 650, saves: 1800, shares: 350, time: '19:30', url: 'https://www.kuaishou.com/short-video/ks456', topic: 'reverse_plot', duration: 36 },
+  { title: '给他微信改了个备注"ATM"', likes: 18000, plays: 480000, comments: 720, saves: 2000, shares: 420, time: '21:00', url: 'https://www.kuaishou.com/short-video/ks789', topic: 'daily_prank', duration: 25 },
+  { title: '在他睡着后给他涂了指甲油', likes: 28000, plays: 850000, comments: 1100, saves: 3200, shares: 680, time: '23:00', url: 'https://www.kuaishou.com/short-video/ks012', topic: 'daily_prank', duration: 42 },
+  { title: '让他在大庭广众下大声喊我爱你', likes: 32000, plays: 980000, comments: 1400, saves: 3800, shares: 750, time: '17:00', url: 'https://www.kuaishou.com/short-video/ks345', topic: 'couple_funny', duration: 48 },
+];
 
 // ===== 账号卡片行 =====
 function renderMonitorAccountCards() {
