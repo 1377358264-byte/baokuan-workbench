@@ -1277,6 +1277,12 @@ textarea.form-control { min-height: 80px; resize: vertical; }
 .fav-date-head { font-size:14px; font-weight:700; color:var(--primary); padding:8px 16px 6px; display:flex; align-items:center; gap:6px; }
 .fav-date-count { font-size:12px; font-weight:500; color:#fff; background:var(--primary); border-radius:999px; padding:1px 10px; }
 
+/* 账号分析搜索栏 */
+.account-search-bar { display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+.account-search-input { flex:1; min-width:140px; border:1px solid var(--border); border-radius:10px; padding:10px 14px; font-size:14px; background:var(--card-bg); color:var(--text-primary); outline:none; }
+.account-search-input:focus { border-color:var(--primary); }
+.account-search-select { border:1px solid var(--border); border-radius:10px; padding:10px 8px; font-size:14px; background:var(--card-bg); color:var(--text-primary); min-width:90px; outline:none; }
+
 /* ===== 二创笔记弹窗 ===== */
 .remake-list { max-height:220px; overflow-y:auto; margin:10px 0; }
 .remake-item { background:var(--bg); border-radius:10px; padding:10px 12px; margin-bottom:8px; }
