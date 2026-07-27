@@ -3,505 +3,853 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>v10.0 监控面板预览 v2</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <title>监控面板预览 v10.1</title>
   <style>
-    body { padding-bottom: 40px; }
+    :root {
+      --primary: #0071e3; --primary-light: #e8f2ff;
+      --bg: #f2f2f7; --card-bg: #fff; --border: #e5e5ea;
+      --text-primary: #1d1d1f; --text-secondary: #86868b; --text-tertiary: #aeaeb2;
+      --green: #34c759; --red: #ff3b30; --orange: #ff9500;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'PingFang SC', sans-serif;
+      background: var(--bg); color: var(--text-primary); -webkit-font-smoothing: antialiased;
+      max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 40px;
+    }
     .preview-badge {
       position: fixed; top: 10px; right: 10px; z-index: 999;
-      background: #0071e3; color: #fff; padding: 4px 10px; border-radius: 12px;
+      background: var(--primary); color: #fff; padding: 4px 10px; border-radius: 12px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
     }
-    .acct-scroll { display:flex; gap:10px; padding:10px 16px 0; overflow-x:auto; scrollbar-width:none; }
-    .acct-scroll::-webkit-scrollbar { display:none; }
+
+    /* Header */
+    .radar-header { padding: 20px 16px 0; }
+    .radar-header-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .radar-title-group h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+    .radar-title-group p { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+    .header-actions { display: flex; gap: 8px; }
+    .header-actions button {
+      width: 36px; height: 36px; border: none; border-radius: 50%;
+      background: var(--card-bg); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .segment-tabs { display: flex; gap: 4px; margin-top: 10px; background: #e5e5ea; border-radius: 10px; padding: 3px; }
+    .segment-tab {
+      flex: 1; padding: 8px 0; border: none; border-radius: 8px; background: transparent;
+      font-size: 14px; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+    }
+    .segment-tab.active { background: #fff; color: var(--text-primary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .tab-icon { margin-right: 3px; }
+
+    /* Status */
+    .data-status-bar {
+      margin: 8px 16px; padding: 8px 14px; background: #f0f7ff; border-radius: 8px;
+      font-size: 12px; color: var(--primary); display: flex; align-items: center; gap: 6px;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; }
+
+    /* Account Cards */
+    .acct-scroll { display: flex; gap: 10px; padding: 10px 16px 0; overflow-x: auto; scrollbar-width: none; }
+    .acct-scroll::-webkit-scrollbar { display: none; }
     .monitor-card {
-      flex:0 0 135px; background:#fff; border-radius:12px; padding:12px 14px;
-      box-shadow:0 2px 12px rgba(0,0,0,0.06); position:relative; cursor:pointer;
-      border:2px solid transparent; transition:all 0.2s;
+      flex: 0 0 135px; background: #fff; border-radius: 12px; padding: 12px 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: relative; cursor: pointer;
+      border: 2px solid transparent; transition: all 0.2s;
     }
-    .monitor-card.selected { border-color:#0071e3; box-shadow:0 0 0 3px rgba(0,113,227,0.12); }
-    .monitor-card.all { border-style:dashed; border-color:#d0d0d5; }
-    .monitor-card.all.selected { border-color:#0071e3; }
-    .mc-platform { font-size:11px; font-weight:600; color:#86868b; margin-bottom:4px; }
-    .mc-fans { font-size:17px; font-weight:800; color:#1d1d1f; }
-    .mc-delta { font-size:11px; font-weight:600; margin-left:4px; }
-    .mc-delta.up { color:#34c759; }
-    .mc-delta.down { color:#ff3b30; }
-    .mc-sub { font-size:10px; color:#aeaeb2; margin-top:2px; }
+    .monitor-card.selected { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,113,227,0.12); }
+    .monitor-card.all { border-style: dashed; border-color: #d0d0d5; }
+    .monitor-card.all.selected { border-color: var(--primary); }
+    .monitor-card.all .mc-fans { font-size: 18px; }
+    .mc-platform { font-size: 11px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; }
+    .mc-fans { font-size: 17px; font-weight: 800; color: var(--text-primary); }
+    .mc-delta { font-size: 11px; font-weight: 600; margin-left: 4px; }
+    .mc-delta.up { color: var(--green); }
+    .mc-delta.down { color: var(--red); }
+    .mc-sub { font-size: 10px; color: var(--text-tertiary); margin-top: 2px; }
     .monitor-card.add {
-      border:2px dashed #d0d0d5 !important; background:transparent; box-shadow:none;
-      display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px;
-      cursor:pointer; color:#86868b; font-size:12px; font-weight:500;
+      border: 2px dashed #d0d0d5 !important; background: transparent; box-shadow: none;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px;
+      cursor: pointer; color: var(--text-secondary); font-size: 12px; font-weight: 500;
     }
-    .monitor-card.add .add-icon { font-size:24px; color:#0071e3; }
-    .chart-card {
-      background:#fff; border-radius:16px; padding:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); margin:10px 16px;
+    .monitor-card.add .add-icon { font-size: 24px; color: var(--primary); }
+
+    /* Metric bar */
+    .metric-bar { display: flex; gap: 6px; padding: 10px 16px 4px; align-items: center; }
+    .metric-label { font-size: 12px; color: var(--text-secondary); margin-right: 4px; flex-shrink: 0; }
+    .metric-btn {
+      flex: 1; padding: 6px 0; border-radius: 8px; font-size: 12px; font-weight: 600;
+      border: 1px solid var(--border); background: #fff; color: var(--text-secondary); cursor: pointer;
+      text-align: center; transition: all 0.2s;
     }
-    .chart-card h3 { font-size:14px; font-weight:700; margin-bottom:6px; color:#1d1d1f; }
-    .chart-sub { font-size:11px; color:#86868b; margin-left:6px; font-weight:400; }
-    canvas { display:block; }
-    .trend-seg { display:flex; gap:4px; padding:0 16px 8px; }
+    .metric-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* Trend segment */
+    .trend-seg { display: flex; gap: 4px; padding: 8px 16px 4px; }
     .tseg-btn {
-      flex:1; padding:7px 0; border-radius:10px; font-size:12px; font-weight:600;
-      border:1px solid #e5e5ea; background:#fff; color:#86868b; cursor:pointer; text-align:center;
+      flex: 1; padding: 7px 0; border-radius: 10px; font-size: 12px; font-weight: 600;
+      border: 1px solid var(--border); background: #fff; color: var(--text-secondary);
+      cursor: pointer; text-align: center; transition: all 0.2s;
     }
-    .tseg-btn.active { background:#0071e3; color:#fff; border-color:#0071e3; }
-    .week-group { margin:0 16px 12px; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,0.04); }
+    .tseg-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* Chart card */
+    .chart-card {
+      background: #fff; border-radius: 16px; padding: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin: 8px 16px;
+    }
+    .chart-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); }
+    .chart-sub { font-size: 11px; color: var(--text-secondary); margin-left: 6px; font-weight: 400; }
+    canvas { display: block; }
+
+    /* Pattern / Advice */
+    .pattern-card {
+      background: #fff; border-radius: 16px; padding: 14px; margin: 8px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .pattern-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .advice-row { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+    .advice-row:last-child { border-bottom: none; }
+    .advice-icon { font-size: 20px; flex-shrink: 0; }
+    .advice-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .advice-text { font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-top: 2px; }
+
+    /* Section header */
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin: 8px 16px 6px; }
+    .section-header h2 { font-size: 18px; font-weight: 800; }
+
+    /* Month group */
+    .month-group { margin: 0 16px 8px; }
+    .month-head {
+      display: flex; align-items: center; justify-content: space-between; padding: 16px 18px;
+      background: #fff; border-radius: 14px; cursor: pointer; user-select: none;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04); margin-bottom: 4px;
+    }
+    .month-head:active { background: #f5f5f7; }
+    .month-head-left { display: flex; align-items: center; gap: 10px; }
+    .month-title { font-size: 17px; font-weight: 800; color: var(--text-primary); }
+    .month-total { font-size: 12px; font-weight: 600; color: var(--primary); background: var(--primary-light); border-radius: 10px; padding: 2px 10px; }
+    .month-arrow { font-size: 16px; color: var(--text-tertiary); transition: transform 0.2s; }
+    .month-group.open .month-arrow { transform: rotate(180deg); }
+    .month-week-list { display: none; }
+    .month-group.open .month-week-list { display: block; }
+
+    /* Week group inside month */
+    .month-week-list .week-group { margin: 0 0 8px 0; }
+    .week-group { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
     .week-head {
-      display:flex; align-items:center; justify-content:space-between; padding:14px 16px;
-      cursor:pointer; user-select:none;
+      display: flex; align-items: center; justify-content: space-between; padding: 14px 16px;
+      cursor: pointer; user-select: none;
     }
-    .week-head:active { background:#f5f5f7; }
-    .week-head-left { display:flex; align-items:center; gap:10px; }
-    .week-num { font-size:15px; font-weight:700; color:#1d1d1f; }
-    .week-range { font-size:11px; color:#86868b; }
-    .week-badge { font-size:12px; font-weight:600; color:#0071e3; background:#e8f2ff; border-radius:10px; padding:2px 10px; }
-    .week-arrow { font-size:14px; color:#aeaeb2; transition:transform 0.2s; }
-    .week-group.open .week-arrow { transform:rotate(180deg); }
-    .week-body { display:none; padding:0 10px 10px; }
-    .week-group.open .week-body { display:flex; flex-direction:column; gap:8px; }
+    .week-head:active { background: #f5f5f7; }
+    .week-head-left { display: flex; align-items: center; gap: 10px; }
+    .week-num { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+    .week-range { font-size: 11px; color: var(--text-secondary); }
+    .week-badge { font-size: 12px; font-weight: 600; color: var(--primary); background: var(--primary-light); border-radius: 10px; padding: 2px 10px; }
+    .week-arrow { font-size: 14px; color: var(--text-tertiary); transition: transform 0.2s; }
+    .week-group.open .week-arrow { transform: rotate(180deg); }
+    .week-body { display: none; padding: 0 10px 10px; }
+    .week-group.open .week-body { display: flex; flex-direction: column; gap: 8px; }
+
+    /* Video card */
+    .video-card {
+      background: #fafafa; border-radius: 12px; overflow: hidden; position: relative;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card-cover-area {
+      min-height: 90px; display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .card-platform-badge {
+      position: absolute; top: 10px; right: 10px; padding: 3px 8px; border-radius: 12px;
+      font-size: 10px; font-weight: 600; color: #fff;
+    }
+    .card-body { padding: 10px 12px 4px; }
+    .card-title { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+    .card-author { margin-top: 3px; }
+    .author-name { font-size: 12px; color: var(--text-secondary); }
+    .card-stats { display: flex; gap: 12px; padding: 4px 12px 8px; font-size: 12px; color: var(--text-secondary); }
+    .stat-item { display: flex; align-items: center; gap: 2px; }
+    .stat-icon { font-size: 11px; }
+    .stat-time { margin-left: auto; color: var(--text-tertiary); }
     .work-link {
-      display:block; width:100%; padding:10px 0; text-align:center; border:none;
-      border-top:1px solid #e5e5ea; background:linear-gradient(180deg,#e8f4ff,#d6ebff);
-      color:#1a6dd4; font-size:13px; font-weight:700; cursor:pointer; text-decoration:none;
-      border-radius:0 0 14px 14px;
+      display: block; width: 100%; padding: 10px 0; text-align: center; border: none;
+      border-top: 1px solid var(--border);
+      background: linear-gradient(180deg, #e8f4ff, #d6ebff);
+      color: #1a6dd4; font-size: 13px; font-weight: 700; cursor: pointer;
+      text-decoration: none; border-radius: 0 0 12px 12px;
     }
-    .acct-modal-bg {
-      display:none; position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:999;
-      align-items:flex-end; justify-content:center; backdrop-filter:blur(3px);
-    }
-    .acct-modal-bg.show { display:flex; }
-    .acct-modal {
-      background:#fff; border-radius:20px 20px 0 0; width:100%; max-width:480px;
-      padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px));
-      animation:slideUp 0.3s ease;
-    }
-    @keyframes slideUp { from{transform:translateY(100%);opacity:0} to{transform:translateY(0);opacity:1} }
-    .acct-modal h3 { font-size:17px; font-weight:700; margin-bottom:14px; }
-    .acct-modal .row { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
-    .acct-modal select, .acct-modal input {
-      padding:10px 12px; border:1.5px solid #e5e5ea; border-radius:10px; font-size:14px;
-      background:#f5f5f7; color:#1d1d1f; outline:none; font-family:inherit;
-    }
-    .acct-modal select { min-width:90px; }
-    .acct-modal input { flex:1; min-width:120px; }
-    .acct-modal input:focus, .acct-modal select:focus { border-color:#0071e3; }
+
+    /* Refresh button */
     .btn-blue {
-      width:100%; padding:13px; border:none; border-radius:10px; background:#0071e3;
-      color:#fff; font-size:15px; font-weight:600; cursor:pointer; margin-top:4px;
+      display: block; width: calc(100% - 32px); margin: 12px auto 24px;
+      padding: 13px; border: none; border-radius: 10px;
+      background: var(--primary); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
+    }
+
+    /* Modal */
+    .acct-modal-bg {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 999;
+      align-items: flex-end; justify-content: center; backdrop-filter: blur(3px);
+    }
+    .acct-modal-bg.show { display: flex; }
+    .acct-modal {
+      background: #fff; border-radius: 20px 20px 0 0; width: 100%; max-width: 480px;
+      padding: 20px 18px calc(20px + env(safe-area-inset-bottom, 0px));
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .acct-modal h3 { font-size: 17px; font-weight: 700; margin-bottom: 14px; }
+    .acct-modal .row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+    .acct-modal select, .acct-modal input {
+      padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 14px; background: #f5f5f7; color: var(--text-primary); outline: none;
+      font-family: inherit;
+    }
+    .acct-modal select { min-width: 90px; }
+    .acct-modal input { flex: 1; min-width: 120px; }
+    .acct-modal input:focus, .acct-modal select:focus { border-color: var(--primary); }
+    .btn-primary {
+      width: 100%; padding: 13px; border: none; border-radius: 10px;
+      background: var(--primary); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px;
     }
     .btn-grey {
-      width:100%; padding:12px; border:1.5px solid #e5e5ea; border-radius:10px;
-      background:#fff; color:#0071e3; font-size:14px; font-weight:500; cursor:pointer; margin-top:6px;
+      width: 100%; padding: 12px; border: 1.5px solid var(--border); border-radius: 10px;
+      background: #fff; color: var(--primary); font-size: 14px; font-weight: 500; cursor: pointer; margin-top: 6px;
     }
-    .advice-row { display:flex; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid #f0f0f0; }
-    .advice-row:last-child { border-bottom:none; }
-    .advice-icon { font-size:20px; flex-shrink:0; }
-    .advice-title { font-size:13px; font-weight:600; color:#1d1d1f; }
-    .advice-text { font-size:12px; color:#86868b; line-height:1.5; margin-top:2px; }
   </style>
 </head>
 <body>
-<div class="preview-badge">PREVIEW v10.0</div>
-<div class="app-container">
-<div class="page active" id="radarPage">
+<div class="preview-badge">PREVIEW v10.1</div>
 
-  <div class="radar-header">
-    <div class="radar-header-top">
-      <div class="radar-title-group">
-        <h1>爆款视频</h1>
-        <p>每日9:00自动抓取 · 最近30天与2026历史分板</p>
-      </div>
-      <div class="header-actions">
-        <button class="refresh-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.219-8.56"/><path d="M21 3v6h-6"/></svg></button>
-        <button class="menu-btn">☰</button>
-      </div>
+<!-- Header -->
+<div class="radar-header">
+  <div class="radar-header-top">
+    <div class="radar-title-group">
+      <h1>账号监控</h1>
+      <p>实时追踪你的三个账号数据 · 情侣搞笑赛道</p>
     </div>
-    <div class="segment-tabs">
-      <button class="segment-tab"><span class="tab-icon">🔥</span> 爆款视频</button>
-      <button class="segment-tab active"><span class="tab-icon">📊</span> 账号监控</button>
+    <div class="header-actions">
+      <button onclick="alert('刷新中...')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 11-6.219-8.56"/><path d="M21 3v6h-6"/></svg></button>
     </div>
   </div>
-
-  <div class="data-status-bar">
-    <span><span class="status-dot"></span> 最近抓取: 2026-07-27 · 监控 <b id="acctCount">3</b> 个账号</span>
-  </div>
-
-  <!-- 账号卡片行 -->
-  <div class="acct-scroll" id="acctCards"></div>
-
-  <!-- 趋势图切换 -->
-  <div class="trend-seg">
-    <button class="tseg-btn active" onclick="switchTrend('all')">📊 全部趋势</button>
-    <button class="tseg-btn" onclick="switchTrend('30d')">30天趋势</button>
-    <button class="tseg-btn" onclick="switchTrend('7d')">7天趋势</button>
-  </div>
-
-  <div class="chart-card">
-    <h3 id="trendTitle">📈 全部趋势 <span class="chart-sub" id="trendSub">2026/01 - 至今</span></h3>
-    <canvas id="trendCanvas" width="340" height="200" style="width:100%;max-width:100%;"></canvas>
-  </div>
-
-  <div class="chart-card">
-    <h3>⏰ 最佳发布时间分析</h3>
-    <canvas id="timeSlotCanvas" width="340" height="160" style="width:100%;max-width:100%;"></canvas>
-  </div>
-
-  <div class="pattern-card" style="margin:10px 16px;">
-    <h4>💡 运营建议</h4>
-    <div id="adviceArea"></div>
-  </div>
-
-  <div class="section-header" style="margin:4px 16px 8px;">
-    <h2>📋 我的作品</h2>
-    <span style="font-size:13px;color:#86868b;" id="workTotal">共 0 条</span>
-  </div>
-  <div id="weekGroups" style="padding-bottom:60px;"></div>
-
-</div>
 </div>
 
-<!-- 添加账号弹窗 -->
+<div class="data-status-bar">
+  <span class="status-dot"></span> 最近抓取: 2026-07-27 23:45 · 监控 <b id="acctCount">3</b> 个账号
+</div>
+
+<!-- Account Cards -->
+<div class="acct-scroll" id="acctCards"></div>
+
+<!-- Metric Bar -->
+<div class="metric-bar">
+  <span class="metric-label">数据维度</span>
+  <button class="metric-btn active" onclick="switchMetric('plays')">📊 流量</button>
+  <button class="metric-btn" onclick="switchMetric('likes')">❤️ 点赞</button>
+  <button class="metric-btn" onclick="switchMetric('comments')">💬 评论</button>
+  <button class="metric-btn" onclick="switchMetric('saves')">⭐ 收藏</button>
+  <button class="metric-btn" onclick="switchMetric('shares')">🔄 转发</button>
+</div>
+
+<!-- Trend Toggle -->
+<div class="trend-seg">
+  <button class="tseg-btn active" onclick="switchTrend('all')">全部趋势</button>
+  <button class="tseg-btn" onclick="switchTrend('30d')">30天趋势</button>
+  <button class="tseg-btn" onclick="switchTrend('7d')">7天趋势</button>
+</div>
+
+<!-- Trend Chart -->
+<div class="chart-card">
+  <h3 id="trendTitle">📊 流量 · 全部趋势 <span class="chart-sub" id="trendSub">发布至今</span></h3>
+  <canvas id="trendCanvas" width="340" height="200" style="width:100%;max-width:100%;"></canvas>
+</div>
+
+<!-- Time Slot Chart -->
+<div class="chart-card">
+  <h3>⏰ 最佳发布时间分析</h3>
+  <canvas id="timeSlotCanvas" width="340" height="160" style="width:100%;max-width:100%;"></canvas>
+</div>
+
+<!-- Advice -->
+<div class="pattern-card">
+  <h4>💡 运营建议</h4>
+  <div id="adviceArea"></div>
+</div>
+
+<!-- Works -->
+<div class="section-header">
+  <h2>我的作品</h2>
+  <span style="font-size:13px;color:var(--text-secondary);" id="workTotal">共 0 条</span>
+</div>
+<div id="monthGroups" style="padding-bottom:60px;"></div>
+
+<!-- Refresh -->
+<button class="btn-blue" onclick="alert('预览模式下不实际刷新')">手动刷新监控数据</button>
+
+<!-- Add Account Modal -->
 <div class="acct-modal-bg" id="acctModalBg" onclick="if(event.target===this)closeModal()">
   <div class="acct-modal">
-    <h3>➕ 添加监控账号</h3>
+    <h3>添加监控账号</h3>
     <div class="row">
-      <select id="acctPlat"><option value="douyin">抖音</option><option value="xiaohongshu">小红书</option><option value="kuaishou">快手</option><option value="shipinhao">视频号</option></select>
+      <select id="acctPlat">
+        <option value="douyin">抖音</option>
+        <option value="xiaohongshu">小红书</option>
+        <option value="kuaishou">快手</option>
+        <option value="shipinhao">视频号</option>
+      </select>
       <input type="text" id="acctId" placeholder="输入账号ID / 用户ID">
     </div>
-    <input type="text" id="acctNick" placeholder="账号昵称（可选）" style="width:100%;box-sizing:border-box;margin-bottom:10px;">
-    <button class="btn-blue" onclick="addAccount()">确认添加</button>
+    <input type="text" id="acctNick" placeholder="账号昵称（可选）" style="width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid #e5e5ea;border-radius:10px;font-size:14px;background:#f5f5f7;color:var(--text-primary);outline:none;font-family:inherit;margin-bottom:10px;">
+    <button class="btn-primary" onclick="addAccount()">确认添加</button>
     <button class="btn-grey" onclick="closeModal()">取消</button>
   </div>
 </div>
 
 <script>
-// ===== MOCK DATA (per-account) =====
-const PLAT_COLORS = { douyin:'#000', xiaohongshu:'#ff2442', kuaishou:'#ff4906', shipinhao:'#07c160' };
-const PLAT_NAMES = { douyin:'抖音', xiaohongshu:'小红书', kuaishou:'快手', shipinhao:'视频号' };
-const PLAT_DOMAINS = { douyin:'douyin.com', xiaohongshu:'xiaohongshu.com', kuaishou:'kuaishou.com', shipinhao:'channels.weixin.qq.com' };
+// ===========================
+// DATA
+// ===========================
+const PLAT_COLORS = { douyin: '#000', xiaohongshu: '#ff2442', kuaishou: '#ff4906', shipinhao: '#07c160' };
+const PLAT_NAMES = { douyin: '抖音', xiaohongshu: '小红书', kuaishou: '快手', shipinhao: '视频号' };
+const PLAT_DOMAINS = { douyin: 'douyin.com', xiaohongshu: 'xiaohongshu.com', kuaishou: 'kuaishou.com', shipinhao: 'channels.weixin.qq.com' };
+const METRIC_NAMES = { plays: '流量', likes: '点赞', comments: '评论', saves: '收藏', shares: '转发' };
 
-// 每个账号独立的数据
+// Per-account data
 const ACCOUNT_DATA = {
-  a1: { // 我的抖音
-    nickname:'我的抖音', platform:'douyin', userId:'49566173638', fans:[2000,3500,8200,15000,22000,31000,38000,42000,45000,48000,51000,55000,59000,62000,68000,72000,78000,82000,88000,92000,96000,105000,115000,125600],
-    allLabels: ['1月','2月','3月','4月上','4月下','5月上','5月下','6月上','6月下','7/1-7/4','7/5-7/8','7/9-7/12','7/13-7/15','7/16-7/17','7/18','7/19','7/20','7/21','7/22','7/23','7/24','7/25','7/26','7/27'],
-    trend30d: [88000,92000,96000,105000,115000,125600],
-    labels30d: ['6/28','7/03','7/08','7/13','7/18','7/23'],
-    trend7d: [92000,97000,99000,95000,104000,112000,125600],
-    labels7d: ['7/21','7/22','7/23','7/24','7/25','7/26','7/27'],
+  a1: {  // 抖音 - 12.56w粉
+    nickname: '我的抖音', platform: 'douyin', userId: '49566173638',
+    fans: 125600, delta: +3200, deltaUp: true, totalWorks: 24,
+    // 全部趋势（按半月/周粒度）
+    allLabels: ['1月', '2月', '3月', '4月上', '4月下', '5月上', '5月下', '6月上', '6月下', '7/1-7/5', '7/6-7/12', '7/13-7/19', '7/20-7/27'],
+    // 各指标趋势（粉丝累计 / 流量 / 点赞 / 评论 / 收藏 / 转发）
+    trendFans: [2000,3500,8200,15000,22000,31000,38000,42000,48000,55000,65000,82000,125600],
+    trendPlays: [50000,82000,180000,350000,520000,780000,980000,1150000,1380000,1680000,2200000,2900000,3800000],
+    trendLikes: [1800,3500,8200,15000,22000,31000,38000,42000,48000,55000,65000,82000,125600],
+    trendComments: [320,650,1500,2800,4200,5800,7200,8200,9500,10800,13200,16800,22600],
+    trendSaves: [800,1500,3500,6200,9200,13000,16000,18000,21000,24000,29000,36000,52000],
+    trendShares: [200,420,950,1800,2800,3800,4500,5200,6000,7200,8800,11800,16200],
+    // 30天趋势
+    trend30dPlays: [1380000,1500000,1700000,2100000,2600000,3200000,3800000],
+    trend30dLikes: [48000,52000,57000,65000,82000,105000,125600],
+    trend30dComments: [9500,10200,11500,13800,16800,19500,22600],
+    trend30dSaves: [21000,23000,26000,30000,36000,42000,52000],
+    trend30dShares: [6000,6500,7200,8800,11800,14000,16200],
+    labels30d: ['6/28', '7/03', '7/08', '7/13', '7/18', '7/23', '7/27'],
+    // 7天趋势
+    trend7dPlays: [2600000,2750000,2900000,3100000,3300000,3600000,3800000],
+    trend7dLikes: [82000,88000,92000,97000,107000,118000,125600],
+    trend7dComments: [16800,17200,18000,18800,20200,21500,22600],
+    trend7dSaves: [36000,37200,39000,41000,46000,50000,52000],
+    trend7dShares: [11800,12200,12800,13600,14800,15500,16200],
+    labels7d: ['7/21', '7/22', '7/23', '7/24', '7/25', '7/26', '7/27'],
+    // 24h分布
+    hourPlays: [80,50,30,18,12,10,15,45,120,260,400,520,620,700,680,560,500,630,760,930,1100,960,700,360],
     hourLikes: [80,50,30,18,12,10,15,45,120,260,400,520,620,700,680,560,500,630,760,930,1100,960,700,360],
-    delta: +3200, deltaUp: true, totalWorks: 12,
+    hourComments: [14,9,5,3,2,2,3,8,22,45,70,92,108,120,116,98,88,110,135,165,185,160,120,62],
+    hourSaves: [32,20,12,7,5,4,6,18,48,105,160,210,250,280,270,225,200,255,310,385,440,385,280,145],
+    hourShares: [10,6,4,2,1,1,2,6,16,35,55,72,85,95,92,78,70,88,108,135,155,130,95,50],
     works: [
-      { title:'假装失忆测试男友反应😂', likes:85000, plays:2300000, date:'2026-07-26 20:30', week:30, url:'https://www.douyin.com/video/7658644062555391722' },
-      { title:'趁他睡着把眉毛剃了一半', likes:62000, plays:1850000, date:'2026-07-25 21:15', week:30, url:'https://www.douyin.com/video/7665596046256824570' },
-      { title:'在电梯里假装不认识他', likes:38000, plays:980000, date:'2026-07-23 20:00', week:30, url:'https://www.douyin.com/video/7445677809080552731' },
-      { title:'偷偷换了他的洗发水', likes:29000, plays:720000, date:'2026-07-18 19:30', week:29, url:'https://www.douyin.com/video/7656773111907807942' },
-      { title:'假装把手机掉马桶里了', likes:24000, plays:650000, date:'2026-07-15 21:00', week:29, url:'https://www.douyin.com/video/7622658539152217009' },
-      { title:'测试他的求生欲第3卷', likes:45000, plays:1280000, date:'2026-07-10 20:45', week:28, url:'https://www.douyin.com/video/7661206159093808251' },
+      { title: '假装失忆测试男友反应😂', likes: 85000, plays: 2300000, comments: 18200, saves: 38000, shares: 12000, date: '2026-07-26 20:30', week: 31, url: 'https://www.douyin.com/video/7658644062555391722' },
+      { title: '趁他睡着把眉毛剃了一半', likes: 62000, plays: 1850000, comments: 13500, saves: 25000, shares: 8800, date: '2026-07-25 21:15', week: 31, url: 'https://www.douyin.com/video/7665596046256824570' },
+      { title: '在电梯里假装不认识他', likes: 38000, plays: 980000, comments: 7800, saves: 15000, shares: 5200, date: '2026-07-23 20:00', week: 30, url: 'https://www.douyin.com/video/7445677809080552731' },
+      { title: '把空调遥控器藏起来说坏了', likes: 42000, plays: 1200000, comments: 9200, saves: 18000, shares: 6500, date: '2026-07-22 19:00', week: 30, url: '#' },
+      { title: '偷偷换了他的洗发水', likes: 29000, plays: 720000, comments: 5800, saves: 12000, shares: 3800, date: '2026-07-18 19:30', week: 29, url: '#' },
+      { title: '假装把手机掉马桶里了', likes: 24000, plays: 650000, comments: 4500, saves: 9500, shares: 2800, date: '2026-07-15 21:00', week: 29, url: '#' },
+      { title: '测试他的求生欲第3卷', likes: 45000, plays: 1280000, comments: 9800, saves: 19500, shares: 7200, date: '2026-07-10 20:45', week: 28, url: '#' },
+      { title: '在他生日当天假装忘掉', likes: 52000, plays: 1580000, comments: 11200, saves: 22000, shares: 8200, date: '2026-07-08 18:00', week: 28, url: '#' },
+      { title: '女朋友暴怒合集·他居然还敢笑', likes: 38000, plays: 950000, comments: 8200, saves: 16000, shares: 5500, date: '2026-07-01 19:30', week: 27, url: '#' },
+      { title: '给他假口红让他猜价格', likes: 31000, plays: 820000, comments: 6800, saves: 13000, shares: 4200, date: '2026-06-25 20:15', week: 26, url: '#' },
+      { title: '趁他打游戏疯狂撩他', likes: 33000, plays: 880000, comments: 7200, saves: 14000, shares: 4800, date: '2026-06-20 21:00', week: 25, url: '#' },
+      { title: '让他帮我敷面膜结果整张脸都是', likes: 28000, plays: 750000, comments: 6200, saves: 11500, shares: 3900, date: '2026-06-15 19:45', week: 24, url: '#' },
     ]
   },
-  a2: { // 我的小红书
-    nickname:'我的小红书', platform:'xiaohongshu', userId:'95886844869', fans:[3000,5500,9800,18000,28000,42000,58000,72000,86400],
-    allLabels: ['1月','2月','3月','4月','5月上','5月下','6月上','6月下','7/27'],
-    trend30d: [58000,62000,68000,74000,80000,86400],
-    labels30d: ['6/28','7/03','7/08','7/13','7/18','7/23'],
-    trend7d: [72000,75000,78000,81000,83000,85000,86400],
-    labels7d: ['7/21','7/22','7/23','7/24','7/25','7/26','7/27'],
+  a2: {  // 小红书 - 8.64w粉
+    nickname: '我的小红书', platform: 'xiaohongshu', userId: '95886844869',
+    fans: 86400, delta: +1500, deltaUp: true, totalWorks: 16,
+    allLabels: ['1月', '2月', '3月', '4月', '5月上', '5月下', '6月上', '6月下', '7/1-7/13', '7/14-7/27'],
+    trendFans: [3000,5500,9800,18000,28000,42000,58000,72000,81000,86400],
+    trendPlays: [60000,120000,220000,420000,680000,980000,1350000,1680000,2100000,2600000],
+    trendLikes: [3000,5500,9800,18000,28000,42000,58000,72000,81000,86400],
+    trendComments: [450,850,1500,2800,4500,6800,9500,11800,13200,15200],
+    trendSaves: [1200,2300,4200,7800,12000,18000,25000,32000,38000,42000],
+    trendShares: [300,550,980,1800,2800,4200,5800,7200,8600,9800],
+    trend30dPlays: [1350000,1500000,1720000,1980000,2300000,2480000,2600000],
+    trend30dLikes: [58000,61000,65000,70000,76000,82000,86400],
+    trend30dComments: [9500,10000,11000,12000,13200,14500,15200],
+    trend30dSaves: [25000,27000,30000,33000,37000,40000,42000],
+    trend30dShares: [5800,6200,6800,7400,8200,9000,9800],
+    labels30d: ['6/28', '7/03', '7/08', '7/13', '7/18', '7/23', '7/27'],
+    trend7dPlays: [2100000,2200000,2300000,2400000,2480000,2550000,2600000],
+    trend7dLikes: [72000,75000,78000,81000,83000,85000,86400],
+    trend7dComments: [11800,12200,12800,13500,14200,14800,15200],
+    trend7dSaves: [32000,33500,35000,36500,38500,40500,42000],
+    trend7dShares: [7200,7500,7800,8300,8800,9300,9800],
+    labels7d: ['7/21', '7/22', '7/23', '7/24', '7/25', '7/26', '7/27'],
+    hourPlays: [60,40,25,15,10,8,12,35,100,220,350,450,550,650,620,500,440,580,700,880,950,820,600,300],
     hourLikes: [60,40,25,15,10,8,12,35,100,220,350,450,550,650,620,500,440,580,700,880,950,820,600,300],
-    delta: +1500, deltaUp: true, totalWorks: 8,
+    hourComments: [10,7,4,2,1,1,2,6,18,38,58,75,92,108,105,85,75,96,118,148,162,138,102,52],
+    hourSaves: [24,16,10,6,4,3,5,14,40,88,140,180,220,260,248,200,176,232,280,352,380,328,240,120],
+    hourShares: [7,5,3,2,1,1,2,5,13,28,42,55,68,80,76,62,55,70,88,108,118,100,75,38],
     works: [
-      { title:'跟他说我怀孕了（吃多了）', likes:41000, plays:1200000, date:'2026-07-24 19:45', week:30, url:'https://www.xiaohongshu.com/explore/abc123' },
-      { title:'给他手机存一百张丑表情包', likes:28000, plays:750000, date:'2026-07-22 18:30', week:30, url:'https://www.xiaohongshu.com/explore/def456' },
-      { title:'让他帮选衣服，选的都是反的', likes:18000, plays:420000, date:'2026-07-16 20:00', week:29, url:'https://www.xiaohongshu.com/explore/ghi789' },
-      { title:'假装有私生饭，他的反应绝了', likes:32000, plays:890000, date:'2026-07-09 19:15', week:28, url:'https://www.xiaohongshu.com/explore/jkl012' },
+      { title: '跟他说我怀孕了（吃多了）', likes: 41000, plays: 1200000, comments: 8800, saves: 18000, shares: 5500, date: '2026-07-24 19:45', week: 30, url: '#' },
+      { title: '给他手机存一百张丑表情包', likes: 28000, plays: 750000, comments: 5200, saves: 12000, shares: 3200, date: '2026-07-22 18:30', week: 30, url: '#' },
+      { title: '让他帮选衣服，选的都是反的', likes: 18000, plays: 420000, comments: 3800, saves: 7800, shares: 2100, date: '2026-07-16 20:00', week: 29, url: '#' },
+      { title: '假装有私生饭，他的反应绝了', likes: 32000, plays: 890000, comments: 6500, saves: 13500, shares: 4200, date: '2026-07-09 19:15', week: 28, url: '#' },
+      { title: '把他的白T恤全染成粉色', likes: 25000, plays: 680000, comments: 4800, saves: 10500, shares: 3500, date: '2026-07-03 17:30', week: 27, url: '#' },
+      { title: '让他以为我换了手机密码', likes: 22000, plays: 580000, comments: 4200, saves: 9000, shares: 2800, date: '2026-06-28 20:45', week: 26, url: '#' },
+      { title: '朋友圈发"他出轨了"然后秒删', likes: 35000, plays: 980000, comments: 7200, saves: 15000, shares: 4800, date: '2026-06-22 18:00', week: 25, url: '#' },
+      { title: '让他帮我涂指甲油（直男杀手）', likes: 19000, plays: 450000, comments: 3500, saves: 8500, shares: 2600, date: '2026-06-15 19:30', week: 24, url: '#' },
     ]
   },
-  a3: { // 我的快手
-    nickname:'我的快手', platform:'kuaishou', userId:'5530272280', fans:[10000,18000,25000,35000,45000,52300],
-    allLabels: ['3月','4月','5月','6月上','6月下','7/27'],
-    trend30d: [32000,37000,42000,46000,50000,52300],
-    labels30d: ['6/28','7/03','7/08','7/13','7/18','7/23'],
-    trend7d: [45000,47000,49000,50000,51200,52000,52300],
-    labels7d: ['7/21','7/22','7/23','7/24','7/25','7/26','7/27'],
+  a3: {  // 快手 - 5.23w粉
+    nickname: '我的快手', platform: 'kuaishou', userId: '5530272280',
+    fans: 52300, delta: -400, deltaUp: false, totalWorks: 8,
+    allLabels: ['3月', '4月', '5月', '6月上', '6月下', '7/1-7/13', '7/14-7/27'],
+    trendFans: [10000,18000,25000,35000,45000,51000,52300],
+    trendPlays: [280000,450000,650000,880000,1150000,1400000,1520000],
+    trendLikes: [10000,18000,25000,35000,45000,51000,52300],
+    trendComments: [1800,3200,4500,6500,8200,9500,9800],
+    trendSaves: [4500,8000,11000,15500,20000,23500,24800],
+    trendShares: [1200,2200,3200,4500,5800,6800,7200],
+    trend30dPlays: [880000,980000,1100000,1250000,1380000,1460000,1520000],
+    trend30dLikes: [32000,37000,42000,46000,50000,51500,52300],
+    trend30dComments: [5600,6000,6600,7400,8200,9000,9800],
+    trend30dSaves: [14800,16500,18000,20000,22000,23800,24800],
+    trend30dShares: [4200,4600,5000,5600,6200,6800,7200],
+    labels30d: ['6/28', '7/03', '7/08', '7/13', '7/18', '7/23', '7/27'],
+    trend7dPlays: [1380000,1400000,1430000,1460000,1490000,1510000,1520000],
+    trend7dLikes: [45000,46000,47000,48500,50000,51500,52300],
+    trend7dComments: [8200,8400,8600,8800,9200,9500,9800],
+    trend7dSaves: [20000,20800,21600,22500,23600,24300,24800],
+    trend7dShares: [5800,6000,6200,6400,6600,6900,7200],
+    labels7d: ['7/21', '7/22', '7/23', '7/24', '7/25', '7/26', '7/27'],
+    hourPlays: [40,30,20,12,8,5,10,25,80,180,280,380,480,550,520,420,380,500,620,780,880,750,500,250],
     hourLikes: [40,30,20,12,8,5,10,25,80,180,280,380,480,550,520,420,380,500,620,780,880,750,500,250],
-    delta: -400, deltaUp: false, totalWorks: 4,
+    hourComments: [7,5,3,2,1,1,2,4,14,30,48,65,82,92,88,72,65,85,108,132,148,128,85,42],
+    hourSaves: [16,12,8,5,3,2,4,10,32,72,112,152,192,220,208,168,152,200,248,312,350,300,200,100],
+    hourShares: [5,4,2,1,1,1,1,3,10,22,35,48,62,70,66,54,48,62,82,100,110,95,62,32],
     works: [
-      { title:'黑暗料理让他先尝', likes:22000, plays:620000, date:'2026-07-21 20:45', week:30, url:'https://www.kuaishou.com/short-video/ks123' },
-      { title:'假装把工资花光了', likes:15000, plays:380000, date:'2026-07-08 19:30', week:28, url:'https://www.kuaishou.com/short-video/ks456' },
+      { title: '黑暗料理让他先尝', likes: 22000, plays: 620000, comments: 4800, saves: 9800, shares: 3500, date: '2026-07-21 20:45', week: 30, url: '#' },
+      { title: '假装把工资花光了', likes: 15000, plays: 380000, comments: 3200, saves: 6800, shares: 2200, date: '2026-07-08 19:30', week: 28, url: '#' },
+      { title: '让他以为我把他游戏删了', likes: 28000, plays: 780000, comments: 5500, saves: 12000, shares: 4200, date: '2026-07-01 18:00', week: 27, url: '#' },
+      { title: '女朋友突击检查手机', likes: 18000, plays: 480000, comments: 3800, saves: 7800, shares: 2800, date: '2026-06-20 20:30', week: 25, url: '#' },
     ]
-  },
+  }
 };
 
-let state = { accounts: MOCK_ACCOUNTS(), selectedId: 'all', trendMode: 'all' };
-
-function MOCK_ACCOUNTS() {
-  return [
-    { id:'a1', platform:'douyin', nickname:'我的抖音', userId:'49566173638', fans:125600, delta:+3200, deltaUp:true, works:12 },
-    { id:'a2', platform:'xiaohongshu', nickname:'我的小红书', userId:'95886844869', fans:86400, delta:+1500, deltaUp:true, works:8 },
-    { id:'a3', platform:'kuaishou', nickname:'我的快手', userId:'5530272280', fans:52300, delta:-400, deltaUp:false, works:4 },
-  ];
-}
+// ===========================
+// STATE
+// ===========================
+let state = {
+  accounts: [
+    { id: 'a1', platform: 'douyin', nickname: '我的抖音', userId: '49566173638', fans: 125600, delta: +3200, deltaUp: true, works: 24 },
+    { id: 'a2', platform: 'xiaohongshu', nickname: '我的小红书', userId: '95886844869', fans: 86400, delta: +1500, deltaUp: true, works: 16 },
+    { id: 'a3', platform: 'kuaishou', nickname: '我的快手', userId: '5530272280', fans: 52300, delta: -400, deltaUp: false, works: 8 },
+  ],
+  selectedId: 'all',
+  trendMode: 'all',
+  metric: 'plays'
+};
 
 function fmt(n) {
-  if (n>=100000000) return (n/100000000).toFixed(1)+'亿';
-  if (n>=10000) return (n/10000).toFixed(1)+'w';
+  if (n >= 100000000) return (n / 100000000).toFixed(1) + '亿';
+  if (n >= 10000) return (n / 10000).toFixed(1) + 'w';
   return String(n);
 }
 
-// ====== 账号卡片 ======
+// ===========================
+// ACCOUNT CARDS
+// ===========================
 function renderCards() {
   const el = document.getElementById('acctCards');
+  const totalFans = state.accounts.reduce((s, a) => s + a.fans, 0);
+  const totalDelta = state.accounts.reduce((s, a) => s + (a.deltaUp ? Math.abs(a.delta) : -Math.abs(a.delta)), 0);
+
   let html = `
-    <div class="monitor-card all${state.selectedId==='all'?' selected':''}" onclick="selectAcct('all')">
+    <div class="monitor-card all${state.selectedId === 'all' ? ' selected' : ''}" onclick="selectAcct('all')">
       <div class="mc-platform">全部账号</div>
-      <div class="mc-fans">${fmt(state.accounts.reduce((s,a)=>s+a.fans,0))}<span class="mc-delta up">+${fmt(state.accounts.reduce((s,a)=>s+ (a.deltaUp?Math.abs(a.delta):0),0))}</span></div>
-      <div class="mc-sub">${state.accounts.length} 个账号</div>
+      <div class="mc-fans">${fmt(totalFans)}<span class="mc-delta ${totalDelta >= 0 ? 'up' : 'down'}">${totalDelta >= 0 ? '+' : ''}${fmt(totalDelta)}</span></div>
+      <div class="mc-sub">${state.accounts.length} 个账号 · ${state.accounts.reduce((s,a)=>s+a.works,0)}条作品</div>
     </div>`;
+
   state.accounts.forEach(a => {
     const dStr = a.deltaUp ? `+${fmt(a.delta)}` : `${fmt(a.delta)}`;
     const dCls = a.deltaUp ? 'up' : 'down';
-    html += `<div class="monitor-card${state.selectedId===a.id?' selected':''}" onclick="selectAcct('${a.id}')" style="border-left:3px solid ${PLAT_COLORS[a.platform]};">
+    html += `
+    <div class="monitor-card${state.selectedId === a.id ? ' selected' : ''}" onclick="selectAcct('${a.id}')" style="border-left:3px solid ${PLAT_COLORS[a.platform]};">
       <div class="mc-platform">${PLAT_NAMES[a.platform]}</div>
       <div class="mc-fans">${fmt(a.fans)}<span class="mc-delta ${dCls}">${dStr}</span></div>
       <div class="mc-sub">${a.nickname} · ${a.works}条作品</div>
     </div>`;
   });
+
   html += `<div class="monitor-card add" onclick="openModal()"><span class="add-icon">+</span>添加账号</div>`;
   el.innerHTML = html;
   document.getElementById('acctCount').textContent = state.accounts.length;
 }
 
-// ====== 获取当前选中数据 ======
+// ===========================
+// DATA AGGREGATION
+// ===========================
 function getData() {
+  const m = state.metric;
+  const trendAllKey = m === 'plays' ? 'trendPlays' : m === 'likes' ? 'trendLikes' : m === 'comments' ? 'trendComments' : m === 'saves' ? 'trendSaves' : 'trendShares';
+  const trend30dKey = m === 'plays' ? 'trend30dPlays' : m === 'likes' ? 'trend30dLikes' : m === 'comments' ? 'trend30dComments' : m === 'saves' ? 'trend30dSaves' : 'trend30dShares';
+  const trend7dKey = m === 'plays' ? 'trend7dPlays' : m === 'likes' ? 'trend7dLikes' : m === 'comments' ? 'trend7dComments' : m === 'saves' ? 'trend7dSaves' : 'trend7dShares';
+  const hourKey = m === 'plays' ? 'hourPlays' : m === 'likes' ? 'hourLikes' : m === 'comments' ? 'hourComments' : m === 'saves' ? 'hourSaves' : 'hourShares';
+
   if (state.selectedId === 'all') {
-    // 合并所有账号
-    const maxLen = Math.max(...state.accounts.map(a => (ACCOUNT_DATA[a.id]?.allLabels||[]).length));
-    const mergedAll = [];
-    for (let i=0; i<maxLen; i++) {
-      let sum=0; state.accounts.forEach(a => {
-        const ad = ACCOUNT_DATA[a.id]; if (!ad) return;
-        const idx = Math.min(i, ad.fans.length-1); sum += ad.fans[idx];
-      }); mergedAll.push(sum);
-    }
-    const merged30d = []; for (let i=0; i<6; i++) { let s=0; state.accounts.forEach(a=>{const ad=ACCOUNT_DATA[a.id]; if(ad) s+=(ad.trend30d?.[i]||0);}); merged30d.push(s); }
-    const merged7d = []; for (let i=0; i<7; i++) { let s=0; state.accounts.forEach(a=>{const ad=ACCOUNT_DATA[a.id]; if(ad) s+=(ad.trend7d?.[i]||0);}); merged7d.push(s); }
+    // Merge all accounts
+    const maxLen = Math.max(...state.accounts.map(a => (ACCOUNT_DATA[a.id]?.[trendAllKey] || []).length));
+    const mergedAll = []; for (let i = 0; i < maxLen; i++) { let s = 0; state.accounts.forEach(a => { const d = ACCOUNT_DATA[a.id]; if (d && d[trendAllKey]) s += d[trendAllKey][Math.min(i, d[trendAllKey].length - 1)]; }); mergedAll.push(s); }
+
+    const merged30d = []; for (let i = 0; i < 7; i++) { let s = 0; state.accounts.forEach(a => { const d = ACCOUNT_DATA[a.id]; if (d && d[trend30dKey]) s += (d[trend30dKey]?.[i] || 0); }); merged30d.push(s); }
+
+    const merged7d = []; for (let i = 0; i < 7; i++) { let s = 0; state.accounts.forEach(a => { const d = ACCOUNT_DATA[a.id]; if (d && d[trend7dKey]) s += (d[trend7dKey]?.[i] || 0); }); merged7d.push(s); }
+
     const mergedHours = new Array(24).fill(0);
-    state.accounts.forEach(a=>{ const ad=ACCOUNT_DATA[a.id]; if(ad&&ad.hourLikes) ad.hourLikes.forEach((v,i)=>{mergedHours[i]+=v;}); });
-    return { fans:mergedAll, labels30d: ['6/28','7/03','7/08','7/13','7/18','7/23'], trend30d:merged30d, labels7d: ['7/21','7/22','7/23','7/24','7/25','7/26','7/27'], trend7d:merged7d, hourLikes:mergedHours,
-      allLabels: ['1月','2月','3月','4月','5月','6月上','6月下','7/27'], nickname:'全部账号', platform:'all' };
+    state.accounts.forEach(a => { const d = ACCOUNT_DATA[a.id]; if (d && d[hourKey]) d[hourKey].forEach((v, i) => { mergedHours[i] += v; }); });
+
+    return {
+      [trendAllKey]: mergedAll, [trend30dKey]: merged30d, [trend7dKey]: merged7d,
+      [hourKey]: mergedHours,
+      allLabels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月'],
+      labels30d: ['6/28', '7/03', '7/08', '7/13', '7/18', '7/23', '7/27'],
+      labels7d: ['7/21', '7/22', '7/23', '7/24', '7/25', '7/26', '7/27'],
+      nickname: '全部账号', platform: 'all', works: state.accounts.flatMap(a => (ACCOUNT_DATA[a.id]?.works || []).map(w => ({ ...w, platform: a.platform, author: ACCOUNT_DATA[a.id]?.nickname })))
+    };
   }
+
   const d = ACCOUNT_DATA[state.selectedId];
-  return { ...d, nickname: d.nickname, platform: d.platform };
+  return { ...d, works: (d.works || []).map(w => ({ ...w, platform: d.platform, author: d.nickname })) };
 }
 
-// ====== 选中账号 ======
+// ===========================
+// SELECT ACCOUNT
+// ===========================
 function selectAcct(id) {
   state.selectedId = id;
   renderCards();
   drawTrend();
   drawTimeSlot();
   renderAdvice();
-  renderWeekGroups();
+  renderMonthGroups();
 }
 
-// ====== 趋势切换 ======
+// ===========================
+// SWITCH METRIC
+// ===========================
+function switchMetric(metric) {
+  state.metric = metric;
+  document.querySelectorAll('.metric-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.includes(METRIC_NAMES[metric]));
+  });
+  // Update title
+  const titles = { all: METRIC_NAMES[metric] + ' · 全部趋势', '30d': METRIC_NAMES[metric] + ' · 近30天趋势', '7d': METRIC_NAMES[metric] + ' · 近7天趋势' };
+  document.getElementById('trendTitle').innerHTML = titles[state.trendMode] + ' <span class="chart-sub" id="trendSub">' + ({ all: '发布至今', '30d': '近30天每日', '7d': '近7天每日' })[state.trendMode] + '</span>';
+  drawTrend();
+  drawTimeSlot();
+  renderAdvice();
+}
+
+// ===========================
+// SWITCH TREND
+// ===========================
 function switchTrend(mode) {
   state.trendMode = mode;
-  document.querySelectorAll('.tseg-btn').forEach((b,i)=>{
-    const modes=['all','30d','7d']; b.classList.toggle('active', modes[i]===mode);
+  document.querySelectorAll('.tseg-btn').forEach((b, i) => {
+    const modes = ['all', '30d', '7d'];
+    b.classList.toggle('active', modes[i] === mode);
   });
-  const titles = { all: '📈 全部趋势', '30d': '📈 近30天趋势', '7d': '📈 近7天趋势' };
+  const titles = { all: METRIC_NAMES[state.metric] + ' · 全部趋势', '30d': METRIC_NAMES[state.metric] + ' · 近30天趋势', '7d': METRIC_NAMES[state.metric] + ' · 近7天趋势' };
   const subs = { all: '发布至今', '30d': '近30天每日', '7d': '近7天每日' };
   document.getElementById('trendTitle').innerHTML = titles[mode] + ' <span class="chart-sub">' + subs[mode] + '</span>';
   drawTrend();
 }
 
-// ====== 趋势图 ======
+// ===========================
+// TREND CHART
+// ===========================
 function drawTrend() {
   const c = document.getElementById('trendCanvas');
   const ctx = c.getContext('2d');
-  const W=c.width, H=c.height;
-  const pad={top:24, right:20, bottom:32, left:44};
-  const pw=W-pad.left-pad.right, ph=H-pad.top-pad.bottom;
+  const W = c.width, H = c.height;
+  const pad = { top: 24, right: 20, bottom: 32, left: 44 };
+  const pw = W - pad.left - pad.right, ph = H - pad.top - pad.bottom;
 
   const d = getData();
+  const m = state.metric;
+  const allKey = m === 'plays' ? 'trendPlays' : m === 'likes' ? 'trendLikes' : m === 'comments' ? 'trendComments' : m === 'saves' ? 'trendSaves' : 'trendShares';
+  const k30d = m === 'plays' ? 'trend30dPlays' : m === 'likes' ? 'trend30dLikes' : m === 'comments' ? 'trend30dComments' : m === 'saves' ? 'trend30dSaves' : 'trend30dShares';
+  const k7d = m === 'plays' ? 'trend7dPlays' : m === 'likes' ? 'trend7dLikes' : m === 'comments' ? 'trend7dComments' : m === 'saves' ? 'trend7dSaves' : 'trend7dShares';
+
   let values, labels;
-  if (state.trendMode==='all') { values=d.fans; labels=d.allLabels; }
-  else if (state.trendMode==='30d') { values=d.trend30d; labels=d.labels30d; }
-  else { values=d.trend7d; labels=d.labels7d; }
+  if (state.trendMode === 'all') { values = d[allKey] || d.fans || []; labels = d.allLabels; }
+  else if (state.trendMode === '30d') { values = d[k30d] || d.trend30d || []; labels = d.labels30d; }
+  else { values = d[k7d] || d.trend7d || []; labels = d.labels7d; }
 
-  ctx.clearRect(0,0,W,H);
+  if (!values || values.length < 2) { ctx.clearRect(0, 0, W, H); ctx.fillStyle = '#86868b'; ctx.font = '13px -apple-system'; ctx.textAlign = 'center'; ctx.fillText('暂无数据', W / 2, H / 2); return; }
 
-  const maxV=values[values.length-1]*1.12, minV=values[0]*0.88;
+  ctx.clearRect(0, 0, W, H);
+
+  const maxV = values[values.length - 1] * 1.15, minV = values[0] * 0.85;
+  const range = maxV - minV || 1;
+
   // Grid
-  ctx.strokeStyle='#e5e5ea'; ctx.lineWidth=1;
-  for (let i=0; i<=4; i++) {
-    const y=pad.top+(ph/4)*i;
-    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(W-pad.right,y); ctx.stroke();
-    ctx.fillStyle='#86868b'; ctx.font='10px -apple-system'; ctx.textAlign='right';
-    ctx.fillText(Math.round((maxV-(maxV-minV)*i/4)/1000)+'k', pad.left-6, y+4);
+  ctx.strokeStyle = '#e5e5ea'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + (ph / 4) * i;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    ctx.fillStyle = '#86868b'; ctx.font = '10px -apple-system'; ctx.textAlign = 'right';
+    ctx.fillText(fmt(Math.round(maxV - (range / 4) * i)), pad.left - 6, y + 4);
   }
+
   // X labels
-  ctx.textAlign='center'; ctx.fillStyle='#86868b';
-  const step = Math.max(1, Math.floor(labels.length/6));
-  labels.forEach((l,i)=>{ if(i%step===0){ const x=pad.left+(pw/(labels.length-1))*i; ctx.fillText(l, x, H-6); } });
+  ctx.textAlign = 'center'; ctx.fillStyle = '#86868b';
+  const step = Math.max(1, Math.floor(labels.length / 6));
+  labels.forEach((l, i) => { if (i % step === 0 || i === labels.length - 1) { const x = pad.left + (pw / (labels.length - 1)) * i; ctx.fillText(l, x, H - 6); } });
+
+  // Area fill
+  const pts = values.map((v, i) => ({ x: pad.left + (pw / (values.length - 1)) * i, y: pad.top + ph - ((v - minV) / range) * ph }));
+  ctx.beginPath(); ctx.moveTo(pts[0].x, pad.top + ph);
+  pts.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(pts[pts.length - 1].x, pad.top + ph); ctx.closePath();
+  const g = ctx.createLinearGradient(0, pad.top, 0, pad.top + ph);
+  g.addColorStop(0, 'rgba(0,113,227,0.18)'); g.addColorStop(1, 'rgba(0,113,227,0.01)');
+  ctx.fillStyle = g; ctx.fill();
 
   // Line
-  const pts = values.map((v,i)=>({ x:pad.left+(pw/(values.length-1))*i, y:pad.top+ph-((v-minV)/(maxV-minV))*ph }));
-  ctx.beginPath(); ctx.moveTo(pts[0].x, pad.top+ph);
-  pts.forEach(p=>ctx.lineTo(p.x,p.y));
-  ctx.lineTo(pts[pts.length-1].x, pad.top+ph); ctx.closePath();
-  const g=ctx.createLinearGradient(0,pad.top,0,pad.top+ph);
-  g.addColorStop(0,'rgba(0,113,227,0.18)'); g.addColorStop(1,'rgba(0,113,227,0.01)');
-  ctx.fillStyle=g; ctx.fill();
+  ctx.beginPath(); ctx.strokeStyle = '#0071e3'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round';
+  pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)); ctx.stroke();
 
-  ctx.beginPath(); ctx.strokeStyle='#0071e3'; ctx.lineWidth=2.5; ctx.lineJoin='round';
-  pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y)); ctx.stroke();
+  // Dots
+  pts.forEach(p => { ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#0071e3'; ctx.lineWidth = 2; ctx.stroke(); });
 
-  pts.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,3,0,Math.PI*2); ctx.fillStyle='#fff'; ctx.fill(); ctx.strokeStyle='#0071e3'; ctx.lineWidth=2; ctx.stroke(); });
-
-  // Last label
-  const last=pts[pts.length-1];
-  ctx.fillStyle='#0071e3'; ctx.font='bold 11px -apple-system'; ctx.textAlign='left';
-  ctx.fillText(fmt(values[values.length-1]), last.x+6, last.y-6);
+  // Last value label
+  const last = pts[pts.length - 1];
+  ctx.fillStyle = '#0071e3'; ctx.font = 'bold 11px -apple-system'; ctx.textAlign = 'left';
+  ctx.fillText(fmt(values[values.length - 1]), last.x + 6, last.y - 6);
 }
 
-// ====== 时段图 ======
+// ===========================
+// TIME SLOT CHART
+// ===========================
 function drawTimeSlot() {
-  const c=document.getElementById('timeSlotCanvas');
-  const ctx=c.getContext('2d');
-  const W=c.width, H=c.height;
-  const pad={top:12, right:15, bottom:26, left:38};
-  const pw=W-pad.left-pad.right, ph=H-pad.top-pad.bottom;
-  const d=getData();
-  const hourLikes=d.hourLikes;
-  const maxV=Math.max(...hourLikes);
+  const c = document.getElementById('timeSlotCanvas');
+  const ctx = c.getContext('2d');
+  const W = c.width, H = c.height;
+  const pad = { top: 12, right: 15, bottom: 26, left: 38 };
+  const pw = W - pad.left - pad.right, ph = H - pad.top - pad.bottom;
 
-  ctx.clearRect(0,0,W,H);
-  ctx.strokeStyle='#e5e5ea'; ctx.lineWidth=1;
-  for (let i=0; i<=3; i++) {
-    const y=pad.top+(ph/3)*i;
-    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(W-pad.right,y); ctx.stroke();
-    ctx.fillStyle='#86868b'; ctx.font='9px -apple-system'; ctx.textAlign='right';
-    ctx.fillText(Math.round(maxV-(maxV/3)*i), pad.left-5, y+3);
+  const d = getData();
+  const m = state.metric;
+  const hKey = m === 'plays' ? 'hourPlays' : m === 'likes' ? 'hourLikes' : m === 'comments' ? 'hourComments' : m === 'saves' ? 'hourSaves' : 'hourShares';
+  const hourData = d[hKey] || new Array(24).fill(0);
+  const maxV = Math.max(...hourData, 1);
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = '#e5e5ea'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 3; i++) {
+    const y = pad.top + (ph / 3) * i;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    ctx.fillStyle = '#86868b'; ctx.font = '9px -apple-system'; ctx.textAlign = 'right';
+    ctx.fillText(fmt(Math.round(maxV - (maxV / 3) * i)), pad.left - 5, y + 3);
   }
-  const barW=Math.max(5,Math.floor(pw/24)-2), gap=Math.max(1,(pw-barW*24)/23);
-  hourLikes.forEach((v,i)=>{
-    const x=pad.left+(barW+gap)*i, h=(v/maxV)*ph, y=pad.top+ph-h;
-    let color='#d0d0d5';
-    if (v>=maxV*0.85) color='#34c759'; else if (v>=maxV*0.5) color='#0071e3'; else if (v<=maxV*0.1) color='#ff3b30';
-    ctx.fillStyle=color; roundRect(ctx,x,y,barW,Math.max(1,h),2); ctx.fill();
-    if (i%3===0) { ctx.fillStyle='#86868b'; ctx.font='9px -apple-system'; ctx.textAlign='center'; ctx.fillText(i+':00', x+barW/2, H-5); }
+
+  const barW = Math.max(4, Math.floor(pw / 24) - 2), gap = Math.max(1, (pw - barW * 24) / 23);
+  hourData.forEach((v, i) => {
+    const x = pad.left + (barW + gap) * i, h = (v / maxV) * ph, y = pad.top + ph - h;
+    let color = '#d0d0d5';
+    if (v >= maxV * 0.85) color = '#34c759';
+    else if (v >= maxV * 0.5) color = '#0071e3';
+    else if (v <= maxV * 0.1) color = '#ff3b30';
+    ctx.fillStyle = color;
+    roundRect(ctx, x, y, barW, Math.max(1, h), 2);
+    ctx.fill();
+    if (i % 3 === 0) { ctx.fillStyle = '#86868b'; ctx.font = '9px -apple-system'; ctx.textAlign = 'center'; ctx.fillText(i + ':00', x + barW / 2, H - 5); }
   });
+
+  // Subtitle
+  ctx.fillStyle = '#86868b'; ctx.font = '10px -apple-system'; ctx.textAlign = 'center';
+  ctx.fillText(METRIC_NAMES[state.metric] + ' · 24小时分布', W / 2, 14);
+
   // Legend
-  ctx.fillStyle='#34c759'; ctx.fillRect(pad.left,4,8,8);
-  ctx.fillStyle='#86868b'; ctx.font='10px -apple-system'; ctx.textAlign='left'; ctx.fillText('最佳时段',pad.left+12,12);
-  ctx.fillStyle='#ff3b30'; ctx.fillRect(pad.left+70,4,8,8); ctx.fillText('低效时段',pad.left+82,12);
+  ctx.fillStyle = '#34c759'; ctx.fillRect(pad.left, H - 2, 8, 8);
+  ctx.fillStyle = '#86868b'; ctx.font = '10px -apple-system'; ctx.textAlign = 'left'; ctx.fillText('最佳时段', pad.left + 12, H - 4);
+  ctx.fillStyle = '#ff3b30'; ctx.fillRect(pad.left + 70, H - 2, 8, 8); ctx.fillText('低效时段', pad.left + 82, H - 4);
 }
 
-function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r); ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath();
+}
 
-// ====== 运营建议 ======
+// ===========================
+// ADVICE
+// ===========================
 function renderAdvice() {
-  const d=getData(); const hl=d.hourLikes; const maxIdx=hl.indexOf(Math.max(...hl));
-  const accName = state.selectedId==='all' ? '全部账号' : d.nickname;
-  const el=document.getElementById('adviceArea');
-  const items=[
-    { icon:'⏰', title:'最佳发布时间', text:`${maxIdx}:00-${maxIdx+2}:00，该时段平均互动是全天平均的 ${(hl[maxIdx]/ (hl.reduce((s,v)=>s+v,0)/24) ).toFixed(1)} 倍` },
-    { icon:'🎯', title:'推荐方向', text:'情侣日常 + 反转剧情，你的整蛊类视频平均播放远高于日常分享类' },
-    { icon:'⏱️', title:'推荐时长', text:'30-60秒完播率最高（~68%），超过90秒完播率骤降至 ~35%' },
-    { icon:'📈', title:'近7天趋势', text:`${state.selectedId==='all'?'综合':'该账号'}粉丝${(d.trend7d||d.fans.slice(-7)).every((v,i,a)=>i===0||v>=a[i-1])?'持续上涨':'有波动'}，保持日更节奏` },
+  const d = getData();
+  const m = state.metric;
+  const hKey = m === 'plays' ? 'hourPlays' : m === 'likes' ? 'hourLikes' : m === 'comments' ? 'hourComments' : m === 'saves' ? 'hourSaves' : 'hourShares';
+  const hourData = d[hKey] || new Array(24).fill(0);
+  const maxIdx = hourData.indexOf(Math.max(...hourData));
+  const avg = hourData.reduce((s, v) => s + v, 0) / 24 || 1;
+  const accName = state.selectedId === 'all' ? '全部账号' : d.nickname;
+
+  const metName = METRIC_NAMES[state.metric];
+
+  const items = [
+    { icon: '⏰', title: `最佳${metName}时段`, text: `${maxIdx}:00-${maxIdx + 2}:00，该时段平均${metName}是全天平均的 ${(hourData[maxIdx] / avg).toFixed(1)} 倍` },
+    { icon: '🎯', title: '推荐方向', text: '情侣日常 + 反转剧情效果最佳，整蛊类视频平均' + metName + '远高于日常分享类' },
+    { icon: '⏱️', title: '推荐时长', text: '30-60秒完播率最高（~68%），超过90秒完播率骤降至 ~35%' },
+    { icon: '📈', title: '近7天趋势', text: `${accName}${metName}持续上涨，保持日更节奏` },
   ];
-  el.innerHTML=items.map(x=>`<div class="advice-row"><span class="advice-icon">${x.icon}</span><div><div class="advice-title">${x.title}</div><div class="advice-text">${x.text}</div></div></div>`).join('');
+  document.getElementById('adviceArea').innerHTML = items.map(x =>
+    `<div class="advice-row"><span class="advice-icon">${x.icon}</span><div><div class="advice-title">${x.title}</div><div class="advice-text">${x.text}</div></div></div>`
+  ).join('');
 }
 
-// ====== 作品按周分组 ======
+// ===========================
+// MONTH → WEEK GROUPS
+// ===========================
 function getISOWeek(dateStr) {
   const d = new Date(dateStr);
   const start = new Date(d.getFullYear(), 0, 1);
-  const diff = (d - start + (start.getTimezoneOffset()-d.getTimezoneOffset())*60000) / 86400000;
+  const diff = (d - start + (start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000) / 86400000;
   return Math.ceil((diff + start.getDay() + 1) / 7);
 }
 
-function renderWeekGroups() {
-  const el=document.getElementById('weekGroups');
-  let works=[];
-  if (state.selectedId==='all') { state.accounts.forEach(a=>{ const ad=ACCOUNT_DATA[a.id]; if(ad) works.push(...ad.works.map(w=>({...w,platform:ad.platform,author:ad.nickname})));
-  });} else { const ad=ACCOUNT_DATA[state.selectedId]; if(ad) works=ad.works.map(w=>({...w,platform:ad.platform,author:ad.nickname})); }
-  document.getElementById('workTotal').textContent='共 '+works.length+' 条';
+function getMonthLabel(m) {
+  return m + '月';
+}
 
-  const groups={};
-  works.forEach(w=>{
-    const week = getISOWeek(w.date);
-    const y=2026;
-    const key= y+'-W'+String(week).padStart(2,'0');
-    if(!groups[key]) groups[key]={week,works:[],firstDate:w.date};
-    groups[key].works.push(w);
+function renderMonthGroups() {
+  const el = document.getElementById('monthGroups');
+  const d = getData();
+  const works = d.works || [];
+  document.getElementById('workTotal').textContent = '共 ' + works.length + ' 条';
+
+  if (!works.length) { el.innerHTML = '<p style="text-align:center;color:#86868b;padding:30px;">暂无作品数据</p>'; return; }
+
+  // Group by month → week
+  const months = {};
+  works.forEach(w => {
+    const dt = new Date(w.date);
+    const m = dt.getMonth() + 1; // 1-12
+    const wk = getISOWeek(w.date);
+    if (!months[m]) months[m] = { weeks: {}, works: [] };
+    if (!months[m].weeks[wk]) months[m].weeks[wk] = { week: wk, works: [], firstDate: w.date };
+    months[m].weeks[wk].works.push(w);
+    months[m].works.push(w);
   });
-  const sorted=Object.keys(groups).sort((a,b)=>b.localeCompare(a)); // 倒序
 
-  if(!sorted.length) { el.innerHTML='<p style="text-align:center;color:#86868b;padding:30px;">暂无作品数据</p>'; return; }
+  const sortedMonths = Object.keys(months).sort((a, b) => b - a); // 倒序
 
-  el.innerHTML=sorted.map(key=>{
-    const g=groups[key];
-    const year=2026, wk=g.week;
-    // 算该周的日期范围
-    const jan1=new Date(year,0,1); const dayOffset=(wk-1)*7 - jan1.getDay() + 1;
-    const mon=new Date(year,0,1+dayOffset); const sun=new Date(mon); sun.setDate(mon.getDate()+6);
-    const fmtDate=d=>`${(d.getMonth()+1)}/${d.getDate()}`;
-    return `<div class="week-group">
-      <div class="week-head" onclick="this.parentElement.classList.toggle('open')">
-        <div class="week-head-left">
-          <span class="week-num">${year}年第${wk}周</span>
-          <span class="week-range">${fmtDate(mon)} - ${fmtDate(sun)}</span>
+  el.innerHTML = sortedMonths.map(mKey => {
+    const m = months[mKey];
+    const weeks = m.weeks;
+    const sortedWeeks = Object.keys(weeks).sort((a, b) => b - a);
+
+    return `<div class="month-group open">
+      <div class="month-head" onclick="this.parentElement.classList.toggle('open')">
+        <div class="month-head-left">
+          <span class="month-title">2026年${getMonthLabel(parseInt(mKey))}</span>
+          <span class="month-total">${m.works.length}条</span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <span class="week-badge">${g.works.length}条</span>
-          <span class="week-arrow">▼</span>
-        </div>
+        <span class="month-arrow">▼</span>
       </div>
-      <div class="week-body">${g.works.map(w=>renderWorkCard(w)).join('')}</div>
+      <div class="month-week-list">
+        ${sortedWeeks.map(wkKey => {
+          const w = weeks[wkKey];
+          const year = 2026, wk = w.week;
+          const jan1 = new Date(year, 0, 1);
+          const dayOffset = (wk - 1) * 7 - jan1.getDay() + 1;
+          const mon = new Date(year, 0, 1 + dayOffset);
+          const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+          const fmtDate = d => `${d.getMonth() + 1}/${d.getDate()}`;
+          return `<div class="week-group">
+            <div class="week-head" onclick="event.stopPropagation(); this.parentElement.classList.toggle('open')">
+              <div class="week-head-left">
+                <span class="week-num">第${wk}周</span>
+                <span class="week-range">${fmtDate(mon)} - ${fmtDate(sun)}</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="week-badge">${w.works.length}条</span>
+                <span class="week-arrow">▼</span>
+              </div>
+            </div>
+            <div class="week-body">${w.works.map(wk => renderWorkCard(wk)).join('')}</div>
+          </div>`;
+        }).join('')}
+      </div>
     </div>`;
   }).join('');
 }
 
 function renderWorkCard(w) {
-  const color=PLAT_COLORS[w.platform]||'#ccc';
+  const color = PLAT_COLORS[w.platform] || '#ccc';
+  const metVal = state.metric === 'plays' ? w.plays : state.metric === 'likes' ? w.likes :
+                 state.metric === 'comments' ? w.comments : state.metric === 'saves' ? w.saves :
+                 state.metric === 'shares' ? w.shares : w.likes;
+  const metIcon = state.metric === 'plays' ? '▶️' : state.metric === 'likes' ? '❤️' :
+                  state.metric === 'comments' ? '💬' : state.metric === 'saves' ? '⭐' : '🔄';
   return `<div class="video-card" style="cursor:default;">
     <div class="card-cover-area" style="min-height:90px;background:linear-gradient(135deg,${color}22,${color}08);">
       <span style="font-size:36px;">🎬</span>
-      <span style="position:absolute;top:10px;right:10px;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600;color:#fff;background:${color}88;">${PLAT_NAMES[w.platform]}</span>
+      <span class="card-platform-badge" style="background:${color}cc;">${PLAT_NAMES[w.platform]}</span>
     </div>
     <div class="card-body"><div class="card-title">${w.title}</div><div class="card-author"><span class="author-name">${w.author}</span></div></div>
-    <div class="card-stats"><span class="stat-item"><span class="stat-icon">❤️</span>${fmt(w.likes)}</span><span class="stat-item"><span class="stat-icon">▶️</span>${fmt(w.plays)}</span><span class="stat-time">${w.date.slice(5)}</span></div>
-    <a href="${w.url||'#'}" class="work-link" target="_blank" onclick="event.stopPropagation()">📱 在${PLAT_NAMES[w.platform]}查看原视频 · ${PLAT_DOMAINS[w.platform]}</a>
+    <div class="card-stats">
+      <span class="stat-item"><span class="stat-icon">${metIcon}</span>${fmt(metVal)}</span>
+      <span class="stat-time">${w.date.slice(5)}</span>
+    </div>
+    <a href="${w.url || '#'}" class="work-link" target="_blank" onclick="event.stopPropagation()">📱 在${PLAT_NAMES[w.platform]}查看原视频 · ${PLAT_DOMAINS[w.platform]}</a>
   </div>`;
 }
 
-// ====== 添加账号 ======
-function openModal(){ document.getElementById('acctModalBg').classList.add('show'); }
-function closeModal(){ document.getElementById('acctModalBg').classList.remove('show'); }
-function addAccount(){
-  const plat=document.getElementById('acctPlat').value;
-  const uid=document.getElementById('acctId').value.trim();
-  const nick=document.getElementById('acctNick').value.trim()||(PLAT_NAMES[plat]+'账号');
-  if(!uid) return;
-  const id='a'+Date.now();
-  // mock: 为新账号生成空数据（实际上线后会由爬虫填充）
-  if(!ACCOUNT_DATA[id]) ACCOUNT_DATA[id]={ nickname:nick, platform:plat, userId:uid, fans:[1000], allLabels:['今天'], trend30d:[1000], labels30d:['今天'], trend7d:[1000], labels7d:['今天'], hourLikes:new Array(24).fill(10), delta:0, deltaUp:true, totalWorks:0, works:[] };
-  state.accounts.push({ id, platform:plat, nickname:nick, userId:uid, fans:1000, delta:0, deltaUp:true, works:0 });
+// ===========================
+// MODAL
+// ===========================
+function openModal() { document.getElementById('acctModalBg').classList.add('show'); }
+function closeModal() { document.getElementById('acctModalBg').classList.remove('show'); }
+function addAccount() {
+  const plat = document.getElementById('acctPlat').value;
+  const uid = document.getElementById('acctId').value.trim();
+  const nick = document.getElementById('acctNick').value.trim() || (PLAT_NAMES[plat] + '账号');
+  if (!uid) { alert('请输入账号ID'); return; }
+  const id = 'a' + Date.now();
+  ACCOUNT_DATA[id] = {
+    nickname: nick, platform: plat, userId: uid,
+    fans: 1000, delta: 0, deltaUp: true, totalWorks: 0,
+    allLabels: ['今天'], trendFans: [1000], trendPlays: [5000], trendLikes: [1000], trendComments: [200], trendSaves: [400], trendShares: [100],
+    trend30dPlays: [5000], trend30dLikes: [1000], trend30dComments: [200], trend30dSaves: [400], trend30dShares: [100],
+    labels30d: ['今天'],
+    trend7dPlays: [5000], trend7dLikes: [1000], trend7dComments: [200], trend7dSaves: [400], trend7dShares: [100],
+    labels7d: ['今天'],
+    hourPlays: new Array(24).fill(10), hourLikes: new Array(24).fill(10),
+    hourComments: new Array(24).fill(2), hourSaves: new Array(24).fill(4), hourShares: new Array(24).fill(1),
+    works: []
+  };
+  state.accounts.push({ id, platform: plat, nickname: nick, userId: uid, fans: 1000, delta: 0, deltaUp: true, works: 0 });
   closeModal();
-  document.getElementById('acctId').value=''; document.getElementById('acctNick').value='';
+  document.getElementById('acctId').value = ''; document.getElementById('acctNick').value = '';
   selectAcct(id);
 }
 
-// ====== Init ======
+// ===========================
+// INIT
+// ===========================
 renderCards();
 drawTrend();
 drawTimeSlot();
 renderAdvice();
-renderWeekGroups();
+renderMonthGroups();
 </script>
 </body>
 </html>
