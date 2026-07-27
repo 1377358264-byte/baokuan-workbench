@@ -39,10 +39,13 @@
         </div>
       </div>
 
-      <!-- 分段切换（仅保留爆款视频） -->
+      <!-- 分段切换 -->
       <div class="segment-tabs">
         <button class="segment-tab active" data-tab="videos" onclick="switchSubTab('videos')">
           <span class="tab-icon">🔥</span> 爆款视频
+        </button>
+        <button class="segment-tab" data-tab="monitor" onclick="switchSubTab('monitor')">
+          <span class="tab-icon">📊</span> 账号监控
         </button>
       </div>
     </div>
@@ -110,6 +113,56 @@
       <div class="video-list" id="videoList"></div>
 
     </div><!-- /videosView -->
+
+    <!-- ===== 账号监控视图 ===== -->
+    <div id="monitorView" style="display:none;">
+
+      <!-- 账号卡片行 -->
+      <div id="monitorAccountCards" style="display:flex;gap:10px;padding:12px 16px 0;overflow-x:auto;"></div>
+
+      <!-- 趋势图 -->
+      <div class="chart-card" style="margin:12px 16px;">
+        <h3>📈 近7天数据趋势</h3>
+        <canvas id="monitorTrendChart" width="340" height="180" style="width:100%;max-width:100%;"></canvas>
+      </div>
+
+      <!-- 发布时间分析 -->
+      <div class="chart-card" style="margin:0 16px 12px;">
+        <h3>⏰ 最佳发布时间分析</h3>
+        <canvas id="timeSlotChart" width="340" height="160" style="width:100%;max-width:100%;"></canvas>
+      </div>
+
+      <!-- 智能建议 -->
+      <div class="pattern-card" style="margin:0 16px 12px;">
+        <h4>💡 运营建议</h4>
+        <div id="monitorAdvice"></div>
+      </div>
+
+      <!-- 账号管理 -->
+      <div class="pattern-card" style="margin:0 16px 12px;">
+        <h4>⚙️ 账号管��</h4>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;">
+          <select id="monitorAddPlatform" class="account-search-select" style="min-width:80px;">
+            <option value="douyin">抖音</option>
+            <option value="xiaohongshu">小红书</option>
+            <option value="kuaishou">快手</option>
+          </select>
+          <input type="text" id="monitorAddId" class="account-search-input" placeholder="输入账号ID..." style="flex:1;min-width:100px;">
+          <button class="btn-primary" onclick="addMonitorAccount()" style="padding:8px 14px;font-size:13px;white-space:nowrap;">添加</button>
+        </div>
+      </div>
+
+      <!-- 全部作品列表 -->
+      <div class="section-header" style="margin:0 16px 8px;">
+        <h2>📋 我的作品</h2>
+      </div>
+      <div class="video-list" id="monitorWorkList"></div>
+
+      <!-- 手动刷新 -->
+      <div style="text-align:center;padding:16px;">
+        <button class="btn-primary" onclick="refreshMonitorData()">🔄 手动刷新监控数据</button>
+      </div>
+    </div><!-- /monitorView -->
 
   </div><!-- /radarPage -->
 
