@@ -533,6 +533,7 @@ function renderVideoCard(v) {
           <button class="card-action" title="删除" onclick="event.stopPropagation();markDeleted('${v.id}')">🗑️</button>
         </span>
       </div>
+      ${url ? `<button class="card-orig-link" onclick="event.stopPropagation();openOriginal('${url.replace(/'/g, "\\'")}')">🔗 观看原视频 · ${platText}</button>` : ''}
     </div>`;
 }
 
