@@ -7694,6 +7694,27 @@
     "avgLikes": 93702
   },
   {
+    "nickname": "王***夫",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 92876,
+    "maxLikes": 92876,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这才是适合马年和对象玩的感情升温小游戏",
+        "likes": 92876,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 92876
+  },
+  {
     "nickname": "可***大",
     "platform": "douyin",
     "works": 1,
