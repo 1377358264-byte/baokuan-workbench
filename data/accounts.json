@@ -2640,6 +2640,27 @@
     "avgLikes": 500965
   },
   {
+    "nickname": "李***啊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 479271,
+    "maxLikes": 479271,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我查看我女朋友的手机😳#要不你还是把我删了吧",
+        "likes": 479271,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 479271
+  },
+  {
     "nickname": "披***辣",
     "platform": "douyin",
     "works": 2,
@@ -4761,6 +4782,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 110651
+  },
+  {
+    "nickname": "小***张",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 179188,
+    "maxLikes": 179188,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "相爱的两个人摩擦  真的能产生蓝色花火哎！#情侣日常 #创作灵感 #爱的具象化 #情侣 #爱的光学反应",
+        "likes": 179188,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 179188
   },
   {
     "nickname": "大***聪",
@@ -9196,6 +9238,32 @@
     "avgLikes": 42404
   },
   {
+    "nickname": "冰***常",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 81322,
+    "maxLikes": 58373,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "闭眼等亲亲的感觉好特别.. #冰镇成汁 #情侣游戏 #甜甜的恋爱",
+        "likes": 58373,
+        "plays": 0
+      },
+      {
+        "title": "情侣睁眼闭眼挑战，同时睁眼就去做 #情侣日常 #情侣挑战 #睁眼闭眼挑战 #默契考验",
+        "likes": 22949,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 40661
+  },
+  {
     "nickname": "丹***）",
     "platform": "douyin",
     "works": 1,
@@ -11757,27 +11825,6 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 23000
-  },
-  {
-    "nickname": "冰***常",
-    "platform": "douyin",
-    "works": 1,
-    "totalLikes": 22949,
-    "maxLikes": 22949,
-    "levels": {
-      "low": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "情侣睁眼闭眼挑战，同时睁眼就去做 #情侣日常 #情侣挑战 #睁眼闭眼挑战 #默契考验",
-        "likes": 22949,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 22949
   },
   {
     "nickname": "搞***冈",
