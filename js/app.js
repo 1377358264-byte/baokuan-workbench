@@ -259,7 +259,12 @@ async function loadVideoData(forceRefresh = false) {
     });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
-    App.videoData = Array.isArray(data) ? data : (data.videos || data.list || []);
+    let list = Array.isArray(data) ? data : (data.videos || data.list || []);
+    // 自动识别 MediaCrawler 原始格式并转换为标准结构
+    if (window.CrawlerAdapter && window.CrawlerAdapter.detectMediaCrawler(list)) {
+      list = window.CrawlerAdapter.transformMediaCrawler(list);
+    }
+    App.videoData = list;
     App.lastFetchTime = Date.now();
     Store.cacheVideos(App.videoData);
     showOfflineBanner(false);
@@ -419,7 +424,7 @@ function renderVideoCard(v) {
         <div class="card-title">${v.title}</div>
         <div class="card-author">
           <span class="author-name">${v.author}</span>
-          <span class="fans-count">粉丝 ${formatNum(v.fans || 0)}</span>
+          <span class="fans-count">${v.fans ? '粉丝 ' + formatNum(v.fans) : '粉丝 —'}</span>
         </div>
       </div>
       <div class="card-stats">
@@ -434,6 +439,8 @@ function renderVideoCard(v) {
 function openVideoDetail(videoId) {
   const v = App.videoData.find(x => x.id === videoId);
   if (!v) return;
+  // 真实爬虫数据可能缺少分析字段，确保补全（用于详情弹窗）
+  if (window.CrawlerAdapter) window.CrawlerAdapter.ensureAnalysisFields(v);
 
   const levelClass = `lv-${v.level || 'low_fan'}`;
   const levelText = LEVEL_MAP[v.level] || '未知';
