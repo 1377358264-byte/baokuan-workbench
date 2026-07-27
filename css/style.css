@@ -1283,6 +1283,15 @@ textarea.form-control { min-height: 80px; resize: vertical; }
 .account-search-input:focus { border-color:var(--primary); }
 .account-search-select { border:1px solid var(--border); border-radius:10px; padding:10px 8px; font-size:14px; background:var(--card-bg); color:var(--text-primary); min-width:90px; outline:none; }
 
+/* 账号监控卡片 */
+.monitor-card { flex:0 0 140px; border-radius:12px; padding:12px 14px; box-shadow:var(--shadow); }
+.mc-platform { font-size:12px; font-weight:600; color:var(--text-secondary); margin-bottom:4px; }
+.mc-fans { font-size:18px; font-weight:800; color:var(--text-primary); }
+.mc-delta { font-size:12px; font-weight:600; margin-left:4px; }
+.mc-delta.trend-up { color:#34c759; }
+.mc-delta.trend-down { color:#ff3b30; }
+.mc-sub { font-size:11px; color:var(--text-tertiary); margin-top:2px; }
+
 /* ===== 二创笔记弹窗 ===== */
 .remake-list { max-height:220px; overflow-y:auto; margin:10px 0; }
 .remake-item { background:var(--bg); border-radius:10px; padding:10px 12px; margin-bottom:8px; }
