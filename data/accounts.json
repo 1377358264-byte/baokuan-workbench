@@ -1938,6 +1938,27 @@
     "avgLikes": 890206
   },
   {
+    "nickname": "小***日",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 874836,
+    "maxLikes": 874836,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“爱上我是人之常情” 灵感来源@初九会画画#林小岛 #前夫哥 #变装 #情侣 #反转",
+        "likes": 874836,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 874836
+  },
+  {
     "nickname": "不***活",
     "platform": "douyin",
     "works": 1,
@@ -1988,12 +2009,12 @@
   {
     "nickname": "解***羊",
     "platform": "douyin",
-    "works": 4,
-    "totalLikes": 1525576,
+    "works": 5,
+    "totalLikes": 1640481,
     "maxLikes": 789759,
     "levels": {
       "mid": 2,
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -2017,10 +2038,15 @@
         "title": "#当代大学生恋爱现状 #绝望的直女 #宿舍 #大学生哪有不疯的 #反转",
         "likes": 149999,
         "plays": 0
+      },
+      {
+        "title": "原来一切都是蓄谋已久 #大学生#谈恋爱#男朋友#反转 #搞笑",
+        "likes": 114905,
+        "plays": 0
       }
     ],
-    "hotRate": 50.0,
-    "avgLikes": 381394
+    "hotRate": 40.0,
+    "avgLikes": 328096
   },
   {
     "nickname": "狗*",
@@ -2847,6 +2873,27 @@
     "avgLikes": 500965
   },
   {
+    "nickname": "张***🦋",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 495982,
+    "maxLikes": 495982,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不是窥探 是占有#前男友  #强制爱 #占有欲",
+        "likes": 495982,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 495982
+  },
+  {
     "nickname": "李***啊",
     "platform": "douyin",
     "works": 1,
@@ -3045,12 +3092,12 @@
   {
     "nickname": "籽***瓜",
     "platform": "douyin",
-    "works": 23,
-    "totalLikes": 2367575,
+    "works": 24,
+    "totalLikes": 2393254,
     "maxLikes": 441325,
     "levels": {
       "mid": 5,
-      "low": 18
+      "low": 19
     },
     "followers": 0,
     "followersKnown": false,
@@ -3106,8 +3153,8 @@
         "plays": 0
       }
     ],
-    "hotRate": 21.7,
-    "avgLikes": 102938
+    "hotRate": 20.8,
+    "avgLikes": 99718
   },
   {
     "nickname": "皓***啊",
@@ -3622,6 +3669,27 @@
     "avgLikes": 352938
   },
   {
+    "nickname": "零*",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 347318,
+    "maxLikes": 347318,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "👉🏻👈🏻#我们俩 #搞笑情侣 #恋爱日常 #沙雕情侣欢乐多 #沙雕日常",
+        "likes": 347318,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 347318
+  },
+  {
     "nickname": "你***凛",
     "platform": "douyin",
     "works": 2,
@@ -3905,6 +3973,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 310243
+  },
+  {
+    "nickname": "叫***胤",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 308760,
+    "maxLikes": 308760,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "拿什么整亖你，我的爱人 #情侣 #vlog",
+        "likes": 308760,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 308760
   },
   {
     "nickname": "h***.",
@@ -4887,11 +4976,12 @@
   {
     "nickname": "姚***吧",
     "platform": "douyin",
-    "works": 1,
-    "totalLikes": 203188,
+    "works": 2,
+    "totalLikes": 250594,
     "maxLikes": 203188,
     "levels": {
-      "mid": 1
+      "mid": 1,
+      "low": 1
     },
     "followers": 0,
     "followersKnown": false,
@@ -4900,10 +4990,15 @@
         "title": "恋爱脑是一个男人最好的嫁妆 #情侣 #恋爱脑 #搞笑",
         "likes": 203188,
         "plays": 0
+      },
+      {
+        "title": "男友假装爱的表现2 #情侣 #真实还原 #反转",
+        "likes": 47406,
+        "plays": 0
       }
     ],
-    "hotRate": 100.0,
-    "avgLikes": 203188
+    "hotRate": 50.0,
+    "avgLikes": 125297
   },
   {
     "nickname": "小***圆",
@@ -4946,6 +5041,42 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 197823
+  },
+  {
+    "nickname": "苟*",
+    "platform": "douyin",
+    "works": 4,
+    "totalLikes": 445202,
+    "maxLikes": 196934,
+    "levels": {
+      "low": 4
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "磨平棱角才能相互契合 #评论区 #投稿翻拍 #来抖音商城选好礼 #七夕浪漫好礼",
+        "likes": 196934,
+        "plays": 0
+      },
+      {
+        "title": "双标的人，连时钟都为ta倒转 #评论区 #投稿翻拍",
+        "likes": 150863,
+        "plays": 0
+      },
+      {
+        "title": "爱你的人，是不会让你扫兴的#迷惑行为大赏 #这是你羡慕的情侣日常吗 #爽",
+        "likes": 51817,
+        "plays": 0
+      },
+      {
+        "title": "永远搞不懂有的人是装糊涂还是真糊涂 #评论区 #投稿翻拍",
+        "likes": 45588,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 111300
   },
   {
     "nickname": "咸***人",
@@ -5477,11 +5608,11 @@
   {
     "nickname": "啊*",
     "platform": "douyin",
-    "works": 6,
-    "totalLikes": 462041,
+    "works": 7,
+    "totalLikes": 580339,
     "maxLikes": 172766,
     "levels": {
-      "low": 6
+      "low": 7
     },
     "followers": 0,
     "followersKnown": false,
@@ -5494,6 +5625,11 @@
       {
         "title": "无良商贩哭着求我放过他 #啊仁 #搞笑 #情侣 #剧情 #反转",
         "likes": 133115,
+        "plays": 0
+      },
+      {
+        "title": "老丈人为我，怒抽女儿 #啊仁 #搞笑 #情侣 #反转 #剧情",
+        "likes": 118298,
         "plays": 0
       },
       {
@@ -5518,7 +5654,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 77006
+    "avgLikes": 82905
   },
   {
     "nickname": "国***莉",
@@ -5858,32 +5994,6 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 152492
-  },
-  {
-    "nickname": "苟*",
-    "platform": "douyin",
-    "works": 2,
-    "totalLikes": 202680,
-    "maxLikes": 150863,
-    "levels": {
-      "low": 2
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "双标的人，连时钟都为ta倒转 #评论区 #投稿翻拍",
-        "likes": 150863,
-        "plays": 0
-      },
-      {
-        "title": "爱你的人，是不会让你扫兴的#迷惑行为大赏 #这是你羡慕的情侣日常吗 #爽",
-        "likes": 51817,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 101340
   },
   {
     "nickname": "蕉***几",
@@ -6337,6 +6447,27 @@
     "avgLikes": 122390
   },
   {
+    "nickname": "一***🌙",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 121159,
+    "maxLikes": 121159,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当被渣麻之后突然谈了一段正常的恋爱，有问题！？ #恋爱 #剧情 #反转 @苏打苏打🌙 @DOU+小助手 @抖音小助手",
+        "likes": 121159,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 121159
+  },
+  {
     "nickname": "招***喵",
     "platform": "douyin",
     "works": 1,
@@ -6704,13 +6835,34 @@
     "avgLikes": 106652
   },
   {
+    "nickname": "路***斯",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 105867,
+    "maxLikes": 105867,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "中韩情侣的倒放挑战 哈哈哈哈笑晕了#搞笑#倒放挑战#vlog",
+        "likes": 105867,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 105867
+  },
+  {
     "nickname": "徐***柒",
     "platform": "douyin",
-    "works": 2,
-    "totalLikes": 144617,
+    "works": 4,
+    "totalLikes": 258695,
     "maxLikes": 104911,
     "levels": {
-      "low": 2
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -6721,13 +6873,23 @@
         "plays": 0
       },
       {
+        "title": "男朋友竟然和我的好闺蜜穿了情侣装？！！#尴尬 #情侣 #反转",
+        "likes": 72634,
+        "plays": 0
+      },
+      {
+        "title": "吵架追求性价比，赢家必是我自己#恋爱 #反转",
+        "likes": 41444,
+        "plays": 0
+      },
+      {
         "title": "当我假扮绿茶测试男友...结果竟然？？#剧情 #情侣 #反转",
         "likes": 39706,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 72308
+    "avgLikes": 64673
   },
   {
     "nickname": "米***特",
@@ -6997,11 +7159,11 @@
   {
     "nickname": "高***宇",
     "platform": "xiaohongshu",
-    "works": 5,
-    "totalLikes": 500000,
+    "works": 6,
+    "totalLikes": 568000,
     "maxLikes": 100000,
     "levels": {
-      "low": 5
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -7030,10 +7192,15 @@
         "title": "有点招数劲往我身上使了#内容过于真实[话题]#",
         "likes": 100000,
         "plays": 0
+      },
+      {
+        "title": "《顶不住对方的称呼》",
+        "likes": 68000,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 100000
+    "avgLikes": 94666
   },
   {
     "nickname": "七***猩",
@@ -7106,11 +7273,11 @@
   {
     "nickname": "娜***威",
     "platform": "xiaohongshu",
-    "works": 20,
-    "totalLikes": 999000,
+    "works": 21,
+    "totalLikes": 1074000,
     "maxLikes": 100000,
     "levels": {
-      "low": 20
+      "low": 21
     },
     "followers": 0,
     "followersKnown": false,
@@ -7151,6 +7318,11 @@
         "plays": 0
       },
       {
+        "title": "看来早有准备…",
+        "likes": 75000,
+        "plays": 0
+      },
+      {
         "title": "我觉得他爱上了...",
         "likes": 54000,
         "plays": 0
@@ -7159,24 +7331,19 @@
         "title": "香菜拿铁了解一下～",
         "likes": 45000,
         "plays": 0
-      },
-      {
-        "title": "被我骗到了吧小傻瓜",
-        "likes": 36000,
-        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 49950
+    "avgLikes": 51142
   },
   {
     "nickname": "金***一",
     "platform": "xiaohongshu",
-    "works": 5,
-    "totalLikes": 370000,
+    "works": 6,
+    "totalLikes": 456000,
     "maxLikes": 100000,
     "levels": {
-      "low": 5
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -7197,6 +7364,11 @@
         "plays": 0
       },
       {
+        "title": "日子还是得跟有趣的人过",
+        "likes": 86000,
+        "plays": 0
+      },
+      {
         "title": "男朋友第一口没给我吃、我就这样整蛊他哈哈",
         "likes": 59000,
         "plays": 0
@@ -7208,7 +7380,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 74000
+    "avgLikes": 76000
   },
   {
     "nickname": "大***诞",
@@ -7404,11 +7576,11 @@
   {
     "nickname": "两***崽",
     "platform": "xiaohongshu",
-    "works": 3,
-    "totalLikes": 212000,
+    "works": 4,
+    "totalLikes": 289000,
     "maxLikes": 100000,
     "levels": {
-      "low": 3
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -7424,13 +7596,18 @@
         "plays": 0
       },
       {
+        "title": "杀敌800 自损1000…",
+        "likes": 77000,
+        "plays": 0
+      },
+      {
         "title": "男生是不是都很吃这套？",
         "likes": 28000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 70666
+    "avgLikes": 72250
   },
   {
     "nickname": "嗯***宫",
@@ -8200,11 +8377,11 @@
   {
     "nickname": "神***长",
     "platform": "xiaohongshu",
-    "works": 3,
-    "totalLikes": 241000,
+    "works": 4,
+    "totalLikes": 314000,
     "maxLikes": 100000,
     "levels": {
-      "low": 3
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -8220,13 +8397,18 @@
         "plays": 0
       },
       {
+        "title": "快速解决问题！",
+        "likes": 73000,
+        "plays": 0
+      },
+      {
         "title": "偶尔也要搞一些小浪漫~",
         "likes": 52000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 80333
+    "avgLikes": 78500
   },
   {
     "nickname": "陈***宝",
@@ -8262,11 +8444,11 @@
   {
     "nickname": "S***常",
     "platform": "xiaohongshu",
-    "works": 8,
-    "totalLikes": 447000,
+    "works": 9,
+    "totalLikes": 517000,
     "maxLikes": 100000,
     "levels": {
-      "low": 8
+      "low": 9
     },
     "followers": 0,
     "followersKnown": false,
@@ -8283,6 +8465,11 @@
       },
       {
         "title": "买通兄弟给我送衣服气气男友，切勿模仿哦",
+        "likes": 70000,
+        "plays": 0
+      },
+      {
+        "title": "没逝…很安全的",
         "likes": 70000,
         "plays": 0
       },
@@ -8313,7 +8500,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 55875
+    "avgLikes": 57444
   },
   {
     "nickname": "L***甲",
@@ -8370,11 +8557,11 @@
   {
     "nickname": "格***盐",
     "platform": "xiaohongshu",
-    "works": 1,
-    "totalLikes": 100000,
+    "works": 2,
+    "totalLikes": 182000,
     "maxLikes": 100000,
     "levels": {
-      "low": 1
+      "low": 2
     },
     "followers": 0,
     "followersKnown": false,
@@ -8383,10 +8570,15 @@
         "title": "测试了 不知该笑还是该哭",
         "likes": 100000,
         "plays": 0
+      },
+      {
+        "title": "死嘴一定要憋住！！",
+        "likes": 82000,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 100000
+    "avgLikes": 91000
   },
   {
     "nickname": "宋***y",
@@ -9351,11 +9543,11 @@
   {
     "nickname": "美***汁",
     "platform": "douyin",
-    "works": 3,
-    "totalLikes": 170572,
+    "works": 4,
+    "totalLikes": 208049,
     "maxLikes": 91172,
     "levels": {
-      "low": 3
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -9371,13 +9563,18 @@
         "plays": 0
       },
       {
+        "title": "当惊喜成了……#异地恋 #情侣 #反转 #美丽的臭小汁",
+        "likes": 37477,
+        "plays": 0
+      },
+      {
         "title": "这些服从性测试你经历过吗？#服从性测试 #情侣 #避雷 #美丽的臭小汁",
         "likes": 29476,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 56857
+    "avgLikes": 52012
   },
   {
     "nickname": "*",
@@ -9569,6 +9766,27 @@
     "avgLikes": 88972
   },
   {
+    "nickname": "正***楠",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 88670,
+    "maxLikes": 88670,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "后来我再也没有骗过她，她却再也没有相信过我 #情侣 #情感 #反转 #原谅",
+        "likes": 88670,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 88670
+  },
+  {
     "nickname": "张***.",
     "platform": "xiaohongshu",
     "works": 1,
@@ -9693,6 +9911,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 84117
+  },
+  {
+    "nickname": "欧***i",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 84000,
+    "maxLikes": 84000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "善恶到头终有报",
+        "likes": 84000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 84000
   },
   {
     "nickname": "超***💑",
@@ -9946,6 +10185,27 @@
     "avgLikes": 79000
   },
   {
+    "nickname": "陈***🐎",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 79000,
+    "maxLikes": 79000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "为什么男朋友一回宿舍就冷漠的像换了人",
+        "likes": 79000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 79000
+  },
+  {
     "nickname": "铁***角",
     "platform": "douyin",
     "works": 1,
@@ -10095,6 +10355,27 @@
     "topWorks": [
       {
         "title": "数字炸弹31期",
+        "likes": 75000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 75000
+  },
+  {
+    "nickname": "黄*",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 75000,
+    "maxLikes": 75000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "为什么不让我摸一下脸",
         "likes": 75000,
         "plays": 0
       }
@@ -10336,6 +10617,27 @@
     "topWorks": [
       {
         "title": "👀看到是什么颜色？",
+        "likes": 72000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 72000
+  },
+  {
+    "nickname": "甘***许",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 72000,
+    "maxLikes": 72000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "大扔男双标现场…",
         "likes": 72000,
         "plays": 0
       }
@@ -12282,6 +12584,27 @@
     "avgLikes": 41537
   },
   {
+    "nickname": "喵***兔",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 41034,
+    "maxLikes": 41034,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "可恶！防不胜防！！！#情侣 #搞笑#反转",
+        "likes": 41034,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 41034
+  },
+  {
     "nickname": "滚***学",
     "platform": "xiaohongshu",
     "works": 1,
@@ -12892,6 +13215,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 35187
+  },
+  {
+    "nickname": "七***子",
+    "platform": "douyin",
+    "works": 2,
+    "totalLikes": 57741,
+    "maxLikes": 34683,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "论年下男朋友吃醋有多厉害 #情侣日常#恋爱日常#豆包电脑端",
+        "likes": 34683,
+        "plays": 0
+      },
+      {
+        "title": "别让嘴硬成为两个人之间的隔阂 #恋爱日常#情侣日常",
+        "likes": 23058,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 28870
   },
   {
     "nickname": "晴***♡",
@@ -13716,27 +14065,6 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 24000
-  },
-  {
-    "nickname": "七***子",
-    "platform": "douyin",
-    "works": 1,
-    "totalLikes": 23058,
-    "maxLikes": 23058,
-    "levels": {
-      "low": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "别让嘴硬成为两个人之间的隔阂 #恋爱日常#情侣日常",
-        "likes": 23058,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 23058
   },
   {
     "nickname": "吃***拳",
@@ -14650,6 +14978,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 13960
+  },
+  {
+    "nickname": "小***女",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 15320,
+    "maxLikes": 15320,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "命里有时终须无 #剧情反转 #冤种男友",
+        "likes": 15320,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15320
   },
   {
     "nickname": "丹***）",
