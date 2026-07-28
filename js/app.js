@@ -9,7 +9,7 @@ const App = {
   currentSubTab: 'videos', // videos | account
   filters: { level: 'all', platform: 'all', topic: 'all', burstOnly: true },
   searchQuery: '',
-  timeView: 'all', // all(三年并排) | y2026 | y2025 | y2024
+  timeView: 'all', // all(三年并排) | d7(最近7天) | d30(最近30天) | y2026 | y2025 | y2024
   videoData: [],
   usingRealData: false,
   accountData: {},
@@ -482,23 +482,35 @@ function renderVideoList() {
     return;
   }
 
-  // 时间分板：按发布年份分 2026 / 2025 / 2024 / 更早
+  // 时间分板：最近7天/最近30天（按今天动态计算）+ 按发布年份分 2026 / 2025 / 2024 / 更早
+  const NOW = Date.now();
+  const D7 = NOW - 7 * 86400000;
+  const D30 = NOW - 30 * 86400000;
   const Y2026 = new Date('2026-01-01T00:00:00+08:00').getTime();
   const Y2025 = new Date('2025-01-01T00:00:00+08:00').getTime();
   const Y2024 = new Date('2024-01-01T00:00:00+08:00').getTime();
+  const isD7 = (v) => (v.publishTime || 0) >= D7;
+  const isD30 = (v) => (v.publishTime || 0) >= D30;
   const isY2026 = (v) => (v.publishTime || 0) >= Y2026;
   const isY2025 = (v) => (v.publishTime || 0) >= Y2025 && (v.publishTime || 0) < Y2026;
   const isY2024 = (v) => (v.publishTime || 0) >= Y2024 && (v.publishTime || 0) < Y2025;
   const isOlder = (v) => (v.publishTime || 0) > 0 && (v.publishTime || 0) < Y2024;
 
-  const yearLabel = { y2026: '🔥 2026年爆款', y2025: '📚 2025年爆款', y2024: '📖 2024年爆款' };
-  const yearFilter = { y2026: isY2026, y2025: isY2025, y2024: isY2024 };
+  const viewLabel = {
+    d7: '⚡ 最近7天爆款', d30: '🔥 最近30天爆款',
+    y2026: '🔥 2026年爆款', y2025: '📚 2025年爆款', y2024: '📖 2024年爆款'
+  };
+  const viewFilter = { d7: isD7, d30: isD30, y2026: isY2026, y2025: isY2025, y2024: isY2024 };
+  const viewEmpty = {
+    d7: '最近7天暂无匹配的爆款视频', d30: '最近30天暂无匹配的爆款视频',
+    y2026: '2026年暂无匹配的爆款视频', y2025: '2025年暂无匹配的爆款视频', y2024: '2024年暂无匹配的爆款视频'
+  };
 
-  if (App.timeView in yearFilter) {
-    const list = base.filter(yearFilter[App.timeView]);
+  if (App.timeView in viewFilter) {
+    const list = base.filter(viewFilter[App.timeView]);
     container.innerHTML = list.length
-      ? renderSection(yearLabel[App.timeView], list)
-      : `<div class="empty-state"><div class="es-icon">📭</div><p>${App.timeView.slice(1)}年暂无匹配的爆款视频<br>试试切到"全部"或调整筛选条件</p></div>`;
+      ? renderSection(viewLabel[App.timeView], list)
+      : `<div class="empty-state"><div class="es-icon">📭</div><p>${viewEmpty[App.timeView]}<br>试试切到"全部"或调整筛选条件</p></div>`;
   } else {
     // 全部：2026 / 2025 / 2024 / 更早 四板并排
     const y2026 = base.filter(isY2026);
