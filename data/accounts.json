@@ -13845,6 +13845,27 @@
     "avgLikes": 36903
   },
   {
+    "nickname": "雪***🍊",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 36534,
+    "maxLikes": 36534,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "亲嘴这事必须开团秒跟！\n#抽象 #情侣日常",
+        "likes": 36534,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 36534
+  },
+  {
     "nickname": "冰***棒",
     "platform": "xiaohongshu",
     "works": 1,
