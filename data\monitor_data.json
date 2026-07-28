@@ -1,0 +1,26 @@
+{
+  "_date": "2026-07-28",
+  "accounts": {
+    "49566173638": {
+      "platform": "douyin",
+      "user_id": "49566173638",
+      "nickname": "我的抖音",
+      "total_works": 0,
+      "videos": []
+    },
+    "95886844869": {
+      "platform": "xiaohongshu",
+      "user_id": "95886844869",
+      "nickname": "我的小红书",
+      "total_works": 0,
+      "videos": []
+    },
+    "5530272280": {
+      "platform": "kuaishou",
+      "user_id": "5530272280",
+      "nickname": "我的快手",
+      "total_works": 0,
+      "videos": []
+    }
+  }
+}
