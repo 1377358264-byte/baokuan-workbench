@@ -1678,6 +1678,27 @@
     "avgLikes": 994110
   },
   {
+    "nickname": "我***_",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 987162,
+    "maxLikes": 987162,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "翻视频翻到了伟大的暧昧期时候哈哈哈哈哈哈哈\n#暧昧期的极限拉扯#微醺时刻#我们俩",
+        "likes": 987162,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 987162
+  },
+  {
     "nickname": "吐***呀",
     "platform": "douyin",
     "works": 1,
@@ -3406,6 +3427,38 @@
     "avgLikes": 232736
   },
   {
+    "nickname": "李***隐",
+    "platform": "douyin",
+    "works": 3,
+    "totalLikes": 719171,
+    "maxLikes": 396333,
+    "levels": {
+      "mid": 2,
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我骗男朋友玩情侣游戏，故意不睁眼时 #恋爱日常#情侣#超甜#名流mo",
+        "likes": 396333,
+        "plays": 0
+      },
+      {
+        "title": "想到接下来要干什么就想笑 #整蛊男友 #小情侣 #恋爱日常",
+        "likes": 238743,
+        "plays": 0
+      },
+      {
+        "title": "拒绝男生打扮羞耻！收拾得清爽帅气，恋爱越来越甜蜜哦～ #恋爱日常#情侣#男友变帅教程",
+        "likes": 84095,
+        "plays": 0
+      }
+    ],
+    "hotRate": 66.7,
+    "avgLikes": 239723
+  },
+  {
     "nickname": "西***花",
     "platform": "douyin",
     "works": 1,
@@ -3736,6 +3789,27 @@
     ],
     "hotRate": 50.0,
     "avgLikes": 260301
+  },
+  {
+    "nickname": "倒***差",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 338907,
+    "maxLikes": 338907,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "没有天生合适的人 只有愿意磨合的心 #情感共鸣 #恋爱 #爱情 #恋人 #磨合",
+        "likes": 338907,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 338907
   },
   {
     "nickname": "洋***琳",
@@ -4440,6 +4514,27 @@
     "avgLikes": 264065
   },
   {
+    "nickname": "c***n",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 260041,
+    "maxLikes": 260041,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "才发现自己简直是游戏黑洞 #双鱼巨蟹 #情侣 （游戏参考@又又又在叫 @狗狗 ）",
+        "likes": 260041,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 260041
+  },
+  {
     "nickname": "毛***啵",
     "platform": "douyin",
     "works": 2,
@@ -4638,33 +4733,6 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 241008
-  },
-  {
-    "nickname": "李***隐",
-    "platform": "douyin",
-    "works": 2,
-    "totalLikes": 322838,
-    "maxLikes": 238743,
-    "levels": {
-      "mid": 1,
-      "low": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "想到接下来要干什么就想笑 #整蛊男友 #小情侣 #恋爱日常",
-        "likes": 238743,
-        "plays": 0
-      },
-      {
-        "title": "拒绝男生打扮羞耻！收拾得清爽帅气，恋爱越来越甜蜜哦～ #恋爱日常#情侣#男友变帅教程",
-        "likes": 84095,
-        "plays": 0
-      }
-    ],
-    "hotRate": 50.0,
-    "avgLikes": 161419
   },
   {
     "nickname": "E***特",
@@ -15579,6 +15647,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 16355
+  },
+  {
+    "nickname": "卑***曹",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 16203,
+    "maxLikes": 16203,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我这辈子都当不了一名杀手，请看VCR #老曹和KK #情侣日常",
+        "likes": 16203,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16203
   },
   {
     "nickname": "杨***苏",
