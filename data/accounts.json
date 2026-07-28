@@ -3672,11 +3672,11 @@
   {
     "nickname": "*",
     "platform": "douyin",
-    "works": 4,
-    "totalLikes": 511915,
+    "works": 5,
+    "totalLikes": 568320,
     "maxLikes": 292699,
     "levels": {
-      "low": 3,
+      "low": 4,
       "mid": 1
     },
     "followers": 0,
@@ -3693,6 +3693,11 @@
         "plays": 0
       },
       {
+        "title": "哈哈 #情侣 #搞笑 #吃撑了 #破防了",
+        "likes": 56405,
+        "plays": 0
+      },
+      {
         "title": "8块能喝一升她咋还不乐意了\n#情侣日常 #搞笑 #反转",
         "likes": 44879,
         "plays": 0
@@ -3703,8 +3708,8 @@
         "plays": 0
       }
     ],
-    "hotRate": 25.0,
-    "avgLikes": 127978
+    "hotRate": 20.0,
+    "avgLikes": 113664
   },
   {
     "nickname": "小***妮",
