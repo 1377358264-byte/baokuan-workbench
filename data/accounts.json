@@ -1281,6 +1281,27 @@
     "avgLikes": 1335323
   },
   {
+    "nickname": "逗***巢",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 1324505,
+    "maxLikes": 1324505,
+    "levels": {
+      "head": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "全世界笑点下降1000倍而我不变",
+        "likes": 1324505,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 1324505
+  },
+  {
     "nickname": "小***林",
     "platform": "douyin",
     "works": 5,
@@ -1882,12 +1903,12 @@
   {
     "nickname": "小***酱",
     "platform": "douyin",
-    "works": 6,
-    "totalLikes": 1318862,
+    "works": 7,
+    "totalLikes": 1407478,
     "maxLikes": 898095,
     "levels": {
       "mid": 1,
-      "low": 5
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -1908,6 +1929,11 @@
         "plays": 0
       },
       {
+        "title": "好玩哈哈哈哈哈哈哈。#情侣挑战",
+        "likes": 88616,
+        "plays": 0
+      },
+      {
         "title": "如何判断女朋友是否生气 #情侣日常 #治愈系 #轻漫计划原创动漫",
         "likes": 61116,
         "plays": 0
@@ -1923,8 +1949,8 @@
         "plays": 0
       }
     ],
-    "hotRate": 16.7,
-    "avgLikes": 219810
+    "hotRate": 14.3,
+    "avgLikes": 201068
   },
   {
     "nickname": "七***蛋",
@@ -1969,6 +1995,27 @@
     "avgLikes": 890206
   },
   {
+    "nickname": "盖***丶",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 881929,
+    "maxLikes": 881929,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "反杀土味情话",
+        "likes": 881929,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 881929
+  },
+  {
     "nickname": "小***日",
     "platform": "douyin",
     "works": 1,
@@ -1988,6 +2035,33 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 874836
+  },
+  {
+    "nickname": "锦***辞",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 904835,
+    "maxLikes": 865467,
+    "levels": {
+      "low": 1,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“人类迷惑行为大赏”",
+        "likes": 865467,
+        "plays": 0
+      },
+      {
+        "title": "丧来丧去有什么好丧的呢",
+        "likes": 39368,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 452417
   },
   {
     "nickname": "不***活",
@@ -2078,6 +2152,27 @@
     ],
     "hotRate": 40.0,
     "avgLikes": 328096
+  },
+  {
+    "nickname": "1***e",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 775673,
+    "maxLikes": 775673,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "黑社会砸网吧 我从53秒笑到1分30秒",
+        "likes": 775673,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 775673
   },
   {
     "nickname": "狗*",
@@ -2272,6 +2367,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 730258
+  },
+  {
+    "nickname": "超***鸡",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 729139,
+    "maxLikes": 729139,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "人才！这是一个我看了从头笑到尾的视频哈哈哈哈哈",
+        "likes": 729139,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 729139
   },
   {
     "nickname": "徐***儿",
@@ -2994,6 +3110,27 @@
     "avgLikes": 271300
   },
   {
+    "nickname": "罗***法",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 463098,
+    "maxLikes": 463098,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【罗翔X papi酱X LKs】聊聊自己。28岁的我只有一碗粉…【确实该聊聊】",
+        "likes": 463098,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 463098
+  },
+  {
     "nickname": "赵***雪",
     "platform": "douyin",
     "works": 3,
@@ -3045,6 +3182,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 458061
+  },
+  {
+    "nickname": "冰***盐",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 454848,
+    "maxLikes": 454848,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【沙雕动画】做着不喜欢工作的你",
+        "likes": 454848,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 454848
   },
   {
     "nickname": "杨***怡",
@@ -3144,12 +3302,12 @@
   {
     "nickname": "籽***瓜",
     "platform": "douyin",
-    "works": 24,
-    "totalLikes": 2393254,
+    "works": 26,
+    "totalLikes": 2474212,
     "maxLikes": 441325,
     "levels": {
       "mid": 5,
-      "low": 19
+      "low": 21
     },
     "followers": 0,
     "followersKnown": false,
@@ -3195,18 +3353,18 @@
         "plays": 0
       },
       {
-        "title": "吵架后会互相给台阶的情侣，是不会走散的#内容过于真实 #情侣 #搞笑 #专治不开心",
-        "likes": 54873,
+        "title": "放假和家人朋友一起玩，看谁手气好 灵感来源@娜娜威 #挑战 #过年 #情侣 #搞笑 #一定要看到最后",
+        "likes": 63256,
         "plays": 0
       },
       {
-        "title": "恋爱不怕都懒或都勤快，就怕配合不到一块 #情侣 #搞笑#美的洗衣机 #美的内衣洗衣机 #美的双子座分区洗衣机",
-        "likes": 52802,
+        "title": "吵架后会互相给台阶的情侣，是不会走散的#内容过于真实 #情侣 #搞笑 #专治不开心",
+        "likes": 54873,
         "plays": 0
       }
     ],
-    "hotRate": 20.8,
-    "avgLikes": 99718
+    "hotRate": 19.2,
+    "avgLikes": 95162
   },
   {
     "nickname": "皓***啊",
@@ -3469,6 +3627,27 @@
     "avgLikes": 239723
   },
   {
+    "nickname": "住***黑",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 395726,
+    "maxLikes": 395726,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "高能采访名场面，看一次笑一次！",
+        "likes": 395726,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 395726
+  },
+  {
     "nickname": "西***花",
     "platform": "douyin",
     "works": 1,
@@ -3664,6 +3843,27 @@
     "avgLikes": 369715
   },
   {
+    "nickname": "闲***3",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 367647,
+    "maxLikes": 367647,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "《一碗牛肉面，反转了20次》",
+        "likes": 367647,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 367647
+  },
+  {
     "nickname": "W***a",
     "platform": "douyin",
     "works": 1,
@@ -3687,11 +3887,12 @@
   {
     "nickname": "大***👀",
     "platform": "douyin",
-    "works": 2,
-    "totalLikes": 583999,
+    "works": 3,
+    "totalLikes": 669310,
     "maxLikes": 359446,
     "levels": {
-      "mid": 2
+      "mid": 2,
+      "low": 1
     },
     "followers": 0,
     "followersKnown": false,
@@ -3705,10 +3906,15 @@
         "title": "一定要看到最后！#大眼东 #搞笑 #情侣",
         "likes": 224553,
         "plays": 0
+      },
+      {
+        "title": "你们认为张东挑战成功了吗？#梅花桩 #情侣 #梅花桩挑战",
+        "likes": 85311,
+        "plays": 0
       }
     ],
-    "hotRate": 100.0,
-    "avgLikes": 291999
+    "hotRate": 66.7,
+    "avgLikes": 223103
   },
   {
     "nickname": "复*",
@@ -4143,6 +4349,27 @@
     "avgLikes": 305554
   },
   {
+    "nickname": "卓***以",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 304858,
+    "maxLikes": 304858,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【男生勿进】女生第一次一定要知道的事情！",
+        "likes": 304858,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 304858
+  },
+  {
     "nickname": "任***达",
     "platform": "douyin",
     "works": 2,
@@ -4193,12 +4420,12 @@
   {
     "nickname": "阿***会",
     "platform": "douyin",
-    "works": 4,
-    "totalLikes": 872318,
+    "works": 5,
+    "totalLikes": 1088878,
     "maxLikes": 298134,
     "levels": {
       "low": 1,
-      "mid": 3
+      "mid": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -4214,6 +4441,11 @@
         "plays": 0
       },
       {
+        "title": "从今天开始，我退出猜拳届。\n#阿哲和倩怡  #185大帅哥  #情侣  #搞笑 ",
+        "likes": 216560,
+        "plays": 0
+      },
+      {
         "title": "原来没有赌注的游戏，也可以玩的这么起劲！\n#阿哲和倩怡 #185大帅哥 #情侣 #943防晒",
         "likes": 211958,
         "plays": 0
@@ -4224,8 +4456,71 @@
         "plays": 0
       }
     ],
-    "hotRate": 75.0,
-    "avgLikes": 218079
+    "hotRate": 80.0,
+    "avgLikes": 217775
+  },
+  {
+    "nickname": "辣***王",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 294743,
+    "maxLikes": 294743,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "和姐姐结婚六年 依旧重度生理性喜欢！｜釜山蜜月vlog｜你的情绪就是我的四季",
+        "likes": 294743,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 294743
+  },
+  {
+    "nickname": "雨***跑",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 294523,
+    "maxLikes": 294523,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "让朋友女装脱光躺在床上，骗女朋友闯进门，结果...",
+        "likes": 294523,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 294523
+  },
+  {
+    "nickname": "妈***打",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 293301,
+    "maxLikes": 293301,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【野生人类图鉴】沙雕人类欢乐多",
+        "likes": 293301,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 293301
   },
   {
     "nickname": "*",
@@ -4422,6 +4717,27 @@
     ],
     "hotRate": 50.0,
     "avgLikes": 151707
+  },
+  {
+    "nickname": "凡***爱",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 276620,
+    "maxLikes": 276620,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "很正的恋爱观",
+        "likes": 276620,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 276620
   },
   {
     "nickname": "哦***电",
@@ -4639,6 +4955,48 @@
     "avgLikes": 249628
   },
   {
+    "nickname": "卑***曹",
+    "platform": "bilibili",
+    "works": 5,
+    "totalLikes": 485694,
+    "maxLikes": 248814,
+    "levels": {
+      "low": 4,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我在外面叫女友嫂子，她居然逐渐疯狂了起来！",
+        "likes": 248814,
+        "plays": 0
+      },
+      {
+        "title": "偷偷下片竟被女友发现，我人没了！",
+        "likes": 114133,
+        "plays": 0
+      },
+      {
+        "title": "女友准备的美女视频深得我心！",
+        "likes": 46740,
+        "plays": 0
+      },
+      {
+        "title": "故意找茬我都想不出这么离谱的问题3.0",
+        "likes": 43805,
+        "plays": 0
+      },
+      {
+        "title": "故意找茬我都想不出这么离谱的问题",
+        "likes": 32202,
+        "plays": 0
+      }
+    ],
+    "hotRate": 20.0,
+    "avgLikes": 97138
+  },
+  {
     "nickname": "小***代",
     "platform": "douyin",
     "works": 1,
@@ -4775,6 +5133,27 @@
     ],
     "hotRate": 50.0,
     "avgLikes": 195107
+  },
+  {
+    "nickname": "鱼***酱",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 230786,
+    "maxLikes": 230786,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当你和对象一起睡觉是什么感觉…",
+        "likes": 230786,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 230786
   },
   {
     "nickname": "怨***玉",
@@ -4972,6 +5351,27 @@
     "avgLikes": 214872
   },
   {
+    "nickname": "小***子",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 212081,
+    "maxLikes": 212081,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我会永远做她的捧场王！！#用整蛊小道具开启情侣挑战 #愚人节整蛊大赛 #玩个很新的东西",
+        "likes": 212081,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 212081
+  },
+  {
     "nickname": "玉***儿",
     "platform": "douyin",
     "works": 2,
@@ -4997,6 +5397,33 @@
     ],
     "hotRate": 50.0,
     "avgLikes": 169736
+  },
+  {
+    "nickname": "k***o",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 316646,
+    "maxLikes": 210199,
+    "levels": {
+      "mid": 1,
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "悄悄整蛊男友一整天，他居然毫不知情......",
+        "likes": 210199,
+        "plays": 0
+      },
+      {
+        "title": "太折磨啦！小情侣 24 小时内不停叫对方肉麻的称呼。。。",
+        "likes": 106447,
+        "plays": 0
+      }
+    ],
+    "hotRate": 50.0,
+    "avgLikes": 158323
   },
   {
     "nickname": "战***喳",
@@ -5049,6 +5476,58 @@
     ],
     "hotRate": 14.3,
     "avgLikes": 63463
+  },
+  {
+    "nickname": "盖***哥",
+    "platform": "bilibili",
+    "works": 7,
+    "totalLikes": 536840,
+    "maxLikes": 205393,
+    "levels": {
+      "low": 6,
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "整蛊！假装突然做了奇怪的手术…女友震惊了！",
+        "likes": 205393,
+        "plays": 0
+      },
+      {
+        "title": "疯了！故意在丈母娘面前露出咬痕和补丁…再假装手机爆炸整蛊女友！",
+        "likes": 104073,
+        "plays": 0
+      },
+      {
+        "title": "深夜用全真恐怖诡魂整蛊女友…再让黑衣人直接追着我跑！！！",
+        "likes": 72589,
+        "plays": 0
+      },
+      {
+        "title": "黄毛和女友假装意外怀孕整蛊丈母娘…她拿到b超单破防了！",
+        "likes": 55469,
+        "plays": 0
+      },
+      {
+        "title": "整蛊！给女友全身绑住绷带动弹不得…只能乖乖被我欺负！",
+        "likes": 50681,
+        "plays": 0
+      },
+      {
+        "title": "社死！和女友私汤泡澡时泳裤突然溶化解体…深夜用恐怖抱脸虫整蛊她！",
+        "likes": 32478,
+        "plays": 0
+      },
+      {
+        "title": "整蛊女友让她在丈母娘面前穿充气人偶…往出气口喷超酸臭豆腐她起飞了！",
+        "likes": 16157,
+        "plays": 0
+      }
+    ],
+    "hotRate": 14.3,
+    "avgLikes": 76691
   },
   {
     "nickname": "杨***柴",
@@ -5150,6 +5629,27 @@
     ],
     "hotRate": 100.0,
     "avgLikes": 201745
+  },
+  {
+    "nickname": "国***莉",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 201281,
+    "maxLikes": 201281,
+    "levels": {
+      "mid": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "挑战一下“我跟异性的关系”你能忍到几级？",
+        "likes": 201281,
+        "plays": 0
+      }
+    ],
+    "hotRate": 100.0,
+    "avgLikes": 201281
   },
   {
     "nickname": "韩***🏻",
@@ -5360,6 +5860,27 @@
     "avgLikes": 188474
   },
   {
+    "nickname": "托***的",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 187485,
+    "maxLikes": 187485,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【托马斯的Q&A】我竟然是这样追到她的！历时三年！附带追女神教学~",
+        "likes": 187485,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 187485
+  },
+  {
     "nickname": "向***）",
     "platform": "douyin",
     "works": 1,
@@ -5381,6 +5902,27 @@
     "avgLikes": 185709
   },
   {
+    "nickname": "抱***饼",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 184927,
+    "maxLikes": 184927,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "大学生整治网上虚假的情侣博主",
+        "likes": 184927,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 184927
+  },
+  {
     "nickname": "绝***夫",
     "platform": "douyin",
     "works": 1,
@@ -5400,6 +5942,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 184891
+  },
+  {
+    "nickname": "陈***半",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 249489,
+    "maxLikes": 184753,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "陈翔六点半：求求你不要吓我了！",
+        "likes": 184753,
+        "plays": 0
+      },
+      {
+        "title": "陈翔六点半：这是我参加过反转最多的婚礼",
+        "likes": 64736,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 124744
   },
   {
     "nickname": "厨***驴",
@@ -5652,6 +6220,37 @@
     "avgLikes": 176688
   },
   {
+    "nickname": "房***闹",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 274710,
+    "maxLikes": 176466,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【男生慎入】女生长期“自慰”私处的变化",
+        "likes": 176466,
+        "plays": 0
+      },
+      {
+        "title": "【男生慎入】女生抱抱时的生理反应",
+        "likes": 87954,
+        "plays": 0
+      },
+      {
+        "title": "【女生慎入】当我探索男友敏感部位…",
+        "likes": 10290,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 91570
+  },
+  {
     "nickname": "蒋***脸",
     "platform": "douyin",
     "works": 1,
@@ -5813,6 +6412,27 @@
     "avgLikes": 77500
   },
   {
+    "nickname": "骚***人",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 172384,
+    "maxLikes": 172384,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "在兄弟吃饭时，故意崩他一身！兄弟的反应吓得他一整个现原形哈哈哈哈！",
+        "likes": 172384,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 172384
+  },
+  {
     "nickname": "国***莉",
     "platform": "douyin",
     "works": 1,
@@ -5855,6 +6475,27 @@
     "avgLikes": 171605
   },
   {
+    "nickname": "好***毛",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 171548,
+    "maxLikes": 171548,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "故事的开头总是这样，适逢其会猝不及防，故事的结尾总是这样...",
+        "likes": 171548,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 171548
+  },
+  {
     "nickname": "彬***✨",
     "platform": "douyin",
     "works": 3,
@@ -5884,6 +6525,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 113630
+  },
+  {
+    "nickname": "宝***嫂",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 167909,
+    "maxLikes": 167909,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣千万不要玩的默契挑战！！！",
+        "likes": 167909,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 167909
   },
   {
     "nickname": "苹***姐",
@@ -5959,6 +6621,27 @@
     "avgLikes": 118140
   },
   {
+    "nickname": "三***C",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 165016,
+    "maxLikes": 165016,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "凭实力单身",
+        "likes": 165016,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 165016
+  },
+  {
     "nickname": "蛇*",
     "platform": "douyin",
     "works": 1,
@@ -6006,6 +6689,27 @@
     "avgLikes": 156377
   },
   {
+    "nickname": "伊***呐",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 164423,
+    "maxLikes": 164423,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "约会项目从夯到拉排名",
+        "likes": 164423,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 164423
+  },
+  {
     "nickname": "绿***）",
     "platform": "douyin",
     "works": 1,
@@ -6025,6 +6729,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 164091
+  },
+  {
+    "nickname": "c***影",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 160999,
+    "maxLikes": 160999,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男友的套路题目，我差点没反应过来",
+        "likes": 160999,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 160999
   },
   {
     "nickname": "点***o",
@@ -6050,11 +6775,11 @@
   {
     "nickname": "高***羊",
     "platform": "douyin",
-    "works": 6,
-    "totalLikes": 524407,
+    "works": 7,
+    "totalLikes": 614399,
     "maxLikes": 157793,
     "levels": {
-      "low": 6
+      "low": 7
     },
     "followers": 0,
     "followersKnown": false,
@@ -6075,6 +6800,11 @@
         "plays": 0
       },
       {
+        "title": "你掉进爱的陷阱了 #恋爱 #暗爽 #暗爽瞬间 #暗爽哥 #不要做挑战",
+        "likes": 89992,
+        "plays": 0
+      },
+      {
         "title": "我练习了100次告白，你却先我说出口！ #恋爱 #暗恋 #暗示 #情侣默契挑战 #双向奔赴",
         "likes": 68591,
         "plays": 0
@@ -6091,7 +6821,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 87401
+    "avgLikes": 87771
   },
   {
     "nickname": "夏***拉",
@@ -6155,6 +6885,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 152492
+  },
+  {
+    "nickname": "P***号",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 150402,
+    "maxLikes": 150402,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "超浪漫短片：我会一直和你在一起！油管4000万播放的超人气漫画家来虐狗了！",
+        "likes": 150402,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 150402
   },
   {
     "nickname": "蕉***几",
@@ -6367,6 +7118,48 @@
     "avgLikes": 139346
   },
   {
+    "nickname": "语***六",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 139306,
+    "maxLikes": 139306,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "模仿老婆睡前行为",
+        "likes": 139306,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 139306
+  },
+  {
+    "nickname": "冷***业",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 138192,
+    "maxLikes": 138192,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "一天曝光一个副业！！！今天曝【沙雕动画】！",
+        "likes": 138192,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 138192
+  },
+  {
     "nickname": "除***x",
     "platform": "douyin",
     "works": 1,
@@ -6449,6 +7242,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 135412
+  },
+  {
+    "nickname": "杂***p",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 133512,
+    "maxLikes": 133512,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "什么是你谈了一段健康的恋爱才知道的事？",
+        "likes": 133512,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 133512
   },
   {
     "nickname": "罗***）",
@@ -6561,6 +7375,27 @@
     "avgLikes": 130906
   },
   {
+    "nickname": "人***q",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 130106,
+    "maxLikes": 130106,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“我既然要嫁给你，那我为什么要为难你？”",
+        "likes": 130106,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 130106
+  },
+  {
     "nickname": "🌈***君",
     "platform": "douyin",
     "works": 1,
@@ -6608,6 +7443,27 @@
     "avgLikes": 90754
   },
   {
+    "nickname": "S***y",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 124707,
+    "maxLikes": 124707,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "把手放在男友面前，看看他会做什么",
+        "likes": 124707,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 124707
+  },
+  {
     "nickname": "刘***为",
     "platform": "douyin",
     "works": 1,
@@ -6627,6 +7483,69 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 124534
+  },
+  {
+    "nickname": "呖***e",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 124518,
+    "maxLikes": 124518,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "回家吃饭之一到二十五集",
+        "likes": 124518,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 124518
+  },
+  {
+    "nickname": "一***o",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 123050,
+    "maxLikes": 123050,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "差点就看到正片了",
+        "likes": 123050,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 123050
+  },
+  {
+    "nickname": "剪***帝",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 122578,
+    "maxLikes": 122578,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "影视里那些搞笑的反转瞬间，笑不活了",
+        "likes": 122578,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 122578
   },
   {
     "nickname": "豆***乖",
@@ -6818,6 +7737,27 @@
     "avgLikes": 118695
   },
   {
+    "nickname": "韩***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 118570,
+    "maxLikes": 118570,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "人和人之间的羁绊不是注定的 而是靠有心人去制造的",
+        "likes": 118570,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 118570
+  },
+  {
     "nickname": "做***猫",
     "platform": "douyin",
     "works": 1,
@@ -6860,6 +7800,27 @@
     "avgLikes": 116027
   },
   {
+    "nickname": "乔***夫",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 115249,
+    "maxLikes": 115249,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "《情侣升温游戏》",
+        "likes": 115249,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 115249
+  },
+  {
     "nickname": "没***乐",
     "platform": "douyin",
     "works": 1,
@@ -6879,6 +7840,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 113470
+  },
+  {
+    "nickname": "女***裙",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 112977,
+    "maxLikes": 112977,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "离谱！6分钟煮酒，但是反转21次",
+        "likes": 112977,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 112977
   },
   {
     "nickname": "🌸***楠",
@@ -6942,6 +7924,53 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 111129
+  },
+  {
+    "nickname": "神***长",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 128645,
+    "maxLikes": 110219,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "四年情侣是怎么磨合成准夫妻的！（纯主观）",
+        "likes": 110219,
+        "plays": 0
+      },
+      {
+        "title": "危！家里突现陌生Q趣内衣！异地女友发现后当场哭了?|情侣整蛊",
+        "likes": 18426,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 64322
+  },
+  {
+    "nickname": "一***丑",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 110182,
+    "maxLikes": 110182,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你是我藏不住的秘密 是不写完的诗#暗恋 #校园 #毕业季#情侣日常#毕业季情感答案之书",
+        "likes": 110182,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 110182
   },
   {
     "nickname": "大***鼻",
@@ -7104,6 +8133,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 105867
+  },
+  {
+    "nickname": "小***w",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 168143,
+    "maxLikes": 105692,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "是爱情最初的样子。",
+        "likes": 105692,
+        "plays": 0
+      },
+      {
+        "title": "情侣找茬都想不出的离谱问题 part1",
+        "likes": 62451,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 84071
   },
   {
     "nickname": "徐***柒",
@@ -7426,11 +8481,11 @@
   {
     "nickname": "阿*",
     "platform": "xiaohongshu",
-    "works": 4,
-    "totalLikes": 363000,
+    "works": 6,
+    "totalLikes": 525000,
     "maxLikes": 100000,
     "levels": {
-      "low": 4
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -7451,13 +8506,23 @@
         "plays": 0
       },
       {
+        "title": "当身体支撑不住的时候 意志会带你杀出重围",
+        "likes": 94000,
+        "plays": 0
+      },
+      {
+        "title": "我们邪修练得就是快",
+        "likes": 68000,
+        "plays": 0
+      },
+      {
         "title": "或许这就是最好的安排吧",
         "likes": 65000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 90750
+    "avgLikes": 87500
   },
   {
     "nickname": "龙***啊",
@@ -7508,11 +8573,11 @@
   {
     "nickname": "高***宇",
     "platform": "xiaohongshu",
-    "works": 7,
-    "totalLikes": 614000,
+    "works": 8,
+    "totalLikes": 714000,
     "maxLikes": 100000,
     "levels": {
-      "low": 7
+      "low": 8
     },
     "followers": 0,
     "followersKnown": false,
@@ -7543,6 +8608,11 @@
         "plays": 0
       },
       {
+        "title": "两人在一起就是要彼此适应#内容过于真实[话题]#",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "《顶不住对方的称呼》",
         "likes": 68000,
         "plays": 0
@@ -7554,7 +8624,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 87714
+    "avgLikes": 89250
   },
   {
     "nickname": "七***猩",
@@ -7627,11 +8697,11 @@
   {
     "nickname": "娜***威",
     "platform": "xiaohongshu",
-    "works": 24,
-    "totalLikes": 1256000,
+    "works": 26,
+    "totalLikes": 1448000,
     "maxLikes": 100000,
     "levels": {
-      "low": 24
+      "low": 26
     },
     "followers": 0,
     "followersKnown": false,
@@ -7667,6 +8737,16 @@
         "plays": 0
       },
       {
+        "title": "又发现一个好东西！",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "这不是挺开心的嘛~",
+        "likes": 92000,
+        "plays": 0
+      },
+      {
         "title": "我请问呢？？？？？？？？",
         "likes": 87000,
         "plays": 0
@@ -7675,20 +8755,10 @@
         "title": "看来早有准备…",
         "likes": 75000,
         "plays": 0
-      },
-      {
-        "title": "他是懂勤俭持家的",
-        "likes": 65000,
-        "plays": 0
-      },
-      {
-        "title": "限时返场…",
-        "likes": 61000,
-        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 52333
+    "avgLikes": 55692
   },
   {
     "nickname": "金***一",
@@ -7904,11 +8974,11 @@
   {
     "nickname": "金***闪",
     "platform": "xiaohongshu",
-    "works": 3,
-    "totalLikes": 280000,
+    "works": 4,
+    "totalLikes": 380000,
     "maxLikes": 100000,
     "levels": {
-      "low": 3
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -7924,13 +8994,18 @@
         "plays": 0
       },
       {
+        "title": "你若折我翅膀 我便毁你天堂…",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "我好像谈了个大傻春…",
         "likes": 80000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 93333
+    "avgLikes": 95000
   },
   {
     "nickname": "两***崽",
@@ -7986,17 +9061,22 @@
   {
     "nickname": "嗯***宫",
     "platform": "xiaohongshu",
-    "works": 1,
-    "totalLikes": 100000,
+    "works": 2,
+    "totalLikes": 200000,
     "maxLikes": 100000,
     "levels": {
-      "low": 1
+      "low": 2
     },
     "followers": 0,
     "followersKnown": false,
     "topWorks": [
       {
         "title": "《大笨蛋》",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "不耐烦的表情和态度拍出这么好看的照片",
         "likes": 100000,
         "plays": 0
       }
@@ -8206,11 +9286,11 @@
   {
     "nickname": "老***沁",
     "platform": "xiaohongshu",
-    "works": 3,
-    "totalLikes": 224000,
+    "works": 4,
+    "totalLikes": 305000,
     "maxLikes": 100000,
     "levels": {
-      "low": 3
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -8218,6 +9298,11 @@
       {
         "title": "男生也太好骗了吧😂#情侣日常[话题]#",
         "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "原来男生这么容易上当啊😂#情侣日常[话题]#",
+        "likes": 81000,
         "plays": 0
       },
       {
@@ -8232,7 +9317,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 74666
+    "avgLikes": 76250
   },
   {
     "nickname": "野***子",
@@ -8268,11 +9353,11 @@
   {
     "nickname": "曾***招",
     "platform": "xiaohongshu",
-    "works": 4,
-    "totalLikes": 364000,
+    "works": 5,
+    "totalLikes": 464000,
     "maxLikes": 100000,
     "levels": {
-      "low": 4
+      "low": 5
     },
     "followers": 0,
     "followersKnown": false,
@@ -8288,6 +9373,11 @@
         "plays": 0
       },
       {
+        "title": "她说我是她带过最好的兵",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "他的小把戏我永远看不腻！",
         "likes": 85000,
         "plays": 0
@@ -8299,16 +9389,16 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 91000
+    "avgLikes": 92800
   },
   {
     "nickname": "口***金",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 176000,
+    "works": 3,
+    "totalLikes": 233000,
     "maxLikes": 100000,
     "levels": {
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -8322,10 +9412,15 @@
         "title": "谈恋爱哪有不犯贱的",
         "likes": 76000,
         "plays": 0
+      },
+      {
+        "title": "如何做一个情绪稳定的女人…#情侣日常[话题]#",
+        "likes": 57000,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 88000
+    "avgLikes": 77666
   },
   {
     "nickname": "秃***仔",
@@ -8519,6 +9614,32 @@
     "avgLikes": 66000
   },
   {
+    "nickname": "骆***子",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 146000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "还是自己懂自己想看什么",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "今日套路男朋友成功",
+        "likes": 46000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 73000
+  },
+  {
     "nickname": "小***靓",
     "platform": "xiaohongshu",
     "works": 4,
@@ -8578,11 +9699,11 @@
   {
     "nickname": "张***艾",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 124000,
+    "works": 3,
+    "totalLikes": 202000,
     "maxLikes": 100000,
     "levels": {
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -8593,13 +9714,18 @@
         "plays": 0
       },
       {
+        "title": "对！就这样不经意的记录我！！",
+        "likes": 78000,
+        "plays": 0
+      },
+      {
         "title": "差点忘了他是恋爱脑",
         "likes": 24000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 62000
+    "avgLikes": 67333
   },
   {
     "nickname": "乌***主",
@@ -8667,11 +9793,11 @@
   {
     "nickname": "我***饱",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 174000,
+    "works": 3,
+    "totalLikes": 274000,
     "maxLikes": 100000,
     "levels": {
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -8682,13 +9808,18 @@
         "plays": 0
       },
       {
+        "title": "当你不知道吃什么时",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "：当我在公开场合拍照很害羞时",
         "likes": 74000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 87000
+    "avgLikes": 91333
   },
   {
     "nickname": "S***哥",
@@ -8766,17 +9897,22 @@
   {
     "nickname": "神***长",
     "platform": "xiaohongshu",
-    "works": 4,
-    "totalLikes": 314000,
+    "works": 7,
+    "totalLikes": 525000,
     "maxLikes": 100000,
     "levels": {
-      "low": 4
+      "low": 7
     },
     "followers": 0,
     "followersKnown": false,
     "topWorks": [
       {
         "title": "整蛊男友真的很有意思！！",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "当我在旅途中比love，但她什么都不知道",
         "likes": 100000,
         "plays": 0
       },
@@ -8791,22 +9927,104 @@
         "plays": 0
       },
       {
+        "title": "当女友终于答应看你推荐的电影…",
+        "likes": 56000,
+        "plays": 0
+      },
+      {
+        "title": "当你的女朋友需要帮忙时...",
+        "likes": 55000,
+        "plays": 0
+      },
+      {
         "title": "偶尔也要搞一些小浪漫~",
         "likes": 52000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 78500
+    "avgLikes": 75000
+  },
+  {
+    "nickname": "牟***啊",
+    "platform": "xiaohongshu",
+    "works": 6,
+    "totalLikes": 378000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 6
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "家里要来熊孩子的穿搭#情侣日常[话题]#",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "学好数理化，走遍天下都不怕#情侣日常[话题]#",
+        "likes": 92000,
+        "plays": 0
+      },
+      {
+        "title": "果然外面的世界还是发展的太快了#情侣日常[话题]#",
+        "likes": 58000,
+        "plays": 0
+      },
+      {
+        "title": "当老婆说亲自下厨时#情侣日常[话题]#",
+        "likes": 48000,
+        "plays": 0
+      },
+      {
+        "title": "当大年初一不能生气但老婆又想骂我时#情侣日常[话题]#",
+        "likes": 40000,
+        "plays": 0
+      },
+      {
+        "title": "虚构演绎，仅供娱乐#情侣日常[话题]#",
+        "likes": 40000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 63000
+  },
+  {
+    "nickname": "阿***x",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 122000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "终于出门了！#情侣日常[话题]#",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "当你意外通过了忠诚度测试.#情侣日常[话题]#",
+        "likes": 22000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 61000
   },
   {
     "nickname": "陈***宝",
     "platform": "xiaohongshu",
-    "works": 4,
-    "totalLikes": 340000,
+    "works": 6,
+    "totalLikes": 533000,
     "maxLikes": 100000,
     "levels": {
-      "low": 4
+      "low": 6
     },
     "followers": 0,
     "followersKnown": false,
@@ -8822,8 +10040,18 @@
         "plays": 0
       },
       {
+        "title": "让你搭配没让你超越",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "挑战用一把水枪把男朋友迷成智障",
         "likes": 95000,
+        "plays": 0
+      },
+      {
+        "title": "冷战变热战 冰淇凌你背刺我😭",
+        "likes": 93000,
         "plays": 0
       },
       {
@@ -8833,16 +10061,16 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 85000
+    "avgLikes": 88833
   },
   {
     "nickname": "S***常",
     "platform": "xiaohongshu",
-    "works": 9,
-    "totalLikes": 517000,
+    "works": 10,
+    "totalLikes": 617000,
     "maxLikes": 100000,
     "levels": {
-      "low": 9
+      "low": 10
     },
     "followers": 0,
     "followersKnown": false,
@@ -8854,6 +10082,11 @@
       },
       {
         "title": "洋葱般的男人，让我体验了一把霸总爽文。。。",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "跟女友玩水，她真的让我丢脸又丢腚…全是人",
         "likes": 100000,
         "plays": 0
       },
@@ -8894,7 +10127,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 57444
+    "avgLikes": 61700
   },
   {
     "nickname": "L***甲",
@@ -9085,6 +10318,32 @@
     "avgLikes": 100000
   },
   {
+    "nickname": "皮***.",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 143000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "别再排队试衣服了，邪修来啦！！",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "真锐评了又不高兴了…",
+        "likes": 43000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 71500
+  },
+  {
     "nickname": "李***鑫",
     "platform": "xiaohongshu",
     "works": 6,
@@ -9154,11 +10413,11 @@
   {
     "nickname": "乔*",
     "platform": "xiaohongshu",
-    "works": 4,
-    "totalLikes": 319000,
+    "works": 5,
+    "totalLikes": 419000,
     "maxLikes": 100000,
     "levels": {
-      "low": 4
+      "low": 5
     },
     "followers": 0,
     "followersKnown": false,
@@ -9174,6 +10433,11 @@
         "plays": 0
       },
       {
+        "title": "《一对小方的情侣》",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "《石头剪刀布赢了当皇帝》",
         "likes": 60000,
         "plays": 0
@@ -9185,7 +10449,7 @@
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 79750
+    "avgLikes": 83800
   },
   {
     "nickname": "郭***T",
@@ -9251,11 +10515,11 @@
   {
     "nickname": "曾***_",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 200000,
+    "works": 3,
+    "totalLikes": 267000,
     "maxLikes": 100000,
     "levels": {
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -9269,10 +10533,15 @@
         "title": "防不胜防",
         "likes": 100000,
         "plays": 0
+      },
+      {
+        "title": "还是妹妹安静点！",
+        "likes": 67000,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 100000
+    "avgLikes": 89000
   },
   {
     "nickname": "练***🦈",
@@ -9319,11 +10588,11 @@
   {
     "nickname": "叫***胤",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 148000,
+    "works": 4,
+    "totalLikes": 348000,
     "maxLikes": 100000,
     "levels": {
-      "low": 2
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -9334,22 +10603,32 @@
         "plays": 0
       },
       {
+        "title": "谈恋爱就是要靠这样吵架，才能增进感情",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "谈恋爱就是要找一个本身就很好的人",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
         "title": "果然偷吃只有0次和无数次",
         "likes": 48000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 74000
+    "avgLikes": 87000
   },
   {
     "nickname": "庞***兔",
     "platform": "xiaohongshu",
-    "works": 3,
-    "totalLikes": 243000,
+    "works": 4,
+    "totalLikes": 306000,
     "maxLikes": 100000,
     "levels": {
-      "low": 3
+      "low": 4
     },
     "followers": 0,
     "followersKnown": false,
@@ -9368,10 +10647,15 @@
         "title": "大家遇到还是跑吧…",
         "likes": 63000,
         "plays": 0
+      },
+      {
+        "title": "《动物怎么叫》是这么玩的吗？",
+        "likes": 63000,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 81000
+    "avgLikes": 76500
   },
   {
     "nickname": "晚***🌵",
@@ -9620,6 +10904,179 @@
     "avgLikes": 100000
   },
   {
+    "nickname": "韩***明",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "《三十六计之偷梁换柱》",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "七***子",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 200000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "和女朋友吵架 和好机会只有一次",
+        "likes": 100000,
+        "plays": 0
+      },
+      {
+        "title": "原来两人力量差距如此悬殊！",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "海***芝",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "致陪我爆改的你",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "肚***雷",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "女生永远无法做到的事情",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "主***酱",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "吃得很快！下次继续保持🌚",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "热***友",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "嫂子不用谢，已经给您调好了",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "徐***o",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "今天糖分真的太超标了！！！",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
+    "nickname": "田***上",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 100000,
+    "maxLikes": 100000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "没错，我就是故意的",
+        "likes": 100000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 100000
+  },
+  {
     "nickname": "毛***富",
     "platform": "xiaohongshu",
     "works": 1,
@@ -9768,11 +11225,11 @@
   {
     "nickname": "黄***粒",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 179000,
+    "works": 3,
+    "totalLikes": 237000,
     "maxLikes": 94000,
     "levels": {
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -9786,10 +11243,15 @@
         "title": "对抗路情侣2025年终总结",
         "likes": 85000,
         "plays": 0
+      },
+      {
+        "title": "在媳妇儿面前，说话一定要整点技术\n#情侣日常[话题]#@赵厂长",
+        "likes": 58000,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 89500
+    "avgLikes": 79000
   },
   {
     "nickname": "小***妮",
@@ -9834,6 +11296,69 @@
     "avgLikes": 93702
   },
   {
+    "nickname": "y***水",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 93700,
+    "maxLikes": 93700,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "一对普通情侣的四年",
+        "likes": 93700,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 93700
+  },
+  {
+    "nickname": "大***S",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 93306,
+    "maxLikes": 93306,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点男生宿舍的沙雕搞笑日常，不怕沙雕多，就怕沙雕住一窝啊",
+        "likes": 93306,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 93306
+  },
+  {
+    "nickname": "马***酒",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 93011,
+    "maxLikes": 93011,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【互动测试】测测你的恋爱型人格！",
+        "likes": 93011,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 93011
+  },
+  {
     "nickname": "王***夫",
     "platform": "douyin",
     "works": 1,
@@ -9876,6 +11401,27 @@
     "avgLikes": 92570
   },
   {
+    "nickname": "虚***心",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 92524,
+    "maxLikes": 92524,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【虚心】le｜久违的糖果挑战3.0！沉浸式品尝～",
+        "likes": 92524,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 92524
+  },
+  {
     "nickname": "宋***揍",
     "platform": "xiaohongshu",
     "works": 2,
@@ -9900,42 +11446,6 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 70500
-  },
-  {
-    "nickname": "牟***啊",
-    "platform": "xiaohongshu",
-    "works": 4,
-    "totalLikes": 220000,
-    "maxLikes": 92000,
-    "levels": {
-      "low": 4
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "学好数理化，走遍天下都不怕#情侣日常[话题]#",
-        "likes": 92000,
-        "plays": 0
-      },
-      {
-        "title": "当老婆说亲自下厨时#情侣日常[话题]#",
-        "likes": 48000,
-        "plays": 0
-      },
-      {
-        "title": "当大年初一不能生气但老婆又想骂我时#情侣日常[话题]#",
-        "likes": 40000,
-        "plays": 0
-      },
-      {
-        "title": "虚构演绎，仅供娱乐#情侣日常[话题]#",
-        "likes": 40000,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 55000
   },
   {
     "nickname": "猛***鑫",
@@ -10016,6 +11526,32 @@
     "avgLikes": 52012
   },
   {
+    "nickname": "伍***呀",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 135948,
+    "maxLikes": 91015,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情 侣 默 契 大 拷 问",
+        "likes": 91015,
+        "plays": 0
+      },
+      {
+        "title": "《全网最默契情侣》",
+        "likes": 44933,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 67974
+  },
+  {
     "nickname": "*",
     "platform": "xiaohongshu",
     "works": 1,
@@ -10056,6 +11592,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 91000
+  },
+  {
+    "nickname": "他***孩",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 90989,
+    "maxLikes": 90989,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "周淑怡：你们不会以为女主播一年都没有X生活吧",
+        "likes": 90989,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 90989
   },
   {
     "nickname": "婷***男",
@@ -10119,6 +11676,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 90905
+  },
+  {
+    "nickname": "仁***吗",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 90563,
+    "maxLikes": 90563,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【万恶之源合集】“群星璀璨时，一个没看过的也是神人了”",
+        "likes": 90563,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 90563
   },
   {
     "nickname": "大***社",
@@ -10226,6 +11804,27 @@
     "avgLikes": 88670
   },
   {
+    "nickname": "肌***山",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 87786,
+    "maxLikes": 87786,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【整蛊】被亲姐姐撞见弟弟和女友在床上！？姐姐反应竟然。。。",
+        "likes": 87786,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 87786
+  },
+  {
     "nickname": "张***.",
     "platform": "xiaohongshu",
     "works": 1,
@@ -10260,6 +11859,27 @@
     "topWorks": [
       {
         "title": "pov当你遇到了那个对的人",
+        "likes": 87000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 87000
+  },
+  {
+    "nickname": "坤***哥",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 87000,
+    "maxLikes": 87000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我们只是吵架了又不是不爱了",
         "likes": 87000,
         "plays": 0
       }
@@ -10394,6 +12014,27 @@
     "avgLikes": 84000
   },
   {
+    "nickname": "聪***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 83181,
+    "maxLikes": 83181,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "沙雕情侣的搞笑日常，果然恋爱要谈贱贱的男生#情侣日常",
+        "likes": 83181,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 83181
+  },
+  {
     "nickname": "超***💑",
     "platform": "kuaishou",
     "works": 1,
@@ -10413,6 +12054,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 82911
+  },
+  {
+    "nickname": "马***谱",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 82377,
+    "maxLikes": 82377,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "成年人的世界太癫了",
+        "likes": 82377,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 82377
+  },
+  {
+    "nickname": "苏***师",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 118351,
+    "maxLikes": 82373,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【情侣】让对方心跳加速的接吻技巧！超详细干货总结，没有比你更会kiss的人！",
+        "likes": 82373,
+        "plays": 0
+      },
+      {
+        "title": "超甜奶茶kiss挑战！猜猜我的气味？输了的人要……这是他一辈子的黑历史",
+        "likes": 23619,
+        "plays": 0
+      },
+      {
+        "title": "别害羞！那些同居之后才明白的小知识…",
+        "likes": 12359,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 39450
   },
   {
     "nickname": "毛***啵",
@@ -10439,6 +12132,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 66500
+  },
+  {
+    "nickname": "B***o",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 82000,
+    "maxLikes": 82000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "高考完官宣发哪张",
+        "likes": 82000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 82000
   },
   {
     "nickname": "女***圈",
@@ -10608,6 +12322,27 @@
     "avgLikes": 80000
   },
   {
+    "nickname": "罗***生",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 79713,
+    "maxLikes": 79713,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“如果你放不下一个人，怀念的是他的性格、人品，那么我建议你回头；如果你舍不得的只是，那些美好的回忆幸福时光，那我请你务必向前走。”",
+        "likes": 79713,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 79713
+  },
+  {
     "nickname": "汤***常",
     "platform": "xiaohongshu",
     "works": 1,
@@ -10692,6 +12427,27 @@
     "avgLikes": 78975
   },
   {
+    "nickname": "第***刀",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 78787,
+    "maxLikes": 78787,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "把兄弟骗进博彩诈骗集团，趁他熟睡送入手术室割腰子【翼刀普法整蛊奇闻录】",
+        "likes": 78787,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 78787
+  },
+  {
     "nickname": "相***浪",
     "platform": "douyin",
     "works": 1,
@@ -10732,6 +12488,111 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 78000
+  },
+  {
+    "nickname": "冬***7",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 78000,
+    "maxLikes": 78000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣日常｜撩男朋友小妙招！直接拿捏住👌",
+        "likes": 78000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 78000
+  },
+  {
+    "nickname": "小***犬",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 78000,
+    "maxLikes": 78000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "饮料要这么喝才好喝",
+        "likes": 78000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 78000
+  },
+  {
+    "nickname": "小***家",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 78000,
+    "maxLikes": 78000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "老公沉浸式体验孕晚期，怀孕哪有不疯的",
+        "likes": 78000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 78000
+  },
+  {
+    "nickname": "余***儿",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 78000,
+    "maxLikes": 78000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "只要他在家 吹风机响起3秒 他就会出现",
+        "likes": 78000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 78000
+  },
+  {
+    "nickname": "子***月",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 77881,
+    "maxLikes": 77881,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "那时我才明白，什么才是真正的爱情：【何为爱情】",
+        "likes": 77881,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 77881
   },
   {
     "nickname": "安***）",
@@ -10784,6 +12645,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 70661
+  },
+  {
+    "nickname": "吃***陈",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 126000,
+    "maxLikes": 76000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "谈恋爱就要这样吵，感情才能升温啊",
+        "likes": 76000,
+        "plays": 0
+      },
+      {
+        "title": "他俩是不是有点不对劲？",
+        "likes": 50000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 63000
   },
   {
     "nickname": "小***姐",
@@ -11239,11 +13126,11 @@
   {
     "nickname": "子*",
     "platform": "xiaohongshu",
-    "works": 2,
-    "totalLikes": 91000,
+    "works": 3,
+    "totalLikes": 159000,
     "maxLikes": 71000,
     "levels": {
-      "low": 2
+      "low": 3
     },
     "followers": 0,
     "followersKnown": false,
@@ -11254,13 +13141,44 @@
         "plays": 0
       },
       {
+        "title": "《我们默契无人能敌》",
+        "likes": 68000,
+        "plays": 0
+      },
+      {
         "title": "把男朋友的唇膏换成口红哈哈哈哈",
         "likes": 20000,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 45500
+    "avgLikes": 53000
+  },
+  {
+    "nickname": "粒***谱",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 128000,
+    "maxLikes": 71000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "笑容该转移到你们脸上了",
+        "likes": 71000,
+        "plays": 0
+      },
+      {
+        "title": "一定要这样吗……",
+        "likes": 57000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 64000
   },
   {
     "nickname": "妹***的",
@@ -11284,6 +13202,27 @@
     "avgLikes": 70866
   },
   {
+    "nickname": "旺***a",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 70444,
+    "maxLikes": 70444,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "三个精神小妹带我玩一天，探访她们的合租生活",
+        "likes": 70444,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 70444
+  },
+  {
     "nickname": "宇***记",
     "platform": "xiaohongshu",
     "works": 1,
@@ -11303,6 +13242,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 70000
+  },
+  {
+    "nickname": "周***_",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 69202,
+    "maxLikes": 69202,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "很多情侣根本没有深度交流",
+        "likes": 69202,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 69202
   },
   {
     "nickname": "5***7",
@@ -11326,6 +13286,27 @@
     "avgLikes": 69009
   },
   {
+    "nickname": "依***啵",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 69000,
+    "maxLikes": 69000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我生气vs女朋友生气",
+        "likes": 69000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 69000
+  },
+  {
     "nickname": "三***远",
     "platform": "douyin",
     "works": 1,
@@ -11345,6 +13326,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 68554
+  },
+  {
+    "nickname": "洪***辰",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 68348,
+    "maxLikes": 68348,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "恋爱13年结婚5年，终于看清大部分情侣只是“假性恋爱”！TA们并不相爱！",
+        "likes": 68348,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 68348
   },
   {
     "nickname": "宋***e",
@@ -11408,6 +13410,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 67249
+  },
+  {
+    "nickname": "肝***哥",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 67000,
+    "maxLikes": 67000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "再多年的感情在小龙虾面前都不值一提",
+        "likes": 67000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 67000
   },
   {
     "nickname": "二***馆",
@@ -11514,6 +13537,48 @@
     "avgLikes": 31452
   },
   {
+    "nickname": "彭***享",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 65264,
+    "maxLikes": 65264,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "一口气看懂王虹获菲尔兹奖：挂谷猜想到底有多难？",
+        "likes": 65264,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 65264
+  },
+  {
+    "nickname": "我***妻",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 65237,
+    "maxLikes": 65237,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣升温小游戏",
+        "likes": 65237,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 65237
+  },
+  {
     "nickname": "7***夏",
     "platform": "xiaohongshu",
     "works": 1,
@@ -11554,6 +13619,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 65000
+  },
+  {
+    "nickname": "龙***卷",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 100421,
+    "maxLikes": 64936,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“不给我K，就是不爱我！”",
+        "likes": 64936,
+        "plays": 0
+      },
+      {
+        "title": "“好累啊，要不以后都你来动吧？”",
+        "likes": 35485,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 50210
   },
   {
     "nickname": "静***🍑",
@@ -11661,6 +13752,74 @@
     "avgLikes": 63047
   },
   {
+    "nickname": "冰***棒",
+    "platform": "xiaohongshu",
+    "works": 2,
+    "totalLikes": 99000,
+    "maxLikes": 63000,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这个家还有没有一点体面..",
+        "likes": 63000,
+        "plays": 0
+      },
+      {
+        "title": "请不要整蛊你女朋友",
+        "likes": 36000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 49500
+  },
+  {
+    "nickname": "达***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 62641,
+    "maxLikes": 62641,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "提升炒菜体验！手把手教学！女孩请进！",
+        "likes": 62641,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 62641
+  },
+  {
+    "nickname": "蛋***s",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 62282,
+    "maxLikes": 62282,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【情侣三天真实测评】杜蕾斯延时三合一 真的一滴也没有了O_o",
+        "likes": 62282,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 62282
+  },
+  {
     "nickname": "王***妮",
     "platform": "xiaohongshu",
     "works": 1,
@@ -11680,6 +13839,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 62000
+  },
+  {
+    "nickname": "任***S",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 134807,
+    "maxLikes": 61689,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这是我见过演技最好的整蛊 骗妈妈不小心把女生肚子搞大了 妈妈被一波打击气到语无伦次，当场决定放弃自己的儿子，放他去流浪",
+        "likes": 61689,
+        "plays": 0
+      },
+      {
+        "title": "怀孕妻子假装羊水破了整蛊老公 差点把我未受精的孩子都笑出来哈哈哈哈",
+        "likes": 39153,
+        "plays": 0
+      },
+      {
+        "title": "在丈夫上厕所的时候进去拍参观视频恶作剧",
+        "likes": 33965,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 44935
+  },
+  {
+    "nickname": "是***O",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 61674,
+    "maxLikes": 61674,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "恋人怀中樱花草，听见胸膛心在跳",
+        "likes": 61674,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 61674
   },
   {
     "nickname": "李***&",
@@ -11787,6 +13998,27 @@
     "avgLikes": 59796
   },
   {
+    "nickname": "瑞***e",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 59246,
+    "maxLikes": 59246,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "关于直男 女生一直想知道的事 我帮你们问了！",
+        "likes": 59246,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 59246
+  },
+  {
     "nickname": "胖***🦧",
     "platform": "douyin",
     "works": 1,
@@ -11832,6 +14064,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 46000
+  },
+  {
+    "nickname": "颜***划",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 58749,
+    "maxLikes": 58749,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "犯贱是婚姻的保鲜剂",
+        "likes": 58749,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 58749
   },
   {
     "nickname": "小***明",
@@ -11933,6 +14186,27 @@
     "avgLikes": 58168
   },
   {
+    "nickname": "老***付",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 58084,
+    "maxLikes": 58084,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "终于把好哥们处成了情侣!",
+        "likes": 58084,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 58084
+  },
+  {
     "nickname": "鲤***妇",
     "platform": "douyin",
     "works": 1,
@@ -11952,6 +14226,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 58076
+  },
+  {
+    "nickname": "猪***骏",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 58008,
+    "maxLikes": 58008,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣感情升温的小游戏 #沙雕情侣欢乐多 #深度还原 #内容过于真实",
+        "likes": 58008,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 58008
   },
   {
     "nickname": "福***沐",
@@ -11994,6 +14289,79 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 57254
+  },
+  {
+    "nickname": "张***筒",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 124637,
+    "maxLikes": 57187,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你 要 结 婚 了",
+        "likes": 57187,
+        "plays": 0
+      },
+      {
+        "title": "见 家 长 小 技 巧",
+        "likes": 38828,
+        "plays": 0
+      },
+      {
+        "title": "私 人 订 制",
+        "likes": 28622,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 41545
+  },
+  {
+    "nickname": "老***_",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 57112,
+    "maxLikes": 57112,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "《搞笑动物大合集》耗时两年半巨制",
+        "likes": 57112,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 57112
+  },
+  {
+    "nickname": "L***方",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 57071,
+    "maxLikes": 57071,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【无对白搞笑动画/1080P】LARVA爆笑虫子 第三季",
+        "likes": 57071,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 57071
   },
   {
     "nickname": "来***来",
@@ -12041,6 +14409,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 34000
+  },
+  {
+    "nickname": "M***e",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 57000,
+    "maxLikes": 57000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣小游戏",
+        "likes": 57000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 57000
   },
   {
     "nickname": "大***财",
@@ -12146,6 +14535,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 55114
+  },
+  {
+    "nickname": "欧***达",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 55074,
+    "maxLikes": 55074,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【黑人兄弟】反转之无限反转",
+        "likes": 55074,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 55074
   },
   {
     "nickname": "好***朵",
@@ -12284,6 +14694,74 @@
     "avgLikes": 54000
   },
   {
+    "nickname": "聂***呀",
+    "platform": "xiaohongshu",
+    "works": 1,
+    "totalLikes": 54000,
+    "maxLikes": 54000,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "关于男朋友眼中的我：",
+        "likes": 54000,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 54000
+  },
+  {
+    "nickname": "理***C",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 53984,
+    "maxLikes": 53984,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【罗翔】我们这一生终将会寻觅到一个我们爱的人，那我们该如何去爱他呢？",
+        "likes": 53984,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 53984
+  },
+  {
+    "nickname": "-***-",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 82949,
+    "maxLikes": 53869,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "九九八十亿难",
+        "likes": 53869,
+        "plays": 0
+      },
+      {
+        "title": "《情侣升温小游戏》",
+        "likes": 29080,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 41474
+  },
+  {
     "nickname": "王***🍑",
     "platform": "douyin",
     "works": 1,
@@ -12394,6 +14872,27 @@
     "avgLikes": 53612
   },
   {
+    "nickname": "在***别",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 53431,
+    "maxLikes": 53431,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "测完情侣默契挑战，我直接愣住了",
+        "likes": 53431,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 53431
+  },
+  {
     "nickname": "花***)",
     "platform": "douyin",
     "works": 1,
@@ -12413,6 +14912,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 53330
+  },
+  {
+    "nickname": "未***士",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 53108,
+    "maxLikes": 53108,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "拿东西假装不小心打到男友的头",
+        "likes": 53108,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 53108
   },
   {
     "nickname": "f***7",
@@ -12504,6 +15024,27 @@
     "avgLikes": 51521
   },
   {
+    "nickname": "夹***士",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 51460,
+    "maxLikes": 51460,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "尺度拉满！情侣做多了没有感觉，怎样打开“情趣世界”的大门？| 夹性芝士",
+        "likes": 51460,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 51460
+  },
+  {
     "nickname": "知***😈",
     "platform": "douyin",
     "works": 1,
@@ -12523,6 +15064,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 51195
+  },
+  {
+    "nickname": "欧***六",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 51012,
+    "maxLikes": 51012,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "韩国搞笑：男女相亲，女的说工作是AV演员，住在地铁站里，还是露宿者的头，旁边的人笑死了",
+        "likes": 51012,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 51012
   },
   {
     "nickname": "这***甜",
@@ -12570,6 +15132,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 51000
+  },
+  {
+    "nickname": "是***呀",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 60825,
+    "maxLikes": 50718,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "和男友整蛊妈妈骗她花300万给她买了1000个蛋糕…她当场破防了哈哈哈！",
+        "likes": 50718,
+        "plays": 0
+      },
+      {
+        "title": "整蛊！把超辣浓缩洋葱汁涂在腋下…再故意搂住男友！",
+        "likes": 10107,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 30412
   },
   {
     "nickname": "独***梦",
@@ -12635,6 +15223,27 @@
     "avgLikes": 50576
   },
   {
+    "nickname": "游***登",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 50371,
+    "maxLikes": 50371,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "小心伪牛！",
+        "likes": 50371,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 50371
+  },
+  {
     "nickname": "呼***娇",
     "platform": "xiaohongshu",
     "works": 1,
@@ -12648,27 +15257,6 @@
     "topWorks": [
       {
         "title": "姐妹们学会了吗 快去试试",
-        "likes": 50000,
-        "plays": 0
-      }
-    ],
-    "hotRate": 0.0,
-    "avgLikes": 50000
-  },
-  {
-    "nickname": "吃***陈",
-    "platform": "xiaohongshu",
-    "works": 1,
-    "totalLikes": 50000,
-    "maxLikes": 50000,
-    "levels": {
-      "low": 1
-    },
-    "followers": 0,
-    "followersKnown": false,
-    "topWorks": [
-      {
-        "title": "他俩是不是有点不对劲？",
         "likes": 50000,
         "plays": 0
       }
@@ -12696,6 +15284,62 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 49976
+  },
+  {
+    "nickname": "钟***哒",
+    "platform": "bilibili",
+    "works": 8,
+    "totalLikes": 234458,
+    "maxLikes": 49742,
+    "levels": {
+      "low": 8
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "比吻技还上头的调情技巧，靠这个同居了！单身人终于可以进了！",
+        "likes": 49742,
+        "plays": 0
+      },
+      {
+        "title": "清醒一点！揭穿“假装爱你”的4个特征，“什么都听你的”其实并不是爱？！",
+        "likes": 41862,
+        "plays": 0
+      },
+      {
+        "title": "亲测让男生心跳飙升的吻技教学！学会了比夹子音还上头【钟噜】接吻丨情侣丨女生",
+        "likes": 40976,
+        "plays": 0
+      },
+      {
+        "title": "7个健康的亲密关系里沟通的高效技巧！「配得感」最重要，每个人都可以心安理得的接受幸福",
+        "likes": 36608,
+        "plays": 0
+      },
+      {
+        "title": "很会聊天才能追女孩？情侣复盘“高情商恋爱史”，事业和对象红红火火都有了！【钟噜】",
+        "likes": 26567,
+        "plays": 0
+      },
+      {
+        "title": "“亲一口能激动好几宿”的高段位吻技丨老婆亲测脸红，吻到对象腿软！【钟噜】",
+        "likes": 13854,
+        "plays": 0
+      },
+      {
+        "title": "你值得才哄你！ 夫妻3年总结4个很容易起效的哄男友小花招~点亮男生干劲！",
+        "likes": 12482,
+        "plays": 0
+      },
+      {
+        "title": "爱过才会懂！很撩男生的上头小技巧，老公被撩了4年都忘不了【钟噜】",
+        "likes": 12367,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29307
   },
   {
     "nickname": "何***万",
@@ -12822,6 +15466,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 48511
+  },
+  {
+    "nickname": "2***克",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 48441,
+    "maxLikes": 48441,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "有人时薪2000，有人干活太累死了，洛杉矶华人生存报告【探照灯计划】",
+        "likes": 48441,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 48441
   },
   {
     "nickname": "W***玮",
@@ -12992,6 +15657,27 @@
     "avgLikes": 47350
   },
   {
+    "nickname": "易***物",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 47239,
+    "maxLikes": 47239,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "要被这个姐的整蛊视频笑死了",
+        "likes": 47239,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 47239
+  },
+  {
     "nickname": "河***察",
     "platform": "kuaishou",
     "works": 2,
@@ -13039,11 +15725,11 @@
     "avgLikes": 46302
   },
   {
-    "nickname": "骆***子",
-    "platform": "xiaohongshu",
+    "nickname": "国***神",
+    "platform": "bilibili",
     "works": 1,
-    "totalLikes": 46000,
-    "maxLikes": 46000,
+    "totalLikes": 46002,
+    "maxLikes": 46002,
     "levels": {
       "low": 1
     },
@@ -13051,13 +15737,34 @@
     "followersKnown": false,
     "topWorks": [
       {
-        "title": "今日套路男朋友成功",
-        "likes": 46000,
+        "title": "【剧情秒反转】我不是杀手",
+        "likes": 46002,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 46000
+    "avgLikes": 46002
+  },
+  {
+    "nickname": "徐***牙",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 45727,
+    "maxLikes": 45727,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "抽象男和抽象女的恋爱日常",
+        "likes": 45727,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 45727
   },
   {
     "nickname": "周***.",
@@ -13096,6 +15803,32 @@
     "avgLikes": 28056
   },
   {
+    "nickname": "婷***e",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 65339,
+    "maxLikes": 45303,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【情侣整蛊】我出轨了？！渣男在女朋友出差的几天都做了什么！",
+        "likes": 45303,
+        "plays": 0
+      },
+      {
+        "title": "【极限作死】关于我跟老婆聊前女友这件事~",
+        "likes": 20036,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 32669
+  },
+  {
     "nickname": "拓***🥥",
     "platform": "douyin",
     "works": 1,
@@ -13115,6 +15848,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 45277
+  },
+  {
+    "nickname": "社***来",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 45134,
+    "maxLikes": 45134,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "随机奖励一位幸运之子",
+        "likes": 45134,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 45134
   },
   {
     "nickname": "川***活",
@@ -13185,6 +15939,27 @@
     "avgLikes": 45000
   },
   {
+    "nickname": "G***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 44851,
+    "maxLikes": 44851,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "付费不亏内容 ！G姐约了妈妈聊两性之间那些事儿～",
+        "likes": 44851,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 44851
+  },
+  {
     "nickname": "张***米",
     "platform": "douyin",
     "works": 1,
@@ -13248,6 +16023,27 @@
     "avgLikes": 43314
   },
   {
+    "nickname": "纯***o",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 43154,
+    "maxLikes": 43154,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【加长版】我宣布这是今年AI短剧最搞笑的本，简直梗上长了个剧！鬼知道我笑了多少遍...",
+        "likes": 43154,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 43154
+  },
+  {
     "nickname": "铁***记",
     "platform": "xiaohongshu",
     "works": 1,
@@ -13290,11 +16086,11 @@
     "avgLikes": 43000
   },
   {
-    "nickname": "皮***.",
-    "platform": "xiaohongshu",
+    "nickname": "分***哥",
+    "platform": "bilibili",
     "works": 1,
-    "totalLikes": 43000,
-    "maxLikes": 43000,
+    "totalLikes": 42858,
+    "maxLikes": 42858,
     "levels": {
       "low": 1
     },
@@ -13302,13 +16098,13 @@
     "followersKnown": false,
     "topWorks": [
       {
-        "title": "真锐评了又不高兴了…",
-        "likes": 43000,
+        "title": "失望累积型分手全网最灵的复合全教程 分手复合 挽回女朋友 挽回男朋友 挽回前任 挽回前女友 挽回前男友 婚姻挽回 挽回复合 分手了怎么和好",
+        "likes": 42858,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 43000
+    "avgLikes": 42858
   },
   {
     "nickname": "北***悠",
@@ -13332,6 +16128,27 @@
     "avgLikes": 42753
   },
   {
+    "nickname": "一***_",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 42707,
+    "maxLikes": 42707,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "极限过审！！！",
+        "likes": 42707,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 42707
+  },
+  {
     "nickname": "阿***常",
     "platform": "douyin",
     "works": 1,
@@ -13351,6 +16168,48 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 42372
+  },
+  {
+    "nickname": "J***成",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 41916,
+    "maxLikes": 41916,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "女友生气名场面",
+        "likes": 41916,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 41916
+  },
+  {
+    "nickname": "气***水",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 41732,
+    "maxLikes": 41732,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "给我看爽了🤣 #爆笑梗 #夫妻日常互动",
+        "likes": 41732,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 41732
   },
   {
     "nickname": "陈***奕",
@@ -13599,6 +16458,58 @@
     "avgLikes": 40555
   },
   {
+    "nickname": "彩***贤",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 75052,
+    "maxLikes": 40546,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "撩男友一整天 看他心急如焚的反应",
+        "likes": 40546,
+        "plays": 0
+      },
+      {
+        "title": "背着女友偷看小黄片被逮住的话，嘻嘻，反应是发抖！",
+        "likes": 24235,
+        "plays": 0
+      },
+      {
+        "title": "男朋友能察觉女朋友垫了很厚的胸垫和臀垫吗",
+        "likes": 10271,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 25017
+  },
+  {
+    "nickname": "灯***丝",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 40286,
+    "maxLikes": 40286,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "喜人扎堆，全是爆梗，极为稀缺的国产恶搞喜剧——大反派",
+        "likes": 40286,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 40286
+  },
+  {
     "nickname": "武*",
     "platform": "douyin",
     "works": 2,
@@ -13706,6 +16617,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 31500
+  },
+  {
+    "nickname": "先***圈",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 39866,
+    "maxLikes": 39866,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "欢迎收看对抗路情侣日常…",
+        "likes": 39866,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 39866
   },
   {
     "nickname": "我***马",
@@ -13917,6 +16849,27 @@
     "avgLikes": 38000
   },
   {
+    "nickname": "杨***惠",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 37825,
+    "maxLikes": 37825,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "自爆！相恋7年没有X生活，我们是怎么走过来的？",
+        "likes": 37825,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 37825
+  },
+  {
     "nickname": "是***吖",
     "platform": "douyin",
     "works": 1,
@@ -13936,6 +16889,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 37786
+  },
+  {
+    "nickname": "鲤***a",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 37730,
+    "maxLikes": 37730,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "《关于我楼上频繁do爱这事》",
+        "likes": 37730,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 37730
   },
   {
     "nickname": "急***姜",
@@ -14022,11 +16996,11 @@
     "avgLikes": 36534
   },
   {
-    "nickname": "冰***棒",
-    "platform": "xiaohongshu",
+    "nickname": "自***木",
+    "platform": "bilibili",
     "works": 1,
-    "totalLikes": 36000,
-    "maxLikes": 36000,
+    "totalLikes": 36352,
+    "maxLikes": 36352,
     "levels": {
       "low": 1
     },
@@ -14034,13 +17008,55 @@
     "followersKnown": false,
     "topWorks": [
       {
-        "title": "请不要整蛊你女朋友",
-        "likes": 36000,
+        "title": "情人节做点浪漫的事情",
+        "likes": 36352,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 36000
+    "avgLikes": 36352
+  },
+  {
+    "nickname": "胖***站",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 36350,
+    "maxLikes": 36350,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "多年功德，毁于一旦",
+        "likes": 36350,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 36350
+  },
+  {
+    "nickname": "周***y",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 36294,
+    "maxLikes": 36294,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我的第一次！分享交往恋爱身心准备！【周六野Zoey】",
+        "likes": 36294,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 36294
   },
   {
     "nickname": "麦***物",
@@ -14064,6 +17080,48 @@
     "avgLikes": 36000
   },
   {
+    "nickname": "远***妇",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 35681,
+    "maxLikes": 35681,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "夫妻日常对话",
+        "likes": 35681,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 35681
+  },
+  {
+    "nickname": "耿***礼",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 35429,
+    "maxLikes": 35429,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "Le/炒菜被父母撞见！这是一期尴尬到我都不想剪的视频/我敢剪你敢看吗",
+        "likes": 35429,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 35429
+  },
+  {
     "nickname": "梁***韩",
     "platform": "douyin",
     "works": 1,
@@ -14083,6 +17141,37 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 35187
+  },
+  {
+    "nickname": "辣***士",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 59197,
+    "maxLikes": 35124,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣初次教学！如何让第一次更加顺利？如何科学避孕？事前事后如何清洁？ | 辣个芝士",
+        "likes": 35124,
+        "plays": 0
+      },
+      {
+        "title": "夫妻开house大聊特聊！女生有哪些“不行”的时刻？如何提升“床上体验”？| 辣个芝士",
+        "likes": 12703,
+        "plays": 0
+      },
+      {
+        "title": "除了雨伞，play还有哪些“必需品”？自用“情侣好物”分享！全程无广！| 辣个芝士",
+        "likes": 11370,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 19732
   },
   {
     "nickname": "七***子",
@@ -14111,6 +17200,58 @@
     "avgLikes": 28870
   },
   {
+    "nickname": "圆***鸭",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 84058,
+    "maxLikes": 34310,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "让女友当众社死的瞬间，女朋友瞬间就红温了！ #情侣日常 #社死现场 #搞笑情侣",
+        "likes": 34310,
+        "plays": 0
+      },
+      {
+        "title": "让女友当众社死的瞬间，女朋友瞬间就红温了！ #情侣日常 #社死现场 #搞笑情侣",
+        "likes": 28947,
+        "plays": 0
+      },
+      {
+        "title": "盘点整蛊老弟爆笑名场面，老弟快变身了！ #兄弟 #熊孩子 #整蛊",
+        "likes": 20801,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 28019
+  },
+  {
+    "nickname": "一***书",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 34156,
+    "maxLikes": 34156,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "人类拉了一地❺",
+        "likes": 34156,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 34156
+  },
+  {
     "nickname": "晴***♡",
     "platform": "douyin",
     "works": 1,
@@ -14130,6 +17271,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 33930
+  },
+  {
+    "nickname": "范***昊",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 59436,
+    "maxLikes": 33479,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "昊琪的糖果挑战2来啦～",
+        "likes": 33479,
+        "plays": 0
+      },
+      {
+        "title": "微醺挑战来啦来啦～",
+        "likes": 25957,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29718
   },
   {
     "nickname": "陈***N",
@@ -14153,6 +17320,27 @@
     "avgLikes": 33084
   },
   {
+    "nickname": "骆***常",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 33060,
+    "maxLikes": 33060,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "摇摇车上高速！",
+        "likes": 33060,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 33060
+  },
+  {
     "nickname": "梁*",
     "platform": "douyin",
     "works": 1,
@@ -14174,6 +17362,27 @@
     "avgLikes": 32636
   },
   {
+    "nickname": "周***啊",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 32599,
+    "maxLikes": 32599,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "整蛊朋友是最不嫌累的",
+        "likes": 32599,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 32599
+  },
+  {
     "nickname": "6***咚",
     "platform": "douyin",
     "works": 1,
@@ -14193,6 +17402,79 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 32443
+  },
+  {
+    "nickname": "巴***r",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 32258,
+    "maxLikes": 32258,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "月入4万的95后研究生情侣，在北京过着什么样的生活？",
+        "likes": 32258,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 32258
+  },
+  {
+    "nickname": "银***屋",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 45587,
+    "maxLikes": 32213,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“还 真 T M 全 是 名 场 面…”",
+        "likes": 32213,
+        "plays": 0
+      },
+      {
+        "title": "“今天功德全笑没了…”",
+        "likes": 13374,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22793
+  },
+  {
+    "nickname": "旭***神",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 43777,
+    "maxLikes": 32172,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【搭讪约会实战纪录】搭讪175超长腿御姐！连续拒绝！高难度极限反转！当场约会牵手给我剥虾！哥布林打法！全程约会实战技巧操作！搭讪约会技巧！一次约会爱上你！",
+        "likes": 32172,
+        "plays": 0
+      },
+      {
+        "title": "把妹干货！把到任何女人的唯一流程！必看！堪比私教内容！一个视频彻底学会把妹！",
+        "likes": 11605,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 21888
   },
   {
     "nickname": "陪***海",
@@ -14237,6 +17519,74 @@
     "avgLikes": 31905
   },
   {
+    "nickname": "美***街",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 42208,
+    "maxLikes": 31687,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "每天一遍 防止抑郁",
+        "likes": 31687,
+        "plays": 0
+      },
+      {
+        "title": "每天一遍 防止抑郁",
+        "likes": 10521,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 21104
+  },
+  {
+    "nickname": "C***痴",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 31558,
+    "maxLikes": 31558,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "对抗路情侣的极限拉扯。",
+        "likes": 31558,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 31558
+  },
+  {
+    "nickname": "初***影",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 31496,
+    "maxLikes": 31496,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "仙剑三完整版长花絮，以前的花絮是真花絮，现在的花絮都开始演了",
+        "likes": 31496,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 31496
+  },
+  {
     "nickname": "开***罐",
     "platform": "douyin",
     "works": 1,
@@ -14256,6 +17606,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 31437
+  },
+  {
+    "nickname": "她***滚",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 31246,
+    "maxLikes": 31246,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你这摊有问题啊，为什么这么冷！",
+        "likes": 31246,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 31246
   },
   {
     "nickname": "夜***宵",
@@ -14279,6 +17650,126 @@
     "avgLikes": 31000
   },
   {
+    "nickname": "G*",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 30833,
+    "maxLikes": 30833,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "双女主高能｜94姐姐和04女大的第一次糖果挑战来啦～",
+        "likes": 30833,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 30833
+  },
+  {
+    "nickname": "t***e",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 46463,
+    "maxLikes": 30639,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "肯定是老夫老妻了",
+        "likes": 30639,
+        "plays": 0
+      },
+      {
+        "title": "每天一遍，防止抑郁",
+        "likes": 15824,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 23231
+  },
+  {
+    "nickname": "难***y",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 30348,
+    "maxLikes": 30348,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "byd，这军训太离谱了吧！",
+        "likes": 30348,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 30348
+  },
+  {
+    "nickname": "花***糍",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 67669,
+    "maxLikes": 29950,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我叫你一晚上“爸爸”，你敢答应吗？！【友问逼答7.0】",
+        "likes": 29950,
+        "plays": 0
+      },
+      {
+        "title": "婚 后“同 流 合 污”， 我 走 肾 了 ！",
+        "likes": 26890,
+        "plays": 0
+      },
+      {
+        "title": "“老涩鬼”结婚后：一个被窝睡不出两种人！",
+        "likes": 10829,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22556
+  },
+  {
+    "nickname": "沐***子",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 29738,
+    "maxLikes": 29738,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "#初次见面请多关照 抛完是需要跳起来接的#专业动作请勿轻易模仿 🙂‍↔️ 魔都版爱乐之城太美啦！#歇浦路渡口 \n#飞起来的抱抱 #举高高",
+        "likes": 29738,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29738
+  },
+  {
     "nickname": "噗***雷",
     "platform": "douyin",
     "works": 1,
@@ -14300,6 +17791,48 @@
     "avgLikes": 29732
   },
   {
+    "nickname": "凡***论",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 29613,
+    "maxLikes": 29613,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点那些意想不到的神级反转，主打的就是一个猝不及防",
+        "likes": 29613,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29613
+  },
+  {
+    "nickname": "陶***子",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 29585,
+    "maxLikes": 29585,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "看我扎不扎你就完事儿了!",
+        "likes": 29585,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 29585
+  },
+  {
     "nickname": "小***脑",
     "platform": "kuaishou",
     "works": 1,
@@ -14319,6 +17852,32 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 29417
+  },
+  {
+    "nickname": "请***人",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 48574,
+    "maxLikes": 29196,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "拼尽全力依旧无法绷住⚡大合集⚡",
+        "likes": 29196,
+        "plays": 0
+      },
+      {
+        "title": "拼尽全力依旧无法绷住⚡大合集⚡",
+        "likes": 19378,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 24287
   },
   {
     "nickname": "娜***）",
@@ -14405,6 +17964,32 @@
     "avgLikes": 28711
   },
   {
+    "nickname": "白***V",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 56509,
+    "maxLikes": 28599,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "哈哈哈，真的笑不动了啊！！！",
+        "likes": 28599,
+        "plays": 0
+      },
+      {
+        "title": "哈哈哈，真的笑不动了啊！！！",
+        "likes": 27910,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 28254
+  },
+  {
     "nickname": "南***野",
     "platform": "douyin",
     "works": 1,
@@ -14426,6 +18011,27 @@
     "avgLikes": 28421
   },
   {
+    "nickname": "默***秀",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 28329,
+    "maxLikes": 28329,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "全网首发：7分钟21次反转的脱口秀！",
+        "likes": 28329,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 28329
+  },
+  {
     "nickname": "小***丶",
     "platform": "douyin",
     "works": 1,
@@ -14445,6 +18051,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 28075
+  },
+  {
+    "nickname": "M***招",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 28073,
+    "maxLikes": 28073,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣能不能走到最后看这5次磨合就知道",
+        "likes": 28073,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 28073
   },
   {
     "nickname": "呆***柚",
@@ -14552,6 +18179,27 @@
     "avgLikes": 27528
   },
   {
+    "nickname": "小***跑",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 27315,
+    "maxLikes": 27315,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "宝剑嫂最后一次回应分手…",
+        "likes": 27315,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 27315
+  },
+  {
     "nickname": "b***i",
     "platform": "xiaohongshu",
     "works": 1,
@@ -14573,6 +18221,27 @@
     "avgLikes": 27000
   },
   {
+    "nickname": "二***呀",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 26878,
+    "maxLikes": 26878,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男朋友的犯贱日常，沙雕情侣欢乐多！",
+        "likes": 26878,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 26878
+  },
+  {
     "nickname": "八***🦁",
     "platform": "douyin",
     "works": 1,
@@ -14592,6 +18261,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 26534
+  },
+  {
+    "nickname": "疯***二",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 26527,
+    "maxLikes": 26527,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "想当年我一个炮仗就把全村闹得鸡飞狗跳",
+        "likes": 26527,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 26527
   },
   {
     "nickname": "十***美",
@@ -14628,6 +18318,48 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 21931
+  },
+  {
+    "nickname": "C***_",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 26314,
+    "maxLikes": 26314,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我们明明还相爱，却越来越不会相处",
+        "likes": 26314,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 26314
+  },
+  {
+    "nickname": "M***泡",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 26294,
+    "maxLikes": 26294,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "⚡人类拉了一地⚡",
+        "likes": 26294,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 26294
   },
   {
     "nickname": "浪***浪",
@@ -14756,6 +18488,47 @@
     "avgLikes": 26000
   },
   {
+    "nickname": "羊***吖",
+    "platform": "bilibili",
+    "works": 5,
+    "totalLikes": 93463,
+    "maxLikes": 25801,
+    "levels": {
+      "low": 5
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣Vlog｜把温柔和我一起揉碎，塞进你怀里",
+        "likes": 25801,
+        "plays": 0
+      },
+      {
+        "title": "糖果挑战｜别人都甜甜甜......我们却？？？",
+        "likes": 24682,
+        "plays": 0
+      },
+      {
+        "title": "羞耻度爆表！和女朋友一起看只有男生才懂的图片？",
+        "likes": 18501,
+        "plays": 0
+      },
+      {
+        "title": "冰淇淋Kiss挑战｜我们自己都有点看不下去了......",
+        "likes": 13144,
+        "plays": 0
+      },
+      {
+        "title": "情侣Vlog｜你是我所有温柔的来源与归宿",
+        "likes": 11335,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 18692
+  },
+  {
     "nickname": "L***常",
     "platform": "xiaohongshu",
     "works": 1,
@@ -14840,6 +18613,27 @@
     "avgLikes": 25000
   },
   {
+    "nickname": "学***方",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 24832,
+    "maxLikes": 24832,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "男朋友有压力时，你是如何帮他释放的？姑娘不愧是过来人",
+        "likes": 24832,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 24832
+  },
+  {
     "nickname": "马*",
     "platform": "douyin",
     "works": 1,
@@ -14859,6 +18653,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 24652
+  },
+  {
+    "nickname": "西***片",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 47701,
+    "maxLikes": 24247,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "直播间被封禁，笑死",
+        "likes": 24247,
+        "plays": 0
+      },
+      {
+        "title": "黑  夜  直  播  这  集  神  了 ！！！",
+        "likes": 23454,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 23850
+  },
+  {
+    "nickname": "下***场",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 39532,
+    "maxLikes": 24142,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "今天你要是敢娶我女儿 我就嫁给你儿子",
+        "likes": 24142,
+        "plays": 0
+      },
+      {
+        "title": "无法选中#搞笑#欢乐#段子",
+        "likes": 15390,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 19766
   },
   {
     "nickname": "发***子",
@@ -14987,6 +18833,69 @@
     "avgLikes": 23000
   },
   {
+    "nickname": "爱***哥",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 22984,
+    "maxLikes": 22984,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "《嘎子成名名场面》",
+        "likes": 22984,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22984
+  },
+  {
+    "nickname": "小***妮",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 22888,
+    "maxLikes": 22888,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣约会的正确打开方式",
+        "likes": 22888,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22888
+  },
+  {
+    "nickname": "深***阳",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 22780,
+    "maxLikes": 22780,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "恶搞反转梗脑洞短片《万万没想到》",
+        "likes": 22780,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 22780
+  },
+  {
     "nickname": "搞***冈",
     "platform": "douyin",
     "works": 1,
@@ -15008,11 +18917,11 @@
     "avgLikes": 22548
   },
   {
-    "nickname": "阿***x",
-    "platform": "xiaohongshu",
+    "nickname": "西***号",
+    "platform": "bilibili",
     "works": 1,
-    "totalLikes": 22000,
-    "maxLikes": 22000,
+    "totalLikes": 22204,
+    "maxLikes": 22204,
     "levels": {
       "low": 1
     },
@@ -15020,13 +18929,13 @@
     "followersKnown": false,
     "topWorks": [
       {
-        "title": "当你意外通过了忠诚度测试.#情侣日常[话题]#",
-        "likes": 22000,
+        "title": "师徒四人太高能了💥导致直播间被封了",
+        "likes": 22204,
         "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 22000
+    "avgLikes": 22204
   },
   {
     "nickname": "我***人",
@@ -15113,6 +19022,48 @@
     "avgLikes": 21506
   },
   {
+    "nickname": "大***霆",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 21469,
+    "maxLikes": 21469,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "\"啊，这不对吧！！！\"",
+        "likes": 21469,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 21469
+  },
+  {
+    "nickname": "爆***家",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 21184,
+    "maxLikes": 21184,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不笑算我输，最佳搞笑视频合集",
+        "likes": 21184,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 21184
+  },
+  {
     "nickname": "李***杰",
     "platform": "douyin",
     "works": 1,
@@ -15176,6 +19127,53 @@
     "avgLikes": 21000
   },
   {
+    "nickname": "d***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 20996,
+    "maxLikes": 20996,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "接吻实战教学｜让ta上头的干货㊙️偷偷学起来！4种接吻技巧，我不允许你不会！",
+        "likes": 20996,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 20996
+  },
+  {
+    "nickname": "小***比",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 37714,
+    "maxLikes": 20910,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点！情侣十大经典接吻姿势！名师嘴对嘴教学！别说我没告诉你们！",
+        "likes": 20910,
+        "plays": 0
+      },
+      {
+        "title": "初次情侣挑战—猜糖果挑战｜up味觉失灵现场（内附接吻教程）",
+        "likes": 16804,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 18857
+  },
+  {
     "nickname": "小***妹",
     "platform": "douyin",
     "works": 1,
@@ -15218,6 +19216,32 @@
     "avgLikes": 20795
   },
   {
+    "nickname": "飞***e",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 32838,
+    "maxLikes": 20530,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【床上相亲节目】当年下男遇到了超喜欢床的女人",
+        "likes": 20530,
+        "plays": 0
+      },
+      {
+        "title": "坦诚相见的相亲",
+        "likes": 12308,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16419
+  },
+  {
     "nickname": "爱***阳",
     "platform": "douyin",
     "works": 1,
@@ -15237,6 +19261,121 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 20426
+  },
+  {
+    "nickname": "食***夫",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 20395,
+    "maxLikes": 20395,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "不要脸，还偷用我的润滑油-0054期",
+        "likes": 20395,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 20395
+  },
+  {
+    "nickname": "哈***卜",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 33246,
+    "maxLikes": 20377,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当丈夫在公共场所给妻子发送下流短信看其反应，一个个笑得好羞耻惹",
+        "likes": 20377,
+        "plays": 0
+      },
+      {
+        "title": "tiktok爆笑整蛊“给男友看新买的泳衣但实际上是根绳子看其反应”，男友心态崩了",
+        "likes": 12869,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16623
+  },
+  {
+    "nickname": "叫***咪",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 20263,
+    "maxLikes": 20263,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "📞徐志胜最新脱口秀！这一段，爆笑不停，一直犀利！《脱口秀大会S5 Rock & Roast》",
+        "likes": 20263,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 20263
+  },
+  {
+    "nickname": "少***r",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 20081,
+    "maxLikes": 20081,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "高中生测试：体验陷入爱河的情侣姿势的反应",
+        "likes": 20081,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 20081
+  },
+  {
+    "nickname": "东***部",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 39372,
+    "maxLikes": 19971,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我想和女友一起洗澡~她妈不让",
+        "likes": 19971,
+        "plays": 0
+      },
+      {
+        "title": "不让睡觉，我跟你处什么~尊师重道",
+        "likes": 19401,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 19686
   },
   {
     "nickname": "叽***卢",
@@ -15321,6 +19460,58 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 19485
+  },
+  {
+    "nickname": "账***销",
+    "platform": "bilibili",
+    "works": 3,
+    "totalLikes": 48206,
+    "maxLikes": 19241,
+    "levels": {
+      "low": 3
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "“鬼...鬼知道我看了多少次”",
+        "likes": 19241,
+        "plays": 0
+      },
+      {
+        "title": "【脱口秀合集】30分钟爆笑脱口秀精选！不容错过的电子榨菜！（下饭、熬夜、休息必备）",
+        "likes": 18088,
+        "plays": 0
+      },
+      {
+        "title": "（单身止步）情侣一起裸睡会发生什么？",
+        "likes": 10877,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16068
+  },
+  {
+    "nickname": "文***一",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 19004,
+    "maxLikes": 19004,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "谁又不想拥有甜甜的爱情#双向奔赴#爱情",
+        "likes": 19004,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 19004
   },
   {
     "nickname": "陈*",
@@ -15417,6 +19608,74 @@
     "avgLikes": 15499
   },
   {
+    "nickname": "沙***者",
+    "platform": "bilibili",
+    "works": 2,
+    "totalLikes": 32764,
+    "maxLikes": 18566,
+    "levels": {
+      "low": 2
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "⚡byd，我迟早笑死在这互联网上！⚡",
+        "likes": 18566,
+        "plays": 0
+      },
+      {
+        "title": "⚡byd，我迟早笑死在这互联网上！⚡",
+        "likes": 14198,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16382
+  },
+  {
+    "nickname": "暗***辰",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 18455,
+    "maxLikes": 18455,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "（恶作剧搞笑视频）在裤裆里放了根菜瓜，恶搞众人！",
+        "likes": 18455,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 18455
+  },
+  {
+    "nickname": "张***a",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 18388,
+    "maxLikes": 18388,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "越谈越甜？每天都是热恋期的恋爱小秘诀",
+        "likes": 18388,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 18388
+  },
+  {
     "nickname": "男***吗",
     "platform": "xiaohongshu",
     "works": 2,
@@ -15506,6 +19765,27 @@
     "avgLikes": 18000
   },
   {
+    "nickname": "冰***心",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 17935,
+    "maxLikes": 17935,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "大冰这集封神！全网疯传求存，网友：看完像被打通任督二脉，大冰这集疗愈课，网友：比花800块找人聊天管用。",
+        "likes": 17935,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17935
+  },
+  {
     "nickname": "小***呀",
     "platform": "douyin",
     "works": 1,
@@ -15525,6 +19805,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 17879
+  },
+  {
+    "nickname": "百***金",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 17816,
+    "maxLikes": 17816,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "糖果挑战来啦！！！",
+        "likes": 17816,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17816
   },
   {
     "nickname": "赵***淇",
@@ -15569,6 +19870,27 @@
     "avgLikes": 17772
   },
   {
+    "nickname": "兔***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 17726,
+    "maxLikes": 17726,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "看了500遍笑了800遍，李健是如何忍住不笑的#李健#李健搞笑日常",
+        "likes": 17726,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17726
+  },
+  {
     "nickname": "靖***闹",
     "platform": "douyin",
     "works": 1,
@@ -15590,6 +19912,27 @@
     "avgLikes": 17427
   },
   {
+    "nickname": "红***国",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 17358,
+    "maxLikes": 17358,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "校园里的社死瞬间，哈哈哈太尴尬了，建议换个学校生活",
+        "likes": 17358,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17358
+  },
+  {
     "nickname": "搞***钱",
     "platform": "douyin",
     "works": 1,
@@ -15609,6 +19952,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 17347
+  },
+  {
+    "nickname": "妄***m",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 17271,
+    "maxLikes": 17271,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我靠兼职在地府混上了编制（48分钟合集版）",
+        "likes": 17271,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 17271
   },
   {
     "nickname": "知***猿",
@@ -15716,6 +20080,27 @@
     "avgLikes": 16992
   },
   {
+    "nickname": "搞***_",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 16669,
+    "maxLikes": 16669,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "做人一定要开心，不要emo!",
+        "likes": 16669,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16669
+  },
+  {
     "nickname": "糖*",
     "platform": "douyin",
     "works": 1,
@@ -15777,6 +20162,48 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 16203
+  },
+  {
+    "nickname": "小***事",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 16163,
+    "maxLikes": 16163,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "转了两次飞机，就为了约会50➕的退役空姐姐姐…",
+        "likes": 16163,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16163
+  },
+  {
+    "nickname": "来***人",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 16162,
+    "maxLikes": 16162,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【污娘】韩国妈妈朋友系列第二部……来了！",
+        "likes": 16162,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 16162
   },
   {
     "nickname": "杨***苏",
@@ -15842,6 +20269,27 @@
     "avgLikes": 16000
   },
   {
+    "nickname": "鼠***学",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 15998,
+    "maxLikes": 15998,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "这才是情侣之间真正的磨合",
+        "likes": 15998,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15998
+  },
+  {
     "nickname": "肖***～",
     "platform": "douyin",
     "works": 1,
@@ -15861,6 +20309,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 15877
+  },
+  {
+    "nickname": "s***r",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 15803,
+    "maxLikes": 15803,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【原声高甜】skam2之noorhlem夫妇~吻戏+高甜心动片段~cut4",
+        "likes": 15803,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15803
   },
   {
     "nickname": "张***😧",
@@ -15884,6 +20353,69 @@
     "avgLikes": 15785
   },
   {
+    "nickname": "f***s",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 15550,
+    "maxLikes": 15550,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "韩国电梯整蛊(有漂亮小姐姐后头)",
+        "likes": 15550,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15550
+  },
+  {
+    "nickname": "全***人",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 15475,
+    "maxLikes": 15475,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点外国情侣整蛊名场面？温柔画面突发反转，尴尬搞笑双重暴击情侣搞笑瞬间 相爱相杀 搞笑名场面 情侣反差感专治不开心 爆笑日常 #反差搞笑 甜蜜翻车",
+        "likes": 15475,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15475
+  },
+  {
+    "nickname": "请***黍",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 15432,
+    "maxLikes": 15432,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "那些采访中的名场面，你敢采访我就敢说",
+        "likes": 15432,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15432
+  },
+  {
     "nickname": "小***女",
     "platform": "douyin",
     "works": 1,
@@ -15903,6 +20435,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 15320
+  },
+  {
+    "nickname": "元***崽",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 15250,
+    "maxLikes": 15250,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "玩大了！和姐妹同时打给男友，两人直接约架对峙...#整蛊男友系列#",
+        "likes": 15250,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 15250
   },
   {
     "nickname": "丹***）",
@@ -15947,6 +20500,48 @@
     "avgLikes": 15000
   },
   {
+    "nickname": "谜***神",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14939,
+    "maxLikes": 14939,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "〖外网memes〗40岁时被马搞怀孕？？？",
+        "likes": 14939,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14939
+  },
+  {
+    "nickname": "三***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14898,
+    "maxLikes": 14898,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "对谈武志红：25岁后必须知道的恋爱婚姻真相！别让错误认知害了你！",
+        "likes": 14898,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14898
+  },
+  {
     "nickname": "-***珠",
     "platform": "douyin",
     "works": 1,
@@ -15968,6 +20563,111 @@
     "avgLikes": 14869
   },
   {
+    "nickname": "J***选",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14826,
+    "maxLikes": 14826,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "叫女朋友妈妈看她啥反应",
+        "likes": 14826,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14826
+  },
+  {
+    "nickname": "佩***身",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14822,
+    "maxLikes": 14822,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你们要的原版！被找到了",
+        "likes": 14822,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14822
+  },
+  {
+    "nickname": "西***师",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14728,
+    "maxLikes": 14728,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣光天化日下路边打..........",
+        "likes": 14728,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14728
+  },
+  {
+    "nickname": "一***丶",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14530,
+    "maxLikes": 14530,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当MC所有方块一碰就碎！但是只有半滴血？！ #我的世界",
+        "likes": 14530,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14530
+  },
+  {
+    "nickname": "竹***笑",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14432,
+    "maxLikes": 14432,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "爆笑神反转，笑不活了！",
+        "likes": 14432,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14432
+  },
+  {
     "nickname": "搞***桑",
     "platform": "kuaishou",
     "works": 1,
@@ -15987,6 +20687,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 14229
+  },
+  {
+    "nickname": "憨***-",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 14155,
+    "maxLikes": 14155,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "⚡ 雷 霆 大 合 集 ⚡",
+        "likes": 14155,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 14155
   },
   {
     "nickname": "痴***克",
@@ -16092,6 +20813,90 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 14000
+  },
+  {
+    "nickname": "硬***院",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 13971,
+    "maxLikes": 13971,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "脱单教程30课：聊天鬼才、约会鬼才、如何找话题、直男怎么和女生聊天、如何约会",
+        "likes": 13971,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 13971
+  },
+  {
+    "nickname": "辣***火",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 13814,
+    "maxLikes": 13814,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "幸亏我爱发明被禁播了，要是再播下去，不知道民间大大神会给你手搓出什么东西来了",
+        "likes": 13814,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 13814
+  },
+  {
+    "nickname": "趣***新",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 13779,
+    "maxLikes": 13779,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "拿遇水溶解的泳裤整蛊艺人，日本人也太敢玩了",
+        "likes": 13779,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 13779
+  },
+  {
+    "nickname": "回***i",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 13748,
+    "maxLikes": 13748,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "夫妻婚后催粮方式，一个比一个恐怖。",
+        "likes": 13748,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 13748
   },
   {
     "nickname": "静***✨",
@@ -16267,6 +21072,27 @@
     "avgLikes": 13148
   },
   {
+    "nickname": "在***主",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 13133,
+    "maxLikes": 13133,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【Bgeul夫妇 中字】干嘛总是亲我惹~讨厌啦~嘻嘻！！大臭臭！",
+        "likes": 13133,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 13133
+  },
+  {
     "nickname": "羊***意",
     "platform": "kuaishou",
     "works": 1,
@@ -16372,6 +21198,48 @@
     "avgLikes": 13000
   },
   {
+    "nickname": "天***皇",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12999,
+    "maxLikes": 12999,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点那些压箱底的冷笑话，全TM是经典！~我又笑岔气了~哈哈哈哈！",
+        "likes": 12999,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12999
+  },
+  {
+    "nickname": "睡***M",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12746,
+    "maxLikes": 12746,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "把销售哄成翘嘴了 \"MVP \"搞笑",
+        "likes": 12746,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12746
+  },
+  {
     "nickname": "饱***酱",
     "platform": "kuaishou",
     "works": 1,
@@ -16391,6 +21259,132 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 12737
+  },
+  {
+    "nickname": "S***韬",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12736,
+    "maxLikes": 12736,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "和顶级女神约会一天是种什么体验？！3.0",
+        "likes": 12736,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12736
+  },
+  {
+    "nickname": "脱***广",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12637,
+    "maxLikes": 12637,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "主任：你拿河豚干什么",
+        "likes": 12637,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12637
+  },
+  {
+    "nickname": "E***6",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12627,
+    "maxLikes": 12627,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "连Tim都有遗憾，何况我们呢？",
+        "likes": 12627,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12627
+  },
+  {
+    "nickname": "徐***喵",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12614,
+    "maxLikes": 12614,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【超甜情侣记录】 | 这TM才是初恋的感觉！",
+        "likes": 12614,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12614
+  },
+  {
+    "nickname": "冰***g",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12576,
+    "maxLikes": 12576,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "大冰：如果你不想稀里糊涂过下半辈子…请你认真听完，得听进去。",
+        "likes": 12576,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12576
+  },
+  {
+    "nickname": "不***宅",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12549,
+    "maxLikes": 12549,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "小作坊下料猛#72",
+        "likes": 12549,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12549
   },
   {
     "nickname": "Z***倦",
@@ -16435,6 +21429,90 @@
     "avgLikes": 12373
   },
   {
+    "nickname": "废***后",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12162,
+    "maxLikes": 12162,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣玩的贼花",
+        "likes": 12162,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12162
+  },
+  {
+    "nickname": "我***油",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12125,
+    "maxLikes": 12125,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "假如有个流氓女友是什么体验 男孩子在家一定要保护好自己\"搞笑 \"情侣搞笑日常 \"专治不开心",
+        "likes": 12125,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12125
+  },
+  {
+    "nickname": "正***坊",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12105,
+    "maxLikes": 12105,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点进屋居士搞笑名场面：别人全都是段子，他们完全就是日常~",
+        "likes": 12105,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12105
+  },
+  {
+    "nickname": "鹿***西",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12066,
+    "maxLikes": 12066,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "国外搞笑视频合集#3",
+        "likes": 12066,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12066
+  },
+  {
     "nickname": "唐***千",
     "platform": "douyin",
     "works": 1,
@@ -16475,6 +21553,69 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 12052
+  },
+  {
+    "nickname": "抹***w",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12040,
+    "maxLikes": 12040,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "【作死恶作剧】假装在母亲面前吸毒，结果自己被打得菊花残  @抹茶绿字幕组",
+        "likes": 12040,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12040
+  },
+  {
+    "nickname": "凉***1",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12032,
+    "maxLikes": 12032,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "人怎么能这么有梗",
+        "likes": 12032,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12032
+  },
+  {
+    "nickname": "梦***丶",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 12019,
+    "maxLikes": 12019,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "看似输了，实则赢麻了",
+        "likes": 12019,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12019
   },
   {
     "nickname": "丁***服",
@@ -16519,6 +21660,426 @@
     "avgLikes": 12000
   },
   {
+    "nickname": "能***家",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11993,
+    "maxLikes": 11993,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "尽力了，却还是没能绷住！",
+        "likes": 11993,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11993
+  },
+  {
+    "nickname": "小***师",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11868,
+    "maxLikes": 11868,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "最简单 最喜欢的揉豆豆方法",
+        "likes": 11868,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11868
+  },
+  {
+    "nickname": "狂***桑",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11855,
+    "maxLikes": 11855,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "哥哥！请不要和我对对子！！！",
+        "likes": 11855,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11855
+  },
+  {
+    "nickname": "花***吃",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11841,
+    "maxLikes": 11841,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "假装在大妈家门口挖出金元宝，面目狰狞一把抢过不像演的",
+        "likes": 11841,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11841
+  },
+  {
+    "nickname": "爽***君",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11646,
+    "maxLikes": 11646,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点男朋友的犯贱日常，男友不犯贱，感情迟早要变淡 \"情侣日常 \"搞笑",
+        "likes": 11646,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11646
+  },
+  {
+    "nickname": "影***车",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11466,
+    "maxLikes": 11466,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "卧槽，经典永流传！",
+        "likes": 11466,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11466
+  },
+  {
+    "nickname": "吃***子",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11400,
+    "maxLikes": 11400,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "躲在柜子里的不是她，而是...",
+        "likes": 11400,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11400
+  },
+  {
+    "nickname": "每***鸭",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11362,
+    "maxLikes": 11362,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "那些情侣之间的爆笑日常",
+        "likes": 11362,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11362
+  },
+  {
+    "nickname": "谢***询",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11348,
+    "maxLikes": 11348,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "真正相爱的两个人是有生理反应的",
+        "likes": 11348,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11348
+  },
+  {
+    "nickname": "俺***熊",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11322,
+    "maxLikes": 11322,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情 侣 快 乐 枕 头",
+        "likes": 11322,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11322
+  },
+  {
+    "nickname": "暴***板",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 11053,
+    "maxLikes": 11053,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "按规矩办事也有错吗？#职场#搞笑#反转#爽剧",
+        "likes": 11053,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 11053
+  },
+  {
+    "nickname": "终***飞",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10996,
+    "maxLikes": 10996,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当男盆友玩游戏时，突然坐到他腿上会是什么反应？",
+        "likes": 10996,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10996
+  },
+  {
+    "nickname": "油***道",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10987,
+    "maxLikes": 10987,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "带你刷35分钟tiktok，第一个视频就没绷住，国外是真的乱。",
+        "likes": 10987,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10987
+  },
+  {
+    "nickname": "X***y",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10955,
+    "maxLikes": 10955,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "那些猝不及防的神反转，最后一个绝了！",
+        "likes": 10955,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10955
+  },
+  {
+    "nickname": "齐***旺",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10883,
+    "maxLikes": 10883,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "韩国恐怖的恶作剧，吓的人连滚带爬的",
+        "likes": 10883,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10883
+  },
+  {
+    "nickname": "一***新",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10783,
+    "maxLikes": 10783,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点情侣秀恩爱的社死瞬间，亲热腻歪被父母撞见，场面一度很尴尬…",
+        "likes": 10783,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10783
+  },
+  {
+    "nickname": "d***丶",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10779,
+    "maxLikes": 10779,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "头部暴雨具象化#情侣日常#搞笑#抽象",
+        "likes": 10779,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10779
+  },
+  {
+    "nickname": "爆***狗",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10770,
+    "maxLikes": 10770,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "人类幼崽搞笑日常，“我是女哒”！",
+        "likes": 10770,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10770
+  },
+  {
+    "nickname": "反***号",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10671,
+    "maxLikes": 10671,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "山东临沂，粉丝让我装男朋友上门恶搞爸妈",
+        "likes": 10671,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10671
+  },
+  {
+    "nickname": "小***屋",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10635,
+    "maxLikes": 10635,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "盘点全中国最搞笑炸裂的奇葩罪犯",
+        "likes": 10635,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10635
+  },
+  {
     "nickname": "聋***师",
     "platform": "kuaishou",
     "works": 1,
@@ -16538,6 +22099,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 10603
+  },
+  {
+    "nickname": "三***美",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10594,
+    "maxLikes": 10594,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你们敢挑战一天不说话吗？",
+        "likes": 10594,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10594
   },
   {
     "nickname": "君***营",
@@ -16561,6 +22143,48 @@
     "avgLikes": 10573
   },
   {
+    "nickname": "世***阁",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10372,
+    "maxLikes": 10372,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "故意把男友叫成其他男人名字后的反应",
+        "likes": 10372,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10372
+  },
+  {
+    "nickname": "火***海",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10186,
+    "maxLikes": 10186,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "她不是知道错了，知道自己要完了",
+        "likes": 10186,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10186
+  },
+  {
     "nickname": "Z***A",
     "platform": "douyin",
     "works": 1,
@@ -16580,6 +22204,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 10014
+  },
+  {
+    "nickname": "一***橙",
+    "platform": "bilibili",
+    "works": 1,
+    "totalLikes": 10003,
+    "maxLikes": 10003,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "情侣同居vlog | 我称之这条视频为高高高甜日常！甜到掉牙",
+        "likes": 10003,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 10003
   },
   {
     "nickname": "J***居",
