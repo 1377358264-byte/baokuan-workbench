@@ -6153,6 +6153,27 @@
     "avgLikes": 147907
   },
   {
+    "nickname": "姜***桐",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 147098,
+    "maxLikes": 147098,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "我好像完了…#女友视角 #姜雾桐 #情侣#占有欲",
+        "likes": 147098,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 147098
+  },
+  {
     "nickname": "铱***三",
     "platform": "douyin",
     "works": 1,
@@ -6235,6 +6256,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 139346
+  },
+  {
+    "nickname": "除***x",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 137639,
+    "maxLikes": 137639,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当你有一个拧巴还死倔的女朋友#情侣 #日常vlog #情侣相处之道 #风象星座 #情侣日常",
+        "likes": 137639,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 137639
   },
   {
     "nickname": "猫***y",
@@ -6952,11 +6994,11 @@
   {
     "nickname": "徐***柒",
     "platform": "douyin",
-    "works": 5,
-    "totalLikes": 305990,
+    "works": 7,
+    "totalLikes": 378455,
     "maxLikes": 104911,
     "levels": {
-      "low": 5
+      "low": 7
     },
     "followers": 0,
     "followersKnown": false,
@@ -6969,6 +7011,11 @@
       {
         "title": "男朋友竟然和我的好闺蜜穿了情侣装？！！#尴尬 #情侣 #反转",
         "likes": 72634,
+        "plays": 0
+      },
+      {
+        "title": "到底是谁掉进了谁的圈套？#反转 #剧情",
+        "likes": 59277,
         "plays": 0
       },
       {
@@ -6985,10 +7032,15 @@
         "title": "当我假扮绿茶测试男友...结果竟然？？#剧情 #情侣 #反转",
         "likes": 39706,
         "plays": 0
+      },
+      {
+        "title": "当世界有了解说，一切变得有趣了…#剧情#反转#情侣",
+        "likes": 13188,
+        "plays": 0
       }
     ],
     "hotRate": 0.0,
-    "avgLikes": 61198
+    "avgLikes": 54065
   },
   {
     "nickname": "疯***宙",
@@ -12810,6 +12862,27 @@
     "avgLikes": 30186
   },
   {
+    "nickname": "一***面",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 46302,
+    "maxLikes": 46302,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "你牵我的画面 又浮现在我眼前\n#女友视角 #情侣日常",
+        "likes": 46302,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 46302
+  },
+  {
     "nickname": "骆***子",
     "platform": "xiaohongshu",
     "works": 1,
@@ -16141,6 +16214,27 @@
     ],
     "hotRate": 0.0,
     "avgLikes": 12058
+  },
+  {
+    "nickname": "h***喵",
+    "platform": "douyin",
+    "works": 1,
+    "totalLikes": 12052,
+    "maxLikes": 12052,
+    "levels": {
+      "low": 1
+    },
+    "followers": 0,
+    "followersKnown": false,
+    "topWorks": [
+      {
+        "title": "当我哄生气的女友时 #手牵手跨向2025 #异地恋 #恋爱日常 #情侣 #情侣日常",
+        "likes": 12052,
+        "plays": 0
+      }
+    ],
+    "hotRate": 0.0,
+    "avgLikes": 12052
   },
   {
     "nickname": "权***卿",
